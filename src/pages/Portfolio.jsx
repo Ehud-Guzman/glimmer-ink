@@ -9,6 +9,8 @@ import {
   FiFilter,
   FiChevronLeft,
   FiChevronRight,
+  FiArrowRight,
+  FiArrowLeft,
 } from "react-icons/fi";
 import { FaStar, FaQuoteLeft } from "react-icons/fa";
 
@@ -35,8 +37,8 @@ const Portfolio = () => {
       year: "2023",
       images: [
         "/images/Offerings and Services.png",
-        "/images/portfolio/celestia-2.jpg",
-        "/images/portfolio/celestia-3.jpg",
+        "/images/Offerings and Services.png",
+        "/images/Offerings and Services.png",
       ],
       description:
         "Complete visual identity for luxury skincare brand including logo design, packaging system, and brand guidelines. We focused on creating a celestial-inspired aesthetic that conveys premium quality.",
@@ -44,7 +46,12 @@ const Portfolio = () => {
       testimonial: {
         text: '"GlimmerInk transformed our brand with their exceptional design work. The new identity perfectly captures our premium positioning and has significantly boosted our market presence."',
         author: "Sarah Johnson, Marketing Director",
+        rating: 5,
       },
+      teamSize: 3,
+      clientLogo: "/images/client1.jpg",
+      previewImage: "/images/project1-preview.png",
+      caseStudyLink: "#",
     },
     {
       id: 2,
@@ -52,30 +59,42 @@ const Portfolio = () => {
       category: "print",
       tags: ["brochure", "poster", "program"],
       year: "2023",
-      images: ["public/images/Zuri.png", "/images/Zuri.png"],
+      images: ["/images/Zuri.png", "/images/Zuri.png"],
       description:
         "Complete print collateral for annual technology conference including attendee badges, program booklets, and wayfinding signage. The geometric patterns reflect the cutting-edge nature of the event.",
-      client: "Zuri KIds",
+      client: "Zuri Kids",
       testimonial: {
         text: '"The designs received countless compliments from attendees. GlimmerInk understood our tech-forward audience perfectly and created materials that enhanced the entire event experience."',
         author: "Michael Chen, Event Coordinator",
+        rating: 4,
       },
+      teamSize: 2,
+      clientLogo: "/images/Zuri.png",
+      previewImage: "/images/Zuri.png",
+      caseStudyLink: "#",
     },
-      {
+    {
       id: 3,
       title: "GlimmerInk Creations",
       category: "branding",
       tags: ["logo", "stationery", "guidelines"],
-     
       year: "2023",
-      images: ["/images/Website_Charge_Sheet.png", "/images/website-charge-sheet-2.png"],
+      images: [
+        "/images/Website_Charge_Sheet.png",
+        "/images/website-charge-sheet-2.png",
+      ],
       description:
         "Complete print collateral for annual technology conference including attendee badges, program booklets, and wayfinding signage. The geometric patterns reflect the cutting-edge nature of the event.",
-      client: "Zuri KIds",
+      client: "Zuri Kids",
       testimonial: {
         text: '"The designs received countless compliments from attendees. GlimmerInk understood our tech-forward audience perfectly and created materials that enhanced the entire event experience."',
         author: "Michael Chen, Event Coordinator",
+        rating: 5,
       },
+      teamSize: 4,
+      clientLogo: "/images/Zuri.png",
+      previewImage: "/images/Zuri.png",
+      caseStudyLink: "#",
     },
   ];
 
@@ -170,7 +189,6 @@ const Portfolio = () => {
       ],
       year: "2022",
     },
-    
   ];
 
   // Filtered projects
@@ -179,10 +197,11 @@ const Portfolio = () => {
     .filter(
       (item) =>
         item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.tags
-          .some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()))
-          .slice(0, visibleProjects)
-    );
+        item.tags.some((tag) =>
+          tag.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+    )
+    .slice(0, visibleProjects);
 
   // Load more projects
   const loadMore = () => {
@@ -190,13 +209,22 @@ const Portfolio = () => {
   };
 
   // Auto-rotate testimonials
- useEffect(() => {
-  if (isPaused) return;
-  const timeout = setTimeout(() => {
-    setActiveTestimonial((prev) => (prev + 1) % portfolioItems.length);
-  }, 8000);
-  return () => clearTimeout(timeout);
-}, [activeTestimonial, isPaused]);
+  useEffect(() => {
+    if (isPaused || portfolioItems.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setActiveTestimonial((prev) => (prev + 1) % portfolioItems.length);
+    }, 8000);
+
+    return () => clearInterval(interval);
+  }, [activeTestimonial, isPaused, portfolioItems.length]);
+
+  // Handle testimonial navigation
+  const goToTestimonial = (index) => {
+    setActiveTestimonial(index);
+    setIsPaused(true);
+    setTimeout(() => setIsPaused(false), 10000); // Resume auto-rotation after 10s
+  };
 
   return (
     <div className="bg-[var(--current-bg)] text-[var(--current-text)]">
@@ -316,104 +344,107 @@ const Portfolio = () => {
           </div>
 
           {/* Portfolio Grid */}
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-  {filteredProjects.map((project) => (
-    <motion.div
-      key={project.id}
-      layout
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.3 }}
-      className="bg-[var(--current-nav)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group"
-    >
-      {/* A4 Aspect Ratio Container */}
-      <div
-        className="relative w-full overflow-hidden bg-primary-dark cursor-pointer group"
-        style={{ paddingBottom: "141.4%" }} // 1.414 aspect ratio for A4 portrait
-        onClick={() =>
-          setExpandedProject(
-            expandedProject === project.id ? null : project.id
-          )
-        }
-      >
-        <img
-          src={project.images[0]}
-          alt={project.title}
-          className="absolute top-0 left-0 w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"
-        />
-
-        {/* Overlay gradient with title and client */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-          <div>
-            <h3 className="text-xl font-bold text-white">{project.title}</h3>
-            <p className="text-white/80">{project.client}</p>
-          </div>
-        </div>
-
-        {/* Image count badge */}
-        {project.images.length > 1 && (
-          <div className="absolute top-4 right-4 bg-black/70 text-white px-2 py-1 rounded-full text-xs">
-            +{project.images.length - 1}
-          </div>
-        )}
-      </div>
-
-      {/* Expanded project description with animation */}
-      <AnimatePresence>
-        {expandedProject === project.id && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="p-6">
-              <p className="mb-4">{project.description}</p>
-
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 bg-[var(--current-bg)] rounded-full text-sm capitalize"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex justify-between items-center">
-                <span className="text-sm opacity-70">{project.year}</span>
-                <a
-                  href={`/project/${project.id}`}
-                  className="flex items-center text-primary hover:underline"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProjects.map((project) => (
+              <motion.div
+                key={project.id}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+                className="bg-[var(--current-nav)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group"
+              >
+                {/* A4 Aspect Ratio Container */}
+                <div
+                  className="relative w-full overflow-hidden bg-primary-dark cursor-pointer group"
+                  style={{ paddingBottom: "141.4%" }} // 1.414 aspect ratio for A4 portrait
+                  onClick={() =>
+                    setExpandedProject(
+                      expandedProject === project.id ? null : project.id
+                    )
+                  }
                 >
-                  View project <FiExternalLink className="ml-1" />
-                </a>
-              </div>
+                  <img
+                    src={project.images[0]}
+                    alt={project.title}
+                    className="absolute top-0 left-0 w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"
+                  />
+
+                  {/* Overlay gradient with title and client */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                    <div>
+                      <h3 className="text-xl font-bold text-white">
+                        {project.title}
+                      </h3>
+                      <p className="text-white/80">{project.client}</p>
+                    </div>
+                  </div>
+
+                  {/* Image count badge */}
+                  {project.images.length > 1 && (
+                    <div className="absolute top-4 right-4 bg-black/70 text-white px-2 py-1 rounded-full text-xs">
+                      +{project.images.length - 1}
+                    </div>
+                  )}
+                </div>
+
+                {/* Expanded project description with animation */}
+                <AnimatePresence>
+                  {expandedProject === project.id && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="p-6">
+                        <p className="mb-4">{project.description}</p>
+
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {project.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="px-3 py-1 bg-[var(--current-bg)] rounded-full text-sm capitalize"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div className="flex justify-between items-center">
+                          <span className="text-sm opacity-70">
+                            {project.year}
+                          </span>
+                          <a
+                            href={`/project/${project.id}`}
+                            className="flex items-center text-primary hover:underline"
+                          >
+                            View project <FiExternalLink className="ml-1" />
+                          </a>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Load More Button */}
+          {visibleProjects < portfolioItems.length && (
+            <div className="text-center mt-12">
+              <motion.button
+                onClick={loadMore}
+                className="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-medium hover:opacity-90 transition-opacity"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Load More Projects
+              </motion.button>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  ))}
-</div>
-
-{/* Load More Button */}
-{visibleProjects < portfolioItems.length && (
-  <div className="text-center mt-12">
-    <motion.button
-      onClick={loadMore}
-      className="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-medium hover:opacity-90 transition-opacity"
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-    >
-      Load More Projects
-    </motion.button>
-  </div>
-)}
-
+          )}
         </div>
       </section>
 
@@ -658,6 +689,155 @@ const Portfolio = () => {
         </div>
       </section>
 
+      {/* Testimonials Section - Premium Version */}
+      <section className="relative py-28 overflow-hidden bg-gradient-to-b from-[var(--current-nav)] to-[var(--current-bg)]">
+        {/* Cosmic Background Elements */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 blur-[120px] rounded-full animate-float-slow" />
+          <div className="absolute bottom-1/3 right-1/3 w-80 h-80 bg-secondary/10 blur-[100px] rounded-full animate-float-delayed" />
+          <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-tertiary/10 blur-[80px] rounded-full animate-float" />
+        </div>
+
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Animated Header */}
+          <motion.div
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, type: "spring" }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <div className="inline-flex items-center gap-3 mb-4">
+              <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-primary" />
+              <span className="text-sm font-semibold tracking-widest text-primary uppercase">
+                Voices of Trust
+              </span>
+              <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-primary" />
+            </div>
+            <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[var(--current-text)]">
+              Client <span className="text-primary">Echoes</span>
+            </h2>
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto opacity-90 leading-relaxed">
+              Real impact through{" "}
+              <span className="font-semibold text-primary">
+                authentic partnerships
+              </span>{" "}
+              — not just transactions
+            </p>
+          </motion.div>
+
+          {/* Testimonial Carousel */}
+          <div className="relative max-w-4xl mx-auto">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTestimonial}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.5 }}
+                className="bg-[var(--current-nav)] rounded-3xl shadow-2xl p-10"
+              >
+                <div className="flex flex-col md:flex-row gap-8">
+                  {/* Client Info */}
+                  <div className="flex-shrink-0">
+                    <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary to-secondary p-1">
+                      <div className="w-full h-full rounded-full bg-[var(--current-nav)] overflow-hidden">
+                        <img
+                          src={portfolioItems[activeTestimonial].clientLogo}
+                          alt={portfolioItems[activeTestimonial].client}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+                    <div className="mt-4 text-center">
+                      <h4 className="font-bold text-lg">
+                        {portfolioItems[activeTestimonial].client}
+                      </h4>
+                      <p className="text-sm opacity-80">
+                        {portfolioItems[activeTestimonial].testimonial.author}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Testimonial Content */}
+                  <div>
+                    <div className="flex items-center gap-2 mb-4">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <FaStar
+                          key={star}
+                          className={`text-xl ${
+                            star <=
+                            portfolioItems[activeTestimonial].testimonial.rating
+                              ? "text-yellow-400"
+                              : "text-white/20"
+                          }`}
+                        />
+                      ))}
+                    </div>
+                    <FaQuoteLeft className="text-primary text-3xl mb-4 opacity-20" />
+                    <p className="text-xl italic mb-6 leading-relaxed">
+                      {portfolioItems[activeTestimonial].testimonial.text}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm opacity-70">
+                        Project: {portfolioItems[activeTestimonial].title}
+                      </span>
+                      <a
+                        href={portfolioItems[activeTestimonial].caseStudyLink}
+                        className="inline-flex items-center gap-2 text-primary hover:text-white transition-colors text-sm"
+                      >
+                        View Case Study <FiArrowRight />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Navigation Dots */}
+            <div className="flex justify-center gap-3 mt-10">
+              {portfolioItems.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToTestimonial(index)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    index === activeTestimonial
+                      ? "bg-primary scale-125"
+                      : "bg-white/30 hover:bg-white/50"
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* Navigation Arrows */}
+            <button
+              onClick={() =>
+                goToTestimonial(
+                  (activeTestimonial - 1 + portfolioItems.length) %
+                    portfolioItems.length
+                )
+              }
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 p-4 rounded-full bg-[var(--current-nav)] hover:bg-primary transition-all shadow-xl hover:shadow-primary/30"
+              aria-label="Previous testimonial"
+            >
+              <FiChevronLeft className="text-2xl" />
+            </button>
+            <button
+              onClick={() =>
+                goToTestimonial(
+                  (activeTestimonial + 1) % portfolioItems.length
+                )
+              }
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 p-4 rounded-full bg-[var(--current-nav)] hover:bg-primary transition-all shadow-xl hover:shadow-primary/30"
+              aria-label="Next testimonial"
+            >
+              <FiChevronRight className="text-2xl" />
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Options Section - Premium Version */}
       <section className="py-20 bg-[var(--current-bg)]">
         <div className="max-w-7xl mx-auto px-6">
@@ -698,7 +878,7 @@ const Portfolio = () => {
               >
                 <div className="bg-[var(--current-bg)] h-full rounded-[15px] p-8 flex flex-col">
                   <div className="text-5xl mb-6">{option.icon}</div>
-                  <h3 className="text-2xl font-bold mb-3">{option.title}</h3>
+                  <h3 className="text-2xl font-bold">{option.title}</h3>
                   <p className="opacity-80 mb-6 flex-grow">
                     {option.description}
                   </p>
@@ -713,100 +893,6 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
-{/* Testimonials Section - Premium Version */}
-<section className="py-20 bg-[var(--current-bg)] text-white">
-  <div className="max-w-7xl mx-auto px-6">
-    <div className="text-center mb-16">
-      <h2 className="text-4xl font-bold mb-4">Client Testimonials</h2>
-      <p className="text-xl opacity-80 max-w-2xl mx-auto">
-        What our clients say about working with us
-      </p>
-    </div>
-
-    <div
-      className="max-w-5xl mx-auto"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      <AnimatePresence mode="wait">
-        {portfolioItems.map(
-          (project, index) =>
-            activeTestimonial === index && (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -40 }}
-                transition={{ duration: 0.5 }}
-                className="bg-[var(--current-nav)] p-10 rounded-3xl shadow-xl border border-[var(--current-nav)]"
-              >
-                <div className="flex items-start mb-8">
-                  <div className="flex -space-x-3 mr-6">
-                    {[1, 2, 3].map((i) => (
-                      <div
-                        key={i}
-                        className="w-14 h-14 rounded-full bg-[var(--current-bg)] border-2 border-[var(--current-nav)] shadow"
-                      />
-                    ))}
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold">{project.client}</h3>
-                    <p className="opacity-80">{project.title}</p>
-                  </div>
-                </div>
-
-                <div className="mb-10">
-                  <FaQuoteLeft className="text-primary text-4xl mb-6 opacity-20" />
-                  <p className="text-2xl italic mb-8 leading-relaxed">
-                    {project.testimonial.text}
-                  </p>
-                  <div className="flex gap-1">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <FaStar
-                        key={star}
-                        className="text-yellow-400 text-xl"
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex justify-between items-center">
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() =>
-                        setActiveTestimonial(
-                          (prev) =>
-                            (prev - 1 + portfolioItems.length) %
-                            portfolioItems.length
-                        )
-                      }
-                      className="p-3 rounded-full bg-[var(--current-bg)] hover:bg-[var(--current-nav)] transition-colors shadow"
-                    >
-                      <FiChevronLeft className="text-lg" />
-                    </button>
-                    <button
-                      onClick={() =>
-                        setActiveTestimonial(
-                          (prev) => (prev + 1) % portfolioItems.length
-                        )
-                      }
-                      className="p-3 rounded-full bg-[var(--current-bg)] hover:bg-[var(--current-nav)] transition-colors shadow"
-                    >
-                      <FiChevronRight className="text-lg" />
-                    </button>
-                  </div>
-                  <span className="text-sm opacity-70">
-                    {index + 1}/{portfolioItems.length}
-                  </span>
-                </div>
-              </motion.div>
-            )
-        )}
-      </AnimatePresence>
-    </div>
-  </div>
-</section>
-
 
       {/* Website Modal - Premium Version */}
       <AnimatePresence>

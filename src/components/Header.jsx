@@ -66,9 +66,7 @@ export default function Header() {
     localStorage.setItem('theme', newTheme);
   };
 
-  const toggleDropdown = (name) => {
-    setActiveDropdown(activeDropdown === name ? null : name);
-  };
+
 
   const navLinks = [
     { name: 'Home', href: '/' },
@@ -77,17 +75,17 @@ export default function Header() {
       href: '/portfolio',
       subLinks: [
         { name: 'Web Design', href: '/portfolio/#web' },
-        { name: 'Branding', href: '/portfolio/branding' },
-        { name: 'Illustration', href: '/portfolio/illustration' },
+        { name: 'Branding', href: '/portfolio/#branding' },
+        { name: 'Illustration', href: '/portfolio/#illustration' },
       ]
     },
     {
       name: 'Services',
       href: '/services',
       subLinks: [
-        { name: 'UI/UX Design', href: '/services/design' },
-        { name: 'Development', href: '/services/development' },
-        { name: 'Consulting', href: '/services/consulting' },
+        { name: 'UI/UX Design', href: '/services/#design' },
+        { name: 'Development', href: '/services/#development' },
+        { name: 'Consulting', href: '/services/#consulting' },
       ]
     },
     { name: 'About', href: '/about' },
@@ -342,66 +340,17 @@ export default function Header() {
                 variants={linkVariants}
                 className="w-full max-w-xs text-center"
               >
-                {link.subLinks ? (
-                  <div className="mb-2">
-                    <button
-                      onClick={() => toggleDropdown(link.name)}
-                      className="text-[var(--current-text)] text-2xl font-medium hover:text-primary transition-colors duration-300 flex items-center justify-center w-full gap-2 py-3"
-                    >
-                      {link.name}
-                      <motion.span
-                        animate={{ rotate: activeDropdown === link.name ? 180 : 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <ChevronDown size={20} />
-                      </motion.span>
-                    </button>
-
-                    <AnimatePresence>
-                      {activeDropdown === link.name && (
-                        <motion.div
-                          className="overflow-hidden"
-                          variants={dropdownVariants}
-                          initial="hidden"
-                          animate="visible"
-                          exit="hidden"
-                        >
-                          <div className="flex flex-col gap-2 mt-2">
-                            {link.subLinks.map((subLink, j) => (
-                              <motion.div
-                                key={subLink.name}
-                                custom={j}
-                                variants={subLinkVariants}
-                              >
-                                <Link
-                                  to={subLink.href}
-                                  className="block py-2 text-xl text-[var(--current-text)] hover:text-primary transition-colors duration-300"
-                                  onClick={() => {
-                                    setIsMenuOpen(false);
-                                    setActiveDropdown(null);
-                                  }}
-                                >
-                                  {subLink.name}
-                                </Link>
-                              </motion.div>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                ) : (
-                  <Link
-                    to={link.href}
-                    className="block text-[var(--current-text)] text-2xl font-medium hover:text-primary transition-colors duration-300 py-3"
-                    onClick={() => {
-                      setIsMenuOpen(false);
-                      setActiveDropdown(null);
-                    }}
-                  >
-                    {link.name}
-                  </Link>
-                )}
+                {/* For mobile, always render as direct links */}
+                <Link
+                  to={link.href}
+                  className="block text-[var(--current-text)] text-2xl font-medium hover:text-primary transition-colors duration-300 py-3"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setActiveDropdown(null);
+                  }}
+                >
+                  {link.name}
+                </Link>
               </motion.div>
             ))}
 
