@@ -1,11 +1,10 @@
-/* Tailwind imports - keep these first */
+/* ✅ Fonts must come first — don't anger PostCSS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* Tailwind imports - these go after @import */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Custom Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
-
 /* Theme Variables - premium color scheme */
 :root {
   /* Primary Colors */
