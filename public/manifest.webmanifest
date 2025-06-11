@@ -1,0 +1,27 @@
+{
+  "name": "GlimmerInk Creations",
+  "short_name": "GlimmerInk",
+  "description": "Premium design services blending artistry and technology — posters, branding, and digital design by GlimmerInk Creations.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#6B46C1",
+  "background_color": "#ffffff",
+  "orientation": "portrait",
+  "lang": "en-US",
+  "dir": "ltr",
+
+  "icons": [
+    {
+      "src": "/favicon_io/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+      
+    },
+    {
+      "src": "/favicon_io/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

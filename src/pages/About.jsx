@@ -11,7 +11,7 @@ const About = () => {
       name: 'Ehud Mwai',
       role: 'Founder & Creative Director',
       bio: 'Visionary leader merging traditional craftsmanship with digital innovation.',
-      image: '/images/team/ehud.jpg',
+      image: 'public/images/Guzman.jpg',
       social: {
         instagram: 'https://instagram.com/ehud_guzman',
         twitter: 'https://twitter.com/Glimmerink_',
@@ -23,7 +23,7 @@ const About = () => {
       name: 'Sarah Johnson',
       role: 'Lead Designer',
       bio: 'Brand identity specialist with an eye for timeless design.',
-      image: '/images/team/sarah.jpg',
+      image: '/images/african-american-business-woman.webp',
       social: {
         instagram: '#',
         behance: '#'
