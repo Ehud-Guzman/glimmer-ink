@@ -11,7 +11,7 @@ const About = () => {
       name: 'Ehud Mwai',
       role: 'Founder & Creative Director',
       bio: 'Visionary leader merging traditional craftsmanship with digital innovation.',
-      image: 'public/images/Guzman.jpg',
+      image: '/images/Guzman.jpg',
       social: {
         instagram: 'https://instagram.com/ehud_guzman',
         twitter: 'https://twitter.com/Glimmerink_',

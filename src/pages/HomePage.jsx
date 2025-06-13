@@ -364,7 +364,7 @@ const HomePage = () => {
           >
             <motion.a
               href="/portfolio"
-              className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-primary rounded-xl font-medium hover:opacity-90 transition-opacity shadow-md"
+              className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-xl font-medium hover:opacity-90 transition-opacity shadow-md"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -542,7 +542,7 @@ const HomePage = () => {
             viewport={{ once: true }}
             transition={{ duration: 1, ease: 'easeOut' }}
           >
-            <h2 className="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary animate-text-glow mb-2">
+            <h2 className="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
               Our Creative Process
             </h2>
             <p className="text-xl opacity-90 max-w-2xl mx-auto text-[var(--current-text)]">

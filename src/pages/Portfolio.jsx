@@ -161,7 +161,7 @@ const Portfolio = () => {
       title: "GlimmerInk Creations",
       description:
         "Premium interior design studio website with portfolio showcase",
-      thumbnail: "public/images/Logo-thumbnail.png",
+      thumbnail: "/images/Logo-thumbnail.png",
       fullImage: "/images/GlimmerInk logo.png",
       url: "https://glimmerink.netlify.app",
       stack: ["React", "Tailwind CSS", "Framer Motion"],
@@ -180,7 +180,7 @@ const Portfolio = () => {
       thumbnail: "/images/vittorios.png",
       fullImage: "/images/vittorios.png",
       url: "https://vittoriostrades.com/",
-      stack: ["Next.js", "Shopify", "Stripe"],
+      stack: ["React", "Tailwind", "Stripe"],
       features: [
         "Product catalog",
         "Subscription service",

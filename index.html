@@ -1,36 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <!-- Core Meta Tags -->
     <meta charset="UTF-8" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="robots" content="index, follow" />
     <meta name="description" content="GlimmerInk Creations offers premium design services, blending artistry and technology for stunning poster designs, brand identities, and digital experiences." />
     <meta name="keywords" content="design services, poster designs, brand identity, digital designs, creative portfolio, graphic design, GlimmerInk Creations" />
     <meta name="author" content="GlimmerInk Creations" />
     <meta name="theme-color" content="#6B46C1" />
-    
+    <meta name="generator" content="React + Vite + Tailwind" />
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.glimmerink.netlify.app" />
+
+    <!-- Preconnects & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
 
     <!-- Favicon and Icons -->
-    <link rel="icon" type="image/svg+xml" href="/favicon_io/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon_io/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="mask-icon" href="/favicon_io/safari-pinned-tab.svg" color="#6B46C1" />
     <link rel="shortcut icon" href="/favicon_io/favicon.ico" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer"
+/>
+
 
     <!-- Open Graph (Facebook, LinkedIn, etc.) -->
     <meta property="og:title" content="GlimmerInk Creations - Where Ink Meets Imagination" />
     <meta property="og:description" content="Discover premium design services for posters, brand identities, and digital experiences that captivate and inspire." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.glimmerink.nelify.app" />
+    <meta property="og:url" content="https://www.glimmerink.netlify.app" />
     <meta property="og:image" content="/images/og-image.jpg" />
     <meta property="og:image:alt" content="GlimmerInk Creations portfolio showcase" />
     <meta property="og:site_name" content="GlimmerInk Creations" />
-    
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="en_GB" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -39,32 +63,76 @@
     <meta name="twitter:image" content="/images/twitter-image.jpg" />
     <meta name="twitter:site" content="@GlimmerInk_" />
 
+    <!-- Alternate Language Support -->
+    <link rel="alternate" hreflang="en" href="https://www.glimmerink.netlify.app/" />
 
-    <!-- Security Headers -->
-  <meta http-equiv="Content-Security-Policy" content="
-  default-src 'self'; 
-  script-src 'self' https://cdn.jsdelivr.net; 
-  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
-  font-src 'self' https://fonts.gstatic.com; 
-  img-src 'self' data:; 
-  connect-src 'self' https://api.emailjs.com;">
-
-
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-
-    <!-- Performance and PWA -->
+    <!-- PWA / Mobile Web App -->
     <meta name="application-name" content="GlimmerInk Creations" />
-    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="GlimmerInk Creations" />
     <meta name="format-detection" content="telephone=no" />
 
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self'; 
+      script-src 'self' https://cdn.jsdelivr.net https://api.emailjs.com; 
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
+      font-src 'self' https://fonts.gstatic.com; 
+      img-src 'self' data: https://www.glimmerink.netlify.app; 
+      connect-src 'self' https://api.emailjs.com; 
+      worker-src 'self'; 
+      frame-ancestors 'none';
+    " />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
 
-    <!-- Title (overridden dynamically by react-helmet-async) -->
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "GlimmerInk Creations",
+      "url": "https://www.glimmerink.netlify.app",
+      "logo": "https://www.glimmerink.netlify.app/favicon_io/android-chrome-512x512.png",
+      "sameAs": [
+        "https://twitter.com/GlimmerInk_",
+        "https://www.instagram.com/your_ig_here",
+        "https://www.linkedin.com/company/glimmerink"
+      ],
+      "description": "GlimmerInk Creations provides premium design services, specializing in poster designs, brand identities, and digital experiences.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "contact@glimmerink.netlify.app",
+        "contactType": "Customer Service"
+      }
+    }
+    </script>
+
+    <!-- Service Worker for PWA -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(reg => console.log('Service Worker registered:', reg))
+            .catch(err => console.error('Service Worker registration failed:', err));
+        });
+      }
+    </script>
+
+    <!-- Dynamic title will be replaced by React Helmet -->
     <title>GlimmerInk Creations</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <div id="root" role="main"></div>
+    <noscript>
+      <div style="text-align: center; padding: 20px;">
+        <h1>GlimmerInk Creations</h1>
+        <p>JavaScript is required to fully experience our site. Please enable JavaScript in your browser or visit our <a href="https://www.glimmerink.netlify.app/static">static page</a> for more information.</p>
+      </div>
+    </noscript>
+    <script type="module" src="/src/main.jsx" defer></script>
   </body>
 </html>
