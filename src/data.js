@@ -1,7 +1,7 @@
 export const portfolioItems = [
   {
     id: 1,
-    title: "Celestia Brand Identity",
+    title: "Celestia Luxury Hotel Branding",
     category: "branding",
     tags: ["logo", "stationery", "guidelines"],
     year: "2023",
@@ -11,8 +11,8 @@ export const portfolioItems = [
       "/images/Offerings and Services.png",
     ],
     description:
-      "Complete visual identity for luxury skincare brand including logo design, packaging system, and brand guidelines. We focused on creating a celestial-inspired aesthetic that conveys premium quality.",
-    client: "Celestia Cosmetics",
+      "Comprehensive brand identity for Celestia, a luxury hotel chain. Included logo design, stationery, and brand guidelines to establish a cohesive and elegant visual presence.",
+    client: "Celestia Hotels",
     testimonial: {
       text: '"GlimmerInk transformed our brand with their exceptional design work. The new identity perfectly captures our premium positioning and has significantly boosted our market presence."',
       author: "Sarah Johnson, Marketing Director",

@@ -52,11 +52,11 @@ const services = [
     category: "Brand Identity",
     items: [
       {
-        title: "Logo Designs",
+        title: "Designs",
         description: "Unique brand marks that capture your essence",
         images: [
-          "/images/branding/logo-1.jpg",
-          "/images/branding/logo-2.jpg",
+          "/images/Contacts.png",
+          "/images/Cover Page.png",
           "/images/branding/logo-3.jpg"
         ],
         link: "/portfolio/logos",
