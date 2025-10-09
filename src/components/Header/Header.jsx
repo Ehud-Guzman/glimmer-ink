@@ -28,6 +28,7 @@ export default function Header() {
 
   useEffect(() => {
     setIsMenuOpen(false);
+    document.body.style.overflow = ""; // Reset overflow on route change
   }, [location]);
 
   useEffect(() => {
@@ -55,8 +56,9 @@ export default function Header() {
   });
 
   const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-    document.body.style.overflow = isMenuOpen ? "" : "hidden";
+    const newState = !isMenuOpen;
+    setIsMenuOpen(newState);
+    document.body.style.overflow = newState ? "hidden" : "";
   };
 
   const toggleTheme = () => {
@@ -82,7 +84,7 @@ export default function Header() {
           <Logo />
           <DesktopNav theme={theme} toggleTheme={toggleTheme} />
           <MobileMenu
-            isMenuOpen={isMenuOpen}
+            isOpen={isMenuOpen} 
             toggleMenu={toggleMenu}
             theme={theme}
             toggleTheme={toggleTheme}
