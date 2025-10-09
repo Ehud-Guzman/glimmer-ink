@@ -24,4 +24,13 @@ export const journeyProjects = [
     liveUrl: "https://vittoriostrades.com/",
   },
 
+ {
+    title: "School website",
+    description:
+      "A sleek, professional site for a school — optimized for speed and SEO.",
+    image: "/images/sunshine.png",
+    stack: ["React", "Vite", "Tailwind"],
+    liveUrl: "https://sunshineshools.netlify.app/",
+  },
+
 ];

@@ -59,4 +59,7 @@ export const portfolioItems = [
     previewImage: "/images/Zuri.png",
     caseStudyLink: "#",
   },
+
+
+  
 ];

@@ -110,6 +110,23 @@ const Portfolio = () => {
       year: "2024",
     },
 
+      {
+      id: 5,
+      title: "Sunshine Schools",
+      description: "Website for a school",
+      thumbnail: "/images/sunshine.png",
+      fullImage: "/images/sunshine.png",
+      url: "https://sunshineshools.netlify.app/",
+      stack: ["React", "Tailwind", "Stripe"],
+      features: [
+        "Product catalog",
+        "Subscription service",
+        "Mobile-first design",
+        "Contact forms",
+      ],
+      year: "2024",
+    },
+
   ];
 
   // Filtered projects
