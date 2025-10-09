@@ -2,20 +2,22 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { Suspense, lazy } from "react";
 
-import ScrollToTop from "./components/ScrollToTop";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import LoadingSpinner from "./components/LoadingSpinner"; // You should create this
+// Core Components
+import ScrollToTop from "@/components/ScrollToTop";
+import Header from "@/components/Header/Header"; // Assuming modularized Header folder
+import UltimateFooter from "@/components/Footer/UltimateFooter";
 
-// Lazy-loaded pages for performance
-const HomePage = lazy(() => import("./pages/HomePage"));
-const Portfolio = lazy(() => import("./pages/Portfolio"));
-const Services = lazy(() => import("./pages/Services"));
-const About = lazy(() => import("./pages/About"));
-const Contact = lazy(() => import("./pages/Contact"));
-const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
-const TermsOfService = lazy(() => import("./pages/TermsOfService"));
-const NotFound = lazy(() => import("./components/NotFound"));
+import LoadingSpinner from "@/components/LoadingSpinner";
+
+// Lazy-loaded Pages
+const HomePage = lazy(() => import("@/pages/HomePage"));
+const Portfolio = lazy(() => import("@/pages/Portfolio"));
+const Services = lazy(() => import("@/pages/Services"));
+const About = lazy(() => import("@/pages/About"));
+const Contact = lazy(() => import("@/pages/Contact"));
+const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("@/pages/TermsOfService"));
+const NotFound = lazy(() => import("@/components/NotFound"));
 
 export default function App() {
   return (
@@ -23,10 +25,14 @@ export default function App() {
       <Router>
         <ScrollToTop />
         <div className="min-h-screen flex flex-col bg-white text-primary dark:bg-background-dark dark:text-text-light">
-          <div className="fixed inset-0 bg-gradient-to-r from-primary to-secondary opacity-10 z-[-1]"></div>
-          <div className="fixed inset-0 bg-gradient-glass opacity-20 z-[-2]"></div>
+          {/* Subtle Gradient Overlay */}
+          <div className="fixed inset-0 bg-gradient-to-r from-primary to-secondary opacity-10 z-[-1]" />
+          <div className="fixed inset-0 bg-gradient-glass opacity-20 z-[-2]" />
+
+          {/* Shared Layout */}
           <Header />
-          <main className="flex-grow pt-12">
+
+          <main className="flex-grow pt-16 lg:pt-20">
             <Suspense fallback={<LoadingSpinner />}>
               <Routes>
                 <Route path="/" element={<HomePage />} />
@@ -40,11 +46,10 @@ export default function App() {
               </Routes>
             </Suspense>
           </main>
-          <Footer />
+
+        <UltimateFooter />
         </div>
       </Router>
     </HelmetProvider>
   );
 }
-//         dropShadow: {
-//           "0%, 100%": { textShadow: "0 0 5px #6791dd, 0 0 10px #17abdc" },

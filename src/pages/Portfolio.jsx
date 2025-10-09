@@ -13,6 +13,14 @@ import {
   FiArrowLeft,
 } from "react-icons/fi";
 import { FaStar, FaQuoteLeft } from "react-icons/fa";
+import HeroSection from "@/components/Portfolio/HeroSection";
+import ServiceCards from "@/components/Portfolio/ServiceCards";
+import ProcessSteps from "@/components/Portfolio/ProcessSteps";
+import TestimonialsCarousel from "@/components/Portfolio/TestimonialsCarousel";
+import { portfolioItems } from "@/data/portfolioItems";
+
+
+
 
 const Portfolio = () => {
   // State management
@@ -27,133 +35,11 @@ const Portfolio = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  // Portfolio data
-  const portfolioItems = [
-    {
-      id: 1,
-      title: "Celestia Brand Identity",
-      category: "branding",
-      tags: ["logo", "stationery", "guidelines"],
-      year: "2023",
-      images: [
-        "/images/Offerings and Services.png",
-        "/images/Offerings and Services.png",
-        "/images/Offerings and Services.png",
-      ],
-      description:
-        "Complete visual identity for luxury skincare brand including logo design, packaging system, and brand guidelines. We focused on creating a celestial-inspired aesthetic that conveys premium quality.",
-      client: "Celestia Cosmetics",
-      testimonial: {
-        text: '"GlimmerInk transformed our brand with their exceptional design work. The new identity perfectly captures our premium positioning and has significantly boosted our market presence."',
-        author: "Sarah Johnson, Marketing Director",
-        rating: 5,
-      },
-      teamSize: 3,
-      clientLogo: "/images/client1.jpg",
-      previewImage: "/images/project1-preview.png",
-      caseStudyLink: "#",
-    },
-    {
-      id: 2,
-      title: "Zuri Kids",
-      category: "print",
-      tags: ["brochure", "poster", "program"],
-      year: "2023",
-      images: ["/images/Zuri.png", "/images/Zuri.png"],
-      description:
-        "Complete print collateral for annual technology conference including attendee badges, program booklets, and wayfinding signage. The geometric patterns reflect the cutting-edge nature of the event.",
-      client: "Zuri Kids",
-      testimonial: {
-        text: '"The designs received countless compliments from attendees. GlimmerInk understood our tech-forward audience perfectly and created materials that enhanced the entire event experience."',
-        author: "Michael Chen, Event Coordinator",
-        rating: 4,
-      },
-      teamSize: 2,
-      clientLogo: "/images/Zuri.png",
-      previewImage: "/images/Zuri.png",
-      caseStudyLink: "#",
-    },
-    {
-      id: 3,
-      title: "GlimmerInk Creations",
-      category: "branding",
-      tags: ["logo", "stationery", "guidelines"],
-      year: "2023",
-      images: [
-        "/images/Website_Charge_Sheet.png",
-        "/images/website-charge-sheet-2.png",
-      ],
-      description:
-        "Complete print collateral for annual technology conference including attendee badges, program booklets, and wayfinding signage. The geometric patterns reflect the cutting-edge nature of the event.",
-      client: "Zuri Kids",
-      testimonial: {
-        text: '"The designs received countless compliments from attendees. GlimmerInk understood our tech-forward audience perfectly and created materials that enhanced the entire event experience."',
-        author: "Michael Chen, Event Coordinator",
-        rating: 5,
-      },
-      teamSize: 4,
-      clientLogo: "/images/Zuri.png",
-      previewImage: "/images/Zuri.png",
-      caseStudyLink: "#",
-    },
-  ];
 
-  const services = [
-    {
-      title: "Brand Identity",
-      icon: "🖌️",
-      description:
-        "Complete visual systems including logos, color palettes, typography and brand guidelines",
-      projects: 42,
-    },
-    {
-      title: "Print Design",
-      icon: "📄",
-      description:
-        "Business cards, stationery, brochures, packaging and promotional materials",
-      projects: 36,
-    },
-    {
-      title: "Digital Design",
-      icon: "🖥️",
-      description:
-        "Websites, mobile apps, social media graphics and digital advertising",
-      projects: 28,
-    },
-    {
-      title: "Environmental Design",
-      icon: "🏢",
-      description: "Signage, exhibition graphics and retail space branding",
-      projects: 15,
-    },
-  ];
 
-  const processSteps = [
-    {
-      step: 1,
-      title: "Discovery",
-      description: "We learn about your business, goals and audience",
-      activities: ["Questionnaire", "Market Research", "Strategy Session"],
-    },
-    {
-      step: 2,
-      title: "Concept",
-      description: "Initial ideas and directions are developed",
-      activities: ["Mood Boards", "Sketches", "Style Exploration"],
-    },
-    {
-      step: 3,
-      title: "Refinement",
-      description: "Designs are refined based on your feedback",
-      activities: ["Revisions", "Testing", "Finalization"],
-    },
-    {
-      step: 4,
-      title: "Delivery",
-      description: "Final files are prepared and project is launched",
-      activities: ["File Preparation", "Style Guides", "Launch Support"],
-    },
-  ];
+
+
+
 
   const websites = [
     {
@@ -228,60 +114,9 @@ const Portfolio = () => {
 
   return (
     <div className="bg-[var(--current-bg)] text-[var(--current-text)]">
-      {/* Hero Section */}
-      <section className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-primary/10 via-[var(--current-nav)]/20 to-secondary/10">
-          <div className="absolute top-0 left-0 w-full h-full opacity-20 bg-[url('/images/texture.png')]"></div>
-        </div>
 
-        <div className="max-w-7xl mx-auto px-6 z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="block">Design That</span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                Makes an Impact
-              </span>
-            </h1>
-            <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto mb-10">
-              We craft visual experiences that elevate brands and engage
-              audiences
-            </p>
-
-            <div className="flex justify-center gap-6">
-              <motion.a
-                href="portfolio"
-                className="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-medium hover:opacity-90 transition-opacity"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                View Our Work
-              </motion.a>
-              <motion.a
-                href="#process"
-                className="px-8 py-3 border border-[var(--current-text)] rounded-lg font-medium hover:bg-[var(--current-nav)] transition-colors"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Our Process
-              </motion.a>
-            </div>
-          </motion.div>
-        </div>
-
-        <div className="absolute bottom-10 left-0 right-0 flex justify-center">
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-          >
-            <FiChevronDown className="text-3xl opacity-70" />
-          </motion.div>
-        </div>
-      </section>
-
+      <HeroSection />
+     
       {/* Portfolio Grid Section */}
       <section id="portfolio" className="py-20">
         <div className="max-w-7xl mx-auto px-6">
@@ -605,239 +440,17 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Services Section - Premium Version */}
-      <section className="py-20 bg-gradient-to-br from-[var(--current-nav)]/20 to-[var(--current-nav)]/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Our Services</h2>
-            <p className="text-xl opacity-80 max-w-2xl mx-auto">
-              Comprehensive creative solutions tailored to your needs
-            </p>
-          </div>
+    <ServiceCards />
+    <ProcessSteps />
+      <TestimonialsCarousel
+        portfolioItems={portfolioItems}
+        activeTestimonial={activeTestimonial}
+        goToTestimonial={goToTestimonial}
+      />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="bg-[var(--current-bg)] p-8 rounded-2xl shadow-lg border border-[var(--current-nav)] hover:border-primary/30 transition-all"
-              >
-                <div className="text-5xl mb-6">{service.icon}</div>
-                <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
-                <p className="opacity-80 mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-                <div className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-medium text-lg">
-                  {service.projects}+ successful projects
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
-      {/* Process Section - Premium Version */}
-      <section id="process" className="py-20 bg-[var(--current-nav)]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Our Process</h2>
-            <p className="text-xl opacity-80 max-w-2xl mx-auto">
-              A proven workflow that delivers exceptional results
-            </p>
-          </div>
-
-          <div className="relative">
-            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-[var(--current-bg)]/20 transform -translate-y-1/2 z-0"></div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 relative z-10">
-              {processSteps.map((step, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-[var(--current-bg)] p-8 rounded-2xl shadow-lg border border-[var(--current-nav)] group"
-                >
-                  <div className="flex items-center mb-6">
-                    <div className="w-14 h-14 rounded-full bg-gradient-to-r from-primary to-secondary text-white flex items-center justify-center text-xl font-bold mr-4 shadow-lg">
-                      {step.step}
-                    </div>
-                    <h3 className="text-2xl font-semibold">{step.title}</h3>
-                  </div>
-                  <p className="mb-6 text-lg leading-relaxed">
-                    {step.description}
-                  </p>
-                  <ul className="space-y-3">
-                    {step.activities.map((activity, i) => (
-                      <li key={i} className="flex items-center">
-                        <span className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mr-3">
-                          <span className="w-2 h-2 bg-primary rounded-full"></span>
-                        </span>
-                        <span>{activity}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section - Premium Version */}
-      <section className="relative py-28 overflow-hidden bg-gradient-to-b from-[var(--current-nav)] to-[var(--current-bg)]">
-        {/* Cosmic Background Elements */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 blur-[120px] rounded-full animate-float-slow" />
-          <div className="absolute bottom-1/3 right-1/3 w-80 h-80 bg-secondary/10 blur-[100px] rounded-full animate-float-delayed" />
-          <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-tertiary/10 blur-[80px] rounded-full animate-float" />
-        </div>
-
-        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Animated Header */}
-          <motion.div
-            className="text-center mb-20"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, type: "spring" }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <div className="inline-flex items-center gap-3 mb-4">
-              <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-primary" />
-              <span className="text-sm font-semibold tracking-widest text-primary uppercase">
-                Voices of Trust
-              </span>
-              <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-primary" />
-            </div>
-            <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[var(--current-text)]">
-              Client <span className="text-primary">Echoes</span>
-            </h2>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto opacity-90 leading-relaxed">
-              Real impact through{" "}
-              <span className="font-semibold text-primary">
-                authentic partnerships
-              </span>{" "}
-              — not just transactions
-            </p>
-          </motion.div>
-
-          {/* Testimonial Carousel */}
-          <div className="relative max-w-4xl mx-auto">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTestimonial}
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -100 }}
-                transition={{ duration: 0.5 }}
-                className="bg-[var(--current-nav)] rounded-3xl shadow-2xl p-10"
-              >
-                <div className="flex flex-col md:flex-row gap-8">
-                  {/* Client Info */}
-                  <div className="flex-shrink-0">
-                    <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary to-secondary p-1">
-                      <div className="w-full h-full rounded-full bg-[var(--current-nav)] overflow-hidden">
-                        <img
-                          src={portfolioItems[activeTestimonial].clientLogo}
-                          alt={portfolioItems[activeTestimonial].client}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    </div>
-                    <div className="mt-4 text-center">
-                      <h4 className="font-bold text-lg">
-                        {portfolioItems[activeTestimonial].client}
-                      </h4>
-                      <p className="text-sm opacity-80">
-                        {portfolioItems[activeTestimonial].testimonial.author}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Testimonial Content */}
-                  <div>
-                    <div className="flex items-center gap-2 mb-4">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <FaStar
-                          key={star}
-                          className={`text-xl ${
-                            star <=
-                            portfolioItems[activeTestimonial].testimonial.rating
-                              ? "text-yellow-400"
-                              : "text-white/20"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                    <FaQuoteLeft className="text-primary text-3xl mb-4 opacity-20" />
-                    <p className="text-xl italic mb-6 leading-relaxed">
-                      {portfolioItems[activeTestimonial].testimonial.text}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm opacity-70">
-                        Project: {portfolioItems[activeTestimonial].title}
-                      </span>
-                      <a
-                        href={portfolioItems[activeTestimonial].caseStudyLink}
-                        className="inline-flex items-center gap-2 text-primary hover:text-white transition-colors text-sm"
-                      >
-                        View Case Study <FiArrowRight />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Navigation Dots */}
-            <div className="flex justify-center gap-3 mt-10">
-              {portfolioItems.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    index === activeTestimonial
-                      ? "bg-primary scale-125"
-                      : "bg-white/30 hover:bg-white/50"
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
-              ))}
-            </div>
-
-            {/* Navigation Arrows */}
-            <button
-              onClick={() =>
-                goToTestimonial(
-                  (activeTestimonial - 1 + portfolioItems.length) %
-                    portfolioItems.length
-                )
-              }
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 p-4 rounded-full bg-[var(--current-nav)] hover:bg-primary transition-all shadow-xl hover:shadow-primary/30"
-              aria-label="Previous testimonial"
-            >
-              <FiChevronLeft className="text-2xl" />
-            </button>
-            <button
-              onClick={() =>
-                goToTestimonial(
-                  (activeTestimonial + 1) % portfolioItems.length
-                )
-              }
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 p-4 rounded-full bg-[var(--current-nav)] hover:bg-primary transition-all shadow-xl hover:shadow-primary/30"
-              aria-label="Next testimonial"
-            >
-              <FiChevronRight className="text-2xl" />
-            </button>
-          </div>
-        </div>
-      </section>
-
+  
       {/* Contact Options Section - Premium Version */}
       <section className="py-20 bg-[var(--current-bg)]">
         <div className="max-w-7xl mx-auto px-6">
