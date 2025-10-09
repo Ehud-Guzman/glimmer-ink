@@ -11,9 +11,9 @@ export const journeyProjects = [
     title: "GlimmerInk Studio",
     description:
       "My personal agency site built to convert — modern design, cloud integrations, and motion magic.",
-    image: "/images/projects/glimmerink.png",
+    image: "/images/glimmerink.png",
     stack: ["Vite", "Framer Motion", "Cloudinary"],
-    liveUrl: "https://glimmerink.co.ke",
+    liveUrl: "https://glimmerink.netlify.app/",
   },
   {
     title: "Export Import Marketing",

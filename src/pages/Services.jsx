@@ -31,8 +31,8 @@ const Services = () => {
   // Pricing data configuration
   const pricingData = {
     basic: {
-      monthly: 500,
-      annual: 4000,
+      monthly: 1500,
+      annual: 5000,
       features: [
         { included: true, text: '50 B&W prints' },
         { included: true, text: '20 color prints' },
@@ -49,8 +49,8 @@ const Services = () => {
       }
     },
     standard: {
-      monthly: 1200,
-      annual: 9600,
+      monthly: 2200,
+      annual: 10600,
       features: [
         { included: true, text: '100 B&W prints' },
         { included: true, text: '50 color prints' },
@@ -67,7 +67,7 @@ const Services = () => {
       }
     },
     premium: {
-      monthly: 2500,
+      monthly: 4500,
       annual: 20000,
       features: [
         { included: true, text: 'Unlimited B&W prints' },

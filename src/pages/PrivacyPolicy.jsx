@@ -524,15 +524,15 @@ export default function PrivacyPolicy() {
                   <h3 className="font-bold mb-3">Recent Changes</h3>
                   <ul className="space-y-4">
                     <PolicyChange 
-                      date="March 15, 2023" 
+                      date="March 15, 2024" 
                       change="Added detailed data retention periods for each data category"
                     />
                     <PolicyChange 
-                      date="October 1, 2022" 
+                      date="October 1, 2024" 
                       change="Clarified third-party processor relationships and links to their policies"
                     />
                     <PolicyChange 
-                      date="June 5, 2022" 
+                      date="June 5, 2024" 
                       change="Initial GDPR compliance updates and rights explanation"
                     />
                   </ul>

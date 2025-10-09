@@ -20,36 +20,16 @@ const About = () => {
     },
     {
       id: 2,
-      name: 'Sarah Johnson',
+      name: 'Sarah Chebet',
       role: 'Lead Designer',
       bio: 'Brand identity specialist with an eye for timeless design.',
-      image: '/images/african-american-business-woman.webp',
+      image: '',
       social: {
         instagram: '#',
         behance: '#'
       }
     },
-    {
-      id: 3,
-      name: 'Michael Chen',
-      role: 'Digital Art Director',
-      bio: 'Transforms complex ideas into intuitive digital experiences.',
-      image: '/images/team/michael.jpg',
-      social: {
-        dribbble: '#',
-        behance: '#'
-      }
-    },
-    {
-      id: 4,
-      name: 'Amina Hassan',
-      role: 'Print Specialist',
-      bio: 'Master of paper textures and ink chemistry.',
-      image: '/images/team/amina.jpg',
-      social: {
-        instagram: '#'
-      }
-    }
+ 
   ]);
 
   const [values] = useState([
@@ -168,7 +148,7 @@ const About = () => {
               >
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                   <img 
-                    src="/images/about/studio.jpg" 
+                    src="/images/glimmerink.png" 
                     alt="Our creative studio" 
                     className="w-full h-auto object-cover"
                   />
@@ -194,15 +174,16 @@ const About = () => {
                   <span className="text-primary">From</span> a spark <span className="text-secondary">to</span> a flame
                 </h2>
                 <div className="space-y-6 text-lg leading-relaxed">
-                  <p>
-                    Founded in 2023 by Ehud Mwai, GlimmerInk began as a single printer in a Nairobi garage. What started as a passion for marrying traditional print techniques with digital innovation quickly grew into a full-service creative powerhouse.
-                  </p>
-                  <p>
-                    Our journey has been marked by late nights, happy accidents, and breakthroughs that redefined what we thought possible. Each client project has added a new dimension to our capabilities and perspective.
-                  </p>
-                  <p>
-                    Today, we stand at the intersection of craftsmanship and technology, serving clients across Kenya with solutions that blend the tactile beauty of print with the limitless potential of digital.
-                  </p>
+ <p>
+  Founded in 2023 by Ehud Mwai, GlimmerInk was built on a clear vision — to craft seamless, intelligent, and visually striking digital experiences. From day one, our focus has been on development that feels premium, performs flawlessly, and scales effortlessly.
+</p>
+<p>
+  Over time, we’ve grown into a multidisciplinary studio specializing in web applications, automation, and interactive design systems. Every line of code and pixel we create is driven by precision, performance, and purpose.
+</p>
+<p>
+  Today, GlimmerInk stands as a development-first agency redefining how brands connect, operate, and grow in the digital era — bridging creativity with robust engineering to deliver results that actually move the needle.
+</p>
+
                 </div>
               </motion.div>
             </div>
@@ -217,10 +198,10 @@ const About = () => {
             transition={{ staggerChildren: 0.1 }}
           >
             {[
-              { number: "200+", label: "Satisfied Clients", color: "primary" },
-              { number: "500+", label: "Projects Delivered", color: "secondary" },
+              { number: "50+", label: "Satisfied Clients", color: "primary" },
+              { number: "10+", label: "Projects Delivered", color: "secondary" },
               { number: "98%", label: "Retention Rate", color: "accent" },
-              { number: "15+", label: "Industry Awards", color: "primary" }
+              { number: "+", label: "Industry Awards", color: "primary" }
             ].map((stat, index) => (
               <motion.div 
                 key={index}

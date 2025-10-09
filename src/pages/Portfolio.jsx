@@ -73,7 +73,7 @@ const Portfolio = () => {
         "Mobile-first design",
         "Contact forms",
       ],
-      year: "2022",
+      year: "2024",
     },
 
       {
@@ -90,8 +90,26 @@ const Portfolio = () => {
         "Mobile-first design",
         "Contact forms",
       ],
-      year: "2022",
+      year: "2024",
     },
+
+      {
+      id: 4,
+      title: "GlimmerHope Hospital",
+      description: "Website for a healthcare provider",
+      thumbnail: "/images/glimmerhope1.png",
+      fullImage: "/images/glimmerhope1.png",
+      url: "https://glimmerhope.netlify.app/",
+      stack: ["React", "Tailwind", "Stripe"],
+      features: [
+        "Product catalog",
+        "Subscription service",
+        "Mobile-first design",
+        "Contact forms",
+      ],
+      year: "2024",
+    },
+
   ];
 
   // Filtered projects
