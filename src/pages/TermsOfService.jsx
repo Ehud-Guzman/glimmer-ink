@@ -199,9 +199,9 @@ export default function TermsOfService() {
                     </thead>
                     <tbody className="divide-y divide-[var(--current-border)]">
                       {[
-                        { plan: "Basic", monthly: "KSh 500", annual: "KSh 4,000" },
-                        { plan: "Standard", monthly: "KSh 1,200", annual: "KSh 9,600" },
-                        { plan: "Premium", monthly: "KSh 2,500", annual: "KSh 20,000" }
+                        { plan: "Basic", monthly: "KSh 2,500", annual: "KSh 10,000" },
+                        { plan: "Standard", monthly: "KSh 3,200", annual: "KSh 15,600" },
+                        { plan: "Premium", monthly: "KSh 4,500", annual: "KSh 20,000" }
                       ].map((row, index) => (
                         <tr key={index} className={index % 2 === 0 ? 'bg-[var(--current-bg)]' : 'bg-[var(--current-bg-secondary)]'}>
                           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-[var(--current-text)]">

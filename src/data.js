@@ -19,7 +19,7 @@ export const portfolioItems = [
       rating: 5,
     },
     teamSize: 3,
-    clientLogo: "/images/client1.jpg",
+    clientLogo: "/images/client.jpg",
     previewImage: "/images/project1-preview.png",
     caseStudyLink: "#",
   },

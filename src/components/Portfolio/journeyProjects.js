@@ -3,9 +3,9 @@ export const journeyProjects = [
     title: "SmartMart eCommerce",
     description:
       "A fast, scalable eCommerce platform with M-Pesa, smart cart, and premium UI/UX.",
-    image: "/images/projects/smartmart.png", // Replace with your own
+    image: "/images/image.png", // Replace with your own
     stack: ["React", "Tailwind", "Express", "MongoDB"],
-    liveUrl: "https://smartmart.ke",
+    liveUrl: "https://adit-investment.netlify.app/",
   },
   {
     title: "GlimmerInk Studio",
@@ -16,19 +16,12 @@ export const journeyProjects = [
     liveUrl: "https://glimmerink.co.ke",
   },
   {
-    title: "TechHive Dashboard",
+    title: "Export Import Marketing",
     description:
-      "A custom admin panel for ICT monitoring and service workflows with role-based access.",
-    image: "/images/projects/techhive.png",
-    stack: ["Next.js", "Prisma", "ShadCN UI"],
-    liveUrl: "https://techhive-dashboard.vercel.app",
+      "A sleek, professional site for an export-import business — optimized for speed and SEO.",
+    image: "/images/vittorios.png",
+    stack: ["React", "Vite", "Tailwind"],
+    liveUrl: "https://vittoriostrades.com/",
   },
-  {
-    title: "FlexLabs Landing",
-    description:
-      "Landing page for a software launch — fully animated, fast-loading, and mobile-optimized.",
-    image: "/images/projects/flexlabs.png",
-    stack: ["Astro", "GSAP", "Tailwind"],
-    liveUrl: "https://flexlabs.io",
-  },
+
 ];

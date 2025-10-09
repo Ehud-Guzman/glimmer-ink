@@ -62,10 +62,27 @@ const Portfolio = () => {
     {
       id: 2,
       title: "Vittorios Trades",
-      description: "E-commerce site for cereals and grains",
+      description: "Website for cereals and grains",
       thumbnail: "/images/vittorios.png",
       fullImage: "/images/vittorios.png",
       url: "https://vittoriostrades.com/",
+      stack: ["React", "Tailwind", "Stripe"],
+      features: [
+        "Product catalog",
+        "Subscription service",
+        "Mobile-first design",
+        "Contact forms",
+      ],
+      year: "2022",
+    },
+
+      {
+      id: 3,
+      title: "Adit Investments",
+      description: "Website for Computer and accessories shop",
+      thumbnail: "/images/image.png",
+      fullImage: "/images/image.png",
+      url: "https://adit-investment.netlify.app/",
       stack: ["React", "Tailwind", "Stripe"],
       features: [
         "Product catalog",
@@ -117,7 +134,67 @@ const Portfolio = () => {
 
       <HeroSection />
      
-      {/* Portfolio Grid Section */}
+  
+
+          {/* Website Showcase - Premium Version */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Websites Showcase</h2>
+            <p className="text-xl opacity-80 max-w-2xl mx-auto">
+              Modern, responsive websites built with cutting-edge technologies
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {websites.map((website) => (
+              <motion.div
+                key={website.id}
+                whileHover={{ y: -8 }}
+                className="bg-[var(--current-nav)] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all flex flex-col group"
+              >
+                <div className="relative h-60 overflow-hidden bg-primary-dark">
+                  <img
+                    src={website.thumbnail}
+                    alt={website.title}
+                    className="w-full h-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                    <h3 className="text-xl font-bold text-white">
+                      {website.title}
+                    </h3>
+                    <p className="text-white/80 text-sm">
+                      {website.description}
+                    </p>
+                  </div>
+                </div>
+                <div className="p-6 flex-grow flex flex-col">
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="text-xl font-semibold">{website.title}</h3>
+                    <span className="text-sm opacity-70">{website.year}</span>
+                  </div>
+                  <p className="mb-4 text-sm opacity-80 flex-grow">
+                    {website.description}
+                  </p>
+                  <button
+                    onClick={() => {
+                      setSelectedWebsite(website);
+                      setIsModalOpen(true);
+                    }}
+                    className="w-full py-3 border border-primary/30 text-primary rounded-lg hover:bg-primary/5 transition-all flex items-center justify-center gap-2"
+                  >
+                    <span>View Details</span>
+                    <FiExternalLink className="text-sm" />
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+          {/* Portfolio Grid Section */}
       <section id="portfolio" className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -383,62 +460,7 @@ const Portfolio = () => {
         </section>
       )}
 
-      {/* Website Showcase - Premium Version */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Websites Showcase</h2>
-            <p className="text-xl opacity-80 max-w-2xl mx-auto">
-              Modern, responsive websites built with cutting-edge technologies
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {websites.map((website) => (
-              <motion.div
-                key={website.id}
-                whileHover={{ y: -8 }}
-                className="bg-[var(--current-nav)] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all flex flex-col group"
-              >
-                <div className="relative h-60 overflow-hidden bg-primary-dark">
-                  <img
-                    src={website.thumbnail}
-                    alt={website.title}
-                    className="w-full h-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
-                    <h3 className="text-xl font-bold text-white">
-                      {website.title}
-                    </h3>
-                    <p className="text-white/80 text-sm">
-                      {website.description}
-                    </p>
-                  </div>
-                </div>
-                <div className="p-6 flex-grow flex flex-col">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-xl font-semibold">{website.title}</h3>
-                    <span className="text-sm opacity-70">{website.year}</span>
-                  </div>
-                  <p className="mb-4 text-sm opacity-80 flex-grow">
-                    {website.description}
-                  </p>
-                  <button
-                    onClick={() => {
-                      setSelectedWebsite(website);
-                      setIsModalOpen(true);
-                    }}
-                    className="w-full py-3 border border-primary/30 text-primary rounded-lg hover:bg-primary/5 transition-all flex items-center justify-center gap-2"
-                  >
-                    <span>View Details</span>
-                    <FiExternalLink className="text-sm" />
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
     <ServiceCards />
     <ProcessSteps />
