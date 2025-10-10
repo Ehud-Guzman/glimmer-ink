@@ -564,125 +564,132 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Website Modal - Premium Version */}
-      <AnimatePresence>
-        {isModalOpen && selectedWebsite && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
-            onClick={() => setIsModalOpen(false)}
+{/* Website Modal - Premium Version */}
+<AnimatePresence>
+  {isModalOpen && selectedWebsite && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+      onClick={() => setIsModalOpen(false)}
+    >
+      <motion.div
+        initial={{ scale: 0.95, y: 30 }}
+        animate={{ scale: 1, y: 0 }}
+        exit={{ scale: 0.95, y: 30 }}
+        className={`relative bg-[var(--current-bg)] rounded-2xl shadow-2xl overflow-hidden flex flex-col lg:flex-row transition-all duration-300 ${
+          isFullscreen ? "w-full h-full max-w-none" : "max-w-6xl w-full max-h-[90vh]"
+        }`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Close button */}
+        <button
+          className="absolute top-4 right-4 z-20 p-3 bg-[var(--current-nav)] rounded-full hover:bg-[var(--current-nav)]/80 transition-colors shadow-lg"
+          onClick={() => setIsModalOpen(false)}
+        >
+          <FiX className="text-xl" />
+        </button>
+
+        {/* Fullscreen toggle */}
+        <button
+          className="absolute top-4 right-16 z-20 p-3 bg-[var(--current-nav)] rounded-full hover:bg-[var(--current-nav)]/80 transition-colors shadow-lg"
+          onClick={() => setIsFullscreen(!isFullscreen)}
+        >
+          {isFullscreen ? (
+            <FiChevronDown className="text-xl" />
+          ) : (
+            <FiChevronUp className="text-xl" />
+          )}
+        </button>
+
+        {/* Modal content layout */}
+        <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
+          {/* Image column */}
+          <div
+            className={`flex items-center justify-center bg-primary-dark flex-shrink-0 ${
+              isFullscreen ? "h-full" : "h-[40vh] md:h-[60vh] lg:h-auto lg:w-1/2"
+            }`}
           >
-            <motion.div
-              initial={{ scale: 0.9, y: 50 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, y: 50 }}
-              className={`relative bg-[var(--current-bg)] rounded-2xl shadow-2xl overflow-hidden ${
-                isFullscreen ? "w-full h-full max-w-none" : "max-w-6xl w-full"
-              }`}
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Close button */}
-              <button
-                className="absolute top-4 right-4 z-20 p-3 bg-[var(--current-nav)] rounded-full hover:bg-[var(--current-nav)]/80 transition-colors shadow-lg"
-                onClick={() => setIsModalOpen(false)}
-              >
-                <FiX className="text-xl" />
-              </button>
+            <img
+              src={selectedWebsite.fullImage}
+              alt={selectedWebsite.title}
+              className="max-w-full max-h-[80vh] object-contain p-4 md:p-8"
+            />
+          </div>
 
-              {/* Fullscreen toggle */}
-              <button
-                className="absolute top-4 right-16 z-20 p-3 bg-[var(--current-nav)] rounded-full hover:bg-[var(--current-nav)]/80 transition-colors shadow-lg"
-                onClick={() => setIsFullscreen(!isFullscreen)}
-              >
-                {isFullscreen ? (
-                  <FiChevronDown className="text-xl" />
-                ) : (
-                  <FiChevronUp className="text-xl" />
-                )}
-              </button>
+          {/* Content column */}
+          <div
+            className={`flex-1 p-6 md:p-10 overflow-y-auto ${
+              isFullscreen ? "max-h-screen" : "max-h-[90vh]"
+            }`}
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <span className="px-4 py-1.5 bg-gradient-to-r from-primary to-secondary text-white rounded-full text-sm font-medium">
+                WEBSITE
+              </span>
+              <span className="text-sm opacity-70">{selectedWebsite.year}</span>
+            </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
-                {/* Image column */}
-                <div
-                  className={`relative ${
-                    isFullscreen ? "lg:h-full" : "h-96 lg:h-full"
-                  } bg-primary-dark`}
-                >
-                  <img
-                    src={selectedWebsite.fullImage}
-                    alt={selectedWebsite.title}
-                    className="w-full h-full object-contain p-8"
-                  />
-                </div>
+            <h3 className="text-2xl md:text-4xl font-bold mb-6">
+              {selectedWebsite.title}
+            </h3>
 
-                {/* Content column */}
-                <div
-                  className={`p-8 lg:p-10 overflow-y-auto ${
-                    isFullscreen ? "lg:h-screen" : "lg:h-[600px]"
-                  }`}
-                >
-                  <div className="flex items-center gap-3 mb-6">
-                    <span className="px-4 py-1.5 bg-gradient-to-r from-primary to-secondary text-white rounded-full text-sm font-medium">
-                      WEBSITE
-                    </span>
-                    <span className="text-sm opacity-70">
-                      {selectedWebsite.year}
-                    </span>
-                  </div>
+            <p className="text-base md:text-lg mb-8 leading-relaxed text-[var(--current-text)]/80">
+              {selectedWebsite.description}
+            </p>
 
-                  <h3 className="text-3xl lg:text-4xl font-bold mb-6">
-                    {selectedWebsite.title}
-                  </h3>
-                  <p className="text-lg mb-8 leading-relaxed">
-                    {selectedWebsite.description}
-                  </p>
-
-                  <div className="mb-10">
-                    <h4 className="font-semibold text-xl mb-4">
-                      Technology Stack
-                    </h4>
-                    <div className="flex flex-wrap gap-3">
-                      {selectedWebsite.stack.map((tech, index) => (
-                        <span
-                          key={index}
-                          className="px-4 py-2 bg-[var(--current-nav)] rounded-full text-sm font-medium"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="mb-10">
-                    <h4 className="font-semibold text-xl mb-4">Key Features</h4>
-                    <ul className="space-y-4">
-                      {selectedWebsite.features.map((feature, index) => (
-                        <li key={index} className="flex items-start">
-                          <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mr-4 mt-0.5 flex-shrink-0">
-                            <div className="w-2 h-2 bg-primary rounded-full"></div>
-                          </div>
-                          <span className="text-lg">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <a
-                    href={selectedWebsite.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-xl hover:opacity-90 transition-opacity text-lg font-medium shadow-lg"
+            {/* Stack section */}
+            <div className="mb-8">
+              <h4 className="font-semibold text-lg md:text-xl mb-4">
+                Technology Stack
+              </h4>
+              <div className="flex flex-wrap gap-3">
+                {selectedWebsite.stack.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="px-4 py-2 bg-[var(--current-nav)] rounded-full text-sm font-medium"
                   >
-                    Visit Live Site <FiExternalLink className="ml-3" />
-                  </a>
-                </div>
+                    {tech}
+                  </span>
+                ))}
               </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </div>
+
+            {/* Features section */}
+            <div className="mb-8">
+              <h4 className="font-semibold text-lg md:text-xl mb-4">
+                Key Features
+              </h4>
+              <ul className="space-y-4">
+                {selectedWebsite.features.map((feature, index) => (
+                  <li key={index} className="flex items-start">
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mr-4 mt-0.5 flex-shrink-0">
+                      <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    </div>
+                    <span className="text-base md:text-lg">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Visit Site Button */}
+            <a
+              href={selectedWebsite.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-xl hover:opacity-90 transition-opacity text-lg font-medium shadow-lg w-full md:w-auto"
+            >
+              Visit Live Site <FiExternalLink className="ml-3" />
+            </a>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
+
 
       {/* CTA Section - Premium Version */}
       <section className="py-28 bg-gradient-to-br from-primary to-secondary relative overflow-hidden">

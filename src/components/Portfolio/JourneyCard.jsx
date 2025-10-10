@@ -5,33 +5,32 @@ const JourneyCard = ({ project, alignRight }) => {
     <motion.div
       initial={{ opacity: 0, x: alignRight ? 100 : -100 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: "-50px" }} // Added margin to trigger animation sooner
+      viewport={{ once: false, amount: 0.2 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
       className={`flex flex-col md:flex-row ${
         alignRight ? "md:flex-row-reverse" : ""
-      } items-center gap-6 md:gap-10 my-12 md:my-20`} // Reduced gap and margin for mobile
+      } items-center gap-6 md:gap-10 my-16 md:my-32`} // Reduced gap on mobile
     >
-      {/* Image Section */}
-      <div className="w-full md:w-1/2">
+      {/* Image - Smaller on mobile */}
+      <div className="w-full md:w-1/2 relative">
         <div className="rounded-xl overflow-hidden shadow-neon hover:shadow-lg transition-all duration-300">
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-48 md:h-64 object-cover" // Added fixed height for consistency
+            className="w-full h-48 md:h-64 object-cover" // Fixed height on mobile, taller on desktop
           />
         </div>
       </div>
 
-      {/* Content Section */}
-      <div className="w-full md:w-1/2 text-[var(--current-text)] text-center md:text-left transition-colors duration-300 px-4"> {/* Added padding for mobile */}
-
-        <h3 className="text-xl md:text-3xl font-display font-semibold mb-3"> {/* Smaller text on mobile */}
+      {/* Content - Optimized for mobile */}
+      <div className="w-full md:w-1/2 relative z-10 text-[var(--current-text)] text-left transition-colors duration-300 px-4 md:px-0">
+        <h3 className="text-xl md:text-3xl font-display font-semibold mb-3"> {/* Smaller on mobile */}
           {project.title}
         </h3>
-        <p className="text-gray-400 mb-4 text-sm md:text-base leading-relaxed"> {/* Smaller text on mobile */}
+        <p className="text-gray-400 mb-4 text-sm md:text-base leading-relaxed"> {/* Smaller on mobile */}
           {project.description}
         </p>
-        <div className="text-xs md:text-sm text-gray-500 mb-4 md:mb-6 italic"> {/* Smaller text on mobile */}
+        <div className="text-xs md:text-sm text-gray-500 mb-4 md:mb-6 italic"> {/* Smaller on mobile */}
           {project.stack.join(" • ")}
         </div>
         {project.liveUrl && (
@@ -39,9 +38,9 @@ const JourneyCard = ({ project, alignRight }) => {
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-5 py-3 rounded-lg bg-primary text-white font-bold hover:shadow-lg hover:bg-primary/90 transition-all text-sm md:text-base w-full md:w-auto text-center" // Full width on mobile
+            className="inline-block px-6 py-3 rounded-lg bg-primary text-white font-bold hover:shadow-lg hover:bg-primary/90 transition-all w-full md:w-auto text-center" // Full width on mobile
           >
-            View Live Site
+            Visit Live Site
           </a>
         )}
       </div>
