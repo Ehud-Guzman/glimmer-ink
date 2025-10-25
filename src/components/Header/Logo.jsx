@@ -9,17 +9,18 @@ const Logo = () => (
     transition={{ duration: 0.5, delay: 0.2 }}
     whileHover={{
       scale: 1.05,
-      rotateZ: [0, -2, 2, -2, 0],
+      rotateZ: [0, -2, 2, -1, 0],
       transition: { duration: 0.6 },
     }}
+    className="flex items-center"
   >
-    <Link
-      to="/"
-      className="text-3xl font-bold tracking-tighter"
-      aria-label="GlimmerInk Home"
-    >
-      <span className="text-primary bg-clip-text bg-gradient-to-r">Glimmer</span>
-      <span className="text-secondary">Ink</span>
+    <Link to="/" aria-label="GlimmerInk Home" className="flex items-center gap-2">
+      <img
+        src="/images/GlimmerInk logo 1.png"
+        alt="GlimmerInk Creations Logo"
+        className="h-14 sm:h-16 md:h-18 w-auto object-contain select-none drop-shadow-md"
+        loading="lazy"
+      />
     </Link>
   </motion.div>
 );
