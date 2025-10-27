@@ -12,7 +12,7 @@ import services from "../data/servicesData"; // ⬅️ plug in your real data
 
 const HomePage = () => {
   return (
-    <div className="bg-[var(--current-bg)] text-[var(--current-text)]">
+    <div className="bg-[var(--current-bg)] text-[var(--current-text)] overflow-x-hidden w-full">
       <ChatBotBubble />
       <HeroSection />
       <DevJourneyShowcase />
