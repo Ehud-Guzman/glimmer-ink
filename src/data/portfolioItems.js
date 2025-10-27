@@ -7,16 +7,16 @@ export const portfolioItems = [
     year: "2023",
     images: ["/images/Offerings and Services.png"],
     description:
-      "Complete visual identity for luxury skincare brand including logo design, packaging system, and brand guidelines. We focused on creating a celestial-inspired aesthetic that conveys premium quality.",
-    client: "Celestia Cosmetics",
+      "Comprehensive brand identity development for a five-star coastal hotel. The project included logo design, visual system, and premium brand guidelines inspired by ocean hues and refined minimalism. The result conveys serenity, exclusivity, and timeless luxury across all guest touchpoints.",
+    client: "Celestia Five-Star Hotel",
     testimonial: {
       text: '"GlimmerInk transformed our brand with their exceptional design work. The new identity perfectly captures our premium positioning and has significantly boosted our market presence."',
       author: "Sarah Johnson, Marketing Director",
       rating: 5,
     },
     teamSize: 3,
-    clientLogo: "/images/client1.jpg",
-    previewImage: "/images/project1-preview.png",
+    clientLogo: "/images/2010634.webp",
+    previewImage: "/images/Offerings and Services.png",
     caseStudyLink: "#",
   },
   {
