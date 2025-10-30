@@ -55,8 +55,8 @@ const services = [
         title: "Designs",
         description: "Unique brand marks that capture your essence",
         images: [
-          "/images/Contacts.png",
-          "/images/Cover Page.png",
+          "/images/Contacts.webp",
+          "/images/Cover Page.webp",
           "/images/branding/logo-3.jpg"
         ],
         link: "/portfolio/logos",
