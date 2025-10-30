@@ -25,7 +25,7 @@ export const portfolioItems = [
     category: "print",
     tags: ["brochure", "poster", "program"],
     year: "2023",
-    images: ["/images/Zuri.png"],
+    images: ["/images/Zuri.webp"],
     description:
       "Complete print collateral for annual technology conference including attendee badges, program booklets, and wayfinding signage.",
     client: "Zuri Kids",
@@ -35,8 +35,8 @@ export const portfolioItems = [
       rating: 4,
     },
     teamSize: 2,
-    clientLogo: "/images/Zuri.png",
-    previewImage: "/images/Zuri.png",
+    clientLogo: "/images/Zuri.webp",
+    previewImage: "/images/Zuri.webp",
     caseStudyLink: "#",
   },
   {
