@@ -124,7 +124,41 @@ const Portfolio = () => {
         "Mobile-first design",
         "Contact forms",
       ],
-      year: "2024",
+      year: "2025",
+    },
+
+       {
+      id: 6,
+      title: "Njoroge and Partners Advocates",
+      description: "Website for a law firm",
+      thumbnail: "/images/njoro.png",
+      fullImage: "/images/njoro.png",
+      url: "https://njorolawfirm.netlify.app/",
+      stack: ["React", "Tailwind", "Stripe"],
+      features: [
+        "Product catalog",
+        "Subscription service",
+        "Mobile-first design",
+        "Contact forms",
+      ],
+      year: "2025",
+    },
+
+         {
+      id: 7,
+      title: "Premium Cars KE",
+      description: "Website for a car dealership",
+      thumbnail: "/images/premiumcars.png",
+      fullImage: "/images/premiumcars.png",
+      url: "https://premiumcarske.netlify.app/",
+      stack: ["React", "Tailwind", "Stripe"],
+      features: [
+        "Product catalog",
+        "Subscription service",
+        "Mobile-first design",
+        "Contact forms",
+      ],
+      year: "2025",
     },
 
   ];

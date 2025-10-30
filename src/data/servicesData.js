@@ -102,9 +102,9 @@ const services = [
         title: "Website Designs",
         description: "Responsive, conversion-focused websites",
         images: [
-          "/images/digital/website-1.jpg",
-          "/images/digital/website-2.jpg",
-          "/images/digital/website-3.jpg"
+          "/images/glimmerink.png",
+          "/images/sunshine.png",
+          "/images/vittorios.png"
         ],
         link: "/portfolio/websites",
         tags: ["web", "ui/ux", "development"]
@@ -113,8 +113,8 @@ const services = [
         title: "Mobile UI/UX",
         description: "Intuitive app interfaces",
         images: [
-          "/images/digital/mobile-1.jpg",
-          "/images/digital/mobile-2.jpg"
+          "/digital/adit-app.jpg",
+          "/digital/premium-website.jpg"
         ],
         link: "/portfolio/mobile",
         tags: ["mobile", "app", "ui/ux"]
