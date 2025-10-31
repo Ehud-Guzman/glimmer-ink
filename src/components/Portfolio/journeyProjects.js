@@ -19,7 +19,7 @@ export const journeyProjects = [
     title: "Export Import Marketing",
     description:
       "A sleek, professional site for an export-import business — optimized for speed and SEO.",
-    image: "/images/vittorios.png",
+    image: "/images/vittorios.webp",
     stack: ["React", "Vite", "Tailwind"],
     liveUrl: "https://vittoriostrades.com/",
   },
@@ -28,7 +28,7 @@ export const journeyProjects = [
     title: "School website",
     description:
       "A sleek, professional site for a school — optimized for speed and SEO.",
-    image: "/images/sunshine.png",
+    image: "/images/sunshine.webp",
     stack: ["React", "Vite", "Tailwind"],
     liveUrl: "https://sunshineshools.netlify.app/",
   },

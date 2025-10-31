@@ -6,9 +6,9 @@ export const portfolioItems = [
     tags: ["logo", "stationery", "guidelines"],
     year: "2023",
     images: [
-      "/images/Offerings and Services.png",
-      "/images/Offerings and Services.png",
-      "/images/Offerings and Services.png",
+      "/images/Offerings and Services.webp",
+      "/images/Offerings and Services.webp",
+      "/images/Offerings and Services.webp",
     ],
     description:
       "Comprehensive brand identity for Celestia, a luxury hotel chain. Included logo design, stationery, and brand guidelines to establish a cohesive and elegant visual presence.",

@@ -63,8 +63,8 @@ const Portfolio = () => {
       id: 2,
       title: "Vittorios Trades",
       description: "Website for cereals and grains",
-      thumbnail: "/images/vittorios.png",
-      fullImage: "/images/vittorios.png",
+      thumbnail: "/images/vittorios.webp",
+      fullImage: "/images/vittorios.webp",
       url: "https://vittoriostrades.com/",
       stack: ["React", "Tailwind", "Stripe"],
       features: [
@@ -114,8 +114,8 @@ const Portfolio = () => {
       id: 5,
       title: "Sunshine Schools",
       description: "Website for a school",
-      thumbnail: "/images/sunshine.png",
-      fullImage: "/images/sunshine.png",
+      thumbnail: "/images/sunshine.webp",
+      fullImage: "/images/sunshine.webp",
       url: "https://sunshineshools.netlify.app/",
       stack: ["React", "Tailwind", "Stripe"],
       features: [
@@ -148,8 +148,8 @@ const Portfolio = () => {
       id: 7,
       title: "Premium Cars KE",
       description: "Website for a car dealership",
-      thumbnail: "/images/premiumcars.png",
-      fullImage: "/images/premiumcars.png",
+      thumbnail: "/images/premiumcars.webp",
+      fullImage: "/images/premiumcars.webp",
       url: "https://premiumcarske.netlify.app/",
       stack: ["React", "Tailwind", "Stripe"],
       features: [

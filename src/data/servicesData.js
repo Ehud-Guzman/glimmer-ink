@@ -103,8 +103,8 @@ const services = [
         description: "Responsive, conversion-focused websites",
         images: [
           "/images/glimmerink.png",
-          "/images/sunshine.png",
-          "/images/vittorios.png"
+          "/images/sunshine.webp",
+          "/images/vittorios.webp"
         ],
         link: "/portfolio/websites",
         tags: ["web", "ui/ux", "development"]

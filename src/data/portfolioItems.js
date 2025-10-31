@@ -5,7 +5,7 @@ export const portfolioItems = [
     category: "branding",
     tags: ["logo", "stationery", "guidelines"],
     year: "2023",
-    images: ["/images/Offerings and Services.png"],
+    images: ["/images/Offerings and Services.webp"],
     description:
       "Comprehensive brand identity development for a five-star coastal hotel. The project included logo design, visual system, and premium brand guidelines inspired by ocean hues and refined minimalism. The result conveys serenity, exclusivity, and timeless luxury across all guest touchpoints.",
     client: "Celestia Five-Star Hotel",
@@ -16,7 +16,7 @@ export const portfolioItems = [
     },
     teamSize: 3,
     clientLogo: "/images/2010634.webp",
-    previewImage: "/images/Offerings and Services.png",
+    previewImage: "/images/Offerings and Services.webp",
     caseStudyLink: "#",
   },
   {
