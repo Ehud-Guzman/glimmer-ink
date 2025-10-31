@@ -148,7 +148,7 @@ const About = () => {
               >
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                   <img 
-                    src="/images/glimmerink.png" 
+                    src="/images/glimmerink.avif" 
                     alt="Our creative studio" 
                     className="w-full h-auto object-cover"
                   />

@@ -80,8 +80,8 @@ const Portfolio = () => {
       id: 3,
       title: "Adit Investments",
       description: "Website for Computer and accessories shop",
-      thumbnail: "/images/image.png",
-      fullImage: "/images/image.png",
+      thumbnail: "/images/image.avif",
+      fullImage: "/images/image.avif",
       url: "https://adit-investment.netlify.app/",
       stack: ["React", "Tailwind", "Stripe"],
       features: [

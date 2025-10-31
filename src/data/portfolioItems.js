@@ -45,7 +45,7 @@ export const portfolioItems = [
     category: "branding",
     tags: ["logo", "stationery", "guidelines"],
     year: "2023",
-    images: ["/images/Website_Charge_Sheet.png"],
+    images: ["/images/Website_Charge_Sheet.avif"],
     description:
       "Brand revamp for GlimmerInk’s internal design studio. We emphasized modular systems and futuristic visuals aligned with the dev-heavy pivot.",
     client: "GlimmerInk",

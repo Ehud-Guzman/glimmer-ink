@@ -3,7 +3,7 @@ export const journeyProjects = [
     title: "SmartMart eCommerce",
     description:
       "A fast, scalable eCommerce platform with M-Pesa, smart cart, and premium UI/UX.",
-    image: "/images/image.png", // Replace with your own
+    image: "/images/image.avif", // Replace with your own
     stack: ["React", "Tailwind", "Express", "MongoDB"],
     liveUrl: "https://adit-investment.netlify.app/",
   },
@@ -11,7 +11,7 @@ export const journeyProjects = [
     title: "GlimmerInk Studio",
     description:
       "My personal agency site built to convert — modern design, cloud integrations, and motion magic.",
-    image: "/images/glimmerink.png",
+    image: "/images/glimmerink.avif",
     stack: ["Vite", "Framer Motion", "Cloudinary"],
     liveUrl: "https://glimmerink.netlify.app/",
   },

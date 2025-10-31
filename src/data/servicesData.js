@@ -102,7 +102,7 @@ const services = [
         title: "Website Designs",
         description: "Responsive, conversion-focused websites",
         images: [
-          "/images/glimmerink.png",
+          "/images/glimmerink.avif",
           "/images/sunshine.webp",
           "/images/vittorios.webp"
         ],
