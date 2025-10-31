@@ -336,21 +336,30 @@ const Portfolio = () => {
                 transition={{ duration: 0.3 }}
                 className="bg-[var(--current-nav)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group"
               >
-                {/* A4 Aspect Ratio Container */}
-                <div
-                  className="relative w-full overflow-hidden bg-primary-dark cursor-pointer group"
-                  style={{ paddingBottom: "141.4%" }} // 1.414 aspect ratio for A4 portrait
-                  onClick={() =>
-                    setExpandedProject(
-                      expandedProject === project.id ? null : project.id
-                    )
-                  }
-                >
-                  <img
-                    src={project.images[0]}
-                    alt={project.title}
-                    className="absolute top-0 left-0 w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"
-                  />
+             {/* A4 Aspect Ratio Container */}
+<div
+  className="relative w-full overflow-hidden bg-primary-dark cursor-pointer group"
+  style={{ paddingBottom: "141.4%" }} // 1.414 aspect ratio for A4 portrait
+  onClick={() =>
+    setExpandedProject(
+      expandedProject === project.id ? null : project.id
+    )
+  }
+>
+  <img
+    src={project.images[0]}
+    srcSet={`
+      ${project.images[0].replace(".webp", "-480.webp")} 480w,
+      ${project.images[0].replace(".webp", "-800.webp")} 800w,
+      ${project.images[0].replace(".webp", "-1200.webp")} 1200w
+    `}
+    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 33vw"
+    alt={project.title}
+    loading="lazy"
+    decoding="async"
+    className="absolute top-0 left-0 w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"
+  />
+
 
                   {/* Overlay gradient with title and client */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
