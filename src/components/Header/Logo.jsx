@@ -15,12 +15,14 @@ const Logo = () => (
     className="flex items-center"
   >
     <Link to="/" aria-label="GlimmerInk Home" className="flex items-center gap-2">
-      <img
-        src="/images/GlimmerInk logo 1.webp"
-        alt="GlimmerInk Creations Logo"
-        className="h-14 sm:h-16 md:h-18 w-auto object-contain select-none drop-shadow-md"
-        loading="lazy"
-      />
+     <img 
+  src="/images/GlimmerInk logo 1.webp" 
+  alt="GlimmerInk Creations Logo" 
+  width="800" 
+  height="275"
+  class="h-14 sm:h-16 md:h-18 w-auto object-contain select-none drop-shadow-md" 
+  loading="lazy"
+></img>
     </Link>
   </motion.div>
 );
