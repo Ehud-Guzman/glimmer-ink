@@ -346,16 +346,11 @@ const Portfolio = () => {
                     )
                   }
                 >
-                <img
-  src={project.images[0]}
-  alt={project.title}
-  loading="lazy"
-  decoding="async"
-  width="800"
-  height="1131" // standard A4 aspect ratio
-  className="absolute top-0 left-0 w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"
-/>
-
+                  <img
+                    src={project.images[0]}
+                    alt={project.title}
+                    className="absolute top-0 left-0 w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"
+                  />
 
                   {/* Overlay gradient with title and client */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
