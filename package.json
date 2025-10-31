@@ -28,6 +28,7 @@
     "react-router-dom": "^7.6.0",
     "react-tsparticles": "^2.12.2",
     "react-use": "^17.6.0",
+    "sharp": "^0.34.4",
     "tinycolor2": "^1.6.0",
     "tsparticles": "^3.8.1",
     "workbox-window": "^7.3.0"

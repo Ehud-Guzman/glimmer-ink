@@ -20,7 +20,7 @@ export const portfolioItems = [
     },
     teamSize: 3,
     clientLogo: "",
-    previewImage: "/images/project1-preview.png",
+    previewImage: "/images/project1-preview.webp",
     caseStudyLink: "#",
   },
   // ... other portfolio items
@@ -53,8 +53,8 @@ export const websites = [
     title: "GlimmerInk Creations",
     description:
       "Premium interior design studio website with portfolio showcase",
-    thumbnail: "/images/Logo-thumbnail.png",
-    fullImage: "/images/GlimmerInk logo.png",
+    thumbnail: "/images/Logo-thumbnail.webp",
+    fullImage: "/images/GlimmerInk logo.webp",
     url: "https://glimmerink.netlify.app",
     stack: ["React", "Tailwind CSS", "Framer Motion"],
     features: [

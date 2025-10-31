@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const CTASection = () => {
   return (
     <section className="py-16 bg-gradient-to-br from-primary to-secondary relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10 bg-[url('/images/dots-pattern.png')] bg-[length:40px_40px]"></div>
+      <div className="absolute inset-0 opacity-10 bg-[url('/images/dots-pattern.webp')] bg-[length:40px_40px]"></div>
       <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
           Ready to start your project?

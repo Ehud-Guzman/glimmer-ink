@@ -241,7 +241,7 @@ const validateForm = () => {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-navy/60 to-black/40"></div>
           <motion.div
-            className="absolute inset-0 bg-[url('/images/printing-bg.jpg')] bg-cover bg-center"
+            className="absolute inset-0 bg-[url('/images/printing-bg.webp')] bg-cover bg-center"
             initial={{ scale: 1.2 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1.5, ease: [0.43, 0.13, 0.23, 0.96] }}

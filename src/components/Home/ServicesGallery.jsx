@@ -187,7 +187,7 @@ const ServicesGallery = ({ services }) => {
               >
                 <div className="aspect-square overflow-hidden">
                   <img
-                    src={category.items[0]?.images[0] || "/placeholder.png"}
+                    src={category.items[0]?.images[0] || "/placeholder.webp"}
                     alt={category.category}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
@@ -438,13 +438,13 @@ ServicesGallery.defaultProps = {
         {
           title: "EcoLife Rebrand",
           description: "Complete brand identity for sustainable products company",
-          images: ["/brand1.jpg", "/brand2.jpg", "/brand3.jpg"],
+          images: ["/brand1.webp", "/brand2.webp", "/brand3.webp"],
           tags: ["Logo Design", "Brand Guidelines", "Packaging"]
         },
         {
           title: "TechStart Logo",
           description: "Modern logo for tech startup",
-          images: ["/logo1.jpg"],
+          images: ["/logo1.webp"],
           tags: ["Logo Design"]
         }
       ]
@@ -455,13 +455,13 @@ ServicesGallery.defaultProps = {
         {
           title: "Fintech Dashboard",
           description: "User interface for financial analytics platform",
-          images: ["/web1.jpg", "/web2.jpg"],
+          images: ["/web1.webp", "/web2.webp"],
           tags: ["UI Design", "Dashboard", "Fintech"]
         },
         {
           title: "E-commerce Redesign",
           description: "Modern shopping experience redesign",
-          images: ["/ecom1.jpg"],
+          images: ["/ecom1.webp"],
           tags: ["UX/UI", "E-commerce"]
         }
       ]
@@ -472,13 +472,13 @@ ServicesGallery.defaultProps = {
         {
           title: "Fashion Magazine",
           description: "Editorial design for high-end fashion publication",
-          images: ["/print1.jpg", "/print2.jpg", "/print3.jpg"],
+          images: ["/print1.webp", "/print2.webp", "/print3.webp"],
           tags: ["Editorial", "Layout", "Typography"]
         },
         {
           title: "Event Brochure",
           description: "Promotional materials for tech conference",
-          images: ["/brochure1.jpg"],
+          images: ["/brochure1.webp"],
           tags: ["Brochure", "Print"]
         }
       ]
@@ -489,13 +489,13 @@ ServicesGallery.defaultProps = {
         {
           title: "Organic Tea Packaging",
           description: "Eco-friendly packaging for premium tea brand",
-          images: ["/pack1.jpg"],
+          images: ["/pack1.webp"],
           tags: ["Packaging", "Sustainable Design"]
         },
         {
           title: "Skincare Line",
           description: "Luxury packaging for skincare products",
-          images: ["/skincare1.jpg", "/skincare2.jpg"],
+          images: ["/skincare1.webp", "/skincare2.webp"],
           tags: ["Packaging", "Luxury"]
         }
       ]
@@ -506,13 +506,13 @@ ServicesGallery.defaultProps = {
         {
           title: "Character Series",
           description: "Set of characters for mobile game",
-          images: ["/illustration1.jpg", "/illustration2.jpg"],
+          images: ["/illustration1.webp", "/illustration2.webp"],
           tags: ["Digital Art", "Characters"]
         },
         {
           title: "Editorial Illustrations",
           description: "Illustrations for magazine articles",
-          images: ["/editorial1.jpg"],
+          images: ["/editorial1.webp"],
           tags: ["Editorial", "Digital"]
         }
       ]

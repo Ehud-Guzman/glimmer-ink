@@ -47,8 +47,8 @@ const Portfolio = () => {
       title: "GlimmerInk Creations",
       description:
         "Premium interior design studio website with portfolio showcase",
-      thumbnail: "/images/Logo-thumbnail.png",
-      fullImage: "/images/GlimmerInk logo.png",
+      thumbnail: "/images/Logo-thumbnail.webp",
+      fullImage: "/images/GlimmerInk logo.webp",
       url: "https://glimmerink.netlify.app",
       stack: ["React", "Tailwind CSS", "Framer Motion"],
       features: [
@@ -97,8 +97,8 @@ const Portfolio = () => {
       id: 4,
       title: "GlimmerHope Hospital",
       description: "Website for a healthcare provider",
-      thumbnail: "/images/glimmerhope1.png",
-      fullImage: "/images/glimmerhope1.png",
+      thumbnail: "/images/glimmerhope1.webp",
+      fullImage: "/images/glimmerhope1.webp",
       url: "https://glimmerhope.netlify.app/",
       stack: ["React", "Tailwind", "Stripe"],
       features: [
@@ -131,8 +131,8 @@ const Portfolio = () => {
       id: 6,
       title: "Njoroge and Partners Advocates",
       description: "Website for a law firm",
-      thumbnail: "/images/njoro.png",
-      fullImage: "/images/njoro.png",
+      thumbnail: "/images/njoro.webp",
+      fullImage: "/images/njoro.webp",
       url: "https://njorolawfirm.netlify.app/",
       stack: ["React", "Tailwind", "Stripe"],
       features: [
@@ -727,7 +727,7 @@ const Portfolio = () => {
 
       {/* CTA Section - Premium Version */}
       <section className="py-28 bg-gradient-to-br from-primary to-secondary relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('/images/dots-pattern.png')] bg-[length:40px_40px]"></div>
+        <div className="absolute inset-0 opacity-10 bg-[url('/images/dots-pattern.webp')] bg-[length:40px_40px]"></div>
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             Ready to start your project?

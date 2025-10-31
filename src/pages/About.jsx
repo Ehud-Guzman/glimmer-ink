@@ -11,7 +11,7 @@ const About = () => {
       name: 'Ehud Mwai',
       role: 'Founder & Creative Director',
       bio: 'Visionary leader merging traditional craftsmanship with digital innovation.',
-      image: '/images/Guzman.jpg',
+      image: '/images/Guzman.webp',
       social: {
         instagram: 'https://instagram.com/ehud_guzman',
         twitter: 'https://twitter.com/Glimmerink_',
@@ -412,7 +412,7 @@ const About = () => {
                     viewport={{ once: true }}
                   >
                     <img 
-                      src="/images/about/values-action.jpg" 
+                      src="/images/about/values-action.webp" 
                       alt="Our values in action" 
                       className="w-full h-auto object-cover"
                     />
