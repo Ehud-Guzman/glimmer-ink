@@ -204,57 +204,71 @@ const UltimateFooter = () => {
       {/* Main footer content */}
       <div className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-12 gap-12 relative z-10">
         
-        {/* Brand column */}
-        <motion.div 
-          className="md:col-span-4 space-y-6"
-          variants={item}
-        >
-          <motion.div 
-            className="flex items-center gap-3"
-            whileHover={{ x: 5 }}
-            transition={{ type: "spring" }}
-          >
-            <a href="/" className="text-3xl font-bold flex items-end">
-              <motion.span 
-                className="text-primary"
-                whileHover={{ y: -3 }}
-              >
-                {footerStructure.brand.logo.primary}
-              </motion.span>
-              <motion.span 
-                className="text-secondary"
-                whileHover={{ y: 3 }}
-              >
-                {footerStructure.brand.logo.secondary}
-              </motion.span>
-            </a>
-            <span className="text-xs uppercase tracking-widest opacity-60">
-              {footerStructure.brand.logo.tagline}
-            </span>
-          </motion.div>
-          
-          <p className="text-lg opacity-80 leading-relaxed">
-            {footerStructure.brand.description}
-          </p>
-          
-          <motion.div
-            className="relative group"
-            initial="rest"
-            whileHover="hover"
-            variants={hoverItem}
-          >
-            <motion.a
-              href={footerStructure.brand.cta.url}
-              className="inline-flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-medium transition-all duration-300 overflow-hidden"
-            >
-              <span className="absolute inset-0 bg-gradient-to-r from-primary-dark to-secondary-dark opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-              <span className="relative z-10 flex items-center gap-2">
-                <span className="block group-hover:hidden">{footerStructure.brand.cta.text}</span>
-                <span className="hidden group-hover:block">{footerStructure.brand.cta.hoverText}</span>
-              </span>
-            </motion.a>
-          </motion.div>
-        </motion.div>
+{/* Brand column */}
+<motion.div 
+  className="md:col-span-4 space-y-6"
+  variants={item}
+>
+  {/* Logo and tagline */}
+  <motion.div 
+    className="flex items-center gap-3"
+    whileHover={{ x: 5 }}
+    transition={{ type: "spring" }}
+  >
+    <a 
+      href="/" 
+      className="text-3xl font-bold flex items-end" 
+      aria-label="Glimmer Ink home page"
+    >
+      <motion.span 
+        className="text-primary"
+        whileHover={{ y: -3 }}
+        aria-hidden="true"
+      >
+        {footerStructure.brand.logo.primary}
+      </motion.span>
+      <motion.span 
+        className="text-secondary"
+        whileHover={{ y: 3 }}
+        aria-hidden="true"
+      >
+        {footerStructure.brand.logo.secondary}
+      </motion.span>
+    </a>
+    <span 
+      className="text-xs uppercase tracking-widest opacity-60" 
+      aria-label="Tagline"
+    >
+      {footerStructure.brand.logo.tagline}
+    </span>
+  </motion.div>
+  
+  {/* Description */}
+  <p className="text-lg opacity-80 leading-relaxed">
+    {footerStructure.brand.description}
+  </p>
+  
+  {/* Call-to-action button */}
+  <motion.div
+    className="relative group"
+    initial="rest"
+    whileHover="hover"
+    variants={hoverItem}
+  >
+    <motion.a
+      href={footerStructure.brand.cta.url}
+      className="inline-flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-medium transition-all duration-300 overflow-hidden"
+      aria-label={`${footerStructure.brand.cta.text} — ${footerStructure.brand.cta.hoverText}`}
+    >
+      <span className="absolute inset-0 bg-gradient-to-r from-primary-dark to-secondary-dark opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+      <span className="relative z-10 flex items-center gap-2">
+        <span className="block group-hover:hidden">{footerStructure.brand.cta.text}</span>
+        <span className="hidden group-hover:block">{footerStructure.brand.cta.hoverText}</span>
+      </span>
+    </motion.a>
+  </motion.div>
+</motion.div>
+
 
         {/* Navigation columns */}
         <motion.div 
@@ -438,7 +452,7 @@ const UltimateFooter = () => {
       d="M5 15l7-7 7 7"
     />
   </svg>
-</motion.button>
+
 
         <FiChevronUp size={20} />
       </motion.button>

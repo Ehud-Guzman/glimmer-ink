@@ -64,12 +64,14 @@ const HeroSection = () => {
           >
             View My Work
           </a>
-          <a
-            href="/contact"
-            className="px-8 py-4 border-2 border-primary text-primary rounded-xl font-bold hover:bg-primary/10 transition-all text-lg"
-          >
-            Start a Project
-          </a>
+        <a
+  href="/contact"
+  aria-label="Start a project with Glimmer Ink"
+  className="px-8 py-4 border-2 border-primary text-primary rounded-xl font-bold hover:bg-primary/10 transition-all text-lg focus:outline-none focus:ring-2 focus:ring-primary/70"
+>
+  Start a Project
+</a>
+
         </motion.div>
       </motion.div>
 
