@@ -8,7 +8,7 @@ const services = [
         title: "Event Posters",
         description: "Eye-catching designs for concerts, exhibitions, and special events",
         images: [
-          "/images/Zuri.png",
+          "/images/Zuri.webp",
           "/images/posters/event-2.jpg",
           "/images/posters/event-3.jpg"
         ],

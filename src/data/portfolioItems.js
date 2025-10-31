@@ -55,8 +55,8 @@ export const portfolioItems = [
       rating: 5,
     },
     teamSize: 4,
-    clientLogo: "/images/Zuri.png",
-    previewImage: "/images/Zuri.png",
+    clientLogo: "/images/Zuri.webp",
+    previewImage: "/images/Zuri.webp",
     caseStudyLink: "#",
   },
 
