@@ -412,17 +412,34 @@ const UltimateFooter = () => {
         </div>
       </motion.div>
 
-      {/* Back to top button */}
-      <motion.button
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-br from-primary to-secondary text-white rounded-full flex items-center justify-center shadow-xl hover:shadow-2xl transition-all backdrop-blur-sm z-50"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6 }}
-        whileHover={{ scale: 1.1, rotate: 5 }}
-        whileTap={{ scale: 0.9 }}
-        aria-label="Back to top"
-      >
+    {/* Back to top button */}
+<motion.button
+  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+  className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-br from-primary to-secondary text-white rounded-full flex items-center justify-center shadow-xl hover:shadow-2xl transition-all backdrop-blur-sm z-50"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.6 }}
+  whileHover={{ scale: 1.1, rotate: 5 }}
+  whileTap={{ scale: 0.9 }}
+  aria-label="Back to top"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="w-6 h-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    aria-hidden="true"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M5 15l7-7 7 7"
+    />
+  </svg>
+</motion.button>
+
         <FiChevronUp size={20} />
       </motion.button>
     </motion.footer>
