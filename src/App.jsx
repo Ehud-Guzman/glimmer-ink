@@ -4,10 +4,10 @@ import { Suspense, lazy } from "react";
 
 // Core Components
 import ScrollToTop from "@/components/ScrollToTop";
-import Header from "@/components/Header/Header"; // Assuming modularized Header folder
+import Header from "@/components/Header/Header";
 import UltimateFooter from "@/components/Footer/UltimateFooter";
-
 import LoadingSpinner from "@/components/LoadingSpinner";
+import AnalyticsTracker from "@/components/AnalyticsTracker";
 
 // Lazy-loaded Pages
 const HomePage = lazy(() => import("@/pages/HomePage"));
@@ -24,14 +24,17 @@ export default function App() {
     <HelmetProvider>
       <Router>
         <ScrollToTop />
+        <AnalyticsTracker /> {/* SPA GA tracking */}
+
         <div className="min-h-screen flex flex-col bg-white text-primary dark:bg-background-dark dark:text-text-light">
-          {/* Subtle Gradient Overlay */}
+          {/* Background gradients */}
           <div className="fixed inset-0 bg-gradient-to-r from-primary to-secondary opacity-10 z-[-1]" />
           <div className="fixed inset-0 bg-gradient-glass opacity-20 z-[-2]" />
 
-          {/* Shared Layout */}
+          {/* Header */}
           <Header />
 
+          {/* Main content */}
           <main className="flex-grow pt-16 lg:pt-20">
             <Suspense fallback={<LoadingSpinner />}>
               <Routes>
@@ -47,7 +50,8 @@ export default function App() {
             </Suspense>
           </main>
 
-        <UltimateFooter />
+          {/* Footer */}
+          <UltimateFooter />
         </div>
       </Router>
     </HelmetProvider>

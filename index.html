@@ -50,12 +50,11 @@
     <!-- Security + Performance -->
     <meta http-equiv="Content-Security-Policy" content="
       default-src 'self';
-      script-src 'self' https://cdn.jsdelivr.net https://api.emailjs.com 'unsafe-inline';
+      script-src 'self' https://cdn.jsdelivr.net https://api.emailjs.com 'unsafe-inline' https://www.googletagmanager.com;
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
       font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
       img-src 'self' data: https://glimmerink.netlify.app https://cdn.jsdelivr.net;
       connect-src 'self' https://api.emailjs.com;
-     
       upgrade-insecure-requests;
     ">
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
@@ -86,60 +85,49 @@
     </script>
 
     <title>GlimmerInk Creations</title>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7F9GC4PTFB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7F9GC4PTFB');
+    </script>
   </head>
 
   <body>
     <div id="root" role="main"></div>
 
-   <noscript>
-  <style>
-    body {
-      font-family: 'Inter', 'Space Grotesk', sans-serif;
-      background: #f9f9fb;
-      color: #1a1a1a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-      margin: 0;
-      padding: 0 1.5rem;
-    }
-    .noscript-container {
-      max-width: 480px;
-    }
-    .noscript-container h1 {
-      font-size: 1.75rem;
-      color: #6B46C1;
-      margin-bottom: 1rem;
-      letter-spacing: 0.5px;
-    }
-    .noscript-container p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #333;
-    }
-    .noscript-container a {
-      color: #6B46C1;
-      font-weight: 600;
-      text-decoration: none;
-      border-bottom: 1px solid #6B46C1;
-    }
-    .noscript-container a:hover {
-      opacity: 0.8;
-    }
-  </style>
-
-  <div class="noscript-container">
-    <h1>⚡ GlimmerInk Creations</h1>
-    <p>
-      Our digital canvas runs on JavaScript.<br/>
-      Please enable it to experience the full magic — or visit our
-      <a href="/static">static portfolio</a> instead.
-    </p>
-  </div>
-</noscript>
-
+    <noscript>
+      <style>
+        body {
+          font-family: 'Inter', 'Space Grotesk', sans-serif;
+          background: #f9f9fb;
+          color: #1a1a1a;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          text-align: center;
+          margin: 0;
+          padding: 0 1.5rem;
+        }
+        .noscript-container { max-width: 480px; }
+        .noscript-container h1 { font-size: 1.75rem; color: #6B46C1; margin-bottom: 1rem; letter-spacing: 0.5px; }
+        .noscript-container p { font-size: 1rem; line-height: 1.6; color: #333; }
+        .noscript-container a { color: #6B46C1; font-weight: 600; text-decoration: none; border-bottom: 1px solid #6B46C1; }
+        .noscript-container a:hover { opacity: 0.8; }
+      </style>
+      <div class="noscript-container">
+        <h1>⚡ GlimmerInk Creations</h1>
+        <p>
+          Our digital canvas runs on JavaScript.<br/>
+          Please enable it to experience the full magic — or visit our
+          <a href="/static">static portfolio</a> instead.
+        </p>
+      </div>
+    </noscript>
 
     <!-- Main React Entry -->
     <script type="module" src="/src/main.jsx" defer></script>
