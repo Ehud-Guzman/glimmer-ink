@@ -255,8 +255,8 @@ const validateForm = () => {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-primary">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-button-background">
                 Let's Create
               </span>{" "}
               Something Extraordinary
