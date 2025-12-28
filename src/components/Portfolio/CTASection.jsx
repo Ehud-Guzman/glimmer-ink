@@ -9,7 +9,7 @@ const CTASection = () => {
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
           Ready to start your project?
         </h2>
-        <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg text-primary mb-8 max-w-2xl mx-auto leading-relaxed">
           Let's create something extraordinary together
         </p>
         <div className="flex flex-wrap justify-center gap-4">
