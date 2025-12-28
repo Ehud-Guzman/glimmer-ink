@@ -17,9 +17,9 @@ export default function DesktopNav({ theme, toggleTheme }) {
           key={item.name}
           to={item.path}
           className={({ isActive }) =>
-            `text-sm font-medium transition duration-300 ease-in-out hover:text-accent ${
+            `text-sm font-medium transition duration-300 ease-in-out hover:text-primary ${
               isActive
-                ? "text-accent underline underline-offset-8"
+                ? "text-primary underline underline-offset-8"
                 : "text-secondary dark:text-gray-300"
             }`
           }
