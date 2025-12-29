@@ -99,15 +99,15 @@ const ContactPage = () => {
     },
     {
       icon: <FiExternalLink className="text-3xl" />,
-      title: "Branding Solutions",
+      title: "Cooporate websites",
       description:
-        "Complete branding packages including logo design, stationery, and brand guidelines.",
+        "Custom corporate websites designed to showcase your business and engage your audience.",
     },
     {
       icon: <FaStar className="text-3xl" />,
-      title: "Packaging Design",
+      title: "E-Commerce Websites",
       description:
-        "Custom packaging that protects your product while telling your brand story.",
+        "Custom e-commerce websites tailored to your business needs, optimized for conversions.",
     },
   ];
 
