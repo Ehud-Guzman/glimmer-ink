@@ -466,7 +466,7 @@ const ChatBotBubble = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-40">
+    <div className="fixed bottom-6 right-0 z-40">
       {open ? (
         <motion.div
           className="glass bg-[var(--current-bg)] w-80 rounded-2xl shadow-xl overflow-hidden"
