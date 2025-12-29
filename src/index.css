@@ -747,3 +747,4 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
     transform: rotate(360deg);
   }
 }
+
