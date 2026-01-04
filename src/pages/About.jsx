@@ -454,38 +454,14 @@ const About = () => {
             <div className="space-y-24">
               {[
                 {
-                  year: "2023",
-                  title: "GlimmerInk Founded",
-                  description: "Launched from a Nairobi garage with one printer and boundless ambition.",
-                  highlight: true
-                },
-                {
-                  year: "2023 Q3",
-                  title: "First Corporate Client",
-                  description: "Secured our first major corporate account, validating our hybrid approach.",
-                  highlight: false
-                },
-                {
-                  year: "2024",
-                  title: "Digital Expansion",
-                  description: "Added full digital design services to complement our print expertise.",
-                  highlight: true
-                },
-                {
-                  year: "2024 Q3",
-                  title: "Team Growth",
-                  description: "Expanded to a full creative team with specialized roles.",
-                  highlight: false
-                },
-                {
                   year: "2025",
-                  title: "Industry Recognition",
-                  description: "Received 'Emerging Creative Business of the Year' at the Design Awards.",
+                  title: "GlimmerInk Founded",
+                  description: "Launched a workshop.",
                   highlight: true
                 },
                 {
-                  year: "Future",
-                  title: "Regional Expansion",
+                  year: "2026",
+                  title: "Expansion and partnerships",
                   description: "Plans underway to establish creative hubs across East Africa.",
                   highlight: false
                 }
