@@ -65,6 +65,34 @@ const websiteData = {
             ],
           },
 
+
+              {
+            id: "sweet-layers-bakery",
+            title: "Sweet Layers Bakery",
+            status: "live",
+            showOnHome: true,
+            description:
+              "Modern bakery website showcasing products, services, and a delightful user experience with a focus on aesthetics and usability.",
+            year: "2026",
+            client: "Sweet Layers Bakery",
+            technologies: ["React", "Vite", "Tailwind CSS", "Netlify"],
+            liveUrl: "https://sweetlayerbakers.netlify.app/",
+            githubUrl: "https://github.com/YOUR-USERNAME/sweet-layers-bakery",
+            images: [
+              "/images/websites/sweetlayers/home.png",
+              "/images/websites/sweetlayers/order.png",
+              "/images/websites/sweetlayers/our-cakes.png",
+              "/images/websites/sweetlayers/story.png",
+            ],
+            features: [
+              "Premium hero sections + activity-focused layout",
+              "Home, Order, Our Cakes & Story pages",
+              "Mobile-first responsive design",
+              "SEO-ready meta + Open Graph sharing image",
+              "Booking inquiry flow (fast conversion path)",
+            ],
+          },
+
           {
             id: "luxe-garden-venue",
             title: "Luxe Garden — Garden Venue Website",
@@ -93,32 +121,7 @@ const websiteData = {
           },
 
           
-          {
-            id: "sweet-layers-bakery",
-            title: "Sweet Layers Bakery",
-            status: "live",
-            showOnHome: true,
-            description:
-              "Modern bakery website showcasing products, services, and a delightful user experience with a focus on aesthetics and usability.",
-            year: "2026",
-            client: "Sweet Layers Bakery",
-            technologies: ["React", "Vite", "Tailwind CSS", "Netlify"],
-            liveUrl: "https://sweetlayerbakers.netlify.app/",
-            githubUrl: "https://github.com/YOUR-USERNAME/sweet-layers-bakery",
-            images: [
-              "/images/websites/sweetlayers/home.png",
-              "/images/websites/sweetlayers/order.png",
-              "/images/websites/sweetlayers/our-cakes.png",
-              "/images/websites/sweetlayers/story.png",
-            ],
-            features: [
-              "Premium hero sections + activity-focused layout",
-              "Home, Order, Our Cakes & Story pages",
-              "Mobile-first responsive design",
-              "SEO-ready meta + Open Graph sharing image",
-              "Booking inquiry flow (fast conversion path)",
-            ],
-          },
+      
 
           {
             id: "sunshine-schools",
