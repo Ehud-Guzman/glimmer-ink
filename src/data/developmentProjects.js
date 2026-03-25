@@ -2,7 +2,7 @@ export const developmentProjects = [
   // =========================
   // FEATURED / STRONGEST FIRST
   // =========================
-
+/*
 {
   id: 4,
   title: "School Management System",
@@ -28,7 +28,7 @@ export const developmentProjects = [
   featured: true,
 },
 
-
+*/
 
   {
     id: 2,

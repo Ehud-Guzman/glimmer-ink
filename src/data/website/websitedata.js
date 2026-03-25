@@ -236,11 +236,13 @@ const websiteData = {
       // -------------------------
       // ✅ CATEGORY: Systems / Dashboards (FIXED)
       // -------------------------
+    
       {
         id: "systems",
         name: "Systems & Dashboards",
         description: "Dashboards, management systems, and platform UIs",
         projects: [
+          /*
           {
             id: "sms-dashboard",
             title: "School Management System Dashboard",
@@ -271,6 +273,8 @@ const websiteData = {
               "Progress tracking",
             ],
           },
+          */
+          
           {
             id: "customer-feedback-system",
             title: "Customer Feedback System (QR Surveys + Analytics)",
