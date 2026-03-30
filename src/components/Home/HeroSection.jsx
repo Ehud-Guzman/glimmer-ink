@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const HeroSection = () => {
   const fullText =
-    "I design and build premium websites, business systems, polished dashboards, and modern digital experiences for growing brands.";
+    "I  design and build premium websites, business systems, polished dashboards, and modern digital experiences for growing brands.";
   const typingSpeed = 28;
 
   // 🔒 Lock the first character so it never disappears
