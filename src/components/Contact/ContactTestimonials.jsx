@@ -11,7 +11,7 @@ const ContactTestimonials = () => {
       role: "Manager, Vittorious Trades.",
       content: "GlimmerInk delivered our web application ahead of schedule. Their attention to detail and communication were exceptional.",
       rating: 5,
-      project: "Normal Website",
+      project: "Starndard Business Website",
     },
     {
       name: "Major",

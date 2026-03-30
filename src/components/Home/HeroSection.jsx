@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const HeroSection = () => {
   const fullText =
-    "Weeb developer building fast websites and practical web apps for businesses and schools — clean UI, solid code, mobile-first.";
+    "Web developer building fast websites and practical web apps for businesses and schools — clean UI, solid code, mobile-first.";
   const typingSpeed = 28;
 
   // 🔒 Lock the first character so it never disappears
