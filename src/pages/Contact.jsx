@@ -3,10 +3,17 @@ import ContactForm from "../components/Contact/ContactForm";
 import ContactInfo from "../components/Contact/ContactInfo";
 import ContactTestimonials from "../components/Contact/ContactTestimonials";
 import ContactCTASection from "../components/Contact/ContactCTASection";
+import SEOHead from "../components/SEO/SEOHead";
 
 const Contact = () => {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
+      <SEOHead
+        title="Contact"
+        description="Contact GlimmerInk Creations to discuss your website, UI concept, or custom digital project in Nairobi and across Kenya."
+        path="/contact"
+      />
+
       {/* Hero Section */}
       <ContactHero />
       

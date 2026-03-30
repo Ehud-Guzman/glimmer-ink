@@ -8,6 +8,7 @@ import ProcessTimeline from "../components/Services/ProcessTimeline";
 import PricingModels from "../components/Services/PricingModels";
 import ServiceFAQs from "../components/Services/ServiceFAQs";
 import ServicesCTASection from "../components/Services/ServicesCTASection";
+import SEOHead from "../components/SEO/SEOHead";
 import {
   Code2,
   Palette,
@@ -149,6 +150,12 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
+      <SEOHead
+        title="Services"
+        description="Discover GlimmerInk services across websites, UI design, e-commerce, backend systems, and digital product development."
+        path="/services"
+      />
+
       <ServicesHero />
 
       <ServiceSelector />

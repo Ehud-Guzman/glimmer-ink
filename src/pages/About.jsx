@@ -4,10 +4,17 @@ import MissionValues from "../components/About/MissionValues";
 import HistoryTimeline from "../components/About/HistoryTimeline";
 
 import AboutCTASection from "../components/About/AboutCTASection";
+import SEOHead from "../components/SEO/SEOHead";
 
 const About = () => {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
+      <SEOHead
+        title="About"
+        description="Learn about GlimmerInk Creations, the studio behind premium websites, design-led digital experiences, and modern business systems."
+        path="/about"
+      />
+
       {/* Hero Section */}
       <AboutHero />
       
