@@ -51,7 +51,7 @@ const CodeBackground = () => {
 };
 
 const CTASection = () => {
-  const [hovered, setHovered] = useState(false);
+  const [, setHovered] = useState(false);
 
   const handleCTAClick = (ctaName) => {
     if (window.gtag) {
@@ -87,9 +87,9 @@ const CTASection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <span className="block text-text-light dark:text-text-dark">Ready to Build</span>
+            <span className="block text-text-light dark:text-text-dark">Need a website that feels</span>
             <span className="bg-gradient-to-r from-primary via-primary-light to-primary-dark dark:from-primary-light dark:via-primary dark:to-primary-dark bg-clip-text text-transparent">
-              Something Amazing?
+              polished, clear, and professional?
             </span>
           </motion.h2>
 
@@ -99,11 +99,13 @@ const CTASection = () => {
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            Let's transform your vision into a{" "}
+            If you want a cleaner online presence, a stronger portfolio presentation, or a
+            custom interface concept, let’s map out the best next step for your project and
+            turn it into a{" "}
             <span className="text-primary dark:text-primary-light font-semibold">
-              high-performance digital experience
+              focused digital experience
             </span>{" "}
-            that stands out and delivers results.
+            that looks credible and works well across devices.
           </motion.p>
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
@@ -116,7 +118,7 @@ const CTASection = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Start Your Project
+              Book a Project Chat
             </motion.a>
 
             <motion.a
@@ -127,7 +129,7 @@ const CTASection = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              See Examples
+              View My Work
             </motion.a>
           </div>
 
@@ -137,7 +139,7 @@ const CTASection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
-            {["React", "NextJS", "TypeScript", "Tailwind", "Node.js", "MongoDB"].map((tech, i) => (
+            {["Websites", "Dashboards", "Concept Builds", "Responsive UI", "Front-end Development", "SEO Basics"].map((tech, i) => (
               <motion.span
                 key={i}
                 className="px-4 py-2 rounded-lg text-sm border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
@@ -159,7 +161,7 @@ const CTASection = () => {
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
           >
-            <p>Response time: Within 24 hours • Free initial consultation</p>
+            <p>Free initial consultation • Usually replies within 24 hours</p>
           </motion.div>
         </motion.div>
       </div>

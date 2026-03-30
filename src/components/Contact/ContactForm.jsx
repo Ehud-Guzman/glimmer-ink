@@ -131,7 +131,7 @@ const ContactForm = ({ preset = null }) => {
 
       setSubmitStatus({
         type: "success",
-        message: "Thank you! We’ll respond within 24 hours.",
+        message: "Thanks for reaching out. I’ll usually reply within 24 hours.",
       });
 
       trackSubmit("success");
@@ -174,7 +174,7 @@ const ContactForm = ({ preset = null }) => {
           Let’s talk about your project
         </h2>
         <p className="text-gray-600 dark:text-gray-300 mt-2">
-          Share a few details and we’ll take it from there.
+          Share a few details and I’ll take it from there.
         </p>
       </div>
 
@@ -280,12 +280,12 @@ const ContactForm = ({ preset = null }) => {
               className={`${inputClass} ${preset ? "opacity-80 cursor-not-allowed" : ""}`}
             >
               <option value="">Select a service</option>
-              <option value="consulting">Consulting</option>
-              <option value="web-app">Web Application</option>
-              <option value="mobile-app">Mobile App</option>
-              <option value="ecommerce">E-Commerce</option>
+              <option value="website">Business Website</option>
+              <option value="system">Business System</option>
+              <option value="dashboard">Dashboard / Admin UI</option>
+              <option value="landing-page">Landing Page</option>
               <option value="ui-ux">UI / UX Design</option>
-              <option value="development-sprint">Development Sprint</option>
+              <option value="seo-improvement">SEO / Site Improvement</option>
               <option value="other">Other</option>
             </select>
           </div>
@@ -322,7 +322,7 @@ const ContactForm = ({ preset = null }) => {
               value={formData.message}
               onChange={handleChange}
               className={`${inputClass} resize-none ${errors.message ? errorClass : ""}`}
-              placeholder="Tell us about your project…"
+              placeholder="Tell me about your project, timeline, or what you want to improve…"
               required
             />
           </div>

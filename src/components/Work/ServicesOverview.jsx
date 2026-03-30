@@ -3,22 +3,22 @@ import { motion } from "framer-motion";
 const ServicesOverview = () => {
   const services = [
     {
-      title: "Web Application Development",
-      description: "Full-stack web applications with modern frameworks and responsive design",
+      title: "Business Websites",
+      description: "Professional websites designed to present services clearly, build trust, and support enquiries.",
       icon: "🌐",
-      tech: ["React", "Next.js", "Node.js", "TypeScript"],
+      tech: ["React", "Tailwind", "Responsive UI", "SEO Basics"],
     },
     {
-      title: "Mobile App Development",
-      description: "Cross-platform and native mobile applications for iOS and Android",
-      icon: "📱",
-      tech: ["React Native", "Flutter", "Swift", "Kotlin"],
+      title: "Dashboard Interfaces",
+      description: "Clean dashboard concepts and internal interfaces focused on usability, structure, and clarity.",
+      icon: "📊",
+      tech: ["React", "Vite", "Chart UI", "Role-based Layouts"],
     },
     {
       title: "Business Systems",
-      description: "Custom CRM, ERP, and management systems for enterprise needs",
+      description: "Practical system concepts for schools, legal teams, clinics, and other operational workflows.",
       icon: "💼",
-      tech: ["PostgreSQL", "GraphQL", "AWS", "Docker"],
+      tech: ["Node.js", "PostgreSQL", "GraphQL", "Prisma"],
     },
   ];
 
@@ -27,10 +27,10 @@ const ServicesOverview = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display">
-            Our Development Services
+            Core Project Focus
           </h2>
           <p className="text-lg text-text-muted dark:text-gray-300 max-w-2xl mx-auto">
-            Comprehensive solutions for digital transformation
+            The portfolio is centered around websites, systems, and polished front-end product builds.
           </p>
         </div>
 

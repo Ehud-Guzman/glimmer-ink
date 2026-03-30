@@ -60,23 +60,23 @@ const ContactHero = () => {
         </motion.div>
 
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display leading-tight">
-          Let&apos;s Create
+          Let&apos;s talk about your
           <span className="block text-primary dark:text-primary-light mt-2">
-            Together
+            website or system idea
           </span>
         </h1>
 
         <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto">
-          From concept to deployment, we transform your ideas into exceptional
-          digital experiences. Share your vision and let&apos;s build something amazing.
+          Whether you need a business website, a cleaner interface, or a systems-focused concept,
+          this is the place to start the conversation and outline the next step.
         </p>
 
         {/* Quick stats (trust-safe) */}
         <div className="flex flex-wrap justify-center gap-6 mt-10 mb-8">
           {[
-            { value: "24h", label: "Response Time" },
-            { value: "Client-first", label: "Build Approach" },
-            { value: "Quality", label: "Delivery Standard" },
+            { value: "24h", label: "Typical Reply Time" },
+            { value: "Clear", label: "Project Communication" },
+            { value: "Focused", label: "Web + Systems Work" },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}

@@ -3,22 +3,22 @@ import { motion } from "framer-motion";
 
 const steps = [
   {
-    title: "Plan & Scope",
-    description: "We align your vision with real tech possibilities through detailed discovery sessions and technical planning.",
-    icon: "📋",
-    details: ["Requirement Analysis", "Tech Stack Selection", "Timeline Planning"]
+    title: "Discover & Structure",
+    description: "We define the goal, audience, and content flow so the project feels clear before design and development begin.",
+    icon: "01",
+    details: ["Project direction", "Page structure", "Scope and priorities"]
   },
   {
-    title: "Build & Iterate",
-    description: "Agile development with continuous feedback loops ensuring the product evolves with your needs.",
-    icon: "🛠️",
-    details: ["Sprint Development", "Regular Demos", "Quality Assurance"]
+    title: "Design & Build",
+    description: "I create the interface, refine the details, and build the front end with a strong focus on clarity, polish, and responsiveness.",
+    icon: "02",
+    details: ["Visual design", "Responsive implementation", "QA and refinement"]
   },
   {
-    title: "Launch & Optimize",
-    description: "Deployment with performance optimization, analytics, and ongoing maintenance support.",
-    icon: "🚀",
-    details: ["Production Deployment", "Performance Tuning", "Post-Launch Support"]
+    title: "Launch & Improve",
+    description: "The final product is prepared for launch with performance checks, clean handoff, and room for future upgrades.",
+    icon: "03",
+    details: ["Deployment setup", "Performance pass", "Post-launch support"]
   },
 ];
 
@@ -49,7 +49,7 @@ const ProcessSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            A structured approach to transform ideas into exceptional digital products
+            A simple, transparent workflow that keeps projects clear, polished, and practical.
           </motion.p>
         </div>
 
@@ -74,7 +74,9 @@ const ProcessSection = () => {
                 </div>
                 
                 <div className="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-lg hover:shadow-xl transition-shadow h-full">
-                  <div className="text-5xl mb-4 text-center">{step.icon}</div>
+                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-2xl font-bold text-primary dark:bg-primary/20 dark:text-primary-light">
+                    {step.icon}
+                  </div>
                   
                   <h3 className="text-xl font-bold mb-3 text-center text-text-light dark:text-text-dark">
                     {step.title}
@@ -111,7 +113,7 @@ const ProcessSection = () => {
           <div className="inline-flex items-center gap-3 px-6 py-3 bg-primary/10 dark:bg-primary/20 rounded-full">
             <span className="text-primary dark:text-primary-light font-medium">Transparent Process</span>
             <span className="text-text-muted">•</span>
-            <span className="text-text-muted">Weekly Updates</span>
+            <span className="text-text-muted">Clear Milestones</span>
             <span className="text-text-muted">•</span>
             <span className="text-text-muted">Flexible Collaboration</span>
           </div>

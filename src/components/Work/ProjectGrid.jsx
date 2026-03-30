@@ -4,7 +4,8 @@ import SafeImage from "@/components/ui/SafeImage";
 
 const statusLabel = (status) => {
   if (!status) return null;
-  if (status === "demo") return "Demo";
+  if (status === "live") return "Live Project";
+  if (status === "demo") return "Concept Build";
   if (status === "in-progress") return "In Progress";
   return String(status);
 };
@@ -61,6 +62,12 @@ const ProjectGrid = ({ projects = [], onProjectSelect }) => {
               {!!project.description && (
                 <p className="text-text-muted dark:text-gray-300 text-sm mb-4 line-clamp-2">
                   {project.description}
+                </p>
+              )}
+
+              {!!project.client && (
+                <p className="text-xs text-text-muted dark:text-gray-400 mb-4 uppercase tracking-wide">
+                  {project.client}
                 </p>
               )}
 

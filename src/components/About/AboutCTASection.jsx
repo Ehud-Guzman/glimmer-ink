@@ -5,24 +5,24 @@ const AboutCTASection = () => {
   const actions = [
     {
       icon: Calendar,
-      title: "Schedule a Call",
-      description: "30-minute free consultation with our team",
-      button: "Book Now",
-      href: "#",
+      title: "Start a Project Chat",
+      description: "Use the contact page to share what you want to build.",
+      button: "Contact",
+      href: "/contact",
       primary: true,
     },
     {
       icon: MessageSquare,
-      title: "Chat with Us",
-      description: "Get quick answers to your questions",
-      button: "Start Chat",
-      href: "#",
+      title: "Send an Email",
+      description: "Reach out directly for questions, ideas, or collaboration.",
+      button: "Email",
+      href: "mailto:nyamuehud@gmail.com",
     },
     {
       icon: FileText,
-      title: "View Our Work",
-      description: "See examples of our development projects",
-      button: "Portfolio",
+      title: "View the Portfolio",
+      description: "See websites, systems, and concept projects in one place.",
+      button: "View Work",
       href: "/work",
     },
   ];
@@ -33,11 +33,11 @@ const AboutCTASection = () => {
                     rounded-3xl p-8 md:p-12 border border-primary/20 dark:border-primary/30">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Ready to Build Together?
+            Want to See What Comes Next?
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Let's discuss how GlimmerInk can help bring your vision to life with 
-            precision engineering and exceptional design.
+            If the direction behind GlimmerInk feels like a fit, the next step is simple:
+            explore the portfolio or start a conversation.
           </p>
         </div>
 
@@ -83,6 +83,8 @@ const AboutCTASection = () => {
                 
                 <a
                   href={action.href}
+                  target={action.href.startsWith("http") ? "_blank" : undefined}
+                  rel={action.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className={`inline-flex items-center gap-2 font-medium ${
                     action.primary
                       ? "text-white hover:text-white/90"
@@ -104,7 +106,7 @@ const AboutCTASection = () => {
               <div className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
                 Email
               </div>
-              <a href="nyamuehud@gmail.com" className="text-gray-900 dark:text-white 
+              <a href="mailto:nyamuehud@gmail.com" className="text-gray-900 dark:text-white 
                                                                hover:text-primary dark:hover:text-primary-light">
                 nyamuehud@gmail.com
               </a>
@@ -114,7 +116,7 @@ const AboutCTASection = () => {
                 Location
               </div>
               <div className="text-gray-900 dark:text-white">
-                Remote · Worldwide
+                Nairobi, Kenya · Remote-friendly
               </div>
             </div>
             <div>
@@ -132,11 +134,11 @@ const AboutCTASection = () => {
       {/* Final Note */}
       <div className="text-center mt-12 max-w-2xl mx-auto">
         <p className="text-gray-600 dark:text-gray-300 italic">
-          "We believe in building partnerships, not just projects. Every client relationship 
-          is an opportunity to create something exceptional together."
+          "GlimmerInk is still growing, but the standard stays the same: clear thinking,
+          clean execution, and work that feels genuinely presentable."
         </p>
         <p className="mt-4 font-medium text-gray-900 dark:text-white">
-          — The GlimmerInk Team
+          — Ehud Mwai
         </p>
       </div>
     </section>

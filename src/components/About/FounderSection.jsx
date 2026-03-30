@@ -1,15 +1,14 @@
 import { motion } from "framer-motion";
-import { Quote, Linkedin, Twitter, Github, Mail } from "lucide-react";
+import { Quote, Linkedin, Twitter, Mail } from "lucide-react";
 
 const FounderSection = () => {
   const socialLinks = [
-    { icon: Linkedin, label: "LinkedIn", href: "#" },
-    { icon: Twitter, label: "Twitter", href: "#" },
-    { icon: Github, label: "GitHub", href: "#" },
-    { icon: Mail, label: "Email", href: "mailto:ehud@glimmerink.com" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/glimmerink" },
+    { icon: Twitter, label: "Twitter", href: "https://twitter.com/GlimmerInk_" },
+    { icon: Mail, label: "Email", href: "mailto:nyamuehud@gmail.com" },
   ];
 
-  const founderQuote = "We don't just deliver software; we deliver results that move the needle. Every line of code we write is driven by precision, performance, and purpose.";
+  const founderQuote = "I care about making digital work feel clear, polished, and genuinely useful, not just visually impressive.";
 
   return (
     <section className="py-16 px-6 max-w-7xl mx-auto">
@@ -24,7 +23,7 @@ const FounderSection = () => {
           <div className="mb-6">
             <span className="inline-block px-4 py-1 bg-primary/10 dark:bg-primary/20 
                            rounded-full text-sm font-medium text-primary dark:text-primary-light">
-              Founder & CEO
+              Founder
             </span>
           </div>
 
@@ -33,16 +32,14 @@ const FounderSection = () => {
           </h2>
           
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-            Hi, I'm Ehud, the founder and CEO of GlimmerInk. My journey in software development 
-            began with a passion for solving complex problems through elegant code. Over the years, 
-            I've worked on everything from small business websites to enterprise applications, 
-            always focusing on performance, scalability, and user experience.
+            I'm Ehud, the developer behind GlimmerInk. I focus on building websites, interface concepts,
+            and business system ideas that feel clean, modern, and practical for real-world use.
           </p>
 
           <p className="text-gray-600 dark:text-gray-300 mb-8">
-            I started GlimmerInk with a clear vision: to create a development studio that 
-            prioritizes quality over quantity, and builds lasting partnerships with our clients. 
-            Today, I lead a team of talented developers who share this commitment to excellence.
+            GlimmerInk is currently a personal portfolio brand at an early growth stage. It gives me
+            a focused space to present my work honestly, improve my craft, and build a strong foundation
+            around premium websites and systems-oriented projects.
           </p>
 
           {/* Expertise */}
@@ -51,8 +48,8 @@ const FounderSection = () => {
               Areas of Expertise
             </h4>
             <div className="flex flex-wrap gap-2">
-              {["Web Architecture", "Scalable Systems", "UI/UX", "Cloud Infrastructure", 
-                "Mobile Development", "API Design", "DevOps", "Team Leadership"].map((skill, index) => (
+              {["Business Websites", "Dashboard UI", "System Concepts", "Responsive Front-end",
+                "UI Structure", "React Development", "Portfolio Design", "SEO Basics"].map((skill) => (
                 <span key={skill} className="px-3 py-1.5 bg-white dark:bg-gray-800 
                            border border-gray-200 dark:border-gray-700 rounded-full text-sm">
                   {skill}
@@ -73,6 +70,8 @@ const FounderSection = () => {
                   <a
                     key={link.label}
                     href={link.href}
+                    target={link.href.startsWith("http") ? "_blank" : undefined}
+                    rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                     className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 
                              border border-gray-200 dark:border-gray-700 rounded-lg 
                              hover:border-primary dark:hover:border-primary-light 
@@ -109,7 +108,7 @@ const FounderSection = () => {
                   Ehud Mwai
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 text-center">
-                  Founder & CEO, GlimmerInk Creations
+                  Founder, GlimmerInk Creations
                 </p>
               </div>
             </div>

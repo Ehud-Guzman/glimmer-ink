@@ -3,8 +3,8 @@ import { Code2, Sparkles, Cpu, Globe, Database, Smartphone } from 'lucide-react'
 
 const WorkHero = () => {
   const technologies = [
-    "React.js", "Next.js", "TypeScript", "Node.js", "Tailwind CSS", 
-    "Firebase", "MongoDB", "AWS", "GraphQL", "Python"
+    "React.js", "Node.js", "Tailwind CSS", "MongoDB", "PostgreSQL",
+    "GraphQL", "Prisma", "Express", "Vite", "Responsive UI"
   ];
 
   return (
@@ -35,44 +35,40 @@ const WorkHero = () => {
           <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-primary/10 dark:bg-primary/20 rounded-full">
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-primary dark:text-primary-light">
-              Web Development Studio
+              Websites + Business Systems
             </span>
           </div>
 
-       <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display leading-tight">
-  We Build Digital
-  <span className="block text-primary mt-2">
-    Experiences That Convert
-  </span>
-</h1>
-
- 
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display leading-tight">
+            Selected work across
+            <span className="block text-primary mt-2">
+              websites, systems, and UI builds
+            </span>
+          </h1>
 
           <p className="text-lg text-text-muted dark:text-gray-300 mb-8 leading-relaxed">
-            From concept to deployment, we create scalable web applications, 
-            high-performance mobile apps, and robust business systems using 
-            modern technologies and clean architecture principles.
+            This page brings together live client work, polished concept builds, and interface-led
+            system projects that show how I approach structure, usability, and practical execution.
           </p>
 
-       {/* Stats */}
-<div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-  <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
-    <div className="text-2xl font-bold text-primary">Client-first</div>
-    <div className="text-sm text-gray-600 dark:text-gray-400">Build Approach</div>
-  </div>
-  <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
-    <div className="text-2xl font-bold text-primary">Fast</div>
-    <div className="text-sm text-gray-600 dark:text-gray-400">Delivery Cycles</div>
-  </div>
-  <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
-    <div className="text-2xl font-bold text-primary">Clean</div>
-    <div className="text-sm text-gray-600 dark:text-gray-400">UI & UX</div>
-  </div>
-  <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
-    <div className="text-2xl font-bold text-primary">Scalable</div>
-    <div className="text-sm text-gray-600 dark:text-gray-400">Systems</div>
-  </div>
-</div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+            <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
+              <div className="text-2xl font-bold text-primary">Live</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Client Website</div>
+            </div>
+            <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
+              <div className="text-2xl font-bold text-primary">Concept</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Case Studies</div>
+            </div>
+            <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
+              <div className="text-2xl font-bold text-primary">Clean</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">UI & UX</div>
+            </div>
+            <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
+              <div className="text-2xl font-bold text-primary">Systems</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Focused Builds</div>
+            </div>
+          </div>
 
 
           {/* Tech Stack Badges */}
@@ -112,7 +108,7 @@ const WorkHero = () => {
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
-                <span className="text-gray-400 font-mono text-sm ml-3">portfolio.jsx</span>
+                <span className="text-gray-400 font-mono text-sm ml-3">work-showcase.jsx</span>
               </div>
               <div className="flex items-center gap-4">
                 <Code2 className="w-4 h-4 text-gray-500" />
@@ -154,9 +150,9 @@ const WorkHero = () => {
                     <span className="text-gray-300">{`<`}</span>
                     <span className="text-green-400">Project</span>
                     <span className="text-gray-400"> title=</span>
-                    <span className="text-yellow-300">"E-Commerce Platform"</span>
+                    <span className="text-yellow-300">"Business Website"</span>
                     <span className="text-gray-400"> tech=</span>
-                    <span className="text-yellow-300">"[Next.js, Stripe]"</span>
+                    <span className="text-yellow-300">"[React, Tailwind]"</span>
                     <span className="text-gray-300"> /{`>`}</span>
                   </div>
                   
@@ -164,9 +160,9 @@ const WorkHero = () => {
                     <span className="text-gray-300">{`<`}</span>
                     <span className="text-green-400">Project</span>
                     <span className="text-gray-400"> title=</span>
-                    <span className="text-yellow-300">"SaaS Dashboard"</span>
+                    <span className="text-yellow-300">"School System UI"</span>
                     <span className="text-gray-400"> tech=</span>
-                    <span className="text-yellow-300">"[React, GraphQL]"</span>
+                    <span className="text-yellow-300">"[React, PostgreSQL]"</span>
                     <span className="text-gray-300"> /{`>`}</span>
                   </div>
                   
@@ -174,7 +170,7 @@ const WorkHero = () => {
                     <span className="text-gray-300">{`<`}</span>
                     <span className="text-green-400">TechStack</span>
                     <span className="text-gray-400"> items=</span>
-                    <span className="text-yellow-300">"[React, Node, AWS]"</span>
+                    <span className="text-yellow-300">"[React, Node, Prisma]"</span>
                     <span className="text-gray-300"> /{`>`}</span>
                   </div>
                 </div>
@@ -202,7 +198,7 @@ const WorkHero = () => {
                 <span>JavaScript React</span>
               </div>
               <div>
-                <span className="text-green-400">✓ All checks passed</span>
+                <span className="text-green-400">✓ Portfolio ready</span>
               </div>
             </div>
           </div>

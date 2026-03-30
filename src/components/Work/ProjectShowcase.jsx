@@ -2,6 +2,13 @@ import { motion } from "framer-motion";
 import { developmentProjects } from "@/data/developmentProjects";
 import SafeImage from "@/components/ui/SafeImage";
 
+const statusLabel = (status) => {
+  if (status === "live") return "Live project";
+  if (status === "demo") return "Concept build";
+  if (status === "in-progress") return "In progress";
+  return null;
+};
+
 const ProjectShowcase = ({ onProjectSelect }) => {
   const featuredProjects = (developmentProjects || []).slice(0, 3);
 
@@ -10,10 +17,10 @@ const ProjectShowcase = ({ onProjectSelect }) => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display">
-            Featured Projects
+            Selected Work
           </h2>
           <p className="text-lg text-text-muted dark:text-gray-300 max-w-2xl mx-auto">
-            Showcasing our latest and most impactful development work
+            A quick look at the mix of live work, concept builds, and systems-focused projects in the portfolio.
           </p>
         </div>
 
@@ -30,6 +37,11 @@ const ProjectShowcase = ({ onProjectSelect }) => {
                   alt={project.title || "Project thumbnail"}
                   className="w-full h-full object-contain p-4"
                 />
+                {statusLabel(project.status) && (
+                  <div className="absolute top-4 left-4 bg-primary/90 text-white px-3 py-1 rounded-full text-xs font-medium shadow">
+                    {statusLabel(project.status)}
+                  </div>
+                )}
                 {!!project.type && (
                   <div className="absolute top-4 right-4 bg-white dark:bg-gray-700 px-3 py-1 rounded-full text-xs font-medium shadow">
                     {project.type}

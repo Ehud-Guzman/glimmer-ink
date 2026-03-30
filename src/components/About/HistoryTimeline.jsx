@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Calendar, Code, Rocket, Users, Star, TrendingUp } from "lucide-react";
+import { Calendar, Code, Rocket, TrendingUp } from "lucide-react";
 
 const HistoryTimeline = () => {
   const milestones = [
@@ -7,23 +7,23 @@ const HistoryTimeline = () => {
       year: "2025",
       quarter: "Q1",
       title: "Foundation",
-      description: "GlimmerInk founded by Ehud Mwai with a focus on premium web development.",
+      description: "GlimmerInk was established as a portfolio brand focused on premium websites and systems-oriented work.",
       icon: Calendar,
       highlight: true,
     },
     {
       year: "2025",
       quarter: "Q3",
-      title: "First Major Project",
-      description: "Successfully delivered an online platform for a startup.",
+      title: "Portfolio Direction",
+      description: "The work sharpened around business websites, dashboard interfaces, and concept-driven case studies.",
       icon: Code,
     },
    
     {
       year: "2026",
       quarter: "Q1",
-      title: "System Development Launch",
-      description: "Launched School Management System for educational institutions.",
+      title: "Systems Focus",
+      description: "System concepts for schools, healthcare, legal practice, and feedback workflows became a stronger part of the portfolio.",
       icon: Rocket,
     },
     
@@ -32,7 +32,7 @@ const HistoryTimeline = () => {
       year: "Present",
       quarter: "Now",
       title: "Growth Phase",
-      description: "Helping businesses and institutions build, optimize, and scale their digital presence.",
+      description: "Continuing to refine the portfolio, improve execution quality, and build toward more real-world client systems and websites.",
       icon: TrendingUp,
     },
   ];
@@ -41,10 +41,10 @@ const HistoryTimeline = () => {
     <section className="py-16 px-6 max-w-7xl mx-auto">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          Our Journey
+          The Journey So Far
         </h2>
         <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          From a single developer to a trusted development studio
+          A realistic look at how GlimmerInk has taken shape so far.
         </p>
       </div>
 
@@ -137,10 +137,9 @@ const HistoryTimeline = () => {
             Where We Are Today
           </h3>
           <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            Today, GlimmerInk has evolved into a development-first studio specializing in 
-            web applications, mobile apps, automation, and interactive systems. We continue 
-            to bridge the gap between robust engineering and meaningful user experiences, 
-            ensuring that every solution we deliver doesn't just look good—it works brilliantly.
+            Today, GlimmerInk is still early in its journey, but the direction is clear:
+            build better websites, stronger system concepts, and more professional digital experiences
+            with each project. The focus is on steady growth, sharper execution, and honest progress.
           </p>
         </div>
       </motion.div>

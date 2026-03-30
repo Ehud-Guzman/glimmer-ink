@@ -43,6 +43,8 @@ export const developmentProjects = [
     category: "web",
     year: "2024",
     type: "Business Website",
+    status: "live",
+    client: "Live client website",
   },
 
    {
@@ -55,10 +57,11 @@ export const developmentProjects = [
     url: "https://sunshineshools.netlify.app/",
     stack: ["React", "Tailwind CSS", "Vite"],
     features: ["Performance overview", "Teacher views", "Responsive layout"],
-    category: "web",
+    category: "system",
     year: "2025",
     type: "Education Dashboard",
     status: "demo",
+    client: "Concept build",
   },
 
   {
@@ -74,6 +77,8 @@ export const developmentProjects = [
     category: "web",
     year: "2024",
     type: "E-commerce Website",
+    status: "demo",
+    client: "Portfolio concept",
   },
 
   // =========================
@@ -95,6 +100,7 @@ export const developmentProjects = [
     year: "2024",
     type: "Healthcare System",
     status: "demo", // removes legal risk
+    client: "Concept build",
   },
 
   {
@@ -110,6 +116,8 @@ export const developmentProjects = [
     category: "web",
     year: "2023",
     type: "Portfolio Website",
+    status: "live",
+    client: "Internal portfolio project",
   },
 
  
@@ -128,6 +136,7 @@ export const developmentProjects = [
     year: "2025",
     type: "Legal Practice System",
     status: "demo",
+    client: "Concept build",
   },
 
   // =========================
@@ -151,7 +160,7 @@ export const developmentProjects = [
 
 export const workCategories = [
   { id: "all", label: "All Projects" },
-  { id: "web", label: "Web Applications" },
+  { id: "web", label: "Websites & Front-end" },
   { id: "system", label: "Business Systems" },
   // Keep app only when you actually add mobile projects
   // { id: "app", label: "Mobile Apps" },

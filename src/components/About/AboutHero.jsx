@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { Sparkles, Target, Users, Award } from "lucide-react";
+import { Sparkles, Target, Briefcase, Layers } from "lucide-react";
 
 const AboutHero = () => {
   const stats = [
-    { icon: Target, value: "10+", label: "Projects Completed" },
-   
-    { icon: Award, value: "24/7", label: "Support" },
+    { icon: Target, value: "1", label: "Live Client Website" },
+    { icon: Briefcase, value: "Portfolio", label: "Concept Case Studies" },
+    { icon: Layers, value: "Web + Systems", label: "Project Focus" },
     { icon: Sparkles, value: "2025", label: "Founded" },
   ];
 
@@ -37,21 +37,21 @@ const AboutHero = () => {
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 dark:bg-primary/20 rounded-full">
             <Sparkles className="w-4 h-4 text-primary dark:text-primary-light" />
             <span className="text-sm font-medium text-primary dark:text-primary-light">
-              Our Story
+              About GlimmerInk
             </span>
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display leading-tight">
-            Building Digital
+            Building a focused
             <span className="block text-primary dark:text-primary-light mt-2">
-              Excellence Since 2025
+              portfolio in websites and systems
             </span>
           </h1>
           
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-            GlimmerInk was born from a vision to create seamless, intelligent, 
-            and high-performing digital solutions that make a real impact. 
-            We bridge the gap between robust engineering and meaningful user experiences.
+            GlimmerInk is an early-stage portfolio brand by Ehud Mwai, focused on crafting
+            clean business websites, practical systems, and polished interface concepts with
+            a professional, design-conscious feel.
           </p>
 
           {/* Stats */}
@@ -102,10 +102,10 @@ const AboutHero = () => {
                     <span className="text-4xl font-bold text-white">GM</span>
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    GlimmerInk Team
+                    GlimmerInk Creations
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300">
-                    Development studio crafting exceptional digital experiences
+                    A personal portfolio brand focused on websites, systems, and thoughtful UI work
                   </p>
                 </div>
               </div>
@@ -119,7 +119,7 @@ const AboutHero = () => {
                         border border-gray-200 dark:border-gray-700 shadow-lg"
             >
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary dark:text-primary-light">15+</div>
+                <div className="text-2xl font-bold text-primary dark:text-primary-light">Web</div>
                 <div className="text-xs text-gray-600 dark:text-gray-400">Projects</div>
               </div>
             </motion.div>
@@ -130,7 +130,10 @@ const AboutHero = () => {
               className="absolute -bottom-4 -left-4 p-4 bg-white dark:bg-gray-800 rounded-xl 
                         border border-gray-200 dark:border-gray-700 shadow-lg"
             >
-           
+              <div className="text-center">
+                <div className="text-2xl font-bold text-primary dark:text-primary-light">Systems</div>
+                <div className="text-xs text-gray-600 dark:text-gray-400">Focus</div>
+              </div>
             </motion.div>
           </div>
         </motion.div>

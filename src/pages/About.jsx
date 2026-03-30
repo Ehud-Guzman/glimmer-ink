@@ -11,7 +11,7 @@ const About = () => {
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
       <SEOHead
         title="About"
-        description="Learn about GlimmerInk Creations, the studio behind premium websites, design-led digital experiences, and modern business systems."
+        description="Learn about GlimmerInk Creations, an early-stage portfolio brand focused on premium websites, business systems, and polished digital experiences."
         path="/about"
       />
 
@@ -37,17 +37,16 @@ const About = () => {
         <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 
                       border border-gray-200 dark:border-gray-700">
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-            Our Commitment to You
+            A Clear Standard
           </h3>
           <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-            At GlimmerInk, we're more than just developers—we're problem solvers, 
-            innovators, and partners in your success. We combine technical expertise 
-            with creative thinking to deliver solutions that not only meet your 
-            requirements but exceed your expectations.
+            GlimmerInk may be early in its journey, but the standard is already set:
+            build work that feels clean, credible, and carefully considered. The goal is to
+            keep improving with every project while presenting the work honestly and professionally.
           </p>
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 dark:bg-primary/20 
                         rounded-full text-sm font-medium text-primary dark:text-primary-light">
-            Let's build something amazing together
+            Progress with purpose
           </div>
         </div>
       </section>

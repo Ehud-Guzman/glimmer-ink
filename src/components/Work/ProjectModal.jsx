@@ -4,6 +4,13 @@ import SafeImage from "@/components/ui/SafeImage";
 
 const isValidExternalUrl = (url) => typeof url === "string" && /^https?:\/\//i.test(url);
 
+const statusLabel = (status) => {
+  if (status === "live") return "Live project";
+  if (status === "demo") return "Concept build";
+  if (status === "in-progress") return "In progress";
+  return null;
+};
+
 const ProjectModal = ({ project, isOpen, onClose }) => {
   if (!isOpen || !project) return null;
 
@@ -49,16 +56,29 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
 
             <div className="p-8 overflow-y-auto">
               <div className="mb-6">
-                {!!project.type && (
-                  <span className="inline-block px-3 py-1 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light rounded-full text-sm font-medium mb-3">
-                    {project.type}
-                  </span>
-                )}
+                <div className="flex flex-wrap items-center gap-2 mb-3">
+                  {!!project.type && (
+                    <span className="inline-block px-3 py-1 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light rounded-full text-sm font-medium">
+                      {project.type}
+                    </span>
+                  )}
+                  {statusLabel(project.status) && (
+                    <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-text-light dark:text-text-dark rounded-full text-sm font-medium">
+                      {statusLabel(project.status)}
+                    </span>
+                  )}
+                </div>
 
                 <h3 className="text-2xl font-bold mb-2">{project.title || "Untitled Project"}</h3>
 
                 {!!project.description && (
                   <p className="text-text-muted dark:text-gray-300 mb-4">{project.description}</p>
+                )}
+
+                {!!project.client && (
+                  <p className="text-sm text-text-muted dark:text-gray-400 mb-4">
+                    {project.client}
+                  </p>
                 )}
               </div>
 
@@ -99,7 +119,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors font-medium"
                 >
-                  Visit Live Project
+                  {project.status === "live" ? "Visit Live Project" : "View Project Demo"}
                   <FiExternalLink className="text-lg" />
                 </a>
               )}

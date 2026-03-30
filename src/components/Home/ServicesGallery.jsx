@@ -24,7 +24,6 @@ const ServicesGallery = ({ mode = "full" }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const [isMasonryView, setIsMasonryView] = useState(true);
-  const [filteredCategories, setFilteredCategories] = useState([]);
 
   const lightboxRef = useRef(null);
 
@@ -44,18 +43,16 @@ const ServicesGallery = ({ mode = "full" }) => {
     return { ...raw, categories };
   }, [mode]);
 
-  // Filter categories based on search query
-  useEffect(() => {
+  const filteredCategories = useMemo(() => {
     const cats = developmentData.categories || [];
 
     if (!searchQuery.trim()) {
-      setFilteredCategories(cats);
-      return;
+      return cats;
     }
 
     const query = searchQuery.toLowerCase();
 
-    const filtered = cats.filter((category) => {
+    return cats.filter((category) => {
       const name = (category.name || "").toLowerCase();
       const desc = (category.description || "").toLowerCase();
 
@@ -72,8 +69,6 @@ const ServicesGallery = ({ mode = "full" }) => {
 
       return categoryMatch || projectMatch;
     });
-
-    setFilteredCategories(filtered);
   }, [searchQuery, developmentData]);
 
   const openLightbox = (project, imgIndex = 0) => {
@@ -83,12 +78,10 @@ const ServicesGallery = ({ mode = "full" }) => {
 
     setLightboxProject(project);
     setCurrentImageIndex(imgIndex);
-    document.body.style.overflow = "hidden";
   };
 
   const closeLightbox = () => {
     setLightboxProject(null);
-    document.body.style.overflow = "auto";
   };
 
   const nextImage = () => {
@@ -105,16 +98,30 @@ const ServicesGallery = ({ mode = "full" }) => {
 
   // Keyboard navigation for lightbox
   useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (!lightboxProject) return;
+    if (!lightboxProject) return undefined;
 
+    const handleKeyDown = (e) => {
       if (e.key === "Escape") closeLightbox();
-      if (e.key === "ArrowRight") nextImage();
-      if (e.key === "ArrowLeft") prevImage();
+      if (e.key === "ArrowRight") {
+        setCurrentImageIndex((prev) => (prev + 1) % lightboxProject.images.length);
+      }
+      if (e.key === "ArrowLeft") {
+        setCurrentImageIndex(
+          (prev) => (prev - 1 + lightboxProject.images.length) % lightboxProject.images.length
+        );
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxProject]);
+
+  useEffect(() => {
+    document.body.style.overflow = lightboxProject ? "hidden" : "auto";
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [lightboxProject]);
 
   const handleSwipe = (swipeDirection) => {
@@ -127,6 +134,18 @@ const ServicesGallery = ({ mode = "full" }) => {
   };
 
   const hasData = (filteredCategories?.length || 0) > 0;
+  const featuredProjects = useMemo(() => {
+    if (mode !== "home") return [];
+
+    return (developmentData.categories || [])
+      .flatMap((category) =>
+        (category.projects || []).map((project) => ({
+          ...project,
+          categoryName: category.name,
+        }))
+      )
+      .slice(0, 4);
+  }, [developmentData, mode]);
 
   return (
     <section className="py-20 bg-white dark:bg-background-dark">
@@ -149,12 +168,15 @@ const ServicesGallery = ({ mode = "full" }) => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {developmentData.description || "A selection of my work across web, systems, and apps."}
+            {mode === "home"
+              ? "A curated selection of live work and concept builds that show the direction, quality, and thinking behind GlimmerInk."
+              : developmentData.description || "A selection of my work across web, systems, and apps."}
           </motion.p>
+        </div>
 
-          {/* Search + view controls */}
+        {mode !== "home" && (
           <motion.div
-            className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4"
+            className="mt-8 mb-8 flex flex-col sm:flex-row justify-center items-center gap-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -195,7 +217,104 @@ const ServicesGallery = ({ mode = "full" }) => {
               </button>
             )}
           </motion.div>
-        </div>
+        )}
+
+        {mode === "home" && featuredProjects.length > 0 && (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {featuredProjects.map((project, index) => {
+              const cover = project?.images?.[0] || "/placeholder.webp";
+              const statusLabel =
+                project.status === "live"
+                  ? "Live project"
+                  : project.status === "demo"
+                    ? "Concept build"
+                    : "In progress";
+
+              return (
+                <motion.article
+                  key={project.id || project.title}
+                  className="group overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-shadow"
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.45, delay: index * 0.08 }}
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <img
+                      src={cover}
+                      alt={project.title || "Project"}
+                      className="h-full w-full object-contain bg-gray-100 dark:bg-gray-900 transition-transform duration-500 group-hover:scale-[1.02]"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-5">
+                      <div className="flex flex-wrap items-center gap-2 text-xs font-medium">
+                        <span className="rounded-full bg-white/15 px-3 py-1 text-white backdrop-blur">
+                          {statusLabel}
+                        </span>
+                        <span className="rounded-full bg-white/15 px-3 py-1 text-white backdrop-blur">
+                          {project.categoryName}
+                        </span>
+                        <span className="rounded-full bg-white/15 px-3 py-1 text-white backdrop-blur">
+                          {project.year}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="p-6">
+                    <div className="flex items-start justify-between gap-4 mb-3">
+                      <div>
+                        <h3 className="text-2xl font-bold text-text-light dark:text-text-dark">
+                          {project.title}
+                        </h3>
+                        <p className="mt-1 text-sm text-text-light/60 dark:text-text-dark/60">
+                          {project.client || "Portfolio case study"}
+                        </p>
+                      </div>
+                    </div>
+
+                    <p className="text-text-light/75 dark:text-text-dark/75 leading-relaxed mb-5">
+                      {project.description}
+                    </p>
+
+                    <div className="mb-5 flex flex-wrap gap-2">
+                      {(project.technologies || []).slice(0, 4).map((tech) => (
+                        <span
+                          key={tech}
+                          className="rounded-full bg-gray-100 dark:bg-gray-700 px-3 py-1 text-xs font-medium text-primary dark:text-primary-light"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-wrap gap-3">
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-dark transition-colors"
+                        >
+                          <FiExternalLink size={16} />
+                          {project.status === "live" ? "Visit project" : "View demo"}
+                        </a>
+                      )}
+                      <button
+                        type="button"
+                        onClick={() => openLightbox(project)}
+                        className="inline-flex items-center gap-2 rounded-full border border-gray-300 dark:border-gray-600 px-4 py-2 text-sm font-medium text-text-light dark:text-text-dark hover:border-primary hover:text-primary dark:hover:text-primary-light transition-colors"
+                      >
+                        <FiZoomIn size={16} />
+                        Preview screens
+                      </button>
+                    </div>
+                  </div>
+                </motion.article>
+              );
+            })}
+          </div>
+        )}
 
         {/* Empty state (very important for mode="home") */}
         {!hasData && !activeCategory && (
@@ -209,7 +328,7 @@ const ServicesGallery = ({ mode = "full" }) => {
         )}
 
         {/* Category Grid */}
-        {!activeCategory && hasData && (
+        {!activeCategory && hasData && mode !== "home" && (
           <motion.div
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5"
             initial={{ opacity: 0 }}
@@ -285,7 +404,7 @@ const ServicesGallery = ({ mode = "full" }) => {
         )}
 
         {/* Expanded Category Gallery */}
-        {activeCategory && (
+        {activeCategory && mode !== "home" && (
           <motion.div
             className="mt-10"
             initial={{ opacity: 0 }}

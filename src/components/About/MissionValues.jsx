@@ -6,52 +6,52 @@ const MissionValues = () => {
     {
       icon: Target,
       title: "Precision",
-      description: "Every line of code is written with attention to detail and purpose.",
+      description: "Details matter, from layout structure to the way each screen feels to use.",
       color: "text-blue-500",
     },
     {
       icon: Zap,
       title: "Performance",
-      description: "We build fast, scalable systems that handle growth effortlessly.",
+      description: "Projects should load quickly, feel responsive, and stay practical to maintain.",
       color: "text-green-500",
     },
     {
       icon: Users,
       title: "Partnership",
-      description: "We work with you, not just for you, building lasting relationships.",
+      description: "Clear communication and honest expectation-setting are part of the work itself.",
       color: "text-purple-500",
     },
     {
       icon: Heart,
       title: "User-Centric",
-      description: "Everything we build is designed with the end-user in mind.",
+      description: "Interfaces should be easy to understand and comfortable to navigate.",
       color: "text-pink-500",
     },
     {
       icon: Shield,
       title: "Reliability",
-      description: "Consistent quality and dependable support for every project.",
+      description: "A polished result should feel dependable, clear, and ready to present confidently.",
       color: "text-amber-500",
     },
     {
       icon: Rocket,
       title: "Innovation",
-      description: "Staying ahead with modern technologies and creative solutions.",
+      description: "Modern tools are useful when they improve quality, not just because they are trendy.",
       color: "text-red-500",
     },
   ];
 
-  const mission = "To develop seamless, intelligent, and high-performing digital solutions that make an impact.";
-  const vision = "To be the go-to development studio for businesses seeking exceptional digital experiences that drive growth.";
+  const mission = "To build websites and systems-oriented digital work that feels clean, useful, and professionally presented.";
+  const vision = "To grow GlimmerInk into a trusted name for premium websites, practical business systems, and thoughtful front-end execution.";
 
   return (
     <section className="py-16 px-6 max-w-7xl mx-auto">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          Our Mission & Values
+          Mission & Values
         </h2>
         <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          The principles that guide everything we build
+          The principles shaping how GlimmerInk grows and how each project is approached.
         </p>
       </div>
 
@@ -145,10 +145,9 @@ const MissionValues = () => {
         </h3>
         <div className="max-w-3xl mx-auto">
           <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            At GlimmerInk, we believe that great software isn't just about features—it's about 
-            creating experiences that feel intuitive, perform flawlessly, and grow with your business. 
-            We combine technical excellence with creative problem-solving to deliver solutions 
-            that don't just meet requirements, but exceed expectations.
+            GlimmerInk is being built around thoughtful execution: clean interfaces, solid front-end
+            implementation, practical system thinking, and honest presentation. The goal is simple:
+            make digital work feel credible, useful, and ready for real people to interact with.
           </p>
         </div>
       </motion.div>

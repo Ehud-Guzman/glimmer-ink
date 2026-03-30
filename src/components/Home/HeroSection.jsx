@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const HeroSection = () => {
   const fullText =
-    "Web developer building fast websites and practical web apps for businesses and schools — clean UI, solid code, mobile-first.";
+    "I design and build premium websites, business systems, polished dashboards, and modern digital experiences for growing brands.";
   const typingSpeed = 28;
 
   // 🔒 Lock the first character so it never disappears
@@ -24,12 +24,12 @@ const HeroSection = () => {
     }, typingSpeed);
 
     return () => clearInterval(typingInterval);
-  }, []);
+  }, [restText]);
 
-  const chips = ["React", "Node.js", "Tailwind", "UI/UX", "Mobile-first"];
+  const chips = ["1 live client website", "Concept case studies", "Mobile-first builds", "Fast turnaround"];
 
   return (
-    <section className="relative min-h-[90vh] flex flex-col md:flex-row items-center justify-center md:justify-start gap-12 md:gap-16 overflow-hidden px-4 md:px-16 lg:px-32 pt-8 md:pt-12">
+    <section className="relative min-h-[90vh] flex flex-col md:flex-row items-center justify-center md:justify-start gap-12 md:gap-16 overflow-hidden px-4 md:px-16 lg:px-32 pt-10 md:pt-14">
       {/* Left: Hero Text */}
       <motion.div
         className="flex-1 max-w-xl md:max-w-2xl relative z-20 text-center md:text-left mb-8 md:mb-0 px-2 md:px-0"
@@ -37,6 +37,8 @@ const HeroSection = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
+    
+
         {/* Headline */}
         <motion.h1
           className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight"
@@ -45,16 +47,26 @@ const HeroSection = () => {
           transition={{ delay: 0.2 }}
         >
           <span className="block text-text-light dark:text-text-dark">
-            Web & System Developer
+            Premium websites and
           </span>
           <span className="block bg-gradient-to-r from-primary via-primary-light to-primary-dark dark:from-primary-light dark:via-primary dark:to-primary-dark bg-clip-text text-transparent">
-            building fast websites that convert.
+            practical business systems.
           </span>
         </motion.h1>
 
+        <motion.p
+          className="text-lg sm:text-xl mb-5 text-text-light/85 dark:text-text-dark/85 leading-relaxed max-w-2xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.28 }}
+        >
+          I help businesses show up professionally online and run more smoothly behind the scenes
+          with clean websites, practical systems, thoughtful structure, and modern front-end execution.
+        </motion.p>
+
         {/* Typed description (safe, unclippable) */}
         <motion.p
-          className="text-base sm:text-lg md:text-xl mb-6 text-text-light/80 dark:text-text-dark/80 leading-relaxed min-h-[64px] relative"
+          className="text-base sm:text-lg md:text-xl mb-7 text-text-light/80 dark:text-text-dark/80 leading-relaxed min-h-[72px] relative"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
@@ -97,24 +109,35 @@ const HeroSection = () => {
             href="/work"
             className="px-8 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 text-lg shadow-lg hover:shadow-xl"
           >
-            View Work →
+            View Selected Work
           </a>
           <a
             href="/contact"
             className="px-8 py-3 border-2 border-primary text-primary dark:text-primary-light rounded-lg font-semibold hover:bg-primary/10 transition-all text-lg"
           >
-            Start a Project
+            Start a Conversation
           </a>
         </motion.div>
 
         {/* Subtle credibility line */}
         <motion.div
-          className="mt-6 text-sm text-text-light/60 dark:text-text-dark/60"
+          className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.55 }}
         >
-          Available for websites, system dashboards, and clean UI upgrades.
+          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/60 px-4 py-3">
+            <div className="font-semibold text-text-light dark:text-text-dark">Best fit</div>
+            <div className="text-text-light/65 dark:text-text-dark/65">SMEs, personal brands, schools</div>
+          </div>
+          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/60 px-4 py-3">
+            <div className="font-semibold text-text-light dark:text-text-dark">Focus</div>
+            <div className="text-text-light/65 dark:text-text-dark/65">Websites, systems, dashboards, UI concepts</div>
+          </div>
+          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/60 px-4 py-3">
+            <div className="font-semibold text-text-light dark:text-text-dark">Approach</div>
+            <div className="text-text-light/65 dark:text-text-dark/65">Clean design, practical execution</div>
+          </div>
         </motion.div>
       </motion.div>
 
@@ -129,10 +152,24 @@ const HeroSection = () => {
           <div className="absolute -inset-4 bg-gradient-to-r from-primary to-primary-light dark:from-primary-dark dark:to-primary rounded-2xl blur-xl opacity-20" />
           <img
             src="/images/illustration.png"
-            alt="Web development illustration"
+            alt="GlimmerInk design and development showcase"
             className="relative w-full rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800"
             loading="eager"
           />
+          <div className="absolute -bottom-5 left-1/2 w-[92%] -translate-x-1/2 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white/92 dark:bg-gray-900/92 backdrop-blur px-5 py-4 shadow-xl">
+            <div className="flex items-center justify-between gap-4 text-sm">
+              <div>
+                <div className="font-semibold text-text-light dark:text-text-dark">Current portfolio stage</div>
+                <div className="text-text-light/65 dark:text-text-dark/65">1 live client site, curated concept builds</div>
+              </div>
+              <a
+                href="/work"
+                className="shrink-0 rounded-full bg-primary px-4 py-2 text-white font-medium hover:bg-primary-dark transition-colors"
+              >
+                Explore
+              </a>
+            </div>
+          </div>
         </div>
       </motion.div>
     </section>

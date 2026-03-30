@@ -7,16 +7,16 @@ const ContactCTASection = () => {
       <div className="bg-gradient-to-r from-primary/5 to-primary/10 dark:from-primary/10 dark:to-primary/20 rounded-2xl p-8 border border-primary/20">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Ready to Start Your Project?
+            Ready to Reach Out?
           </h2>
           <p className="text-gray-600 dark:text-gray-300">
-            Choose how you'd like to connect with us
+            Choose the easiest way to start the conversation
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-4 mb-8">
           <motion.a
-            href="#"
+            href="/contact"
             whileHover={{ y: -5 }}
             className="group bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-primary-light transition-all duration-300 text-center"
           >
@@ -24,10 +24,10 @@ const ContactCTASection = () => {
               <Calendar className="w-6 h-6 text-primary dark:text-primary-light" />
             </div>
             <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-              Schedule a Call
+              Use the Form
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-300">
-              30-minute free consultation
+              Best for detailed project requests
             </p>
           </motion.a>
 
@@ -43,7 +43,7 @@ const ContactCTASection = () => {
               Send Email
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-300">
-              Detailed project inquiry
+              Good for direct questions
             </p>
           </motion.a>
 
@@ -59,7 +59,7 @@ const ContactCTASection = () => {
               Call Directly
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-300">
-              Quick questions & support
+              Best for urgent or quick questions
             </p>
           </motion.a>
         </div>
@@ -80,7 +80,7 @@ const ContactCTASection = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <span>10+ Projects</span>
+            <span>Websites + Systems Focus</span>
           </div>
         </div>
       </div>

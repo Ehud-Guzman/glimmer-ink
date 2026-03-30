@@ -35,7 +35,7 @@ const ContactInfo = () => {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "#",
+      href: "https://www.linkedin.com/company/glimmerink",
       color: "bg-blue-600/10 dark:bg-blue-600/20 hover:bg-blue-600/20 dark:hover:bg-blue-600/30 text-blue-600 dark:text-blue-400",
     },
     {
@@ -103,7 +103,7 @@ const ContactInfo = () => {
       {/* Social Links */}
       <div>
         <h3 className="font-semibold text-gray-900 dark:text-white mb-4">
-          Connect with us
+          Connect online
         </h3>
         <div className="flex gap-3">
           {socialLinks.map((social) => {
@@ -132,7 +132,7 @@ const ContactInfo = () => {
           Need immediate assistance?
         </h4>
         <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
-          For urgent inquiries, call us directly or send a WhatsApp message.
+          For urgent inquiries, call directly or send a WhatsApp message.
         </p>
         <a
           href="https://wa.me/254746527253"

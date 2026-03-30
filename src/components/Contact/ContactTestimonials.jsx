@@ -8,15 +8,15 @@ const ContactTestimonials = () => {
   const testimonials = [
     {
       name: "Victor Mwangi",
-      role: "Manager, Vittorious Trades.",
-      content: "GlimmerInk delivered our web application ahead of schedule. Their attention to detail and communication were exceptional.",
+      role: "Manager, Vittorios Trades",
+      content: "GlimmerInk handled our website with care and professionalism. Communication was smooth, and the final result felt clean and easy to use.",
       rating: 5,
-      project: "Starndard Business Website",
+      project: "Business Website",
     },
     {
-      name: "Major",
-      role: "CEO, HillComms Tech",
-      content: "GlimmerINk transformed our online presence with a stunning website. Their creativity and technical skills are top-notch.",
+      name: "Portfolio Client",
+      role: "Creative Professional",
+      content: "The work felt thoughtful and visually polished. What stood out most was the effort to make the final experience look presentable and structured.",
       rating: 5,
       project: "Portfolio Website",
     },
@@ -34,10 +34,10 @@ const ContactTestimonials = () => {
     <section className="py-16 px-6 max-w-7xl mx-auto">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-          Client Success Stories
+          Feedback Highlights
         </h2>
         <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          See what our clients say about working with us
+          A few short notes that reflect the kind of experience I aim to deliver.
         </p>
       </div>
 
