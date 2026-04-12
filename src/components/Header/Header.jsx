@@ -59,7 +59,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen }) {
       }`}
     >
       {/* Decorative background shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute -top-12 -left-12 w-36 h-36 rounded-full bg-primary/5 dark:bg-primary/10 blur-3xl hidden sm:block" />
         <div className="absolute -top-10 -right-8 w-28 h-28 rounded-lg bg-primary/3 dark:bg-primary/8 blur-3xl rotate-45 hidden sm:block" />
         <div className="absolute -bottom-14 left-1/2 -translate-x-1/2 w-44 h-20 bg-gradient-to-r from-transparent via-primary/5 to-transparent blur-2xl" />

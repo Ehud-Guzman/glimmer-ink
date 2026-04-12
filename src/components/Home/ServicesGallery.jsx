@@ -148,7 +148,7 @@ const ServicesGallery = ({ mode = "full" }) => {
   }, [developmentData, mode]);
 
   return (
-    <section className="py-20 bg-white dark:bg-background-dark">
+    <section className="py-12 md:py-16 bg-white dark:bg-background-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
           <motion.h2
@@ -222,7 +222,7 @@ const ServicesGallery = ({ mode = "full" }) => {
         {mode === "home" && featuredProjects.length > 0 && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {featuredProjects.map((project, index) => {
-              const cover = project?.images?.[0] || "/placeholder.webp";
+              const cover = project?.images?.[0] || "/placeholder-project.webp";
               const statusLabel =
                 project.status === "live"
                   ? "Live project"
@@ -337,7 +337,7 @@ const ServicesGallery = ({ mode = "full" }) => {
           >
             {filteredCategories.map((category, i) => {
               const cover =
-                category?.projects?.[0]?.images?.[0] || "/placeholder.webp";
+                category?.projects?.[0]?.images?.[0] || "/placeholder-project.webp";
 
               return (
                 <motion.div
@@ -441,7 +441,7 @@ const ServicesGallery = ({ mode = "full" }) => {
             {isMasonryView ? (
               <div className="columns-1 sm:columns-2 lg:columns-3 gap-6">
                 {(activeCategory.projects || []).map((project) => {
-                  const cover = project?.images?.[0] || "/placeholder.webp";
+                  const cover = project?.images?.[0] || "/placeholder-project.webp";
                   return (
                     <motion.div
                       key={project.id || project.title}
@@ -541,7 +541,7 @@ const ServicesGallery = ({ mode = "full" }) => {
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {(activeCategory.projects || []).map((project) => {
-                  const cover = project?.images?.[0] || "/placeholder.webp";
+                  const cover = project?.images?.[0] || "/placeholder-project.webp";
                   return (
                     <motion.div
                       key={project.id || project.title}

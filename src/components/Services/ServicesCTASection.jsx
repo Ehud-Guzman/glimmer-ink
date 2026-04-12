@@ -5,7 +5,7 @@ const ServicesCTASection = () => {
   const contactMethods = [
     {
       icon: Mail,
-      title: "Email Us",
+      title: "Email",
       description: "Get a response within 24 hours",
       action: "Send Message",
       href: "mailto:nyamuehud@gmail.com",
@@ -13,24 +13,24 @@ const ServicesCTASection = () => {
     {
       icon: Calendar,
       title: "Book a Call",
-      description: "30-minute free consultation",
-      action: "Schedule Now",
-      href: "#",
+      description: "Free 30-minute consultation",
+      action: "Get in Touch",
+      href: "/contact",
       primary: true,
     },
     {
       icon: MessageSquare,
-      title: "Live Chat",
-      description: "Talk to us instantly",
-      action: "Start Chat",
-      href: "#",
+      title: "WhatsApp",
+      description: "Quick replies via WhatsApp",
+      action: "Chat Now",
+      href: "https://wa.me/254746527253",
     },
     {
       icon: Phone,
-      title: "Call Us",
-      description: "Mon-Fri, 9AM-6PM EST",
-      action: "(555) 123-4567",
-      href: "tel:+15551234567",
+      title: "Call",
+      description: "Mon–Fri, 9AM–6PM EAT",
+      action: "+254 746 527 253",
+      href: "tel:+254746527253",
     },
   ];
 
@@ -51,8 +51,8 @@ const ServicesCTASection = () => {
           </h2>
           
           <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg leading-relaxed">
-            Whether you have a clear vision or just an idea, we'll help you bring it to life. 
-            Share your project details and get a personalized plan.
+            Whether you have a clear brief or just a rough idea, I'll help you shape it into
+            something real. Share your project details and get a straight, honest plan.
           </p>
 
           {/* Stats */}
@@ -152,14 +152,17 @@ const ServicesCTASection = () => {
         <p className="text-gray-600 dark:text-gray-300 mb-6">
           Prefer to share details about your project first?
         </p>
-        <button className="px-8 py-3 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 
-                         font-semibold rounded-lg border border-gray-300 dark:border-gray-700 
-                         hover:border-primary dark:hover:border-primary-light 
-                         hover:text-primary dark:hover:text-primary-light 
-                         transition-all duration-300 flex items-center gap-2 mx-auto">
+        <a
+          href="/contact"
+          className="px-8 py-3 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200
+                         font-semibold rounded-lg border border-gray-300 dark:border-gray-700
+                         hover:border-primary dark:hover:border-primary-light
+                         hover:text-primary dark:hover:text-primary-light
+                         transition-all duration-300 inline-flex items-center gap-2"
+        >
           <Mail className="w-4 h-4" />
           Send Project Brief
-        </button>
+        </a>
       </div>
     </section>
   );

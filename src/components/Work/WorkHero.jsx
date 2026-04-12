@@ -10,7 +10,7 @@ const WorkHero = () => {
   return (
     <section className="relative pt-24 pb-20 px-6 max-w-7xl mx-auto overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/5 dark:bg-primary/10 blur-3xl" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-secondary/5 dark:bg-secondary/10 blur-3xl" />
         
@@ -53,8 +53,8 @@ const WorkHero = () => {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
             <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
-              <div className="text-2xl font-bold text-primary">Live</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Client Website</div>
+              <div className="text-2xl font-bold text-primary">5+</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Live Projects</div>
             </div>
             <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
               <div className="text-2xl font-bold text-primary">Concept</div>

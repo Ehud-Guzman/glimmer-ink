@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const steps = [
   {
     title: "Discover & Structure",
-    description: "We define the goal, audience, and content flow so the project feels clear before design and development begin.",
+    description: "I define the goal, audience, and content flow so the project feels clear before design and development begin.",
     icon: "01",
     details: ["Project direction", "Page structure", "Scope and priorities"]
   },
@@ -24,7 +24,7 @@ const steps = [
 
 const ProcessSection = () => {
   return (
-    <section className="py-20 md:py-28 relative overflow-hidden">
+    <section className="py-12 md:py-16 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-background-dark" />
       
@@ -68,11 +68,6 @@ const ProcessSection = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.2, duration: 0.6 }}
               >
-                {/* Step Number */}
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-primary dark:bg-primary-dark text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg">
-                  {i + 1}
-                </div>
-                
                 <div className="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-lg hover:shadow-xl transition-shadow h-full">
                   <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-2xl font-bold text-primary dark:bg-primary/20 dark:text-primary-light">
                     {step.icon}

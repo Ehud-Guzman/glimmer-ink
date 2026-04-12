@@ -37,7 +37,7 @@ const DevelopmentProcess = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display">
-            Our Development Process
+            Development Process
           </h2>
           <p className="text-lg text-text-muted dark:text-gray-300 max-w-2xl mx-auto">
             A structured approach to delivering high-quality software solutions

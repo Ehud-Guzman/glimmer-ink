@@ -27,11 +27,11 @@ const ProjectGrid = ({ projects = [], onProjectSelect }) => {
             animate={{ opacity: 1, y: 0 }}
             className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-card border border-border-light dark:border-gray-700 hover:shadow-xl transition-shadow group"
           >
-            <div className="relative h-48 overflow-hidden bg-primary/5 dark:bg-primary/10">
+            <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-900">
               <SafeImage
                 src={project.thumbnail}
                 alt={project.title || "Project thumbnail"}
-                className="w-full h-full object-contain p-6 transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
 
               {/* Type pill */}

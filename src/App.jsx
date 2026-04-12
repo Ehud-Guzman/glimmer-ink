@@ -43,11 +43,20 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark transition-colors duration-300">
+      {/* Skip to main content — keyboard / screen reader navigation */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg focus:font-medium focus:shadow-lg"
+      >
+        Skip to main content
+      </a>
+
       {/* Header */}
       <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
       {/* Main content */}
       <main
+        id="main-content"
         className={`flex-grow pt-16 lg:pt-20 transition-all duration-300 ${
           isMenuOpen ? "blur-sm pointer-events-none select-none" : ""
         }`}

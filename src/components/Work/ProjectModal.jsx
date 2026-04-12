@@ -46,11 +46,11 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
           </button>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
-            <div className="bg-primary/5 dark:bg-primary/10 flex items-center justify-center p-8">
+            <div className="bg-gray-100 dark:bg-gray-900 overflow-hidden">
               <SafeImage
                 src={imageSrc}
                 alt={project.title || "Project image"}
-                className="max-w-full max-h-[400px] object-contain"
+                className="w-full h-full object-cover"
               />
             </div>
 

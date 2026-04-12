@@ -1,40 +1,79 @@
-const TechStackSection = () => {
-  const technologies = [
-    { name: "React", category: "Frontend", color: "bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300" },
-    { name: "Next.js", category: "Frontend", color: "bg-gray-50 dark:bg-gray-900/30 text-gray-700 dark:text-gray-300" },
-    { name: "TypeScript", category: "Frontend", color: "bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300" },
-    { name: "Node.js", category: "Backend", color: "bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300" },
-    { name: "Express", category: "Backend", color: "bg-gray-50 dark:bg-gray-900/30 text-gray-700 dark:text-gray-300" },
-    { name: "MongoDB", category: "Database", color: "bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300" },
-    { name: "PostgreSQL", category: "Database", color: "bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300" },
-    { name: "React Native", category: "Mobile", color: "bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300" },
-    { name: "Flutter", category: "Mobile", color: "bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300" },
-    { name: "AWS", category: "Cloud", color: "bg-orange-50 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300" },
-    { name: "Docker", category: "DevOps", color: "bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300" },
-    { name: "GraphQL", category: "API", color: "bg-pink-50 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300" },
-  ];
+import { motion } from "framer-motion";
 
+const categories = [
+  {
+    label: "Frontend",
+    color: "text-blue-600 dark:text-blue-400",
+    bar: "bg-blue-500",
+    techs: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vite", "Framer Motion"],
+  },
+  {
+    label: "Backend",
+    color: "text-green-600 dark:text-green-400",
+    bar: "bg-green-500",
+    techs: ["Node.js", "Express", "Prisma"],
+  },
+  {
+    label: "Database",
+    color: "text-purple-600 dark:text-purple-400",
+    bar: "bg-purple-500",
+    techs: ["PostgreSQL", "MongoDB"],
+  },
+  {
+    label: "API & Integration",
+    color: "text-pink-600 dark:text-pink-400",
+    bar: "bg-pink-500",
+    techs: ["GraphQL", "REST APIs"],
+  },
+  {
+    label: "Tooling & DevOps",
+    color: "text-orange-600 dark:text-orange-400",
+    bar: "bg-orange-500",
+    techs: ["Docker", "AWS", "Git", "Netlify"],
+  },
+];
+
+const TechStackSection = () => {
   return (
-    <section className="py-16 px-4 md:px-6 bg-background-light dark:bg-background-dark">
+    <section className="py-20 px-4 md:px-6 bg-white dark:bg-gray-800">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display">
-            Technology Stack
+            Technologies I Build With
           </h2>
-          <p className="text-lg text-text-muted dark:text-gray-300 max-w-2xl mx-auto">
-            Modern technologies we use to build robust and scalable solutions
+          <p className="text-text-muted dark:text-gray-400 max-w-xl mx-auto">
+            A focused stack — chosen for what works in production, not for chasing trends.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {technologies.map((tech, index) => (
-            <div 
-              key={index}
-              className={`${tech.color} rounded-lg p-4 text-center border border-gray-100 dark:border-gray-700 hover:border-primary/20 dark:hover:border-primary/40 transition-colors`}
+        <div className="space-y-6">
+          {categories.map((cat, i) => (
+            <motion.div
+              key={cat.label}
+              initial={{ opacity: 0, x: -16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: i * 0.07 }}
+              className="grid grid-cols-[140px_1fr] md:grid-cols-[180px_1fr] items-start gap-4 md:gap-8"
             >
-              <div className="font-medium">{tech.name}</div>
-              <div className="text-xs mt-1 opacity-75 dark:opacity-90">{tech.category}</div>
-            </div>
+              {/* Category label */}
+              <div className="pt-1.5 flex items-center gap-2">
+                <span className={`w-2 h-2 rounded-full flex-shrink-0 ${cat.bar}`} />
+                <span className={`text-sm font-semibold ${cat.color}`}>{cat.label}</span>
+              </div>
+
+              {/* Tech badges */}
+              <div className="flex flex-wrap gap-2">
+                {cat.techs.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1.5 bg-background-light dark:bg-gray-700 border border-border-light dark:border-gray-600 rounded-lg text-sm font-medium hover:border-primary/40 dark:hover:border-primary/50 transition-colors"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

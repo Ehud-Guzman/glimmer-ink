@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, HelpCircle } from "lucide-react";
 
@@ -8,37 +8,66 @@ const ServiceFAQs = () => {
   const faqs = [
     {
       question: "What's your typical project timeline?",
-      answer: "Timelines vary based on project complexity. A small website takes 2-4 weeks, medium web applications 6-12 weeks, and large-scale projects 3-6 months. We provide detailed timelines after the discovery phase.",
+      answer: "Timelines vary based on project complexity. A small website takes 2-4 weeks, medium web applications 6-12 weeks, and larger systems 3-6 months. I provide detailed timelines after the discovery phase.",
     },
     {
       question: "How do you handle project management and communication?",
-      answer: "We use agile methodologies with tools like Jira and Trello. You'll get weekly updates, access to a project dashboard, and regular check-in calls. We're available via email, Slack, or scheduled meetings.",
+      answer: "I keep things simple and direct — you'll get regular progress updates and clear check-ins at each milestone. I'm available via email or scheduled calls throughout the project.",
     },
     {
       question: "What's included in post-launch support?",
-      answer: "Our support packages include bug fixes, security updates, performance monitoring, and minor feature enhancements. We offer 30 days of free support after launch, with optional monthly retainers for ongoing maintenance.",
+      answer: "My support includes bug fixes, minor updates, and performance checks. I offer 30 days of free support after launch, with optional ongoing maintenance for continued updates and improvements.",
     },
     {
       question: "Do you provide hosting and maintenance services?",
-      answer: "Yes, we offer managed hosting on AWS, DigitalOcean, or your preferred provider. Our maintenance plans include server management, security updates, backups, and 24/7 monitoring.",
+      answer: "Yes, I can assist with deployment on platforms like Vercel, Netlify, DigitalOcean, or your preferred provider. Ongoing maintenance is available as a separate arrangement after launch.",
     },
     {
       question: "Can you work with existing codebases or systems?",
-      answer: "Absolutely. We can audit, refactor, or extend existing applications. We work with legacy systems and integrate new features while maintaining compatibility.",
+      answer: "Absolutely. I can audit, refactor, or extend existing applications, and integrate new features while keeping the codebase clean and maintainable.",
     },
     {
       question: "What's your payment structure?",
-      answer: "We offer flexible options: fixed-price for defined scopes, time & materials for evolving projects, or monthly retainers for ongoing work. Typically, we require 30% upfront, 40% at milestone, and 30% upon completion.",
+      answer: "I offer flexible options: fixed-price for defined scopes or milestone-based for larger projects. Typically I require 30% upfront, 40% at a mid-project milestone, and 30% upon completion.",
     },
     {
-      question: "How do you ensure code quality and security?",
-      answer: "We follow best practices: code reviews, automated testing, security audits, and CI/CD pipelines. All code is documented and we use industry-standard security measures including SSL, encryption, and regular vulnerability scans.",
+      question: "How do you ensure code quality?",
+      answer: "I follow clean code practices, test thoroughly before delivery, and document key parts of the codebase. Performance, responsiveness, and cross-browser compatibility are standard parts of the QA process.",
     },
     {
       question: "What if I need to make changes during development?",
-      answer: "We handle changes through our agile process. Minor adjustments are included, while significant scope changes are discussed and estimated separately to ensure transparency and avoid timeline disruptions.",
+      answer: "Minor adjustments are part of the process. For significant scope changes, I'll discuss the impact on timeline and cost openly so there are no surprises.",
     },
   ];
+
+  useEffect(() => {
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    };
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "faq-schema";
+    script.text = JSON.stringify(schema);
+
+    const existing = document.getElementById("faq-schema");
+    if (existing) existing.remove();
+    document.head.appendChild(script);
+
+    return () => {
+      const s = document.getElementById("faq-schema");
+      if (s) s.remove();
+    };
+  }, []);
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -57,7 +86,7 @@ const ServiceFAQs = () => {
           Frequently Asked Questions
         </h2>
         <p className="text-gray-600 dark:text-gray-300">
-          Get answers to common questions about our development process and services
+          Get answers to common questions about the development process and services
         </p>
       </div>
 
@@ -109,9 +138,12 @@ const ServiceFAQs = () => {
         <p className="text-gray-600 dark:text-gray-300 mb-4">
           Didn't find what you're looking for?
         </p>
-        <button className="px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors duration-300">
+        <a
+          href="/contact"
+          className="inline-block px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors duration-300"
+        >
           Ask a Question
-        </button>
+        </a>
       </div>
     </section>
   );

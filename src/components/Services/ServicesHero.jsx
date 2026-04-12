@@ -1,19 +1,19 @@
 import { motion } from "framer-motion";
-import { Sparkles, Code2, Palette, Smartphone, Cloud, Zap } from "lucide-react";
+import { Sparkles, Code2, Palette, ShoppingCart, Database, Zap } from "lucide-react";
 
 const ServicesHero = () => {
   const serviceIcons = [
-    { icon: Code2, label: "Web Apps" },
+    { icon: Code2, label: "Web Dev" },
     { icon: Palette, label: "UI/UX" },
-    { icon: Smartphone, label: "Mobile" },
-    { icon: Cloud, label: "Cloud" },
-    { icon: Zap, label: "DevOps" },
+    { icon: ShoppingCart, label: "E-Commerce" },
+    { icon: Database, label: "Backend" },
+    { icon: Zap, label: "Support" },
   ];
 
   return (
     <section className="relative pt-24 pb-16 px-6 max-w-7xl mx-auto">
       {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/5 dark:bg-primary/10 blur-3xl" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-primary/3 dark:bg-primary/5 blur-3xl" />
       </div>
@@ -28,7 +28,7 @@ const ServicesHero = () => {
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 dark:bg-primary/20 rounded-full">
             <Sparkles className="w-4 h-4 text-primary dark:text-primary-light" />
             <span className="text-sm font-medium text-primary dark:text-primary-light">
-              What We Offer
+              What I Offer
             </span>
           </div>
 
@@ -38,10 +38,10 @@ const ServicesHero = () => {
               Scale With You
             </span>
           </h1>
-          
+
           <p className="text-lg text-text-muted dark:text-gray-300 mb-10 leading-relaxed">
-            From initial concept to production deployment, we provide end-to-end 
-            solutions built with modern technologies and scalable architecture.
+            From initial concept to deployment, I build end-to-end solutions
+            with modern technologies and clean, practical architecture.
           </p>
 
           {/* Animated service icons */}
@@ -72,27 +72,29 @@ const ServicesHero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap justify-center gap-4">
-            <motion.button
+            <motion.a
+              href="/work"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="px-8 py-3 bg-primary text-white font-semibold rounded-lg 
-                       hover:bg-primary-dark dark:bg-primary-light dark:text-gray-900 
-                       dark:hover:bg-primary transition-all duration-300 
+              className="px-8 py-3 bg-primary text-white font-semibold rounded-lg
+                       hover:bg-primary-dark dark:bg-primary-light dark:text-gray-900
+                       dark:hover:bg-primary transition-all duration-300
                        shadow-sm hover:shadow-md"
             >
-              View Our Work
-            </motion.button>
-            <motion.button
+              View My Work
+            </motion.a>
+            <motion.a
+              href="/contact"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="px-8 py-3 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 
-                       font-semibold rounded-lg border border-gray-300 dark:border-gray-700 
-                       hover:border-primary dark:hover:border-primary-light 
-                       hover:text-primary dark:hover:text-primary-light 
+              className="px-8 py-3 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200
+                       font-semibold rounded-lg border border-gray-300 dark:border-gray-700
+                       hover:border-primary dark:hover:border-primary-light
+                       hover:text-primary dark:hover:text-primary-light
                        transition-all duration-300 shadow-sm"
             >
-              Get Free Consultation
-            </motion.button>
+              Get in Touch
+            </motion.a>
           </div>
         </motion.div>
       </div>

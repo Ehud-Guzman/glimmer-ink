@@ -43,8 +43,39 @@ export const developmentProjects = [
     category: "web",
     year: "2024",
     type: "Business Website",
-    status: "live",
-    client: "Live client website",
+  },
+
+  {
+    id: 9,
+    title: "VittoriosGlobal",
+    description:
+      "A full-stack grains and cereals trading platform built from the ground up — giving the client a product-rich storefront, deep product storytelling, and a complete admin backend to run the business from.",
+    thumbnail: "/images/grainsglobal/home-page.png",
+    fullImage: "/images/grainsglobal/home-page.png",
+    // url: "", // TODO: add live URL
+    stack: ["React", "Vite", "Tailwind CSS", "Node.js"],
+    features: [
+      "Product catalog with product stories",
+      "Explore more / discovery section",
+      "Secure admin login and control panel",
+      "System admin backup tools",
+      "Mobile-first responsive design",
+    ],
+    challenge:
+      "The client needed a dedicated digital presence for their global grains trading operations — one that could showcase their product range with depth, tell the story behind each product, and give them full control over content and inventory without depending on a developer for every update.",
+    solution:
+      "Built a full-stack trading website with a content-rich product catalog, admin control panel, and backup tooling — giving the client full ownership of their digital presence without needing a developer for every update.",
+    images: [
+      "/images/grainsglobal/home-page.png",
+      "/images/grainsglobal/products-page.png",
+      "/images/grainsglobal/product-page-story.png",
+      "/images/grainsglobal/control-panel-system-admin.png",
+    ],
+    category: "web",
+    year: "2026",
+    type: "Trading Website",
+    client: "Vittorios Global",
+    featured: true,
   },
 
    {
@@ -57,13 +88,13 @@ export const developmentProjects = [
     url: "https://sunshineshools.netlify.app/",
     stack: ["React", "Tailwind CSS", "Vite"],
     features: ["Performance overview", "Teacher views", "Responsive layout"],
-    category: "system",
+    category: "web",
     year: "2025",
     type: "Education Dashboard",
     status: "demo",
-    client: "Concept build",
   },
 
+  /*
   {
     id: 3,
     title: "Adit Investments",
@@ -77,9 +108,8 @@ export const developmentProjects = [
     category: "web",
     year: "2024",
     type: "E-commerce Website",
-    status: "demo",
-    client: "Portfolio concept",
   },
+  */
 
   // =========================
   // SYSTEMS
@@ -100,7 +130,6 @@ export const developmentProjects = [
     year: "2024",
     type: "Healthcare System",
     status: "demo", // removes legal risk
-    client: "Concept build",
   },
 
   {
@@ -116,8 +145,6 @@ export const developmentProjects = [
     category: "web",
     year: "2023",
     type: "Portfolio Website",
-    status: "live",
-    client: "Internal portfolio project",
   },
 
  
@@ -136,7 +163,6 @@ export const developmentProjects = [
     year: "2025",
     type: "Legal Practice System",
     status: "demo",
-    client: "Concept build",
   },
 
   // =========================
@@ -146,8 +172,8 @@ export const developmentProjects = [
     id: 8,
     title: "Premium Cars KE",
     description: "Car dealership website showcasing vehicle listings and contact inquiries.",
-    thumbnail: "/images/placeholder-project.webp", // TODO: replace with real image
-    fullImage: "/images/placeholder-project.webp", // TODO: replace with real image
+    thumbnail: "/images/websites/premiumcars.webp",
+    fullImage: "/images/websites/premiumcars.webp",
     url: "https://premiumcarske.netlify.app/",
     stack: ["React", "Tailwind"],
     features: ["Vehicle listings", "Responsive layout", "Inquiry/contact CTA"],
@@ -160,7 +186,7 @@ export const developmentProjects = [
 
 export const workCategories = [
   { id: "all", label: "All Projects" },
-  { id: "web", label: "Websites & Front-end" },
+  { id: "web", label: "Web Applications" },
   { id: "system", label: "Business Systems" },
   // Keep app only when you actually add mobile projects
   // { id: "app", label: "Mobile Apps" },

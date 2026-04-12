@@ -211,10 +211,13 @@ const ServiceSelector = () => {
               </div>
             </div>
 
-            <button className="w-full py-3 bg-primary text-white font-semibold rounded-lg flex items-center justify-center gap-2">
+            <a
+              href="/contact"
+              className="w-full py-3 bg-primary text-white font-semibold rounded-lg flex items-center justify-center gap-2 hover:bg-primary-dark transition-colors"
+            >
               Get Detailed Quote
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </a>
           </div>
         </div>
       </div>

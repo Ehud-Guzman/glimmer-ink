@@ -74,7 +74,7 @@ const getSmartResponse = (intent, conversation, userInput = "") => {
   switch(stage) {
     case 0:
       switch(intent) {
-        case "web": return "Websites are our core lane. Is this for a business or a personal brand?";
+        case "web": return "Websites are my core lane. Is this for a business or a personal brand?";
         case "ecommerce": return "Nice. Are you selling physical products, digital goods, or services?";
         case "branding": return "Branding sets the tone. Starting from scratch or redesigning?";
         case "maintenance": return "Got it. Is the site already live or currently broken/slow?";
@@ -93,7 +93,7 @@ const getSmartResponse = (intent, conversation, userInput = "") => {
       if (!collected.timeline) {
         return "What's your timeline for this project?";
       }
-      return "Almost there! How should we contact you?";
+      return "Almost there! How should I contact you?";
     
     case 2:
       if (collected.email) {
@@ -303,12 +303,12 @@ const ChatBotBubble = () => {
           <div className="bg-primary p-4 text-white flex justify-between items-center">
             <h3 className="font-medium text-sm sm:text-base">Web Services Assistant</h3>
             <div className="flex items-center gap-2">
-              <button 
+              <button
                 onClick={resetChat}
                 className="text-xs bg-white/20 hover:bg-white/30 px-2 py-1 rounded transition"
-                title="New chat"
+                title="Reset chat"
               >
-                New
+                Reset
               </button>
               <button onClick={() => setOpen(false)}>
                 <FiX />

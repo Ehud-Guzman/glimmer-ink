@@ -3,8 +3,8 @@ import { Sparkles, Target, Briefcase, Layers } from "lucide-react";
 
 const AboutHero = () => {
   const stats = [
-    { icon: Target, value: "1", label: "Live Client Website" },
-    { icon: Briefcase, value: "Portfolio", label: "Concept Case Studies" },
+    { icon: Target, value: "5+", label: "Live Client Websites" },
+    { icon: Briefcase, value: "8+", label: "Projects Delivered" },
     { icon: Layers, value: "Web + Systems", label: "Project Focus" },
     { icon: Sparkles, value: "2025", label: "Founded" },
   ];
@@ -12,7 +12,7 @@ const AboutHero = () => {
   return (
     <section className="relative pt-24 pb-20 px-6 max-w-7xl mx-auto">
       {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/5 dark:bg-primary/10 blur-3xl" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-primary/3 dark:bg-primary/5 blur-3xl" />
         
@@ -49,9 +49,9 @@ const AboutHero = () => {
           </h1>
           
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-            GlimmerInk is an early-stage portfolio brand by Ehud Mwai, focused on crafting
-            clean business websites, practical systems, and polished interface concepts with
-            a professional, design-conscious feel.
+            GlimmerInk is a studio by Ehud Mwai, focused on crafting clean business websites,
+            practical systems, and polished interface concepts with a professional,
+            design-conscious feel.
           </p>
 
           {/* Stats */}
@@ -89,51 +89,26 @@ const AboutHero = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="relative"
         >
-          {/* Main visual */}
-          <div className="relative bg-gradient-to-br from-primary/20 to-primary/10 dark:from-primary/10 dark:to-primary/5 
+          {/* Brand visual */}
+          <div className="relative bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/10 dark:to-primary/5
                         rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
-            <div className="aspect-square rounded-xl overflow-hidden bg-white dark:bg-gray-800 
-                          border border-gray-200 dark:border-gray-700">
-              {/* Placeholder for team/office image */}
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-32 h-32 rounded-full bg-gradient-to-r from-primary to-primary-light 
-                                mx-auto mb-6 flex items-center justify-center">
-                    <span className="text-4xl font-bold text-white">GM</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    GlimmerInk Creations
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    A personal portfolio brand focused on websites, systems, and thoughtful UI work
-                  </p>
-                </div>
-              </div>
+            <div className="aspect-square rounded-xl overflow-hidden bg-white dark:bg-gray-900
+                          border border-gray-200 dark:border-gray-700 flex items-center justify-center">
+              <img
+                src="/images/GlimmerInklogo1.webp"
+                alt="GlimmerInk Creations"
+                className="w-3/4 h-3/4 object-contain"
+              />
             </div>
 
-            {/* Floating elements */}
             <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="absolute -top-4 -right-4 p-4 bg-white dark:bg-gray-800 rounded-xl 
-                        border border-gray-200 dark:border-gray-700 shadow-lg"
-            >
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary dark:text-primary-light">Web</div>
-                <div className="text-xs text-gray-600 dark:text-gray-400">Projects</div>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              animate={{ y: [0, -15, 0] }}
+              animate={{ y: [0, -8, 0] }}
               transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
-              className="absolute -bottom-4 -left-4 p-4 bg-white dark:bg-gray-800 rounded-xl 
-                        border border-gray-200 dark:border-gray-700 shadow-lg"
+              className="absolute -bottom-4 -left-4 px-4 py-3 bg-white dark:bg-gray-800 rounded-xl
+                        border border-gray-200 dark:border-gray-700 shadow-lg text-center"
             >
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary dark:text-primary-light">Systems</div>
-                <div className="text-xs text-gray-600 dark:text-gray-400">Focus</div>
-              </div>
+              <div className="text-xl font-bold text-primary dark:text-primary-light">2025</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400">Founded</div>
             </motion.div>
           </div>
         </motion.div>

@@ -142,10 +142,10 @@ const TechStackVisualizer = () => {
       {/* Heading */}
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          Our Technology Stack
+          Technology Stack
         </h2>
         <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          We use modern, proven technologies to build scalable and maintainable
+          I use modern, proven technologies to build scalable and maintainable
           applications.
         </p>
       </div>

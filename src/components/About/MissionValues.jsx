@@ -8,36 +8,42 @@ const MissionValues = () => {
       title: "Precision",
       description: "Details matter, from layout structure to the way each screen feels to use.",
       color: "text-blue-500",
+      bgClass: "bg-blue-500/10",
     },
     {
       icon: Zap,
       title: "Performance",
       description: "Projects should load quickly, feel responsive, and stay practical to maintain.",
       color: "text-green-500",
+      bgClass: "bg-green-500/10",
     },
     {
       icon: Users,
       title: "Partnership",
       description: "Clear communication and honest expectation-setting are part of the work itself.",
       color: "text-purple-500",
+      bgClass: "bg-purple-500/10",
     },
     {
       icon: Heart,
       title: "User-Centric",
       description: "Interfaces should be easy to understand and comfortable to navigate.",
       color: "text-pink-500",
+      bgClass: "bg-pink-500/10",
     },
     {
       icon: Shield,
       title: "Reliability",
       description: "A polished result should feel dependable, clear, and ready to present confidently.",
       color: "text-amber-500",
+      bgClass: "bg-amber-500/10",
     },
     {
       icon: Rocket,
       title: "Innovation",
       description: "Modern tools are useful when they improve quality, not just because they are trendy.",
       color: "text-red-500",
+      bgClass: "bg-red-500/10",
     },
   ];
 
@@ -69,7 +75,7 @@ const MissionValues = () => {
               <Target className="w-6 h-6 text-primary dark:text-primary-light" />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Our Mission
+              My Mission
             </h3>
           </div>
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -91,7 +97,7 @@ const MissionValues = () => {
               <Rocket className="w-6 h-6 text-primary dark:text-primary-light" />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Our Vision
+              My Vision
             </h3>
           </div>
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -118,7 +124,7 @@ const MissionValues = () => {
                         transition-all duration-300"
             >
               <div className="flex items-start gap-4 mb-4">
-                <div className={`p-3 rounded-xl ${value.color.replace('text-', 'bg-')}/10`}>
+                <div className={`p-3 rounded-xl ${value.bgClass}`}>
                   <Icon className={`w-6 h-6 ${value.color}`} />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">
@@ -141,7 +147,7 @@ const MissionValues = () => {
         className="mt-16 pt-12 border-t border-gray-200 dark:border-gray-800 text-center"
       >
         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-          Our Development Philosophy
+          My Development Philosophy
         </h3>
         <div className="max-w-3xl mx-auto">
           <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">

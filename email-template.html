@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Contact Message | GlimmerInk Creations</title>
+    <style>
+        @media screen and (max-width: 600px) {
+            .container   { width: 95% !important; }
+            .header-name { font-size: 20px !important; }
+            .content-pad { padding: 28px 20px !important; }
+        }
+    </style>
+</head>
+<body style="margin:0;padding:0;background-color:#EFF6FF;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+<!-- Outer wrapper -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#EFF6FF;padding:40px 20px;">
+    <tr>
+        <td align="center">
+
+            <!-- ── Card ── -->
+            <table class="container" width="600" cellpadding="0" cellspacing="0" border="0"
+                   style="background:#FFFFFF;border-radius:16px;overflow:hidden;box-shadow:0 4px 32px rgba(37,99,235,0.10);">
+
+                <!-- ═══════════════════════════════
+                     HEADER
+                ═══════════════════════════════ -->
+                <tr>
+                    <td style="background:#FFFFFF;padding:0;">
+                        <!-- Blue accent line at very top -->
+                        <div style="height:4px;background:linear-gradient(90deg,#1D4ED8,#3B82F6,#60A5FA);"></div>
+
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td style="padding:28px 40px 24px;text-align:center;">
+                                    <!-- Logo image -->
+                                    <img src="https://glimmerink.co.ke/GlimmerInk%20Logo.jpeg"
+                                         alt="GlimmerInk Creations"
+                                         width="220"
+                                         style="display:block;margin:0 auto;max-width:220px;height:auto;border:0;" />
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Bottom border separating header from badge -->
+                        <div style="height:1px;background:#E2E8F0;margin:0 40px;"></div>
+                    </td>
+                </tr>
+
+                <!-- ═══════════════════════════════
+                     NOTIFICATION BADGE STRIP
+                ═══════════════════════════════ -->
+                <tr>
+                    <td style="background:#EFF6FF;border-bottom:1px solid #DBEAFE;padding:14px 40px;text-align:center;">
+                        <span style="display:inline-block;background:#DBEAFE;color:#1D4ED8;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:5px 16px;border-radius:100px;border:1px solid #BFDBFE;">
+                            ● New Contact Submission
+                        </span>
+                    </td>
+                </tr>
+
+                <!-- ═══════════════════════════════
+                     BODY CONTENT
+                ═══════════════════════════════ -->
+                <tr>
+                    <td class="content-pad" style="padding:40px 40px 32px;">
+
+                        <!-- Title -->
+                        <h2 style="margin:0 0 6px;color:#0F172A;font-size:22px;font-weight:700;letter-spacing:-0.3px;">
+                            You have a new message
+                        </h2>
+                        <p style="margin:0 0 32px;color:#71717A;font-size:14px;line-height:1.6;">
+                            Someone reached out via the contact form on your website. Here are the full details:
+                        </p>
+
+                        <!-- ── Details Table Card ── -->
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0"
+                               style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:12px;overflow:hidden;margin-bottom:28px;">
+
+                            <!-- Name -->
+                            <tr style="border-bottom:1px solid #E2E8F0;">
+                                <td width="90" style="padding:14px 18px;background:#F1F5F9;border-bottom:1px solid #E2E8F0;vertical-align:middle;">
+                                    <span style="font-size:10px;font-weight:700;color:#2563EB;text-transform:uppercase;letter-spacing:1px;">Name</span>
+                                </td>
+                                <td style="padding:14px 18px;border-left:1px solid #E2E8F0;border-bottom:1px solid #E2E8F0;font-size:15px;color:#0F172A;font-weight:500;vertical-align:middle;">
+                                    {{from_name}}
+                                </td>
+                            </tr>
+
+                            <!-- Email -->
+                            <tr>
+                                <td style="padding:14px 18px;background:#F1F5F9;border-bottom:1px solid #E2E8F0;vertical-align:middle;">
+                                    <span style="font-size:10px;font-weight:700;color:#2563EB;text-transform:uppercase;letter-spacing:1px;">Email</span>
+                                </td>
+                                <td style="padding:14px 18px;border-left:1px solid #E2E8F0;border-bottom:1px solid #E2E8F0;vertical-align:middle;">
+                                    <a href="mailto:{{from_email}}"
+                                       style="color:#2563EB;text-decoration:none;font-size:15px;font-weight:500;">
+                                        {{from_email}}
+                                    </a>
+                                </td>
+                            </tr>
+
+                            <!-- Phone -->
+                            <tr>
+                                <td style="padding:14px 18px;background:#F1F5F9;border-bottom:1px solid #E2E8F0;vertical-align:middle;">
+                                    <span style="font-size:10px;font-weight:700;color:#2563EB;text-transform:uppercase;letter-spacing:1px;">Phone</span>
+                                </td>
+                                <td style="padding:14px 18px;border-left:1px solid #E2E8F0;border-bottom:1px solid #E2E8F0;font-size:15px;color:#0F172A;vertical-align:middle;">
+                                    {{phone}}
+                                </td>
+                            </tr>
+
+                            <!-- Service -->
+                            <tr>
+                                <td style="padding:14px 18px;background:#F1F5F9;border-bottom:1px solid #E2E8F0;vertical-align:middle;">
+                                    <span style="font-size:10px;font-weight:700;color:#2563EB;text-transform:uppercase;letter-spacing:1px;">Service</span>
+                                </td>
+                                <td style="padding:14px 18px;border-left:1px solid #E2E8F0;border-bottom:1px solid #E2E8F0;vertical-align:middle;">
+                                    <span style="display:inline-block;background:#EFF6FF;color:#1D4ED8;font-size:12px;font-weight:700;padding:4px 14px;border-radius:6px;border:1px solid #BFDBFE;letter-spacing:0.3px;">
+                                        {{service}}
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <!-- Subject -->
+                            <tr>
+                                <td style="padding:14px 18px;background:#F1F5F9;vertical-align:middle;">
+                                    <span style="font-size:10px;font-weight:700;color:#2563EB;text-transform:uppercase;letter-spacing:1px;">Subject</span>
+                                </td>
+                                <td style="padding:14px 18px;border-left:1px solid #E2E8F0;font-size:15px;color:#0F172A;font-weight:600;vertical-align:middle;">
+                                    {{subject}}
+                                </td>
+                            </tr>
+
+                        </table>
+
+                        <!-- ── Message Block ── -->
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:36px;">
+                            <tr>
+                                <td>
+                                    <!-- Label row -->
+                                    <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom:10px;">
+                                        <tr>
+                                            <td width="3" style="background:#2563EB;border-radius:2px;">&nbsp;</td>
+                                            <td style="padding-left:10px;">
+                                                <span style="font-size:10px;font-weight:700;color:#2563EB;text-transform:uppercase;letter-spacing:1px;">Message</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- Message body -->
+                                    <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-left:4px solid #2563EB;border-radius:0 10px 10px 0;padding:20px 22px;font-size:15px;color:#334155;line-height:1.75;">
+                                        {{message}}
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- ── CTA Button ── -->
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td align="center">
+                                    <a href="mailto:{{from_email}}?subject=Re: {{subject}}"
+                                       style="display:inline-block;background:#2563EB;color:#FFFFFF;text-decoration:none;padding:15px 40px;border-radius:8px;font-weight:700;font-size:15px;letter-spacing:0.3px;">
+                                        Reply to {{from_name}} &rarr;
+                                    </a>
+                                    <p style="margin:14px 0 0;color:#94A3B8;font-size:13px;">
+                                        Aim to respond within 24 hours.
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+                </tr>
+
+                <!-- ═══════════════════════════════
+                     FOOTER
+                ═══════════════════════════════ -->
+                <tr>
+                    <td style="background:#0F172A;padding:28px 40px;text-align:center;">
+
+                        <!-- Social links as text -->
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;">
+                            <tr>
+                                <td align="center">
+                                    <a href="#" style="color:#60A5FA;font-size:12px;font-weight:600;text-decoration:none;margin:0 10px;">Instagram</a>
+                                    <span style="color:#334155;font-size:12px;">·</span>
+                                    <a href="#" style="color:#60A5FA;font-size:12px;font-weight:600;text-decoration:none;margin:0 10px;">Facebook</a>
+                                    <span style="color:#334155;font-size:12px;">·</span>
+                                    <a href="#" style="color:#60A5FA;font-size:12px;font-weight:600;text-decoration:none;margin:0 10px;">Twitter</a>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Divider -->
+                        <div style="height:1px;background:#1E293B;margin:0 0 16px;"></div>
+
+                        <p style="color:#475569;font-size:12px;margin:0 0 4px;">
+                            This message was submitted via your GlimmerInk Creations website contact form.
+                        </p>
+                        <p style="color:#475569;font-size:12px;margin:0;">
+                            &copy; {{year}} GlimmerInk Creations. All rights reserved.
+                        </p>
+                    </td>
+                </tr>
+
+            </table>
+            <!-- ── end card ── -->
+
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

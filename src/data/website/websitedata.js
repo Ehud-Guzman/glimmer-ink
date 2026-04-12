@@ -40,6 +40,36 @@ const websiteData = {
           },
 
           {
+            id: "grainsglobal",
+            title: "GrainsGlobal — Grains Trading Platform",
+            status: "live",
+            showOnHome: true,
+            description:
+              "Full-featured grains trading platform with product catalog, product stories, explore sections, and a secure admin control panel for inventory and system management.",
+            year: "2026",
+            client: "Grains Business",
+            technologies: ["React", "Vite", "Tailwind CSS", "Node.js"],
+            // liveUrl: "", // TODO: add live URL
+            images: [
+              "/images/grainsglobal/home-page.png",
+              "/images/grainsglobal/products-page.png",
+              "/images/grainsglobal/product-page-story.png",
+              "/images/grainsglobal/explore-more.png",
+              "/images/grainsglobal/login-page.png",
+              "/images/grainsglobal/control-panel-system-admin.png",
+              "/images/grainsglobal/Backup-system-admin.png",
+            ],
+            features: [
+              "Product catalog with detailed product stories",
+              "Explore more / discovery section",
+              "Secure admin login and control panel",
+              "System admin backup and management tools",
+              "Mobile-first responsive design",
+            ],
+          },
+
+          /*
+          {
             id: "ecommerce-platform",
             title: "Full-Stack E-commerce Platform",
             status: "live",
@@ -64,6 +94,7 @@ const websiteData = {
               "Admin dashboard for product management",
             ],
           },
+          */
 
 
               {
@@ -173,6 +204,7 @@ const websiteData = {
             ],
           },
 
+          /*
           {
             id: "real-time-chat",
             title: "Real-time Chat Application",
@@ -230,6 +262,7 @@ const websiteData = {
               "Real-time updates",
             ],
           },
+          */
         ],
       },
 
@@ -322,6 +355,7 @@ const websiteData = {
         name: "System Development",
         description: "Backend systems, APIs, and infrastructure",
         projects: [
+          /*
           {
             id: "api-gateway",
             title: "API Gateway & Microservices",
@@ -375,6 +409,7 @@ const websiteData = {
               "Scalable architecture",
             ],
           },
+          */
         ],
       },
 
@@ -386,6 +421,7 @@ const websiteData = {
         name: "Mobile Applications",
         description: "Cross-platform mobile applications",
         projects: [
+          /*
           {
             id: "task-manager",
             title: "Cross-platform Task Manager",
@@ -418,6 +454,7 @@ const websiteData = {
               "Progress tracking",
             ],
           },
+          */
         ],
       },
 
@@ -429,6 +466,7 @@ const websiteData = {
         name: "DevOps & Infrastructure",
         description: "CI/CD, deployment, and cloud infrastructure",
         projects: [
+          /*
           {
             id: "ci-cd-pipeline",
             title: "CI/CD Pipeline Automation",
@@ -458,6 +496,7 @@ const websiteData = {
               "Rollback capabilities",
             ],
           },
+          */
         ],
       },
     ],

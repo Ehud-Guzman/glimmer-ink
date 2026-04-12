@@ -213,10 +213,12 @@ const ContactForm = ({ preset = null }) => {
                 placeholder="Your name"
                 autoComplete="name"
                 required
+                aria-invalid={!!errors.from_name}
+                aria-describedby={errors.from_name ? "from_name-error" : undefined}
               />
             </div>
             {errors.from_name && (
-              <p className="text-sm text-red-500 mt-1">{errors.from_name}</p>
+              <p id="from_name-error" className="text-sm text-red-500 mt-1" role="alert">{errors.from_name}</p>
             )}
           </div>
 
@@ -237,10 +239,12 @@ const ContactForm = ({ preset = null }) => {
                 autoComplete="email"
                 inputMode="email"
                 required
+                aria-invalid={!!errors.from_email}
+                aria-describedby={errors.from_email ? "from_email-error" : undefined}
               />
             </div>
             {errors.from_email && (
-              <p className="text-sm text-red-500 mt-1">{errors.from_email}</p>
+              <p id="from_email-error" className="text-sm text-red-500 mt-1" role="alert">{errors.from_email}</p>
             )}
           </div>
         </div>
@@ -324,10 +328,12 @@ const ContactForm = ({ preset = null }) => {
               className={`${inputClass} resize-none ${errors.message ? errorClass : ""}`}
               placeholder="Tell me about your project, timeline, or what you want to improve…"
               required
+              aria-invalid={!!errors.message}
+              aria-describedby={errors.message ? "message-error" : undefined}
             />
           </div>
           {errors.message && (
-            <p className="text-sm text-red-500 mt-1">{errors.message}</p>
+            <p id="message-error" className="text-sm text-red-500 mt-1" role="alert">{errors.message}</p>
           )}
         </div>
 

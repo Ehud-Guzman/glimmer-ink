@@ -23,7 +23,7 @@ const HistoryTimeline = () => {
       year: "2026",
       quarter: "Q1",
       title: "Systems Focus",
-      description: "System concepts for schools, healthcare, legal practice, and feedback workflows became a stronger part of the portfolio.",
+      description: "System concepts for schools, healthcare, legal practice, and grains trading took shape — building out the portfolio with full-stack, admin-backed projects.",
       icon: Rocket,
     },
     
@@ -134,12 +134,12 @@ const HistoryTimeline = () => {
       >
         <div className="max-w-3xl mx-auto text-center">
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-            Where We Are Today
+            Where I Am Today
           </h3>
           <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            Today, GlimmerInk is still early in its journey, but the direction is clear:
-            build better websites, stronger system concepts, and more professional digital experiences
-            with each project. The focus is on steady growth, sharper execution, and honest progress.
+            The direction is clear: build better websites, stronger systems, and more polished digital
+            experiences with each project. The focus is sharp execution, honest work, and consistent
+            improvement across every deliverable.
           </p>
         </div>
       </motion.div>

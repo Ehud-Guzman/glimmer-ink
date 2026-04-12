@@ -43,9 +43,11 @@ const ServiceCard = ({ service, index }) => {
       </div>
 
       <div className="mt-8 pt-6 border-t border-gray-100 dark:border-gray-700">
-        <button className="text-primary dark:text-primary-light font-medium text-sm 
-                          hover:underline flex items-center gap-2">
-          Learn more
+        <button
+          onClick={() => document.getElementById("estimator")?.scrollIntoView({ behavior: "smooth" })}
+          className="text-primary dark:text-primary-light font-medium text-sm hover:underline flex items-center gap-2"
+        >
+          Get a quote
           <ArrowRight className="w-4 h-4" />
         </button>
       </div>

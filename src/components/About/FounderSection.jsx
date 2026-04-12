@@ -37,9 +37,8 @@ const FounderSection = () => {
           </p>
 
           <p className="text-gray-600 dark:text-gray-300 mb-8">
-            GlimmerInk is currently a personal portfolio brand at an early growth stage. It gives me
-            a focused space to present my work honestly, improve my craft, and build a strong foundation
-            around premium websites and systems-oriented projects.
+            GlimmerInk gives me a focused space to present work honestly, keep raising the bar on execution,
+            and build a strong body of work around premium websites and systems-oriented projects.
           </p>
 
           {/* Expertise */}
@@ -94,22 +93,32 @@ const FounderSection = () => {
           viewport={{ once: true }}
           className="relative"
         >
-          {/* Founder Image Container */}
+          {/* Founder identity card */}
           <div className="relative mb-8">
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/10 
-                          dark:from-primary/10 dark:to-primary/5 border border-gray-200 dark:border-gray-700">
-              {/* Placeholder for founder image */}
-              <div className="w-full h-full flex flex-col items-center justify-center p-8">
-                <div className="w-40 h-40 rounded-full bg-gradient-to-r from-primary to-primary-light 
-                              mb-6 flex items-center justify-center">
-                  <span className="text-5xl font-bold text-white">EM</span>
+            <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+              {/* Header band */}
+              <div className="h-24 bg-gradient-to-r from-primary to-primary-light" />
+              {/* Content */}
+              <div className="px-8 pb-8 -mt-10">
+                <div className="w-20 h-20 rounded-2xl bg-primary text-white border-4 border-white dark:border-gray-800 shadow-lg flex items-center justify-center mb-4 text-2xl font-bold tracking-tight">
+                  EM
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                  Ehud Mwai
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-center">
-                  Founder, GlimmerInk Creations
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">Ehud Mwai</h3>
+                <p className="text-sm text-primary dark:text-primary-light font-medium mb-5">
+                  Founder · GlimmerInk Creations
                 </p>
+                <div className="space-y-3">
+                  {[
+                    { label: "Speciality", value: "Web & Systems" },
+                    { label: "Location", value: "Nairobi, Kenya" },
+                    { label: "Available", value: "Open to projects" },
+                  ].map(({ label, value }) => (
+                    <div key={label} className="flex justify-between items-center text-sm border-b border-gray-100 dark:border-gray-700 pb-2 last:border-0">
+                      <span className="text-gray-500 dark:text-gray-400">{label}</span>
+                      <span className="font-medium text-gray-900 dark:text-white">{value}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

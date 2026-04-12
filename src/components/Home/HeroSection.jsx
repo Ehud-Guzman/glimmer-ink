@@ -1,32 +1,9 @@
 // components/Home/HeroSection.jsx
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 
 const HeroSection = () => {
-  const fullText =
-    "I  design and build premium websites, business systems, polished dashboards, and modern digital experiences for growing brands.";
-  const typingSpeed = 28;
 
-  // 🔒 Lock the first character so it never disappears
-  const firstChar = fullText.charAt(0);
-  const restText = fullText.slice(1);
-
-  const [typed, setTyped] = useState("");
-
-  useEffect(() => {
-    let i = 0;
-    setTyped("");
-
-    const typingInterval = setInterval(() => {
-      setTyped((prev) => prev + restText.charAt(i));
-      i++;
-      if (i >= restText.length) clearInterval(typingInterval);
-    }, typingSpeed);
-
-    return () => clearInterval(typingInterval);
-  }, [restText]);
-
-  const chips = ["1 live client website", "Concept case studies", "Mobile-first builds", "Fast turnaround"];
+  const chips = ["5+ live client websites", "Polished concept builds", "Mobile-first", "Fast turnaround"];
 
   return (
     <section className="relative min-h-[90vh] flex flex-col md:flex-row items-center justify-center md:justify-start gap-12 md:gap-16 overflow-hidden px-4 md:px-16 lg:px-32 pt-10 md:pt-14">
@@ -55,30 +32,13 @@ const HeroSection = () => {
         </motion.h1>
 
         <motion.p
-          className="text-lg sm:text-xl mb-5 text-text-light/85 dark:text-text-dark/85 leading-relaxed max-w-2xl"
+          className="text-lg sm:text-xl mb-7 text-text-light/85 dark:text-text-dark/85 leading-relaxed max-w-2xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.28 }}
         >
           I help businesses show up professionally online and run more smoothly behind the scenes
           with clean websites, practical systems, thoughtful structure, and modern front-end execution.
-        </motion.p>
-
-        {/* Typed description (safe, unclippable) */}
-        <motion.p
-          className="text-base sm:text-lg md:text-xl mb-7 text-text-light/80 dark:text-text-dark/80 leading-relaxed min-h-[72px] relative"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          {/* Accent bar */}
-          <span className="absolute left-0 top-1 bottom-1 w-1 bg-primary rounded-full" />
-
-          <span className="pl-4 block">
-            <span className="select-none">{firstChar}</span>
-            {typed}
-            <span className="animate-pulse text-primary">|</span>
-          </span>
         </motion.p>
 
         {/* Trust chips */}
@@ -149,18 +109,20 @@ const HeroSection = () => {
         transition={{ duration: 0.7 }}
       >
         <div className="relative w-full md:max-w-md lg:max-w-lg">
-          <div className="absolute -inset-4 bg-gradient-to-r from-primary to-primary-light dark:from-primary-dark dark:to-primary rounded-2xl blur-xl opacity-20" />
+          <div className="absolute -inset-4 bg-gradient-to-r from-primary to-primary-light dark:from-primary-dark dark:to-primary rounded-2xl blur-xl opacity-20" aria-hidden="true" />
           <img
             src="/images/illustration.png"
             alt="GlimmerInk design and development showcase"
             className="relative w-full rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800"
             loading="eager"
+            fetchpriority="high"
+            decoding="async"
           />
           <div className="absolute -bottom-5 left-1/2 w-[92%] -translate-x-1/2 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white/92 dark:bg-gray-900/92 backdrop-blur px-5 py-4 shadow-xl">
             <div className="flex items-center justify-between gap-4 text-sm">
               <div>
-                <div className="font-semibold text-text-light dark:text-text-dark">Current portfolio stage</div>
-                <div className="text-text-light/65 dark:text-text-dark/65">1 live client site, curated concept builds</div>
+                <div className="font-semibold text-text-light dark:text-text-dark">Live client work + concept builds</div>
+                <div className="text-text-light/65 dark:text-text-dark/65">5 live sites · systems · polished UI demos</div>
               </div>
               <a
                 href="/work"

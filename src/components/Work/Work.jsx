@@ -2,14 +2,11 @@ import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 
 import WorkHero from "./WorkHero";
-import ProjectShowcase from "./ProjectShowcase";
 import ProjectFilters from "./ProjectFilters";
 import ProjectGrid from "./ProjectGrid";
 import FeaturedProject from "./FeaturedProject";
-import ServicesOverview from "./ServicesOverview";
 import DevelopmentProcess from "./DevelopmentProcess";
 import TechStackSection from "./TechStackSection";
-import ContactOptions from "./ContactOptions";
 import CTASection from "./CTASection";
 import ProjectModal from "./ProjectModal";
 
@@ -23,7 +20,6 @@ const WorkPage = ({ projects = [] }) => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Reset pagination whenever the user changes filter or search
   useEffect(() => {
     setVisibleProjects(6);
   }, [activeFilter, searchQuery]);
@@ -33,24 +29,15 @@ const WorkPage = ({ projects = [] }) => {
     return explicit || projects[0] || null;
   }, [projects]);
 
-  const showcaseProjects = useMemo(() => {
-    // Put featured first (if any), then fill the remaining slots
-    const rest = projects.filter((p) => p && p !== featured);
-    return [featured, ...rest].filter(Boolean).slice(0, 3);
-  }, [projects, featured]);
-
   const filteredProjects = useMemo(() => {
     const q = norm(searchQuery);
-
     return projects
       .filter((p) => (activeFilter === "all" ? true : p?.category === activeFilter))
       .filter((p) => {
         if (!q) return true;
-
         const title = norm(p?.title);
         const desc = norm(p?.description);
         const stackHit = safeArr(p?.stack).some((t) => norm(t).includes(q));
-
         return title.includes(q) || desc.includes(q) || stackHit;
       })
       .slice(0, visibleProjects);
@@ -73,17 +60,19 @@ const WorkPage = ({ projects = [] }) => {
     <div className="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark min-h-screen">
       <WorkHero />
 
-      {/* Featured Projects Showcase */}
-      <ProjectShowcase projects={showcaseProjects} onProjectSelect={handleProjectSelect} />
+      {/* Featured Case Study — right after hero */}
+      {featured && (
+        <FeaturedProject project={featured} onViewDetails={() => handleProjectSelect(featured)} />
+      )}
 
-      {/* All Projects Section */}
+      {/* Full Project Grid */}
       <section className="py-16 px-4 md:px-6 max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display">
             Explore the Portfolio
           </h2>
           <p className="text-lg text-text-muted max-w-2xl mx-auto">
-            Browse live work, concept builds, and systems-focused projects across the portfolio.
+            Browse live work, concept builds, and systems-focused projects.
           </p>
         </div>
 
@@ -110,19 +99,10 @@ const WorkPage = ({ projects = [] }) => {
         )}
       </section>
 
-      <ServicesOverview />
-      <DevelopmentProcess />
       <TechStackSection />
-
-      {/* Featured Case Study */}
-      {featured && (
-        <FeaturedProject project={featured} onViewDetails={() => handleProjectSelect(featured)} />
-      )}
-
-      <ContactOptions />
+      <DevelopmentProcess />
       <CTASection />
 
-      {/* Project Modal */}
       {isModalOpen && selectedProject && (
         <ProjectModal project={selectedProject} isOpen={isModalOpen} onClose={closeModal} />
       )}

@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 
-// ✅ Move CodeBackground outside the CTA component
 const CodeBackground = () => {
   const grid = [
     {
@@ -51,8 +49,6 @@ const CodeBackground = () => {
 };
 
 const CTASection = () => {
-  const [, setHovered] = useState(false);
-
   const handleCTAClick = (ctaName) => {
     if (window.gtag) {
       window.gtag("event", "cta_click", { cta: ctaName });
@@ -69,7 +65,6 @@ const CTASection = () => {
     <section className="relative py-20 md:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary-light/5 dark:from-primary/10 dark:via-transparent dark:to-primary-light/10" />
       
-      {/* ✅ Background code effect */}
       <CodeBackground />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -113,7 +108,6 @@ const CTASection = () => {
               href="/contact"
               className="relative px-8 py-4 bg-primary text-white rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl"
               onMouseEnter={() => handleHover("start_project")}
-              onMouseLeave={() => setHovered(false)}
               onClick={() => handleCTAClick("start_project")}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -139,7 +133,7 @@ const CTASection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
-            {["Websites", "Dashboards", "Concept Builds", "Responsive UI", "Front-end Development", "SEO Basics"].map((tech, i) => (
+            {["Business Websites", "Web Applications", "Business Systems", "E-Commerce", "UI/UX Design", "Ongoing Support"].map((tech, i) => (
               <motion.span
                 key={i}
                 className="px-4 py-2 rounded-lg text-sm border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
