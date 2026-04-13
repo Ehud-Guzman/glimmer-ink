@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(npm list:*)",
+      "Bash(xargs ls:*)",
+      "Bash(node -e ':*)",
+      "Bash(awk '$1 > 1 {print}')",
+      "Bash(grep -rho \"className=\\\\\"[^\\\\\"]*\\\\|className=\\\\`[^\\\\`]*\" src/)",
+      "Bash(wc -l src/components/**/*.jsx)",
+      "Bash(grep -v \"^$\")"
+    ]
+  }
+}

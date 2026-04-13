@@ -106,7 +106,6 @@ const ContactForm = ({ preset = null }) => {
 
     // Hard fail with a helpful message if env vars are missing
     if (!serviceId || !templateId || !publicKey) {
-      console.error("Missing EmailJS env vars. Check .env configuration.");
       setSubmitStatus({
         type: "error",
         message: "Form is not configured yet. Please contact via email/WhatsApp.",
@@ -140,13 +139,11 @@ const ContactForm = ({ preset = null }) => {
         from_name: "",
         from_email: "",
         phone: "",
-        subject: "",
-        service: "",
+        subject: preset?.subject || "",
+        service: preset?.service || "",
         message: "",
       });
     } catch (err) {
-      console.error("EmailJS Error:", err);
-
       setSubmitStatus({
         type: "error",
         message: "Something went wrong. Please try again.",
@@ -167,7 +164,10 @@ const ContactForm = ({ preset = null }) => {
   const errorClass = "border-red-500 focus:border-red-500 focus:ring-red-500";
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-8 border border-gray-200 dark:border-gray-700">
+    <div
+      id="contact-form"
+      className="scroll-mt-28 bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-8 border border-gray-200 dark:border-gray-700"
+    >
       {/* Header */}
       <div className="mb-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white">

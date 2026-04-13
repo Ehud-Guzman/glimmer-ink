@@ -1,5 +1,12 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { Check, ArrowRight, Calculator } from "lucide-react";
+
+const BUDGET_LIMITS = {
+  starter: { min: 20000, max: 50000 },
+  growth: { min: 50000, max: 100000 },
+  pro: { min: 100000, max: Number.POSITIVE_INFINITY },
+};
 
 const ServiceSelector = () => {
   const [selectedService, setSelectedService] = useState(null);
@@ -90,6 +97,38 @@ const ServiceSelector = () => {
     if (!selectedService) return 0;
     return selectedService.timeline + Math.ceil(selectedFeatures.length * 0.5);
   };
+
+  const estimate = estimateCost();
+  const selectedBudgetRange = budgetRanges.find((range) => range.id === budget) ?? budgetRanges[0];
+  const budgetFeedback = useMemo(() => {
+    if (!selectedService) {
+      return {
+        tone: "text-gray-500 dark:text-gray-400",
+        message: "Choose a service to compare the estimate with your budget.",
+      };
+    }
+
+    const limits = BUDGET_LIMITS[budget];
+
+    if (estimate < limits.min) {
+      return {
+        tone: "text-amber-600 dark:text-amber-400",
+        message: "This scope is currently below your selected budget range.",
+      };
+    }
+
+    if (estimate > limits.max) {
+      return {
+        tone: "text-red-600 dark:text-red-400",
+        message: "This scope is likely above your selected budget range.",
+      };
+    }
+
+    return {
+      tone: "text-green-600 dark:text-green-400",
+      message: "This estimate fits inside your selected budget range.",
+    };
+  }, [budget, estimate, selectedService]);
 
   return (
     <section className="py-16 px-6 max-w-5xl mx-auto">
@@ -205,19 +244,26 @@ const ServiceSelector = () => {
 
               <div className="text-center p-4 bg-gray-50 rounded-xl">
                 <div className="text-xl font-bold text-primary">
-                  KES {estimateCost().toLocaleString()}
+                  KES {estimate.toLocaleString()}
                 </div>
                 <div className="text-sm text-gray-600">Estimated</div>
               </div>
             </div>
 
-            <a
-              href="/contact"
+            <div className="mb-5 rounded-xl bg-gray-50 border border-gray-200 p-4">
+              <div className="text-sm font-medium text-gray-900 mb-1">
+                Selected budget: {selectedBudgetRange.label}
+              </div>
+              <p className={`text-sm ${budgetFeedback.tone}`}>{budgetFeedback.message}</p>
+            </div>
+
+            <Link
+              to="/contact"
               className="w-full py-3 bg-primary text-white font-semibold rounded-lg flex items-center justify-center gap-2 hover:bg-primary-dark transition-colors"
             >
               Get Detailed Quote
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

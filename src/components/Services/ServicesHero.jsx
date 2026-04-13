@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Sparkles, Code2, Palette, ShoppingCart, Database, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ServicesHero = () => {
   const serviceIcons = [
@@ -72,21 +73,17 @@ const ServicesHero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap justify-center gap-4">
-            <motion.a
-              href="/work"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            <Link
+              to="/work"
               className="px-8 py-3 bg-primary text-white font-semibold rounded-lg
                        hover:bg-primary-dark dark:bg-primary-light dark:text-gray-900
                        dark:hover:bg-primary transition-all duration-300
                        shadow-sm hover:shadow-md"
             >
               View My Work
-            </motion.a>
-            <motion.a
-              href="/contact"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            </Link>
+            <Link
+              to="/contact"
               className="px-8 py-3 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200
                        font-semibold rounded-lg border border-gray-300 dark:border-gray-700
                        hover:border-primary dark:hover:border-primary-light
@@ -94,7 +91,7 @@ const ServicesHero = () => {
                        transition-all duration-300 shadow-sm"
             >
               Get in Touch
-            </motion.a>
+            </Link>
           </div>
         </motion.div>
       </div>

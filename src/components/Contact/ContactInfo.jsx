@@ -41,13 +41,13 @@ const ContactInfo = () => {
     {
       icon: Twitter,
       label: "Twitter",
-      href: "https://x.com/Glimmerink_",
+      href: "https://x.com/GlimmerInk_",
       color: "bg-sky-500/10 dark:bg-sky-500/20 hover:bg-sky-500/20 dark:hover:bg-sky-500/30 text-sky-600 dark:text-sky-400",
     },
     {
       icon: Instagram,
       label: "Instagram",
-      href: "https://www.instagram.com/ehud_guzman/profilecard/?igsh=ZGx0Znk2aWRjMzVh",
+      href: "https://www.instagram.com/glimmerink.creations",
       color: "bg-pink-500/10 dark:bg-pink-500/20 hover:bg-pink-500/20 dark:hover:bg-pink-500/30 text-pink-600 dark:text-pink-400",
     },
   ];

@@ -1,5 +1,6 @@
 // components/Home/HeroSection.jsx
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
 
@@ -65,18 +66,18 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
         >
-          <a
-            href="/work"
+          <Link
+            to="/work"
             className="px-8 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 text-lg shadow-lg hover:shadow-xl"
           >
             View Selected Work
-          </a>
-          <a
-            href="/contact"
+          </Link>
+          <Link
+            to="/contact"
             className="px-8 py-3 border-2 border-primary text-primary dark:text-primary-light rounded-lg font-semibold hover:bg-primary/10 transition-all text-lg"
           >
             Start a Conversation
-          </a>
+          </Link>
         </motion.div>
 
         {/* Subtle credibility line */}
@@ -124,12 +125,12 @@ const HeroSection = () => {
                 <div className="font-semibold text-text-light dark:text-text-dark">Live client work + concept builds</div>
                 <div className="text-text-light/65 dark:text-text-dark/65">5 live sites · systems · polished UI demos</div>
               </div>
-              <a
-                href="/work"
+              <Link
+                to="/work"
                 className="shrink-0 rounded-full bg-primary px-4 py-2 text-white font-medium hover:bg-primary-dark transition-colors"
               >
                 Explore
-              </a>
+              </Link>
             </div>
           </div>
         </div>

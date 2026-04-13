@@ -11,7 +11,7 @@ import {
   FiExternalLink,
   FiSmartphone,
 } from "react-icons/fi";
-import websiteData from "@/data/website/websitedata";
+import { portfolioGalleryData } from "@/data/developmentProjects";
 
 /**
  * mode:
@@ -29,7 +29,7 @@ const ServicesGallery = ({ mode = "full" }) => {
 
   // Build dataset depending on mode (home vs full)
   const developmentData = useMemo(() => {
-    const raw = websiteData?.development || { title: "", description: "", categories: [] };
+    const raw = portfolioGalleryData || { title: "", description: "", categories: [] };
 
     if (mode !== "home") return raw;
 
@@ -222,7 +222,7 @@ const ServicesGallery = ({ mode = "full" }) => {
         {mode === "home" && featuredProjects.length > 0 && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {featuredProjects.map((project, index) => {
-              const cover = project?.images?.[0] || "/placeholder-project.webp";
+              const cover = project?.images?.[0] || "/images/placeholder-project.webp";
               const statusLabel =
                 project.status === "live"
                   ? "Live project"
@@ -337,7 +337,7 @@ const ServicesGallery = ({ mode = "full" }) => {
           >
             {filteredCategories.map((category, i) => {
               const cover =
-                category?.projects?.[0]?.images?.[0] || "/placeholder-project.webp";
+                category?.projects?.[0]?.images?.[0] || "/images/placeholder-project.webp";
 
               return (
                 <motion.div
@@ -441,7 +441,7 @@ const ServicesGallery = ({ mode = "full" }) => {
             {isMasonryView ? (
               <div className="columns-1 sm:columns-2 lg:columns-3 gap-6">
                 {(activeCategory.projects || []).map((project) => {
-                  const cover = project?.images?.[0] || "/placeholder-project.webp";
+                  const cover = project?.images?.[0] || "/images/placeholder-project.webp";
                   return (
                     <motion.div
                       key={project.id || project.title}
@@ -541,7 +541,7 @@ const ServicesGallery = ({ mode = "full" }) => {
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {(activeCategory.projects || []).map((project) => {
-                  const cover = project?.images?.[0] || "/placeholder-project.webp";
+                  const cover = project?.images?.[0] || "/images/placeholder-project.webp";
                   return (
                     <motion.div
                       key={project.id || project.title}

@@ -1,5 +1,6 @@
 // components/Footer/FooterBrand.jsx
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const hoverItem = {
   rest: { scale: 1 },
@@ -17,14 +18,14 @@ const FooterBrand = ({ brand }) => {
         whileHover={{ x: 5 }}
         transition={{ type: "spring" }}
       >
-        <a href="/" className="text-3xl font-bold flex items-end">
+        <Link to="/" className="text-3xl font-bold flex items-end">
           <motion.span className="text-primary" whileHover={{ y: -3 }}>
             {logo.primary || "Glimmer"}
           </motion.span>
           <motion.span className="text-text-light dark:text-text-dark" whileHover={{ y: 3 }}>
             {logo.secondary || "Ink"}
           </motion.span>
-        </a>
+        </Link>
 
         <span className="text-xs uppercase tracking-widest text-text-muted">
           {logo.tagline || ""}
@@ -36,8 +37,8 @@ const FooterBrand = ({ brand }) => {
       </p>
 
       <motion.div className="relative group" initial="rest" whileHover="hover" variants={hoverItem}>
-        <motion.a
-          href={cta.url || "/contact"}
+        <Link
+          to={cta.url || "/contact"}
           className="inline-flex items-center gap-2 px-6 py-3.5 bg-primary text-white rounded-lg font-medium transition-all duration-300 overflow-hidden hover:bg-primary-dark"
         >
           <span className="absolute inset-0 bg-primary-dark opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -45,7 +46,7 @@ const FooterBrand = ({ brand }) => {
             <span className="block group-hover:hidden">{cta.text || "Start your project"}</span>
             <span className="hidden group-hover:block">{cta.hoverText || "Let's create →"}</span>
           </span>
-        </motion.a>
+        </Link>
       </motion.div>
     </motion.div>
   );

@@ -38,16 +38,6 @@ const footerStructure = {
         { name: "Contact", url: "/contact", hoverEffect: "arrow" },
       ],
     },
-    {
-      title: "Resources",
-      links: [
-        // ✅ real links only; keep placeholders as "#" until you build routes
-        { name: "Case Studies", url: "#", hoverEffect: "underline" },
-        { name: "Blog", url: "#", hoverEffect: "scale" },
-        { name: "Help Center", url: "#", hoverEffect: "arrow" },
-        { name: "Careers", url: "#", hoverEffect: "highlight" },
-      ],
-    },
   ],
 
   contact: {
@@ -80,13 +70,13 @@ const footerStructure = {
     social: [
       {
         icon: FiInstagram,
-        url: "https://instagram.com/ehud_guzman",
+        url: "https://www.instagram.com/glimmerink.creations",
         label: "Instagram",
         bgHover: "bg-gradient-to-br from-yellow-400 to-pink-600",
       },
       {
         icon: FiTwitter,
-        url: "https://twitter.com/Glimmerink_",
+        url: "https://x.com/GlimmerInk_",
         label: "Twitter",
         bgHover: "bg-gradient-to-br from-blue-400 to-blue-600",
       },
@@ -106,7 +96,7 @@ const footerStructure = {
       },
       {
         icon: FiLinkedin,
-        url: "#",
+        url: "https://www.linkedin.com/company/glimmerink",
         label: "LinkedIn",
         bgHover: "bg-gradient-to-br from-blue-600 to-blue-800",
       },

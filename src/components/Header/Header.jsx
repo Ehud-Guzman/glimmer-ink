@@ -23,7 +23,13 @@ export default function Header({ isMenuOpen, setIsMenuOpen }) {
   useEffect(() => {
     const root = document.documentElement;
     root.classList.toggle("dark", theme === "dark");
+    root.style.colorScheme = theme;
     localStorage.setItem("theme", theme);
+
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
+    if (themeMeta) {
+      themeMeta.setAttribute("content", theme === "dark" ? "#0F172A" : "#2563EB");
+    }
   }, [theme]);
 
   const toggleTheme = () => {

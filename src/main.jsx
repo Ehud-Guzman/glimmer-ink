@@ -3,11 +3,17 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom"; 
 import "./index.css";
 import App from "./App.jsx";
-// Unregister service workers in development mode
-if (import.meta.env.DEV && 'serviceWorker' in navigator) {
-  navigator.serviceWorker.getRegistrations().then(regs =>
-    regs.forEach(reg => reg.unregister())
-  );
+if ('serviceWorker' in navigator) {
+  if (import.meta.env.PROD) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .catch((err) => console.warn('SW registration failed:', err));
+    });
+  } else {
+    navigator.serviceWorker.getRegistrations().then(regs =>
+      regs.forEach(reg => reg.unregister())
+    );
+  }
 }
 
 

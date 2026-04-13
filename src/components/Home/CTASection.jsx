@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const CodeBackground = () => {
   const grid = [
@@ -104,27 +105,23 @@ const CTASection = () => {
           </motion.p>
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-            <motion.a
-              href="/contact"
+            <Link
+              to="/contact"
               className="relative px-8 py-4 bg-primary text-white rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl"
               onMouseEnter={() => handleHover("start_project")}
               onClick={() => handleCTAClick("start_project")}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
               Book a Project Chat
-            </motion.a>
+            </Link>
 
-            <motion.a
-              href="/work"
+            <Link
+              to="/work"
               className="px-8 py-4 border-2 border-primary text-primary dark:text-primary-light rounded-lg font-semibold text-lg hover:bg-primary/10 transition-all"
               onMouseEnter={() => handleHover("see_examples")}
               onClick={() => handleCTAClick("see_examples")}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
               View My Work
-            </motion.a>
+            </Link>
           </div>
 
           <motion.div

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, Calendar, MessageSquare, Phone, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ServicesCTASection = () => {
   const contactMethods = [
@@ -96,21 +97,15 @@ const ServicesCTASection = () => {
         >
           {contactMethods.map((method, index) => {
             const Icon = method.icon;
-            return (
-              <motion.a
-                key={method.title}
-                href={method.href}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className={`group p-6 rounded-2xl border transition-all duration-300 ${
-                  method.primary
-                    ? "bg-primary text-white border-primary"
-                    : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:border-primary/50"
-                }`}
-              >
+            const isInternal = method.href.startsWith("/");
+            const cardClassName = `group block h-full p-6 rounded-2xl border transition-all duration-300 ${
+              method.primary
+                ? "bg-primary text-white border-primary"
+                : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:border-primary/50"
+            }`;
+
+            const content = (
+              <>
                 <div className={`p-3 rounded-xl w-fit mb-4 ${
                   method.primary
                     ? "bg-white/20"
@@ -141,7 +136,33 @@ const ServicesCTASection = () => {
                   {method.action}
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
-              </motion.a>
+              </>
+            );
+
+            return (
+              <motion.div
+                key={method.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+              >
+                {isInternal ? (
+                  <Link to={method.href} className={cardClassName}>
+                    {content}
+                  </Link>
+                ) : (
+                  <motion.a
+                    href={method.href}
+                    className={cardClassName}
+                    target={method.href.startsWith("http") ? "_blank" : undefined}
+                    rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  >
+                    {content}
+                  </motion.a>
+                )}
+              </motion.div>
             );
           })}
         </motion.div>
@@ -152,8 +173,8 @@ const ServicesCTASection = () => {
         <p className="text-gray-600 dark:text-gray-300 mb-6">
           Prefer to share details about your project first?
         </p>
-        <a
-          href="/contact"
+        <Link
+          to="/contact"
           className="px-8 py-3 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200
                          font-semibold rounded-lg border border-gray-300 dark:border-gray-700
                          hover:border-primary dark:hover:border-primary-light
@@ -162,7 +183,7 @@ const ServicesCTASection = () => {
         >
           <Mail className="w-4 h-4" />
           Send Project Brief
-        </a>
+        </Link>
       </div>
     </section>
   );

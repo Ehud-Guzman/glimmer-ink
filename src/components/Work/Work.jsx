@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 
 import WorkHero from "./WorkHero";
@@ -20,9 +20,15 @@ const WorkPage = ({ projects = [] }) => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(() => {
+  const handleFilterChange = (filter) => {
+    setActiveFilter(filter);
     setVisibleProjects(6);
-  }, [activeFilter, searchQuery]);
+  };
+
+  const handleSearchChange = (query) => {
+    setSearchQuery(query);
+    setVisibleProjects(6);
+  };
 
   const featured = useMemo(() => {
     const explicit = projects.find((p) => p?.featured);
@@ -66,7 +72,7 @@ const WorkPage = ({ projects = [] }) => {
       )}
 
       {/* Full Project Grid */}
-      <section className="py-16 px-4 md:px-6 max-w-7xl mx-auto">
+      <section id="projects" className="scroll-mt-28 py-16 px-4 md:px-6 max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display">
             Explore the Portfolio
@@ -78,9 +84,9 @@ const WorkPage = ({ projects = [] }) => {
 
         <ProjectFilters
           activeFilter={activeFilter}
-          setActiveFilter={setActiveFilter}
+          setActiveFilter={handleFilterChange}
           searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
+          setSearchQuery={handleSearchChange}
         />
 
         <ProjectGrid projects={filteredProjects} onProjectSelect={handleProjectSelect} />

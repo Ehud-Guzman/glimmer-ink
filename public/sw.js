@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 const CACHE_NAME = "glimmerink-cache-v2";
 
 // Keep this list small and stable.
@@ -91,12 +90,7 @@ self.addEventListener("fetch", (event) => {
           caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
           return response;
         })
-        .catch(() => {
-          // Optional: fallback for images
-          if (request.destination === "image") {
-            return caches.match("/images/Glimmer-OG.jpg");
-          }
-        });
+        .catch(() => {});
     })
   );
 });

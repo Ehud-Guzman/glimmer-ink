@@ -1,6 +1,6 @@
 // components/Footer/FooterNav.jsx
 import { motion, AnimatePresence } from "framer-motion";
-import LinkHoverEffect from "./LinkHoverEffect";
+import { Link } from "react-router-dom";
 
 const FooterNav = ({ navigation, setActiveHover, activeHover }) => {
   const sections = Array.isArray(navigation) ? navigation : [];
@@ -27,15 +27,13 @@ const FooterNav = ({ navigation, setActiveHover, activeHover }) => {
                     onHoverStart={() => setActiveHover?.(`${i}-${j}`)}
                     onHoverEnd={() => setActiveHover?.(null)}
                   >
-                    <a
-                      href={link.url}
+                    <Link
+                      to={link.url}
                       className="flex items-center text-text-light dark:text-text-dark
                                  opacity-80 hover:opacity-100 transition-all py-1"
                     >
-                      <LinkHoverEffect effect={link?.hoverEffect}>
-                        {link?.name || "Link"}
-                      </LinkHoverEffect>
-                    </a>
+                      <span>{link?.name || "Link"}</span>
+                    </Link>
 
                     <AnimatePresence>
                       {activeHover === `${i}-${j}` && (

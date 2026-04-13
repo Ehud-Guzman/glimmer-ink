@@ -16,7 +16,7 @@
   --color-muted: #71717A;        /* Muted text */
 }
 
-.dark-theme {
+.dark {
   --color-bg: #0F172A;           /* Dark navy blue background */
   --color-text: #F8FAFC;         /* Light text */
   --color-nav: #1E293B;          /* Dark navigation */

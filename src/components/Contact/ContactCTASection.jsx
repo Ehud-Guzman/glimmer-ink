@@ -16,7 +16,7 @@ const ContactCTASection = () => {
 
         <div className="grid md:grid-cols-3 gap-4 mb-8">
           <motion.a
-            href="/contact"
+            href="#contact-form"
             whileHover={{ y: -5 }}
             className="group bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-primary-light transition-all duration-300 text-center"
           >
@@ -24,7 +24,7 @@ const ContactCTASection = () => {
               <Calendar className="w-6 h-6 text-primary dark:text-primary-light" />
             </div>
             <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-              Use the Form
+              Jump to Form
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-300">
               Best for detailed project requests

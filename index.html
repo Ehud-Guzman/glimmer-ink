@@ -12,7 +12,21 @@
     <meta name="keywords" content="web design nairobi, web developer kenya, glimmerink, brand identity kenya, website design nairobi, react developer kenya, digital studio nairobi" />
     <meta name="author" content="Ehud Mwai — GlimmerInk Creations" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#6B46C1" />
+    <meta name="theme-color" content="#2563EB" />
+
+    <script>
+      (() => {
+        try {
+          const theme = localStorage.getItem("theme") === "dark" ? "dark" : "light";
+          document.documentElement.classList.toggle("dark", theme === "dark");
+          document.documentElement.style.colorScheme = theme;
+          const themeMeta = document.querySelector('meta[name="theme-color"]');
+          if (themeMeta) {
+            themeMeta.setAttribute("content", theme === "dark" ? "#0F172A" : "#2563EB");
+          }
+        } catch (_) {}
+      })();
+    </script>
 
     <link rel="canonical" href="https://glimmerink.co.ke/" />
 
@@ -28,7 +42,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png" />
-    <link rel="mask-icon" href="/favicon_io/safari-pinned-tab.svg" color="#6B46C1" />
+    <link rel="mask-icon" href="/favicon_io/safari-pinned-tab.svg" color="#2563EB" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
     <!-- ── OPEN GRAPH ────────────────────────── -->
@@ -147,7 +161,7 @@
         ]
       },
       "sameAs": [
-        "https://twitter.com/GlimmerInk_",
+        "https://x.com/GlimmerInk_",
         "https://www.instagram.com/glimmerink.creations",
         "https://www.linkedin.com/company/glimmerink"
       ],
@@ -194,7 +208,7 @@
           font-size: 0.65rem;
           letter-spacing: 0.4em;
           text-transform: uppercase;
-          color: #6B46C1;
+          color: #2563EB;
           margin-bottom: 2rem;
         }
         .ns h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
@@ -202,7 +216,7 @@
         .ns a {
           display: inline-block;
           padding: 0.75rem 2rem;
-          background: #6B46C1;
+          background: #2563EB;
           color: #fff;
           font-size: 0.7rem;
           letter-spacing: 0.2em;
@@ -210,7 +224,7 @@
           font-weight: 600;
           text-decoration: none;
         }
-        .ns a:hover { background: #7c5ce8; }
+        .ns a:hover { background: #1D4ED8; }
       </style>
       <div class="ns">
         <p class="ns-logo">GlimmerInk Creations</p>
@@ -219,17 +233,6 @@
         <a href="mailto:nyamuehud@gmail.com">Get In Touch Directly</a>
       </div>
     </noscript>
-
-    <!-- ── PWA SERVICE WORKER ────────────────── -->
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker
-            .register('/sw.js')
-            .catch((err) => console.warn('SW registration failed:', err))
-        })
-      }
-    </script>
 
     <!-- Note: type="module" defers automatically — no defer attribute needed -->
     <script type="module" src="/src/main.jsx"></script>

@@ -1,6 +1,7 @@
 // scripts/generate-favicon.js
 import sharp from "sharp";
 import fs from "fs";
+import { Buffer } from "node:buffer";
 
 // Your SVG
 const svgString = `<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">

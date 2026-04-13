@@ -1,58 +1,36 @@
-export const developmentProjects = [
-  // =========================
-  // FEATURED / STRONGEST FIRST
-  // =========================
-/*
-{
-  id: 4,
-  title: "School Management System",
-  description:
-    "Multi-tenant school platform for student records, attendance, fees, exams/results, and automated reporting.",
-  thumbnail: "/images/systems/systemadmin.png",
-  fullImage: "/images/systems/teacher-dashboard.png",
-  url: "https://granitesms.netlify.app/app", 
-  stack: ["React", "Vite", "Tailwind CSS", "Node.js", "PostgreSQL", "Prisma"],
-  features: [
-    "Multi-tenant (school isolation)",
-    "Student & class management",
-    "Attendance sessions & tracking",
-    "Fees workflow + printable receipts",
-    "Exams & results processing",
-    "Role-based access (Admin/Teacher/Bursar)",
-    "Reports & exports",
-  ],
-  category: "system",
-  year: "2025",
-  type: "School Management System",
-  status: "in-progress",
-  featured: true,
-},
-
-*/
-
-  {
-    id: 2,
-    title: "Vittorios Trades",
-    description:
-      "E-commerce website for cereals and grains with a product catalog and inquiry/contact flows.",
-    thumbnail: "/images/websites/vittorios.webp",
-    fullImage: "/images/websites/vittorios1.jpeg",
-    url: "https://vittoriostrades.com/",
-    stack: ["React", "Tailwind"],
-    features: ["Product catalog", "Filters", "Contact/inquiry form", "Mobile-first layout"],
-    category: "web",
-    year: "2024",
-    type: "Business Website",
+const categoryMeta = {
+  web: {
+    galleryId: "web-dev",
+    galleryName: "Web Development",
+    galleryDescription:
+      "Business websites, landing pages, and polished web platforms built for clarity and conversion.",
   },
+  system: {
+    galleryId: "systems",
+    galleryName: "Systems & Dashboards",
+    galleryDescription:
+      "Business systems, dashboards, and workflow-focused tools designed around real operations.",
+  },
+};
 
+const toGalleryProject = (project) => ({
+  ...project,
+  technologies: Array.isArray(project.stack) ? project.stack : [],
+  liveUrl: project.url || "",
+  images:
+    Array.isArray(project.images) && project.images.length > 0
+      ? project.images
+      : [project.fullImage || project.thumbnail].filter(Boolean),
+});
+
+export const developmentProjects = [
   {
     id: 9,
-    title: "VittoriosGlobal",
+    title: "Vittorios Global",
     description:
-      "A full-stack grains and cereals trading platform built from the ground up — giving the client a product-rich storefront, deep product storytelling, and a complete admin backend to run the business from.",
+      "A full-stack grains trading platform with product storytelling, discovery sections, and an admin backend for day-to-day business operations.",
     thumbnail: "/images/grainsglobal/home-page.png",
     fullImage: "/images/grainsglobal/home-page.png",
-    // url: "", // TODO: add live URL
     stack: ["React", "Vite", "Tailwind CSS", "Node.js"],
     features: [
       "Product catalog with product stories",
@@ -62,9 +40,9 @@ export const developmentProjects = [
       "Mobile-first responsive design",
     ],
     challenge:
-      "The client needed a dedicated digital presence for their global grains trading operations — one that could showcase their product range with depth, tell the story behind each product, and give them full control over content and inventory without depending on a developer for every update.",
+      "The client needed a dedicated digital presence for their global grains trading operations — one that could showcase products with depth and still give them control over content and inventory.",
     solution:
-      "Built a full-stack trading website with a content-rich product catalog, admin control panel, and backup tooling — giving the client full ownership of their digital presence without needing a developer for every update.",
+      "Built a full-stack trading website with a content-rich catalog, admin control panel, and backup tooling so the client could manage their digital presence without relying on a developer for every update.",
     images: [
       "/images/grainsglobal/home-page.png",
       "/images/grainsglobal/products-page.png",
@@ -74,113 +52,231 @@ export const developmentProjects = [
     category: "web",
     year: "2026",
     type: "Trading Website",
+    status: "live",
     client: "Vittorios Global",
     featured: true,
+    showOnHome: true,
+    homeOrder: 1,
   },
-
-   {
+  {
+    id: 10,
+    title: "Sweet Layers Bakery",
+    description:
+      "Modern bakery website showcasing products, services, and a delightful brand-led experience with a focus on aesthetics and usability.",
+    thumbnail: "/images/websites/sweetlayers/home.png",
+    fullImage: "/images/websites/sweetlayers/home.png",
+    url: "https://sweetlayerbakers.netlify.app/",
+    stack: ["React", "Vite", "Tailwind CSS", "Netlify"],
+    features: [
+      "Premium hero sections and product storytelling",
+      "Order, cakes, and brand story pages",
+      "Mobile-first responsive design",
+      "SEO-ready social sharing setup",
+      "Fast booking and inquiry path",
+    ],
+    images: [
+      "/images/websites/sweetlayers/home.png",
+      "/images/websites/sweetlayers/order.png",
+      "/images/websites/sweetlayers/our-cakes.png",
+      "/images/websites/sweetlayers/story.png",
+    ],
+    category: "web",
+    year: "2026",
+    type: "Bakery Website",
+    status: "live",
+    client: "Sweet Layers Bakery",
+    showOnHome: true,
+    homeOrder: 2,
+  },
+  {
+    id: 12,
+    title: "Customer Feedback System",
+    description:
+      "Multi-tenant feedback platform for shops and clinics with QR surveys, staff-assisted submissions, and analytics dashboards.",
+    thumbnail: "/images/systems/custfeed/login.png",
+    fullImage: "/images/systems/custfeed/login.png",
+    url: "https://custfeed.netlify.app",
+    stack: [
+      "React",
+      "Vite",
+      "Node.js",
+      "Express",
+      "Prisma",
+      "PostgreSQL",
+      "Netlify",
+      "Render",
+    ],
+    features: [
+      "QR public survey flow",
+      "Role-based authentication",
+      "Multi-tenant organization support",
+      "Analytics dashboards and submissions tracking",
+      "Staff-assisted feedback workflow",
+    ],
+    images: [
+      "/images/systems/custfeed/login.png",
+      "/images/systems/custfeed/feedback1.png",
+      "/images/systems/custfeed/qr.png",
+    ],
+    category: "system",
+    year: "2026",
+    type: "Feedback Platform",
+    status: "live",
+    client: "Internal Product / SaaS Build",
+    showOnHome: true,
+    homeOrder: 3,
+  },
+  {
+    id: 11,
+    title: "Luxe Garden",
+    description:
+      "Premium venue website for events, dining, activities, and bookings with a high-end, conversion-focused presentation.",
+    thumbnail: "/images/websites/luxestay/activities.png",
+    fullImage: "/images/websites/luxestay/activities.png",
+    url: "https://luxegarden.netlify.app/",
+    stack: ["React", "Vite", "Tailwind CSS", "Netlify"],
+    features: [
+      "Events, dining, and activities sections",
+      "Packages, gallery, and bookings pages",
+      "Mobile-first responsive design",
+      "SEO-ready social sharing setup",
+      "Fast inquiry flow",
+    ],
+    images: [
+      "/images/websites/luxestay/activities.png",
+      "/images/websites/luxestay/dining.png",
+      "/images/websites/luxestay/packages.png",
+      "/images/websites/luxestay/gallery.png",
+    ],
+    category: "web",
+    year: "2026",
+    type: "Venue Website",
+    status: "live",
+    client: "Luxe Garden",
+    showOnHome: true,
+    homeOrder: 4,
+  },
+  {
+    id: 2,
+    title: "Vittorios Trades",
+    description:
+      "Business website for cereals and grains with a product catalog, inquiry flow, and mobile-first product presentation.",
+    thumbnail: "/images/websites/vittorios.webp",
+    fullImage: "/images/websites/vittorios1.jpeg",
+    url: "https://vittoriostrades.com/",
+    stack: ["React", "Tailwind CSS"],
+    features: ["Product catalog", "Filters", "Contact and inquiry form", "Mobile-first layout"],
+    images: [
+      "/images/websites/vittorios.webp",
+      "/images/websites/vittorios1.jpeg",
+      "/images/websites/vittorios2.jpeg",
+    ],
+    category: "web",
+    year: "2024",
+    type: "Business Website",
+    status: "live",
+    client: "Vittorios Trades",
+    showOnHome: true,
+    homeOrder: 5,
+  },
+  {
     id: 6,
     title: "Sunshine Schools",
     description:
-      "School dashboard UI for performance and staff/student views (frontend build).",
+      "School website and dashboard UI concept showcasing academic performance, staff structure, and student views.",
     thumbnail: "/images/websites/sunshine.webp",
     fullImage: "/images/websites/sunshine.webp",
     url: "https://sunshineshools.netlify.app/",
     stack: ["React", "Tailwind CSS", "Vite"],
-    features: ["Performance overview", "Teacher views", "Responsive layout"],
+    features: [
+      "Clean academic dashboard layout",
+      "Student and teacher views",
+      "Performance overview sections",
+      "Responsive layout",
+    ],
+    images: ["/images/websites/sunshine.webp"],
     category: "web",
     year: "2025",
     type: "Education Dashboard",
     status: "demo",
+    client: "Education (Concept Build)",
+    showOnHome: true,
+    homeOrder: 6,
   },
-
-  /*
-  {
-    id: 3,
-    title: "Adit Investments",
-    description:
-      "Computer shop & repair business site with an admin dashboard and product management features.",
-    thumbnail: "/images/websites/adit-admin.png",
-    fullImage: "/images/websites/adit-products.png",
-    url: "https://adit-investment.netlify.app/",
-    stack: ["React", "Express.js", "MongoDB", "Payment APIs"],
-    features: ["Admin dashboard", "Inventory tracking", "Sales analytics", "Product CRUD"],
-    category: "web",
-    year: "2024",
-    type: "E-commerce Website",
-  },
-  */
-
-  // =========================
-  // SYSTEMS
-  // =========================
-
-
   {
     id: 5,
     title: "GlimmerHope Hospital",
     description:
-      "Healthcare management concept with patient records and appointment scheduling workflows.",
+      "Healthcare management concept with patient records, appointment workflows, and a clean medical UI direction.",
     thumbnail: "/images/websites/glimmerhope1.webp",
     fullImage: "/images/websites/glimmerhope1.webp",
     url: "https://glimmerhope.netlify.app/",
     stack: ["React", "TypeScript", "GraphQL", "PostgreSQL"],
-    features: ["Patient records", "Appointments", "Role-based access", "Secure data flows"],
+    features: [
+      "Patient records",
+      "Appointments",
+      "Role-based access",
+      "Secure data flows",
+    ],
+    images: ["/images/websites/glimmerhope1.webp"],
     category: "system",
     year: "2024",
     type: "Healthcare System",
-    status: "demo", // removes legal risk
+    status: "demo",
+    client: "Healthcare (Concept Build)",
+    showOnHome: true,
+    homeOrder: 7,
   },
-
   {
     id: 1,
     title: "GlimmerInk Creations",
     description:
-      "My portfolio platform showcasing real case studies, services, and contact flow for client acquisition.",
+      "My portfolio platform showcasing case studies, services, and the contact flow that supports client acquisition.",
     thumbnail: "/images/GlimmerInklogo1.webp",
     fullImage: "/images/GlimmerInklogo1.webp",
     url: "https://glimmerink.co.ke",
     stack: ["React", "Tailwind CSS", "Framer Motion"],
     features: ["Responsive UI", "Service pages", "Case study layout", "SEO-ready structure"],
+    images: ["/images/GlimmerInklogo1.webp"],
     category: "web",
     year: "2023",
     type: "Portfolio Website",
+    status: "live",
+    client: "GlimmerInk Creations",
   },
-
- 
-
   {
     id: 7,
     title: "Njoroge and Partners Advocates",
     description:
-      "Legal practice management system concept with case tracking and client workflows.",
+      "Legal practice management system concept with case tracking, document workflows, and client operations support.",
     thumbnail: "/images/websites/njoro.webp",
     fullImage: "/images/websites/njoro.webp",
     url: "https://njorolawfirm.netlify.app/",
     stack: ["React", "Redux", "Express", "MySQL"],
     features: ["Case management", "Document workflows", "Time tracking", "Client portal"],
+    images: ["/images/websites/njoro.webp"],
     category: "system",
     year: "2025",
     type: "Legal Practice System",
     status: "demo",
+    client: "Legal (Concept Build)",
   },
-
-  // =========================
-  // OPTIONAL / IF YOU KEEP IT
-  // =========================
   {
     id: 8,
     title: "Premium Cars KE",
-    description: "Car dealership website showcasing vehicle listings and contact inquiries.",
+    description:
+      "Car dealership website showcasing listings, highlights, and quick inquiry paths for vehicle buyers.",
     thumbnail: "/images/websites/premiumcars.webp",
     fullImage: "/images/websites/premiumcars.webp",
     url: "https://premiumcarske.netlify.app/",
-    stack: ["React", "Tailwind"],
-    features: ["Vehicle listings", "Responsive layout", "Inquiry/contact CTA"],
+    stack: ["React", "Tailwind CSS"],
+    features: ["Vehicle listings", "Responsive layout", "Inquiry CTA"],
+    images: ["/images/websites/premiumcars.webp"],
     category: "web",
     year: "2025",
     type: "Business Website",
     status: "in-progress",
+    client: "Premium Cars KE",
   },
 ];
 
@@ -188,6 +284,20 @@ export const workCategories = [
   { id: "all", label: "All Projects" },
   { id: "web", label: "Web Applications" },
   { id: "system", label: "Business Systems" },
-  // Keep app only when you actually add mobile projects
-  // { id: "app", label: "Mobile Apps" },
 ];
+
+export const portfolioGalleryData = {
+  title: "Development Portfolio",
+  description:
+    "Explore web projects, business systems, and interface-led builds from the same portfolio source.",
+  categories: Object.entries(categoryMeta)
+    .map(([category, meta]) => ({
+      id: meta.galleryId,
+      name: meta.galleryName,
+      description: meta.galleryDescription,
+      projects: developmentProjects
+        .filter((project) => project.category === category)
+        .map(toGalleryProject),
+    }))
+    .filter((category) => category.projects.length > 0),
+};

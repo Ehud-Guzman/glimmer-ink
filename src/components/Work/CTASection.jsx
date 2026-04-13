@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const CTASection = () => {
   return (
@@ -11,14 +12,12 @@ const CTASection = () => {
           Let's discuss your project requirements and create a tailored solution
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <motion.a
-            href="/contact"
+          <Link
+            to="/contact"
             className="px-8 py-3 bg-white text-primary dark:text-primary-dark rounded-lg font-medium hover:bg-white/90 transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
             Start a Conversation
-          </motion.a>
+          </Link>
           <motion.a
             href="#projects"
             className="px-8 py-3 border-2 border-white text-white rounded-lg font-medium hover:bg-white/10 transition-colors"

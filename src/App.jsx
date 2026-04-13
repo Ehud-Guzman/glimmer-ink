@@ -1,6 +1,6 @@
 // src/App.jsx
 import { Suspense, lazy, useState, useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Link } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { pageview } from "./utils/analytics";
@@ -84,12 +84,12 @@ function App() {
                   <p className="mt-2 text-text-light/70 dark:text-text-dark/70">
                     The page you’re looking for doesn’t exist yet.
                   </p>
-                  <a
-                    href="/"
+                  <Link
+                    to="/"
                     className="inline-flex mt-6 px-5 py-2.5 rounded-lg bg-primary text-white hover:bg-primary-dark transition-colors"
                   >
                     Back to Home
-                  </a>
+                  </Link>
                 </div>
               }
             />

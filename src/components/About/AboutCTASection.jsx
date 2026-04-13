@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, MessageSquare, FileText } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const AboutCTASection = () => {
   const actions = [
@@ -81,19 +82,33 @@ const AboutCTASection = () => {
                   {action.description}
                 </p>
                 
-                <a
-                  href={action.href}
-                  target={action.href.startsWith("http") ? "_blank" : undefined}
-                  rel={action.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className={`inline-flex items-center gap-2 font-medium ${
-                    action.primary
-                      ? "text-white hover:text-white/90"
-                      : "text-primary dark:text-primary-light hover:text-primary-dark dark:hover:text-primary-light/90"
-                  }`}
-                >
-                  {action.button}
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+                {action.href.startsWith("/") ? (
+                  <Link
+                    to={action.href}
+                    className={`inline-flex items-center gap-2 font-medium ${
+                      action.primary
+                        ? "text-white hover:text-white/90"
+                        : "text-primary dark:text-primary-light hover:text-primary-dark dark:hover:text-primary-light/90"
+                    }`}
+                  >
+                    {action.button}
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                ) : (
+                  <a
+                    href={action.href}
+                    target={action.href.startsWith("http") ? "_blank" : undefined}
+                    rel={action.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className={`inline-flex items-center gap-2 font-medium ${
+                      action.primary
+                        ? "text-white hover:text-white/90"
+                        : "text-primary dark:text-primary-light hover:text-primary-dark dark:hover:text-primary-light/90"
+                    }`}
+                  >
+                    {action.button}
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                )}
               </motion.div>
             );
           })}

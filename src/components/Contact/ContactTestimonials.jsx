@@ -13,13 +13,6 @@ const ContactTestimonials = () => {
       rating: 5,
       project: "Business Website",
     },
-    {
-      name: "Portfolio Client",
-      role: "Creative Professional",
-      content: "The work felt thoughtful and visually polished. What stood out most was the effort to make the final experience look presentable and structured.",
-      rating: 5,
-      project: "Portfolio Website",
-    },
   ];
 
   const nextTestimonial = () => {
@@ -78,36 +71,39 @@ const ContactTestimonials = () => {
           </motion.div>
         </div>
 
-        {/* Navigation */}
-        <div className="flex items-center justify-center gap-4 mt-8">
+        {/* Navigation — only shown when there are multiple testimonials */}
+        {testimonials.length > 1 && <div className="flex items-center justify-center gap-4 mt-8">
           <button
             onClick={prevTestimonial}
+            aria-label="Previous testimonial"
             className="p-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-primary-light transition-colors"
           >
             <ChevronLeft className="w-5 h-5 text-gray-600 dark:text-gray-400" />
           </button>
-          
+
           <div className="flex gap-2">
-            {testimonials.map((_, index) => (
+            {testimonials.map((t, index) => (
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
+                aria-label={`Go to testimonial from ${t.name}`}
                 className={`w-2 h-2 rounded-full transition-all ${
-                  activeIndex === index 
-                    ? "bg-primary dark:bg-primary-light w-6" 
+                  activeIndex === index
+                    ? "bg-primary dark:bg-primary-light w-6"
                     : "bg-gray-300 dark:bg-gray-600"
                 }`}
               />
             ))}
           </div>
-          
+
           <button
             onClick={nextTestimonial}
+            aria-label="Next testimonial"
             className="p-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-primary-light transition-colors"
           >
             <ChevronRight className="w-5 h-5 text-gray-600 dark:text-gray-400" />
           </button>
-        </div>
+        </div>}
       </div>
     </section>
   );

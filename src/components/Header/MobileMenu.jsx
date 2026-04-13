@@ -21,9 +21,8 @@ const navItems = [
 ];
 
 export default function MobileMenu({ isOpen, toggleMenu, closeMenu, theme, toggleTheme }) {
-  if (typeof window === "undefined") return null;
-
   const firstLinkRef = useRef(null);
+  const canUsePortal = typeof document !== "undefined";
 
   const doClose = closeMenu || toggleMenu;
 
@@ -126,5 +125,5 @@ export default function MobileMenu({ isOpen, toggleMenu, closeMenu, theme, toggl
     </AnimatePresence>
   );
 
-  return createPortal(ui, document.body);
+  return canUsePortal ? createPortal(ui, document.body) : null;
 }
