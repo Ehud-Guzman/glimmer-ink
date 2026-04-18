@@ -59,6 +59,34 @@ export const developmentProjects = [
     homeOrder: 1,
   },
   {
+    id: 13,
+    title: "ADIT Investment",
+    description:
+      "ICT products e-commerce platform with a full product catalog, admin dashboard, and mobile-optimised shopping experience.",
+    thumbnail: "/images/websites/adit-investment/adit-products.png",
+    fullImage: "/images/websites/adit-investment/adit-products.png",
+    url: "https://adit-investment.netlify.app/",
+    stack: ["React", "Vite", "Tailwind CSS", "Netlify"],
+    features: [
+      "ICT product catalog with listings",
+      "Admin dashboard for inventory management",
+      "Mobile-first responsive design",
+      "Fast browsing and inquiry flow",
+    ],
+    images: [
+      "/images/websites/adit-investment/adit-products.png",
+      "/images/websites/adit-investment/adit-dashboard.png",
+      "/images/websites/adit-investment/adit-products-admin.png",
+    ],
+    category: "web",
+    year: "2025",
+    type: "E-Commerce Website",
+    status: "live",
+    client: "ADIT Investment",
+    showOnHome: true,
+    homeOrder: 2,
+  },
+  {
     id: 10,
     title: "Sweet Layers Bakery",
     description:
@@ -86,7 +114,7 @@ export const developmentProjects = [
     status: "live",
     client: "Sweet Layers Bakery",
     showOnHome: true,
-    homeOrder: 2,
+    homeOrder: 3,
   },
   {
     id: 12,
@@ -124,7 +152,7 @@ export const developmentProjects = [
     status: "live",
     client: "Internal Product / SaaS Build",
     showOnHome: true,
-    homeOrder: 3,
+    homeOrder: 4,
   },
   {
     id: 11,
@@ -154,7 +182,7 @@ export const developmentProjects = [
     status: "live",
     client: "Luxe Garden",
     showOnHome: true,
-    homeOrder: 4,
+    homeOrder: 5,
   },
   {
     id: 2,
@@ -177,7 +205,7 @@ export const developmentProjects = [
     status: "live",
     client: "Vittorios Trades",
     showOnHome: true,
-    homeOrder: 5,
+    homeOrder: 6,
   },
   {
     id: 6,
@@ -201,7 +229,7 @@ export const developmentProjects = [
     status: "demo",
     client: "Education (Concept Build)",
     showOnHome: true,
-    homeOrder: 6,
+    homeOrder: 7,
   },
   {
     id: 5,
@@ -225,7 +253,7 @@ export const developmentProjects = [
     status: "demo",
     client: "Healthcare (Concept Build)",
     showOnHome: true,
-    homeOrder: 7,
+    homeOrder: 8,
   },
   {
     id: 1,
@@ -260,32 +288,6 @@ export const developmentProjects = [
     type: "Legal Practice System",
     status: "demo",
     client: "Legal (Concept Build)",
-  },
-  {
-    id: 13,
-    title: "ADIT Investment",
-    description:
-      "ICT products e-commerce platform with a full product catalog, admin dashboard, and mobile-optimised shopping experience.",
-    thumbnail: "/images/websites/adit-investment/adit-products.png",
-    fullImage: "/images/websites/adit-investment/adit-products.png",
-    url: "https://adit-investment.netlify.app/",
-    stack: ["React", "Vite", "Tailwind CSS", "Netlify"],
-    features: [
-      "ICT product catalog with listings",
-      "Admin dashboard for inventory management",
-      "Mobile-first responsive design",
-      "Fast browsing and inquiry flow",
-    ],
-    images: [
-      "/images/websites/adit-investment/adit-products.png",
-      "/images/websites/adit-investment/adit-dashboard.png",
-      "/images/websites/adit-investment/adit-products-admin.png",
-    ],
-    category: "web",
-    year: "2025",
-    type: "E-Commerce Website",
-    status: "live",
-    client: "ADIT Investment",
   },
   {
     id: 8,
