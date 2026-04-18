@@ -8,7 +8,8 @@
       "Bash(awk '$1 > 1 {print}')",
       "Bash(grep -rho \"className=\\\\\"[^\\\\\"]*\\\\|className=\\\\`[^\\\\`]*\" src/)",
       "Bash(wc -l src/components/**/*.jsx)",
-      "Bash(grep -v \"^$\")"
+      "Bash(grep -v \"^$\")",
+      "Bash(node scripts/convert-to-webp.js)"
     ]
   }
 }

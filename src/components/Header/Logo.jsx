@@ -8,7 +8,7 @@ export default function Logo() {
       className="flex items-center"
     >
       <img
-        src="/images/logo-blue.png"
+        src="/images/logo-blue.webp"
         alt="GlimmerInk Creations logo"
         loading="eager"
         className="

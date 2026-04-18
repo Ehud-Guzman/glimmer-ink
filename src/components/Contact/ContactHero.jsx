@@ -9,7 +9,7 @@ const ContactHero = () => {
         {/* Background image */}
         <div className="absolute inset-0">
           <SafeImage
-            src="/images/background.png"
+            src="/images/background.webp"
             alt=""
             className="w-full h-full object-cover opacity-20 dark:opacity-20"
           />

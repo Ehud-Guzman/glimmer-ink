@@ -29,8 +29,8 @@ export const developmentProjects = [
     title: "Vittorios Global",
     description:
       "A full-stack grains trading platform with product storytelling, discovery sections, and an admin backend for day-to-day business operations.",
-    thumbnail: "/images/grainsglobal/home-page.png",
-    fullImage: "/images/grainsglobal/home-page.png",
+    thumbnail: "/images/grainsglobal/home-page.webp",
+    fullImage: "/images/grainsglobal/home-page.webp",
     stack: ["React", "Vite", "Tailwind CSS", "Node.js"],
     features: [
       "Product catalog with product stories",
@@ -44,10 +44,10 @@ export const developmentProjects = [
     solution:
       "Built a full-stack trading website with a content-rich catalog, admin control panel, and backup tooling so the client could manage their digital presence without relying on a developer for every update.",
     images: [
-      "/images/grainsglobal/home-page.png",
-      "/images/grainsglobal/products-page.png",
-      "/images/grainsglobal/product-page-story.png",
-      "/images/grainsglobal/control-panel-system-admin.png",
+      "/images/grainsglobal/home-page.webp",
+      "/images/grainsglobal/products-page.webp",
+      "/images/grainsglobal/product-page-story.webp",
+      "/images/grainsglobal/control-panel-system-admin.webp",
     ],
     category: "web",
     year: "2026",
@@ -63,8 +63,8 @@ export const developmentProjects = [
     title: "ADIT Investment",
     description:
       "ICT products e-commerce platform with a full product catalog, admin dashboard, and mobile-optimised shopping experience.",
-    thumbnail: "/images/websites/adit-investment/adit-products.png",
-    fullImage: "/images/websites/adit-investment/adit-products.png",
+    thumbnail: "/images/websites/adit-investment/adit-products.webp",
+    fullImage: "/images/websites/adit-investment/adit-products.webp",
     url: "https://adit-investment.netlify.app/",
     stack: ["React", "Vite", "Tailwind CSS", "Netlify"],
     features: [
@@ -74,9 +74,9 @@ export const developmentProjects = [
       "Fast browsing and inquiry flow",
     ],
     images: [
-      "/images/websites/adit-investment/adit-products.png",
-      "/images/websites/adit-investment/adit-dashboard.png",
-      "/images/websites/adit-investment/adit-products-admin.png",
+      "/images/websites/adit-investment/adit-products.webp",
+      "/images/websites/adit-investment/adit-dashboard.webp",
+      "/images/websites/adit-investment/adit-products-admin.webp",
     ],
     category: "web",
     year: "2025",
@@ -91,8 +91,8 @@ export const developmentProjects = [
     title: "Sweet Layers Bakery",
     description:
       "Modern bakery website showcasing products, services, and a delightful brand-led experience with a focus on aesthetics and usability.",
-    thumbnail: "/images/websites/sweetlayers/home.png",
-    fullImage: "/images/websites/sweetlayers/home.png",
+    thumbnail: "/images/websites/sweetlayers/home.webp",
+    fullImage: "/images/websites/sweetlayers/home.webp",
     url: "https://sweetlayerbakers.netlify.app/",
     stack: ["React", "Vite", "Tailwind CSS", "Netlify"],
     features: [
@@ -103,10 +103,10 @@ export const developmentProjects = [
       "Fast booking and inquiry path",
     ],
     images: [
-      "/images/websites/sweetlayers/home.png",
-      "/images/websites/sweetlayers/order.png",
-      "/images/websites/sweetlayers/our-cakes.png",
-      "/images/websites/sweetlayers/story.png",
+      "/images/websites/sweetlayers/home.webp",
+      "/images/websites/sweetlayers/order.webp",
+      "/images/websites/sweetlayers/our-cakes.webp",
+      "/images/websites/sweetlayers/story.webp",
     ],
     category: "web",
     year: "2026",
@@ -121,8 +121,8 @@ export const developmentProjects = [
     title: "Customer Feedback System",
     description:
       "Multi-tenant feedback platform for shops and clinics with QR surveys, staff-assisted submissions, and analytics dashboards.",
-    thumbnail: "/images/systems/custfeed/login.png",
-    fullImage: "/images/systems/custfeed/login.png",
+    thumbnail: "/images/systems/custfeed/login.webp",
+    fullImage: "/images/systems/custfeed/login.webp",
     url: "https://custfeed.netlify.app",
     stack: [
       "React",
@@ -142,9 +142,9 @@ export const developmentProjects = [
       "Staff-assisted feedback workflow",
     ],
     images: [
-      "/images/systems/custfeed/login.png",
-      "/images/systems/custfeed/feedback1.png",
-      "/images/systems/custfeed/qr.png",
+      "/images/systems/custfeed/login.webp",
+      "/images/systems/custfeed/feedback1.webp",
+      "/images/systems/custfeed/qr.webp",
     ],
     category: "system",
     year: "2026",
@@ -159,8 +159,8 @@ export const developmentProjects = [
     title: "Luxe Garden",
     description:
       "Premium venue website for events, dining, activities, and bookings with a high-end, conversion-focused presentation.",
-    thumbnail: "/images/websites/luxestay/activities.png",
-    fullImage: "/images/websites/luxestay/activities.png",
+    thumbnail: "/images/websites/luxestay/activities.webp",
+    fullImage: "/images/websites/luxestay/activities.webp",
     url: "https://luxegarden.netlify.app/",
     stack: ["React", "Vite", "Tailwind CSS", "Netlify"],
     features: [
@@ -171,10 +171,10 @@ export const developmentProjects = [
       "Fast inquiry flow",
     ],
     images: [
-      "/images/websites/luxestay/activities.png",
-      "/images/websites/luxestay/dining.png",
-      "/images/websites/luxestay/packages.png",
-      "/images/websites/luxestay/gallery.png",
+      "/images/websites/luxestay/activities.webp",
+      "/images/websites/luxestay/dining.webp",
+      "/images/websites/luxestay/packages.webp",
+      "/images/websites/luxestay/gallery.webp",
     ],
     category: "web",
     year: "2026",
