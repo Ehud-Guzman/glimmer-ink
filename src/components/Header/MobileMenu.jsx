@@ -41,6 +41,7 @@ export default function MobileMenu({ isOpen, toggleMenu, closeMenu, theme, toggl
       }`}
       aria-modal="true"
       role="dialog"
+      aria-label="Navigation menu"
       aria-hidden={!isOpen}
     >
       {/* Backdrop */}
