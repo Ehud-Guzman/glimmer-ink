@@ -113,6 +113,8 @@ const HeroSection = () => {
           <div className="absolute -inset-4 bg-gradient-to-r from-primary to-primary-light dark:from-primary-dark dark:to-primary rounded-2xl blur-xl opacity-20" aria-hidden="true" />
           <img
             src="/images/illustration.webp"
+            srcSet="/images/illustration-400.webp 400w, /images/illustration-800.webp 800w, /images/illustration.webp 1200w"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 448px, 512px"
             alt="GlimmerInk design and development showcase"
             className="relative w-full rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800"
             loading="eager"

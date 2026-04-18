@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "convert-images": "node scripts/convert-to-webp.js"
+    "convert-images": "node scripts/convert-to-webp.js",
+    "resize-images": "node scripts/resize-images.js"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

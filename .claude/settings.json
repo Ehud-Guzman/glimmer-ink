@@ -9,7 +9,8 @@
       "Bash(grep -rho \"className=\\\\\"[^\\\\\"]*\\\\|className=\\\\`[^\\\\`]*\" src/)",
       "Bash(wc -l src/components/**/*.jsx)",
       "Bash(grep -v \"^$\")",
-      "Bash(node scripts/convert-to-webp.js)"
+      "Bash(node scripts/convert-to-webp.js)",
+      "Bash(node scripts/resize-images.js)"
     ]
   }
 }
