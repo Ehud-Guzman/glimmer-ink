@@ -4,9 +4,9 @@ import { Routes, Route, useLocation, Link } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { pageview } from "./utils/analytics";
+import Home from "./pages/Home";
 
 // Lazy-loaded pages
-const Home = lazy(() => import("./pages/Home"));
 const Work = lazy(() => import("./pages/Work"));
 const Services = lazy(() => import("./pages/Services"));
 const About = lazy(() => import("./pages/About"));
