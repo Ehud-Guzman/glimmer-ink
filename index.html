@@ -69,16 +69,8 @@
       imagesizes="(max-width: 768px) 100vw, (max-width: 1024px) 448px, 512px"
       fetchpriority="high"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://api.emailjs.com" />
-    <link rel="preload" as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap"
-    />
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap"
-    />
 
     <!-- ── CSP ───────────────────────────────── -->
     <meta
@@ -95,11 +87,9 @@
         style-src
           'self'
           'unsafe-inline'
-          https://fonts.googleapis.com
           https://cdnjs.cloudflare.com;
         font-src
           'self'
-          https://fonts.gstatic.com
           https://cdnjs.cloudflare.com;
         img-src
           'self'
@@ -175,11 +165,16 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-7F9GC4PTFB', { anonymize_ip: true });
-      window.addEventListener('load', function () {
+      function loadGTM() {
         var s = document.createElement('script');
         s.src = 'https://www.googletagmanager.com/gtag/js?id=G-7F9GC4PTFB';
         s.async = true;
         document.head.appendChild(s);
+      }
+      window.addEventListener('load', function () {
+        'requestIdleCallback' in window
+          ? requestIdleCallback(loadGTM, { timeout: 4000 })
+          : setTimeout(loadGTM, 3000);
       });
     </script>
   </head>

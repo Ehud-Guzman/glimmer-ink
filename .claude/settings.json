@@ -11,7 +11,8 @@
       "Bash(grep -v \"^$\")",
       "Bash(node scripts/convert-to-webp.js)",
       "Bash(node scripts/resize-images.js)",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(npm install *)"
     ]
   }
 }
