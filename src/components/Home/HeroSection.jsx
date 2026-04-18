@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {
@@ -8,12 +7,7 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-[90vh] flex flex-col md:flex-row items-center justify-center md:justify-start gap-12 md:gap-16 overflow-hidden px-4 md:px-16 lg:px-32 pt-10 md:pt-14">
       {/* Left: Hero Text */}
-      <motion.div
-        className="flex-1 max-w-xl md:max-w-2xl relative z-20 text-center md:text-left mb-8 md:mb-0 px-2 md:px-0"
-        initial={{ y: 20 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
+      <div className="flex-1 max-w-xl md:max-w-2xl relative z-20 text-center md:text-left mb-8 md:mb-0 px-2 md:px-0 animate-fade-up">
 
         {/* Headline */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
@@ -73,15 +67,10 @@ const HeroSection = () => {
             <div className="text-text-light/65 dark:text-text-dark/65">Clean design, practical execution</div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Right: Illustration */}
-      <motion.div
-        className="w-full md:w-auto flex justify-center md:justify-end mb-8 md:mb-0 px-4 md:px-0"
-        initial={{ x: 50 }}
-        animate={{ x: 0 }}
-        transition={{ duration: 0.7 }}
-      >
+      <div className="w-full md:w-auto flex justify-center md:justify-end mb-8 md:mb-0 px-4 md:px-0 animate-fade-left">
         <div className="relative w-full md:max-w-md lg:max-w-lg">
           <div className="absolute -inset-4 bg-gradient-to-r from-primary to-primary-light dark:from-primary-dark dark:to-primary rounded-2xl blur-xl opacity-20" aria-hidden="true" />
           <img
@@ -111,7 +100,7 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

@@ -39,6 +39,8 @@ export default {
         "fade-in": "fadeIn 0.5s ease-out",
         "slide-up": "slideUp 0.3s ease-out",
         "scale-in": "scaleIn 0.2s ease-out",
+        "fade-up": "fade-up 0.5s ease-out both",
+        "fade-left": "fade-left 0.7s ease-out both",
       },
       keyframes: {
         fadeIn: {
