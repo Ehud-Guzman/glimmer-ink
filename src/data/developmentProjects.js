@@ -262,6 +262,32 @@ export const developmentProjects = [
     client: "Legal (Concept Build)",
   },
   {
+    id: 13,
+    title: "ADIT Investment",
+    description:
+      "ICT products e-commerce platform with a full product catalog, admin dashboard, and mobile-optimised shopping experience.",
+    thumbnail: "/images/websites/adit-investment/adit-products.png",
+    fullImage: "/images/websites/adit-investment/adit-products.png",
+    url: "https://adit-investment.netlify.app/",
+    stack: ["React", "Vite", "Tailwind CSS", "Netlify"],
+    features: [
+      "ICT product catalog with listings",
+      "Admin dashboard for inventory management",
+      "Mobile-first responsive design",
+      "Fast browsing and inquiry flow",
+    ],
+    images: [
+      "/images/websites/adit-investment/adit-products.png",
+      "/images/websites/adit-investment/adit-dashboard.png",
+      "/images/websites/adit-investment/adit-products-admin.png",
+    ],
+    category: "web",
+    year: "2025",
+    type: "E-Commerce Website",
+    status: "live",
+    client: "ADIT Investment",
+  },
+  {
     id: 8,
     title: "Premium Cars KE",
     description:
