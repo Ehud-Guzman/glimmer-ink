@@ -1,7 +1,6 @@
 // src/App.jsx
 import { Suspense, lazy, useState, useEffect } from "react";
 import { Routes, Route, useLocation, Link } from "react-router-dom";
-import { MotionConfig } from "framer-motion";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { pageview } from "./utils/analytics";
@@ -50,7 +49,6 @@ function App() {
   }, [isMenuOpen]);
 
   return (
-    <MotionConfig reducedMotion="user">
     <div className="min-h-screen flex flex-col bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark transition-colors duration-300">
       {/* Skip to main content — keyboard / screen reader navigation */}
       <a
@@ -106,7 +104,6 @@ function App() {
       {/* Footer */}
       <Footer />
     </div>
-    </MotionConfig>
   );
 }
 

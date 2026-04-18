@@ -1,12 +1,10 @@
-// components/Footer/FooterNav.jsx
-import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const FooterNav = ({ navigation, setActiveHover, activeHover }) => {
   const sections = Array.isArray(navigation) ? navigation : [];
 
   return (
-    <motion.div className="md:col-span-4 grid grid-cols-2 gap-8">
+    <div className="md:col-span-4 grid grid-cols-2 gap-8">
       {sections.map((section, i) => {
         const links = Array.isArray(section?.links) ? section.links : [];
 
@@ -18,14 +16,13 @@ const FooterNav = ({ navigation, setActiveHover, activeHover }) => {
 
             <ul className="space-y-3">
               {links
-                // ✅ hide placeholders cleanly
                 .filter((link) => link?.url && link.url !== "#")
                 .map((link, j) => (
-                  <motion.li
+                  <li
                     key={`${i}-${j}`}
                     className="relative"
-                    onHoverStart={() => setActiveHover?.(`${i}-${j}`)}
-                    onHoverEnd={() => setActiveHover?.(null)}
+                    onMouseEnter={() => setActiveHover?.(`${i}-${j}`)}
+                    onMouseLeave={() => setActiveHover?.(null)}
                   >
                     <Link
                       to={link.url}
@@ -35,25 +32,19 @@ const FooterNav = ({ navigation, setActiveHover, activeHover }) => {
                       <span>{link?.name || "Link"}</span>
                     </Link>
 
-                    <AnimatePresence>
-                      {activeHover === `${i}-${j}` && (
-                        <motion.div
-                          className="absolute inset-0 bg-primary/5 dark:bg-primary/10
-                                     rounded-md -z-10"
-                          initial={{ opacity: 0, scaleX: 0 }}
-                          animate={{ opacity: 1, scaleX: 1 }}
-                          exit={{ opacity: 0, scaleX: 0 }}
-                          transition={{ duration: 0.3 }}
-                        />
-                      )}
-                    </AnimatePresence>
-                  </motion.li>
+                    {/* Hover background — CSS transition instead of AnimatePresence */}
+                    <div
+                      className={`absolute inset-0 bg-primary/5 dark:bg-primary/10 rounded-md -z-10 transition-opacity duration-150 ${
+                        activeHover === `${i}-${j}` ? "opacity-100" : "opacity-0"
+                      }`}
+                    />
+                  </li>
                 ))}
             </ul>
           </div>
         );
       })}
-    </motion.div>
+    </div>
   );
 };
 

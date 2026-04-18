@@ -1,54 +1,40 @@
-// components/Footer/FooterBrand.jsx
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
-const hoverItem = {
-  rest: { scale: 1 },
-  hover: { scale: 1.05 },
-};
 
 const FooterBrand = ({ brand }) => {
   const logo = brand?.logo ?? {};
   const cta = brand?.cta ?? {};
 
   return (
-    <motion.div className="md:col-span-4 space-y-6">
-      <motion.div
-        className="flex items-center gap-3"
-        whileHover={{ x: 5 }}
-        transition={{ type: "spring" }}
-      >
+    <div className="md:col-span-4 space-y-6">
+      <div className="flex items-center gap-3 transition-transform hover:translate-x-1 duration-200">
         <Link to="/" className="text-3xl font-bold flex items-end">
-          <motion.span className="text-primary" whileHover={{ y: -3 }}>
+          <span className="text-primary transition-transform hover:-translate-y-1 duration-150 inline-block">
             {logo.primary || "Glimmer"}
-          </motion.span>
-          <motion.span className="text-text-light dark:text-text-dark" whileHover={{ y: 3 }}>
+          </span>
+          <span className="text-text-light dark:text-text-dark transition-transform hover:translate-y-1 duration-150 inline-block">
             {logo.secondary || "Ink"}
-          </motion.span>
+          </span>
         </Link>
 
         <span className="text-xs uppercase tracking-widest text-text-muted">
           {logo.tagline || ""}
         </span>
-      </motion.div>
+      </div>
 
       <p className="text-lg text-text-light/80 dark:text-text-dark/80 leading-relaxed">
         {brand?.description || ""}
       </p>
 
-      <motion.div className="relative group" initial="rest" whileHover="hover" variants={hoverItem}>
+      <div className="transition-transform hover:scale-105 duration-200 inline-block">
         <Link
           to={cta.url || "/contact"}
-          className="inline-flex items-center gap-2 px-6 py-3.5 bg-primary text-white rounded-lg font-medium transition-all duration-300 overflow-hidden hover:bg-primary-dark"
+          className="inline-flex items-center gap-2 px-6 py-3.5 bg-primary text-white rounded-lg font-medium transition-colors duration-300 overflow-hidden hover:bg-primary-dark group"
         >
-          <span className="absolute inset-0 bg-primary-dark opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          <span className="relative z-10 flex items-center gap-2">
-            <span className="block group-hover:hidden">{cta.text || "Start your project"}</span>
-            <span className="hidden group-hover:block">{cta.hoverText || "Let's create →"}</span>
-          </span>
+          <span className="block group-hover:hidden">{cta.text || "Start your project"}</span>
+          <span className="hidden group-hover:block">{cta.hoverText || "Let's create →"}</span>
         </Link>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 };
 
