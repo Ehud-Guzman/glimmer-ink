@@ -68,7 +68,7 @@ function App() {
           isMenuOpen ? "blur-sm pointer-events-none select-none" : ""
         }`}
       >
-        <Suspense fallback={<div className="p-6 opacity-70">Loading…</div>}>
+        <Suspense fallback={<div className="min-h-[90vh]" aria-hidden="true" />}>
           <Routes>
             {/* Core routes */}
             <Route path="/" element={<Home />} />
