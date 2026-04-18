@@ -1,4 +1,3 @@
-// components/Home/HeroSection.jsx
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -11,44 +10,28 @@ const HeroSection = () => {
       {/* Left: Hero Text */}
       <motion.div
         className="flex-1 max-w-xl md:max-w-2xl relative z-20 text-center md:text-left mb-8 md:mb-0 px-2 md:px-0"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ y: 20 }}
+        animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
-    
 
         {/* Headline */}
-        <motion.h1
-          className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
           <span className="block text-text-light dark:text-text-dark">
             Premium websites and
           </span>
           <span className="block bg-gradient-to-r from-primary via-primary-light to-primary-dark dark:from-primary-light dark:via-primary dark:to-primary-dark bg-clip-text text-transparent">
             practical business systems.
           </span>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          className="text-lg sm:text-xl mb-7 text-text-light/85 dark:text-text-dark/85 leading-relaxed max-w-2xl"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.28 }}
-        >
+        <p className="text-lg sm:text-xl mb-7 text-text-light/85 dark:text-text-dark/85 leading-relaxed max-w-2xl">
           I help businesses show up professionally online and run more smoothly behind the scenes
           with clean websites, practical systems, thoughtful structure, and modern front-end execution.
-        </motion.p>
+        </p>
 
         {/* Trust chips */}
-        <motion.div
-          className="mb-8 flex flex-wrap gap-2 justify-center md:justify-start"
-          initial={{ opacity: 0, y: 6 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35 }}
-        >
+        <div className="mb-8 flex flex-wrap gap-2 justify-center md:justify-start">
           {chips.map((chip) => (
             <span
               key={chip}
@@ -57,15 +40,10 @@ const HeroSection = () => {
               {chip}
             </span>
           ))}
-        </motion.div>
+        </div>
 
         {/* CTAs */}
-        <motion.div
-          className="flex flex-col sm:flex-row justify-center md:justify-start gap-4"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-        >
+        <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
           <Link
             to="/work"
             className="px-8 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 text-lg shadow-lg hover:shadow-xl"
@@ -78,15 +56,10 @@ const HeroSection = () => {
           >
             Start a Conversation
           </Link>
-        </motion.div>
+        </div>
 
         {/* Subtle credibility line */}
-        <motion.div
-          className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.55 }}
-        >
+        <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
           <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/60 px-4 py-3">
             <div className="font-semibold text-text-light dark:text-text-dark">Best fit</div>
             <div className="text-text-light/65 dark:text-text-dark/65">SMEs, personal brands, schools</div>
@@ -99,14 +72,14 @@ const HeroSection = () => {
             <div className="font-semibold text-text-light dark:text-text-dark">Approach</div>
             <div className="text-text-light/65 dark:text-text-dark/65">Clean design, practical execution</div>
           </div>
-        </motion.div>
+        </div>
       </motion.div>
 
       {/* Right: Illustration */}
       <motion.div
         className="w-full md:w-auto flex justify-center md:justify-end mb-8 md:mb-0 px-4 md:px-0"
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
+        initial={{ x: 50 }}
+        animate={{ x: 0 }}
         transition={{ duration: 0.7 }}
       >
         <div className="relative w-full md:max-w-md lg:max-w-lg">
@@ -116,6 +89,8 @@ const HeroSection = () => {
             srcSet="/images/illustration-400.webp 400w, /images/illustration-800.webp 800w, /images/illustration.webp 1200w"
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 448px, 512px"
             alt="GlimmerInk design and development showcase"
+            width="1200"
+            height="675"
             className="relative w-full rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800"
             loading="eager"
             fetchpriority="high"

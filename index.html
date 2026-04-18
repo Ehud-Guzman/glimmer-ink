@@ -63,6 +63,12 @@
     <meta name="twitter:image:alt" content="GlimmerInk Creations" />
 
     <!-- ── PERFORMANCE ───────────────────────── -->
+    <link rel="preload" as="image"
+      href="/images/illustration-400.webp"
+      imagesrcset="/images/illustration-400.webp 400w, /images/illustration-800.webp 800w, /images/illustration.webp 1200w"
+      imagesizes="(max-width: 768px) 100vw, (max-width: 1024px) 448px, 512px"
+      fetchpriority="high"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://www.googletagmanager.com" />

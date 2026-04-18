@@ -10,7 +10,8 @@
       "Bash(wc -l src/components/**/*.jsx)",
       "Bash(grep -v \"^$\")",
       "Bash(node scripts/convert-to-webp.js)",
-      "Bash(node scripts/resize-images.js)"
+      "Bash(node scripts/resize-images.js)",
+      "Bash(node -e ' *)"
     ]
   }
 }
