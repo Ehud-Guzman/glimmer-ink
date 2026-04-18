@@ -9,8 +9,8 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
       <SEOHead
-        title="Contact"
-        description="Contact GlimmerInk Creations to discuss your website, business system, or digital project in Nairobi and across Kenya."
+        title="Contact GlimmerInk — Start Your Project"
+        description="Get in touch with GlimmerInk Creations to discuss your website, business system, or digital project. Serving clients across Kenya."
         path="/contact"
       />
 

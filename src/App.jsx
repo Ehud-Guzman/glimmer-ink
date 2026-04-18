@@ -1,6 +1,7 @@
 // src/App.jsx
 import { Suspense, lazy, useState, useEffect } from "react";
 import { Routes, Route, useLocation, Link } from "react-router-dom";
+import { MotionConfig } from "framer-motion";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { pageview } from "./utils/analytics";
@@ -11,6 +12,8 @@ const Work = lazy(() => import("./pages/Work"));
 const Services = lazy(() => import("./pages/Services"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,6 +50,7 @@ function App() {
   }, [isMenuOpen]);
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="min-h-screen flex flex-col bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark transition-colors duration-300">
       {/* Skip to main content — keyboard / screen reader navigation */}
       <a
@@ -74,6 +78,8 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
 
             {/* ✅ CRITICAL: catch-all route */}
             <Route
@@ -100,6 +106,7 @@ function App() {
       {/* Footer */}
       <Footer />
     </div>
+    </MotionConfig>
   );
 }
 

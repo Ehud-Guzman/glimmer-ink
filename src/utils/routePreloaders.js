@@ -5,3 +5,4 @@ export const loadWork = () => import("../pages/Work");
 export const loadServices = () => import("../pages/Services");
 export const loadAbout = () => import("../pages/About");
 export const loadContact = () => import("../pages/Contact");
+export const loadBlog = () => import("../pages/Blog");

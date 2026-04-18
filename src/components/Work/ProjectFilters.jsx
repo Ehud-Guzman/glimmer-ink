@@ -1,4 +1,4 @@
-import { FiSearch, FiX } from "react-icons/fi";
+import { Search, X } from "lucide-react";
 import { workCategories } from "@/data/developmentProjects";
 
 const ProjectFilters = ({ activeFilter, setActiveFilter, searchQuery, setSearchQuery }) => {
@@ -23,7 +23,7 @@ const ProjectFilters = ({ activeFilter, setActiveFilter, searchQuery, setSearchQ
       </div>
 
       <div className="relative w-full md:w-64">
-        <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-muted dark:text-gray-400" />
+        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-muted dark:text-gray-400 w-4 h-4" />
         <input
           type="text"
           placeholder="Search projects or technologies..."
@@ -36,7 +36,7 @@ const ProjectFilters = ({ activeFilter, setActiveFilter, searchQuery, setSearchQ
             onClick={() => setSearchQuery("")}
             className="absolute right-3 top-1/2 transform -translate-y-1/2 text-text-muted dark:text-gray-400"
           >
-            <FiX />
+            <X className="w-4 h-4" />
           </button>
         )}
       </div>

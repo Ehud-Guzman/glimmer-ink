@@ -81,8 +81,8 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
       <SEOHead
-        title="Services"
-        description="Discover GlimmerInk services across websites, UI design, e-commerce, backend systems, and digital product development."
+        title="Web Design & Development Services — Kenya"
+        description="GlimmerInk offers business websites, web applications, e-commerce, custom systems, and UI/UX design for businesses across Kenya."
         path="/services"
       />
 

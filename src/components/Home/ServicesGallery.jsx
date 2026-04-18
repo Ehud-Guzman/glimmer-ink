@@ -2,15 +2,15 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  FiX,
-  FiChevronLeft,
-  FiChevronRight,
-  FiZoomIn,
-  FiGrid,
-  FiGithub,
-  FiExternalLink,
-  FiSmartphone,
-} from "react-icons/fi";
+  X,
+  ChevronLeft,
+  ChevronRight,
+  ZoomIn,
+  LayoutGrid,
+  Github,
+  ExternalLink,
+  Smartphone,
+} from "lucide-react";
 import { portfolioGalleryData } from "@/data/developmentProjects";
 
 /**
@@ -197,7 +197,7 @@ const ServicesGallery = ({ mode = "full" }) => {
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
                   aria-label="Clear search"
                 >
-                  <FiX size={20} />
+                  <X size={20} />
                 </button>
               )}
             </div>
@@ -212,7 +212,7 @@ const ServicesGallery = ({ mode = "full" }) => {
                     : "bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-text-light dark:text-text-dark"
                 }`}
               >
-                <FiGrid size={18} />
+                <LayoutGrid size={18} />
                 <span>{isMasonryView ? "Grid View" : "Masonry View"}</span>
               </button>
             )}
@@ -296,7 +296,7 @@ const ServicesGallery = ({ mode = "full" }) => {
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-dark transition-colors"
                         >
-                          <FiExternalLink size={16} />
+                          <ExternalLink size={16} />
                           {project.status === "live" ? "Visit project" : "View demo"}
                         </a>
                       )}
@@ -305,7 +305,7 @@ const ServicesGallery = ({ mode = "full" }) => {
                         onClick={() => openLightbox(project)}
                         className="inline-flex items-center gap-2 rounded-full border border-gray-300 dark:border-gray-600 px-4 py-2 text-sm font-medium text-text-light dark:text-text-dark hover:border-primary hover:text-primary dark:hover:text-primary-light transition-colors"
                       >
-                        <FiZoomIn size={16} />
+                        <ZoomIn size={16} />
                         Preview screens
                       </button>
                     </div>
@@ -417,7 +417,7 @@ const ServicesGallery = ({ mode = "full" }) => {
                 onClick={() => setActiveCategory(null)}
                 className="flex items-center gap-2 text-primary hover:text-primary-dark transition-colors group"
               >
-                <FiChevronLeft
+                <ChevronLeft
                   size={20}
                   className="group-hover:-translate-x-1 transition-transform"
                 />
@@ -462,7 +462,7 @@ const ServicesGallery = ({ mode = "full" }) => {
                         />
                         {(project.images?.length || 0) > 1 && (
                           <div className="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-2 py-1 rounded-full flex items-center">
-                            <FiZoomIn size={14} className="mr-1" />
+                            <ZoomIn size={14} className="mr-1" />
                             {project.images.length}
                           </div>
                         )}
@@ -506,7 +506,7 @@ const ServicesGallery = ({ mode = "full" }) => {
                               rel="noopener noreferrer"
                               className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors"
                             >
-                              <FiGithub size={16} />
+                              <Github size={16} />
                               <span>Code</span>
                             </a>
                           )}
@@ -517,7 +517,7 @@ const ServicesGallery = ({ mode = "full" }) => {
                               rel="noopener noreferrer"
                               className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors"
                             >
-                              <FiExternalLink size={16} />
+                              <ExternalLink size={16} />
                               <span>Live Demo</span>
                             </a>
                           )}
@@ -528,7 +528,7 @@ const ServicesGallery = ({ mode = "full" }) => {
                               rel="noopener noreferrer"
                               className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors"
                             >
-                              <FiSmartphone size={16} />
+                              <Smartphone size={16} />
                               <span>App Store</span>
                             </a>
                           )}
@@ -562,7 +562,7 @@ const ServicesGallery = ({ mode = "full" }) => {
                         />
                         {(project.images?.length || 0) > 1 && (
                           <div className="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-2 py-1 rounded-full flex items-center">
-                            <FiZoomIn size={14} className="mr-1" />
+                            <ZoomIn size={14} className="mr-1" />
                             {project.images.length}
                           </div>
                         )}
@@ -606,7 +606,7 @@ const ServicesGallery = ({ mode = "full" }) => {
                               rel="noopener noreferrer"
                               className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors"
                             >
-                              <FiGithub size={16} />
+                              <Github size={16} />
                               <span>Code</span>
                             </a>
                           )}
@@ -617,7 +617,7 @@ const ServicesGallery = ({ mode = "full" }) => {
                               rel="noopener noreferrer"
                               className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors"
                             >
-                              <FiExternalLink size={16} />
+                              <ExternalLink size={16} />
                               <span>Live Demo</span>
                             </a>
                           )}
@@ -628,7 +628,7 @@ const ServicesGallery = ({ mode = "full" }) => {
                               rel="noopener noreferrer"
                               className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors"
                             >
-                              <FiSmartphone size={16} />
+                              <Smartphone size={16} />
                               <span>App Store</span>
                             </a>
                           )}
@@ -661,7 +661,7 @@ const ServicesGallery = ({ mode = "full" }) => {
               onClick={closeLightbox}
               aria-label="Close lightbox"
             >
-              <FiX size={32} />
+              <X size={32} />
             </button>
 
             <button
@@ -671,7 +671,7 @@ const ServicesGallery = ({ mode = "full" }) => {
               disabled={(lightboxProject.images?.length || 0) <= 1}
               aria-label="Previous image"
             >
-              <FiChevronLeft size={32} />
+              <ChevronLeft size={32} />
             </button>
 
             <button
@@ -681,7 +681,7 @@ const ServicesGallery = ({ mode = "full" }) => {
               disabled={(lightboxProject.images?.length || 0) <= 1}
               aria-label="Next image"
             >
-              <FiChevronRight size={32} />
+              <ChevronRight size={32} />
             </button>
 
             <div className="max-w-6xl w-full h-full flex flex-col">

@@ -1,7 +1,46 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Quote, Linkedin, Twitter, Mail } from "lucide-react";
 
 const FounderSection = () => {
+  useEffect(() => {
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Ehud Mwai",
+      jobTitle: "Creative Director & Lead Developer",
+      url: "https://glimmerink.co.ke/about",
+      email: "nyamuehud@gmail.com",
+      address: { "@type": "PostalAddress", addressCountry: "KE" },
+      sameAs: [
+        "https://www.linkedin.com/company/glimmerink",
+        "https://twitter.com/GlimmerInk_",
+        "https://www.instagram.com/glimmerink.creations",
+      ],
+      worksFor: {
+        "@type": "Organization",
+        name: "GlimmerInk Creations",
+        url: "https://glimmerink.co.ke",
+      },
+      knowsAbout: [
+        "Web Design", "Web Development", "React", "UI/UX Design",
+        "Business Systems", "E-Commerce", "Tailwind CSS",
+      ],
+    };
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "person-schema";
+    script.text = JSON.stringify(schema);
+    const existing = document.getElementById("person-schema");
+    if (existing) existing.remove();
+    document.head.appendChild(script);
+
+    return () => {
+      const s = document.getElementById("person-schema");
+      if (s) s.remove();
+    };
+  }, []);
   const socialLinks = [
     { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/glimmerink" },
     { icon: Twitter, label: "Twitter", href: "https://twitter.com/GlimmerInk_" },
@@ -110,7 +149,7 @@ const FounderSection = () => {
                 <div className="space-y-3">
                   {[
                     { label: "Speciality", value: "Web & Systems" },
-                    { label: "Location", value: "Nairobi, Kenya" },
+                    { label: "Location", value: "Kenya" },
                     { label: "Available", value: "Open to projects" },
                   ].map(({ label, value }) => (
                     <div key={label} className="flex justify-between items-center text-sm border-b border-gray-100 dark:border-gray-700 pb-2 last:border-0">

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FiExternalLink } from "react-icons/fi";
+import { ExternalLink } from "lucide-react";
 import SafeImage from "@/components/ui/SafeImage";
 
 const statusLabel = (status) => {
@@ -107,7 +107,7 @@ const ProjectGrid = ({ projects = [], onProjectSelect }) => {
                     aria-label={`Open live project: ${project.title || "project"}`}
                     title="Open live project"
                   >
-                    <FiExternalLink className="text-lg" />
+                    <ExternalLink className="w-5 h-5" />
                   </a>
                 )}
               </div>

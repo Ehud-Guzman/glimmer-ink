@@ -10,6 +10,7 @@ import {
   loadServices,
   loadAbout,
   loadContact,
+  loadBlog,
 } from "@/utils/routePreloaders";
 
 const navItems = [
@@ -17,6 +18,7 @@ const navItems = [
   { name: "Work", path: "/work", preload: loadWork },
   { name: "Services", path: "/services", preload: loadServices },
   { name: "About", path: "/about", preload: loadAbout },
+  { name: "Blog", path: "/blog", preload: loadBlog },
   { name: "Contact", path: "/contact", preload: loadContact },
 ];
 

@@ -10,8 +10,8 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
       <SEOHead
-        title="About"
-        description="Learn about GlimmerInk Creations — a studio focused on premium websites, business systems, and polished digital experiences for modern businesses."
+        title="About GlimmerInk — Ehud Mwai, Creative Director & Web Developer"
+        description="GlimmerInk Creations is a Nairobi-based creative studio led by Ehud Mwai, building premium websites, business systems, and digital experiences for modern businesses."
         path="/about"
       />
 

@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { FiX, FiExternalLink, FiChevronRight } from "react-icons/fi";
+import { X, ExternalLink, ChevronRight } from "lucide-react";
 import SafeImage from "@/components/ui/SafeImage";
 
 const isValidExternalUrl = (url) => typeof url === "string" && /^https?:\/\//i.test(url);
@@ -42,7 +42,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
             aria-label="Close"
             title="Close"
           >
-            <FiX className="text-xl" />
+            <X className="w-5 h-5" />
           </button>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
@@ -104,7 +104,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                   <ul className="space-y-2">
                     {project.features.map((feature, idx) => (
                       <li key={`${feature}-${idx}`} className="flex items-start">
-                        <FiChevronRight className="text-primary dark:text-primary-light mt-0.5 mr-2 flex-shrink-0" />
+                        <ChevronRight className="text-primary dark:text-primary-light mt-0.5 mr-2 flex-shrink-0 w-4 h-4" />
                         <span className="dark:text-gray-300">{feature}</span>
                       </li>
                     ))}
@@ -120,7 +120,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                   className="flex items-center justify-center gap-2 w-full py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors font-medium"
                 >
                   {project.status === "live" ? "Visit Live Project" : "View Project Demo"}
-                  <FiExternalLink className="text-lg" />
+                  <ExternalLink className="w-5 h-5" />
                 </a>
               )}
             </div>

@@ -1,14 +1,13 @@
 // src/data/footerData.js
 import {
-  FiMail,
-  FiPhone,
-  FiMapPin,
-  FiInstagram,
-  FiTwitter,
-  FiDribbble,
-  FiLinkedin,
-} from "react-icons/fi";
-import { FaBehance } from "react-icons/fa";
+  Mail,
+  Phone,
+  MapPin,
+  Instagram,
+  Twitter,
+  Dribbble,
+  Linkedin,
+} from "lucide-react";
 
 const footerStructure = {
   brand: {
@@ -35,6 +34,7 @@ const footerStructure = {
         { name: "Work", url: "/work", hoverEffect: "scale" },
         { name: "Services", url: "/services", hoverEffect: "underline" },
         { name: "About", url: "/about", hoverEffect: "highlight" },
+        { name: "Blog", url: "/blog", hoverEffect: "underline" },
         { name: "Contact", url: "/contact", hoverEffect: "arrow" },
       ],
     },
@@ -44,13 +44,13 @@ const footerStructure = {
     title: "Get in touch",
     methods: [
       {
-        icon: FiMail,
+        icon: Mail,
         text: "nyamuehud@gmail.com",
         copyable: true,
         hoverColor: "text-primary",
       },
       {
-        icon: FiPhone,
+        icon: Phone,
         text: "+254 746 527 253",
         action: () => {
           window.location.href = "tel:+254746527253";
@@ -58,7 +58,7 @@ const footerStructure = {
         hoverColor: "text-secondary",
       },
       {
-        icon: FiMapPin,
+        icon: MapPin,
         text: "Freelance, Kenya",
         action: () => {
           window.open("https://maps.google.com?q=Kenya", "_blank");
@@ -69,19 +69,19 @@ const footerStructure = {
 
     social: [
       {
-        icon: FiInstagram,
+        icon: Instagram,
         url: "https://www.instagram.com/glimmerink.creations",
         label: "Instagram",
         bgHover: "bg-gradient-to-br from-yellow-400 to-pink-600",
       },
       {
-        icon: FiTwitter,
+        icon: Twitter,
         url: "https://x.com/GlimmerInk_",
         label: "Twitter",
         bgHover: "bg-gradient-to-br from-blue-400 to-blue-600",
       },
       {
-        icon: FiDribbble,
+        icon: Dribbble,
         url: "https://dribbble.com/Ehud_Guzman",
         label: "Dribbble",
         bgHover: "bg-gradient-to-br from-pink-400 to-red-500",
@@ -89,13 +89,7 @@ const footerStructure = {
 
       // ✅ If you don’t have them yet, keep as "#" (and component should hide them)
       {
-        icon: FaBehance,
-        url: "#",
-        label: "Behance",
-        bgHover: "bg-gradient-to-br from-blue-500 to-blue-700",
-      },
-      {
-        icon: FiLinkedin,
+        icon: Linkedin,
         url: "https://www.linkedin.com/company/glimmerink",
         label: "LinkedIn",
         bgHover: "bg-gradient-to-br from-blue-600 to-blue-800",

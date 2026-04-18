@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FiExternalLink, FiCheckCircle } from "react-icons/fi";
+import { ExternalLink, CheckCircle2 } from "lucide-react";
 import SafeImage from "@/components/ui/SafeImage";
 
 const isValidExternalUrl = (url) => typeof url === "string" && /^https?:\/\//i.test(url);
@@ -112,7 +112,7 @@ const FeaturedProject = ({ project }) => {
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {project.features.map((f, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-sm text-text-muted dark:text-gray-300">
-                      <FiCheckCircle className="text-primary dark:text-primary-light mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="text-primary dark:text-primary-light mt-0.5 flex-shrink-0 w-4 h-4" />
                       {f}
                     </li>
                   ))}
@@ -148,7 +148,7 @@ const FeaturedProject = ({ project }) => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors font-medium text-sm"
                 >
-                  Visit Live Site <FiExternalLink className="text-base" />
+                  Visit Live Site <ExternalLink className="w-4 h-4" />
                 </a>
               ) : (
                 <span className="text-xs text-text-muted dark:text-gray-500 italic">
