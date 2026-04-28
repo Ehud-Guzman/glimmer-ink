@@ -16,7 +16,9 @@
       "Read(//c/c/Users/nyamu/Desktop/GlimmerInk Creations/Portfolio/glimmer-ink/dist/**)",
       "Read(//c/c/Users/nyamu/Desktop/GlimmerInk Creations/Portfolio/glimmer-ink/dist/assets/**)",
       "Read(//c/c/Users/nyamu/Desktop/GlimmerInk Creations/Portfolio/glimmer-ink/src/**)",
-      "Read(//c/c/Users/nyamu/Desktop/GlimmerInk Creations/Portfolio/glimmer-ink/**)"
+      "Read(//c/c/Users/nyamu/Desktop/GlimmerInk Creations/Portfolio/glimmer-ink/**)",
+      "Bash(cat public/manifest.webmanifest)",
+      "Bash(cat public/manifest.json)"
     ]
   }
 }

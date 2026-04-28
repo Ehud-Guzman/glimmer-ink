@@ -49,6 +49,7 @@ export const developmentProjects = [
       "/images/grainsglobal/product-page-story.webp",
       "/images/grainsglobal/control-panel-system-admin.webp",
     ],
+    url: "https://grains-fronten.netlify.app/",
     category: "web",
     year: "2026",
     type: "Trading Website",
