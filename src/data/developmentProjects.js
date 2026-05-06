@@ -208,6 +208,33 @@ export const developmentProjects = [
     showOnHome: true,
     homeOrder: 6,
   },
+    {
+    id: 7,
+    title: "Lexara Law",
+    description:
+      "A modern law firm website for Lexara featuring practice areas, attorney profiles, and client intake pathways.",
+    thumbnail: "/images/websites/Lexara/Homepage.png",
+    fullImage: "/images/websites/Lexara/Homepage.png",
+    url: "https://lexaralaw.netlify.app/",
+    stack: ["React", "Tailwind CSS", "Vite"],
+    features: [
+      "Practice area pages",
+      "Attorney profiles",
+      "Contact and consultation CTA",
+      "Responsive law firm layout",
+    ],
+    images: [
+      "/images/websites/Lexara/Homepage.png",
+      "/images/websites/Lexara/about us.png",
+      "/images/websites/Lexara/our advocates.png",
+      "/images/websites/Lexara/practice area.png",
+    ],
+    category: "web",
+    year: "2025",
+    type: "Law Firm Website",
+    status: "live",
+    client: "Lexara Law",
+  },
   {
     id: 6,
     title: "Sunshine Schools",
@@ -273,33 +300,7 @@ export const developmentProjects = [
     status: "live",
     client: "GlimmerInk Creations",
   },
-  {
-    id: 7,
-    title: "Lexara Law",
-    description:
-      "A modern law firm website for Lexara featuring practice areas, attorney profiles, and client intake pathways.",
-    thumbnail: "/images/websites/Lexara/Homepage.png",
-    fullImage: "/images/websites/Lexara/Homepage.png",
-    url: "https://lexaralaw.netlify.app/",
-    stack: ["React", "Tailwind CSS", "Vite"],
-    features: [
-      "Practice area pages",
-      "Attorney profiles",
-      "Contact and consultation CTA",
-      "Responsive law firm layout",
-    ],
-    images: [
-      "/images/websites/Lexara/Homepage.png",
-      "/images/websites/Lexara/about us.png",
-      "/images/websites/Lexara/our advocates.png",
-      "/images/websites/Lexara/practice area.png",
-    ],
-    category: "web",
-    year: "2025",
-    type: "Law Firm Website",
-    status: "live",
-    client: "Lexara Law",
-  },
+
   {
     id: 8,
     title: "Premium Cars KE",
