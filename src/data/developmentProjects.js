@@ -209,7 +209,7 @@ export const developmentProjects = [
     homeOrder: 6,
   },
     {
-    id: 7,
+    id: 4,
     title: "Lexara Law",
     description:
       "A modern law firm website for Lexara featuring practice areas, attorney profiles, and client intake pathways.",
