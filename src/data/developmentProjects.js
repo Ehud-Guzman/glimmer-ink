@@ -220,7 +220,7 @@ export const developmentProjects = [
       "Business website for cereals and grains with a product catalog, inquiry flow, and mobile-first product presentation.",
     thumbnail: "/images/websites/vittorios.webp",
     fullImage: "/images/websites/vittorios1.jpeg",
-    url: "https://vittoriostrades.com/",
+    url: "",
     stack: ["React", "Tailwind CSS"],
     features: ["Product catalog", "Filters", "Contact and inquiry form", "Mobile-first layout"],
     images: [
@@ -231,7 +231,7 @@ export const developmentProjects = [
     category: "web",
     year: "2024",
     type: "Business Website",
-    status: "live",
+    status: "archived",
     client: "Vittorios Trades",
     showOnHome: true,
     homeOrder: 6,

@@ -8,6 +8,7 @@ const statusLabel = (status) => {
   if (status === "live") return "Live project";
   if (status === "demo") return "Concept build";
   if (status === "in-progress") return "In progress";
+  if (status === "archived") return "Archived build";
   return null;
 };
 
