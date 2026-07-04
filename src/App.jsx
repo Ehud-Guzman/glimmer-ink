@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 
 // Lazy-loaded pages
 const Work = lazy(() => import("./pages/Work"));
+const CaseStudy = lazy(() => import("./pages/CaseStudy"));
 const Services = lazy(() => import("./pages/Services"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
@@ -73,6 +74,7 @@ function App() {
             {/* Core routes */}
             <Route path="/" element={<Home />} />
             <Route path="/work" element={<Work />} />
+            <Route path="/work/:slug" element={<CaseStudy />} />
             <Route path="/services" element={<Services />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />

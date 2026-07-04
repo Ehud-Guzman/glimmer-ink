@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ExternalLink, CheckCircle2 } from "lucide-react";
+import { ExternalLink, CheckCircle2, ArrowRight } from "lucide-react";
 import SafeImage from "@/components/ui/SafeImage";
 
 const isValidExternalUrl = (url) => typeof url === "string" && /^https?:\/\//i.test(url);
@@ -140,13 +141,21 @@ const FeaturedProject = ({ project }) => {
             )}
 
             {/* CTAs */}
-            <div className="flex items-center gap-6 pt-2 flex-wrap">
+            <div className="flex items-center gap-4 pt-2 flex-wrap">
+              {project.slug && (
+                <Link
+                  to={`/work/${project.slug}`}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors font-medium text-sm"
+                >
+                  Read Full Case Study <ArrowRight className="w-4 h-4" />
+                </Link>
+              )}
               {hasLive ? (
                 <a
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors font-medium text-sm"
+                  className="inline-flex items-center gap-2 px-6 py-3 border border-border-light dark:border-gray-700 rounded-lg hover:bg-white dark:hover:bg-gray-800 transition-colors font-medium text-sm"
                 >
                   Visit Live Site <ExternalLink className="w-4 h-4" />
                 </a>

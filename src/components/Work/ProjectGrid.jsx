@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ExternalLink } from "lucide-react";
 import SafeImage from "@/components/ui/SafeImage";
 
@@ -13,7 +14,7 @@ const statusLabel = (status) => {
 
 const isValidExternalUrl = (url) => typeof url === "string" && /^https?:\/\//i.test(url);
 
-const ProjectGrid = ({ projects = [], onProjectSelect }) => {
+const ProjectGrid = ({ projects = [] }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {projects.map((project) => {
@@ -91,13 +92,13 @@ const ProjectGrid = ({ projects = [], onProjectSelect }) => {
               )}
 
               <div className="flex gap-3">
-                <button
-                  onClick={() => onProjectSelect?.(project)}
-                  className="flex-1 py-2.5 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors text-sm font-medium"
-                  aria-label={`View details for ${project.title || "project"}`}
+                <Link
+                  to={`/work/${project.slug}`}
+                  className="flex-1 py-2.5 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors text-sm font-medium text-center"
+                  aria-label={`View case study for ${project.title || "project"}`}
                 >
-                  View Details
-                </button>
+                  View Case Study
+                </Link>
 
                 {hasLive && (
                   <a

@@ -8,7 +8,6 @@ import FeaturedProject from "./FeaturedProject";
 import DevelopmentProcess from "./DevelopmentProcess";
 import TechStackSection from "./TechStackSection";
 import CTASection from "./CTASection";
-import ProjectModal from "./ProjectModal";
 
 const norm = (v) => String(v || "").toLowerCase();
 const safeArr = (v) => (Array.isArray(v) ? v : []);
@@ -17,8 +16,6 @@ const WorkPage = ({ projects = [] }) => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [visibleProjects, setVisibleProjects] = useState(6);
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleFilterChange = (filter) => {
     setActiveFilter(filter);
@@ -51,25 +48,12 @@ const WorkPage = ({ projects = [] }) => {
 
   const loadMore = () => setVisibleProjects((prev) => prev + 6);
 
-  const handleProjectSelect = (project) => {
-    if (!project) return;
-    setSelectedProject(project);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedProject(null);
-  };
-
   return (
     <div className="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark min-h-screen">
       <WorkHero />
 
       {/* Featured Case Study — right after hero */}
-      {featured && (
-        <FeaturedProject project={featured} onViewDetails={() => handleProjectSelect(featured)} />
-      )}
+      {featured && <FeaturedProject project={featured} />}
 
       {/* Full Project Grid */}
       <section id="projects" className="scroll-mt-28 py-16 px-4 md:px-6 max-w-7xl mx-auto">
@@ -89,7 +73,7 @@ const WorkPage = ({ projects = [] }) => {
           setSearchQuery={handleSearchChange}
         />
 
-        <ProjectGrid projects={filteredProjects} onProjectSelect={handleProjectSelect} />
+        <ProjectGrid projects={filteredProjects} />
 
         {visibleProjects < projects.length && (
           <div className="text-center mt-12">
@@ -108,10 +92,6 @@ const WorkPage = ({ projects = [] }) => {
       <TechStackSection />
       <DevelopmentProcess />
       <CTASection />
-
-      {isModalOpen && selectedProject && (
-        <ProjectModal project={selectedProject} isOpen={isModalOpen} onClose={closeModal} />
-      )}
     </div>
   );
 };

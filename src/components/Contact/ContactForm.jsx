@@ -143,7 +143,7 @@ const ContactForm = ({ preset = null }) => {
         service: preset?.service || "",
         message: "",
       });
-    } catch (err) {
+    } catch {
       setSubmitStatus({
         type: "error",
         message: "Something went wrong. Please try again.",

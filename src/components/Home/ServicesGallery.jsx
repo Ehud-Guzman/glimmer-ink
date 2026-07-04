@@ -1,5 +1,6 @@
 // components/Home/ServicesGallery.jsx
 import { useState, useEffect, useRef, useMemo } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   X,
@@ -10,6 +11,7 @@ import {
   Github,
   ExternalLink,
   Smartphone,
+  ArrowRight,
 } from "lucide-react";
 import { portfolioGalleryData } from "@/data/developmentProjects";
 
@@ -289,12 +291,21 @@ const ServicesGallery = ({ mode = "full" }) => {
                     </div>
 
                     <div className="flex flex-wrap gap-3">
+                      {project.slug && (
+                        <Link
+                          to={`/work/${project.slug}`}
+                          className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-dark transition-colors"
+                        >
+                          View case study
+                          <ArrowRight size={16} />
+                        </Link>
+                      )}
                       {project.liveUrl && (
                         <a
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-dark transition-colors"
+                          className="inline-flex items-center gap-2 rounded-full border border-gray-300 dark:border-gray-600 px-4 py-2 text-sm font-medium text-text-light dark:text-text-dark hover:border-primary hover:text-primary dark:hover:text-primary-light transition-colors"
                         >
                           <ExternalLink size={16} />
                           {project.status === "live" ? "Visit project" : "View demo"}

@@ -26,6 +26,7 @@ const toGalleryProject = (project) => ({
 export const developmentProjects = [
   {
     id: 9,
+    slug: "vittorios-global",
     title: "Vittorios Global",
     description:
       "A full-stack grains trading platform with product storytelling, discovery sections, and an admin backend for day-to-day business operations.",
@@ -43,6 +44,11 @@ export const developmentProjects = [
       "The client needed a dedicated digital presence for their global grains trading operations — one that could showcase products with depth and still give them control over content and inventory.",
     solution:
       "Built a full-stack trading website with a content-rich catalog, admin control panel, and backup tooling so the client could manage their digital presence without relying on a developer for every update.",
+    results: [
+      "Client updates products and content in minutes — no developer needed",
+      "Admin backup tools protect business data day to day",
+      "Product storytelling gives buyers depth beyond a plain price list",
+    ],
     images: [
       "/images/grainsglobal/home-page.webp",
       "/images/grainsglobal/products-page.webp",
@@ -52,7 +58,7 @@ export const developmentProjects = [
     url: "https://grains-fronten.netlify.app/",
     category: "web",
     year: "2026",
-    type: "Trading Website",
+    type: "Trading Platform",
     status: "live",
     client: "Vittorios Global",
     featured: true,
@@ -61,6 +67,7 @@ export const developmentProjects = [
   },
   {
     id: 13,
+    slug: "adit-investment",
     title: "ADIT Investment",
     description:
       "ICT products e-commerce platform with a full product catalog, admin dashboard, and mobile-optimised shopping experience.",
@@ -74,6 +81,10 @@ export const developmentProjects = [
       "Mobile-first responsive design",
       "Fast browsing and inquiry flow",
     ],
+    challenge:
+      "ADIT needed to move their ICT product business online — a catalog customers could browse from any device, plus a way for the team to manage stock without touching code.",
+    solution:
+      "Delivered an e-commerce platform with a clean product catalog and an admin dashboard for inventory, so listings stay current and customers get a fast, mobile-first shopping experience.",
     images: [
       "/images/websites/adit-investment/adit-products.webp",
       "/images/websites/adit-investment/adit-dashboard.webp",
@@ -89,6 +100,7 @@ export const developmentProjects = [
   },
   {
     id: 10,
+    slug: "sweet-layers-bakery",
     title: "Sweet Layers Bakery",
     description:
       "Modern bakery website showcasing products, services, and a delightful brand-led experience with a focus on aesthetics and usability.",
@@ -103,6 +115,10 @@ export const developmentProjects = [
       "SEO-ready social sharing setup",
       "Fast booking and inquiry path",
     ],
+    challenge:
+      "Sweet Layers needed an online presence that matched the craft of their baking — something warm and premium that could turn browsing into orders.",
+    solution:
+      "Designed a brand-led site with rich hero sections, product storytelling, and a short path from craving to order, all optimised for the phones their customers actually use.",
     images: [
       "/images/websites/sweetlayers/home.webp",
       "/images/websites/sweetlayers/order.webp",
@@ -117,112 +133,32 @@ export const developmentProjects = [
     showOnHome: true,
     homeOrder: 3,
   },
-    {
-    id: 4,
-    title: "Lexara Law",
-    description:
-      "A modern law firm website for Lexara featuring practice areas, attorney profiles, and client intake pathways.",
-    thumbnail: "/images/websites/Lexara/Homepage.png",
-    fullImage: "/images/websites/Lexara/Homepage.png",
-    url: "https://lexaralaw.netlify.app/",
-    stack: ["React", "Tailwind CSS", "Vite"],
-    features: [
-      "Practice area pages",
-      "Attorney profiles",
-      "Contact and consultation CTA",
-      "Responsive law firm layout",
-    ],
-    images: [
-      "/images/websites/Lexara/Homepage.png",
-      "/images/websites/Lexara/about us.png",
-      "/images/websites/Lexara/our advocates.png",
-      "/images/websites/Lexara/practice area.png",
-    ],
-    category: "web",
-    year: "2025",
-    type: "Law Firm Website",
-    status: "live",
-    client: "Lexara Law",
-  },
-
-  {
-    id: 12,
-    title: "Customer Feedback System",
-    description:
-      "Multi-tenant feedback platform for shops and clinics with QR surveys, staff-assisted submissions, and analytics dashboards.",
-    thumbnail: "/images/systems/custfeed/login.webp",
-    fullImage: "/images/systems/custfeed/login.webp",
-    url: "https://custfeed.netlify.app",
-    stack: [
-      "React",
-      "Vite",
-      "Node.js",
-      "Express",
-      "Prisma",
-      "PostgreSQL",
-      "Netlify",
-      "Render",
-    ],
-    features: [
-      "QR public survey flow",
-      "Role-based authentication",
-      "Multi-tenant organization support",
-      "Analytics dashboards and submissions tracking",
-      "Staff-assisted feedback workflow",
-    ],
-    images: [
-      "/images/systems/custfeed/login.webp",
-      "/images/systems/custfeed/feedback1.webp",
-      "/images/systems/custfeed/qr.webp",
-    ],
-    category: "system",
-    year: "2026",
-    type: "Feedback Platform",
-    status: "live",
-    client: "Internal Product / SaaS Build",
-    showOnHome: true,
-    homeOrder: 4,
-  },
-  {
-    id: 11,
-    title: "Luxe Garden",
-    description:
-      "Premium venue website for events, dining, activities, and bookings with a high-end, conversion-focused presentation.",
-    thumbnail: "/images/websites/luxestay/activities.webp",
-    fullImage: "/images/websites/luxestay/activities.webp",
-    url: "https://luxegarden.netlify.app/",
-    stack: ["React", "Vite", "Tailwind CSS", "Netlify"],
-    features: [
-      "Events, dining, and activities sections",
-      "Packages, gallery, and bookings pages",
-      "Mobile-first responsive design",
-      "SEO-ready social sharing setup",
-      "Fast inquiry flow",
-    ],
-    images: [
-      "/images/websites/luxestay/activities.webp",
-      "/images/websites/luxestay/dining.webp",
-      "/images/websites/luxestay/packages.webp",
-      "/images/websites/luxestay/gallery.webp",
-    ],
-    category: "web",
-    year: "2026",
-    type: "Venue Website",
-    status: "live",
-    client: "Luxe Garden",
-    showOnHome: true,
-    homeOrder: 5,
-  },
   {
     id: 2,
+    slug: "vittorios-trades",
     title: "Vittorios Trades",
     description:
-      "Business website for cereals and grains with a product catalog, inquiry flow, and mobile-first product presentation.",
+      "Corporate website for an agricultural commodity trading and logistics company serving East Africa, with a product catalog and inquiry flow.",
     thumbnail: "/images/websites/vittorios.webp",
     fullImage: "/images/websites/vittorios1.jpeg",
-    url: "",
+    url: "https://vittoriostrades.com/",
     stack: ["React", "Tailwind CSS"],
-    features: ["Product catalog", "Filters", "Contact and inquiry form", "Mobile-first layout"],
+    features: [
+      "Product catalog",
+      "Filters",
+      "Contact and inquiry form",
+      "Mobile-first layout",
+    ],
+    challenge:
+      "Vittorios Trades needed a credible digital storefront for their commodity trading business — buyers researching suppliers online had nothing to find.",
+    solution:
+      "Built a clean corporate site with a filterable product catalog and a direct inquiry flow, giving the business a professional presence buyers can verify and contact in one visit.",
+    testimonial: {
+      name: "Victor Mwangi",
+      role: "Manager, Vittorios Trades",
+      content:
+        "GlimmerInk handled our website with care and professionalism. Communication was smooth, and the final result felt clean and easy to use.",
+    },
     images: [
       "/images/websites/vittorios.webp",
       "/images/websites/vittorios1.jpeg",
@@ -231,14 +167,46 @@ export const developmentProjects = [
     category: "web",
     year: "2024",
     type: "Business Website",
-    status: "archived",
+    status: "live",
     client: "Vittorios Trades",
     showOnHome: true,
-    homeOrder: 6,
+    homeOrder: 4,
   },
-
+  {
+    id: 4,
+    slug: "lexara-law",
+    title: "Lexara Law",
+    description:
+      "A modern law firm website for Lexara featuring practice areas, attorney profiles, and client intake pathways.",
+    thumbnail: "/images/websites/Lexara/homepage.webp",
+    fullImage: "/images/websites/Lexara/homepage.webp",
+    url: "https://lexaralaw.netlify.app/",
+    stack: ["React", "Tailwind CSS", "Vite"],
+    features: [
+      "Practice area pages",
+      "Attorney profiles",
+      "Contact and consultation CTA",
+      "Responsive law firm layout",
+    ],
+    challenge:
+      "A law firm's website has one job: make a potential client trust the firm before they ever call. Lexara needed a presence that felt established, organised, and easy to navigate.",
+    solution:
+      "Structured the site around practice areas and attorney profiles with clear consultation pathways, so visitors can find the right expertise and reach out without friction.",
+    images: [
+      "/images/websites/Lexara/homepage.webp",
+      "/images/websites/Lexara/about-us.webp",
+      "/images/websites/Lexara/our-advocates.webp",
+      "/images/websites/Lexara/practice-area.webp",
+    ],
+    category: "web",
+    year: "2025",
+    type: "Law Firm Website",
+    status: "live",
+    client: "Lexara Law",
+  },
   {
     id: 6,
+    slug: "sunshine-schools",
     title: "Sunshine Schools",
     description:
       "School website and dashboard UI concept showcasing academic performance, staff structure, and student views.",
@@ -252,6 +220,10 @@ export const developmentProjects = [
       "Performance overview sections",
       "Responsive layout",
     ],
+    challenge:
+      "Schools juggle performance data, staff structure, and parent communication across paperwork and spreadsheets. This concept explores what a single, clean dashboard could look like.",
+    solution:
+      "Designed an academic dashboard concept with student and teacher views and performance overviews — a starting point for schools ready to move their operations online.",
     images: ["/images/websites/sunshine.webp"],
     category: "web",
     year: "2025",
@@ -259,10 +231,11 @@ export const developmentProjects = [
     status: "demo",
     client: "Education (Concept Build)",
     showOnHome: true,
-    homeOrder: 7,
+    homeOrder: 5,
   },
   {
     id: 5,
+    slug: "glimmerhope-hospital",
     title: "GlimmerHope Hospital",
     description:
       "Healthcare management concept with patient records, appointment workflows, and a clean medical UI direction.",
@@ -276,6 +249,10 @@ export const developmentProjects = [
       "Role-based access",
       "Secure data flows",
     ],
+    challenge:
+      "Clinics and hospitals still run on paper files and fragmented tools. This concept explores a unified system for records, appointments, and role-based staff access.",
+    solution:
+      "Built a healthcare management concept with patient records, appointment workflows, and role-based access — demonstrating the systems thinking behind GlimmerInk's dashboard work.",
     images: ["/images/websites/glimmerhope1.webp"],
     category: "system",
     year: "2024",
@@ -283,44 +260,12 @@ export const developmentProjects = [
     status: "demo",
     client: "Healthcare (Concept Build)",
     showOnHome: true,
-    homeOrder: 8,
-  },
-  {
-    id: 1,
-    title: "GlimmerInk Creations",
-    description:
-      "My portfolio platform showcasing case studies, services, and the contact flow that supports client acquisition.",
-    thumbnail: "/images/GlimmerInklogo1.webp",
-    fullImage: "/images/GlimmerInklogo1.webp",
-    url: "https://glimmerink.co.ke",
-    stack: ["React", "Tailwind CSS", "Framer Motion"],
-    features: ["Responsive UI", "Service pages", "Case study layout", "SEO-ready structure"],
-    images: ["/images/GlimmerInklogo1.webp"],
-    category: "web",
-    year: "2023",
-    type: "Portfolio Website",
-    status: "live",
-    client: "GlimmerInk Creations",
-  },
-
-  {
-    id: 8,
-    title: "Premium Cars KE",
-    description:
-      "Car dealership website showcasing listings, highlights, and quick inquiry paths for vehicle buyers.",
-    thumbnail: "/images/websites/premiumcars.webp",
-    fullImage: "/images/websites/premiumcars.webp",
-    url: "https://premiumcarske.netlify.app/",
-    stack: ["React", "Tailwind CSS"],
-    features: ["Vehicle listings", "Responsive layout", "Inquiry CTA"],
-    images: ["/images/websites/premiumcars.webp"],
-    category: "web",
-    year: "2025",
-    type: "Business Website",
-    status: "in-progress",
-    client: "Premium Cars KE",
+    homeOrder: 6,
   },
 ];
+
+export const getProjectBySlug = (slug) =>
+  developmentProjects.find((project) => project.slug === slug) || null;
 
 export const workCategories = [
   { id: "all", label: "All Projects" },

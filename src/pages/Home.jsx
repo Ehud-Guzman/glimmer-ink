@@ -10,8 +10,8 @@ const HomePage = () => {
   return (
     <div className="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark transition-colors min-h-screen overflow-hidden">
       <SEOHead
-        title="Web Design & Development Nairobi"
-        description="GlimmerInk Creations builds premium websites, business systems, and custom digital experiences for modern businesses in Nairobi and across Kenya."
+        title="Web Design & Development Kenya"
+        description="GlimmerInk Creations builds premium websites, business systems, and custom digital experiences for modern businesses across Kenya."
         path="/"
       />
 
