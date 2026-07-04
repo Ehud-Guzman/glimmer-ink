@@ -15,8 +15,7 @@ const ServicesHero = () => {
     <section className="relative pt-24 pb-16 px-6 max-w-7xl mx-auto">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/5 dark:bg-primary/10 blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-primary/3 dark:bg-primary/5 blur-3xl" />
+        <div className="absolute -top-32 -right-32 w-72 h-72 rounded-full bg-primary/5 dark:bg-primary/10 blur-3xl" />
       </div>
 
       <div className="relative">

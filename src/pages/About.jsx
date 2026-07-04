@@ -11,7 +11,7 @@ const About = () => {
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
       <SEOHead
         title="About GlimmerInk — Ehud Mwai, Creative Director & Web Developer"
-        description="GlimmerInk Creations is a Nairobi-based creative studio led by Ehud Mwai, building premium websites, business systems, and digital experiences for modern businesses."
+        description="GlimmerInk Creations is a Kenya-based creative studio led by Ehud Mwai, building premium websites, business systems, and digital experiences for modern businesses."
         path="/about"
       />
 

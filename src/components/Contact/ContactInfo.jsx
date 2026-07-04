@@ -6,7 +6,7 @@ const ContactInfo = () => {
     {
       icon: MapPin,
       title: "Location",
-      details: ["Freelance", "Nairobi, Kenya"],
+      details: ["Freelance", "Kenya · Remote-friendly"],
       color: "bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400",
     },
     {

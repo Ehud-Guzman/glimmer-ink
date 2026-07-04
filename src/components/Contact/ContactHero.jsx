@@ -19,21 +19,8 @@ const ContactHero = () => {
           */}
         </div>
 
-        {/* Blur elements */}
-        <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/10 dark:bg-primary/20 blur-3xl" />
+        {/* Blur element */}
         <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-primary/5 dark:bg-primary/10 blur-3xl" />
-
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 opacity-10 dark:opacity-5">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `linear-gradient(to right, #8882 1px, transparent 1px),
-                               linear-gradient(to bottom, #8882 1px, transparent 1px)`,
-              backgroundSize: "50px 50px",
-            }}
-          />
-        </div>
       </div>
 
       <motion.div

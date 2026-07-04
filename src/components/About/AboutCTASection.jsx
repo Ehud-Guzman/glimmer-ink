@@ -131,7 +131,7 @@ const AboutCTASection = () => {
                 Location
               </div>
               <div className="text-gray-900 dark:text-white">
-                Nairobi, Kenya · Remote-friendly
+                Kenya · Remote-friendly
               </div>
             </div>
             <div>

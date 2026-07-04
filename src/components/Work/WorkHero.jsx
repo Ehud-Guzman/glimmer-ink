@@ -53,12 +53,12 @@ const WorkHero = () => {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
             <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
-              <div className="text-2xl font-bold text-primary">5+</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Live Projects</div>
+              <div className="text-2xl font-bold text-primary">7</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Case Studies</div>
             </div>
             <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
-              <div className="text-2xl font-bold text-primary">Concept</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Case Studies</div>
+              <div className="text-2xl font-bold text-primary">Live</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">& Concept Builds</div>
             </div>
             <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
               <div className="text-2xl font-bold text-primary">Clean</div>
