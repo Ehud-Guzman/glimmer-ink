@@ -5,19 +5,19 @@ const HeroSection = () => {
   const chips = ["5+ live client websites", "Polished concept builds", "Mobile-first", "Fast turnaround"];
 
   return (
-    <section className="relative min-h-[calc(100svh-4rem)] lg:min-h-[calc(100svh-5rem)] flex items-center overflow-hidden py-10 md:py-8">
+    <section className="relative min-h-[calc(100svh-4rem)] lg:min-h-[calc(100svh-5rem)] flex items-center overflow-hidden py-10 md:py-6">
       {/* Soft brand wash behind the hero */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute -top-24 right-[8%] w-96 h-96 rounded-full bg-primary/5 dark:bg-primary/10 blur-3xl" />
         <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-accent/5 dark:bg-accent/10 blur-3xl" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-10 lg:gap-14">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-10 lg:gap-12">
         {/* Left: Hero Text */}
         <div className="flex-1 max-w-xl md:max-w-none text-center md:text-left animate-fade-up">
 
           {/* Availability badge */}
-          <span className="inline-flex items-center gap-2 mb-5 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/5 dark:bg-primary/10 text-xs sm:text-sm font-medium text-primary dark:text-primary-light">
+          <span className="inline-flex items-center gap-2 mb-4 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/5 dark:bg-primary/10 text-xs sm:text-sm font-medium text-primary dark:text-primary-light">
             <span className="relative flex h-2 w-2" aria-hidden="true">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
@@ -26,7 +26,7 @@ const HeroSection = () => {
           </span>
 
           {/* Headline */}
-          <h1 className="font-display text-4xl sm:text-5xl xl:text-[3.4rem] font-bold mb-5 leading-[1.12] tracking-tight text-balance">
+          <h1 className="font-display text-4xl sm:text-5xl font-bold mb-4 leading-[1.12] tracking-tight text-balance">
             <span className="block text-text-light dark:text-text-dark">
               Premium websites and
             </span>
@@ -35,13 +35,13 @@ const HeroSection = () => {
             </span>
           </h1>
 
-          <p className="text-lg mb-6 text-text-light/85 dark:text-text-dark/85 leading-relaxed max-w-xl mx-auto md:mx-0">
+          <p className="text-lg mb-5 text-text-light/85 dark:text-text-dark/85 leading-relaxed max-w-xl mx-auto md:mx-0">
             I help businesses show up professionally online and run more smoothly behind the scenes
             with clean websites, practical systems, thoughtful structure, and modern front-end execution.
           </p>
 
           {/* Trust chips */}
-          <div className="mb-7 flex flex-wrap gap-2 justify-center md:justify-start">
+          <div className="mb-6 flex flex-wrap gap-2 justify-center md:justify-start">
             {chips.map((chip) => (
               <span
                 key={chip}
@@ -79,7 +79,7 @@ const HeroSection = () => {
           </div>
 
           {/* Subtle credibility line */}
-          <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/60 divide-y sm:divide-y-0 sm:divide-x divide-gray-200 dark:divide-gray-800 text-center md:text-left">
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/60 divide-y sm:divide-y-0 sm:divide-x divide-gray-200 dark:divide-gray-800 text-center md:text-left">
             <div className="px-4 py-3">
               <div className="text-xs uppercase tracking-wide text-text-light/55 dark:text-text-dark/55">Best fit</div>
               <div className="text-sm font-medium text-text-light dark:text-text-dark mt-0.5">SMEs, personal brands, schools</div>
@@ -97,12 +97,12 @@ const HeroSection = () => {
 
         {/* Right: Illustration */}
         <div className="w-full md:w-auto flex justify-center md:justify-end animate-fade-left">
-          <div className="relative w-full md:max-w-md xl:max-w-lg">
+          <div className="relative w-full md:max-w-md">
             <div className="absolute -inset-4 bg-gradient-to-r from-primary to-primary-light dark:from-primary-dark dark:to-primary rounded-2xl blur-xl opacity-20" aria-hidden="true" />
             <img
               src="/images/illustration.webp"
               srcSet="/images/illustration-400.webp 400w, /images/illustration-800.webp 800w, /images/illustration.webp 1200w"
-              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 448px, 512px"
+              sizes="(max-width: 768px) 100vw, 448px"
               alt="GlimmerInk design and development showcase"
               width="1200"
               height="675"
