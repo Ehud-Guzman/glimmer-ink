@@ -7,7 +7,7 @@ const PricingModels = () => {
       name: "Project-Based",
       icon: Target,
       description: "Fixed scope & clear delivery",
-      price: "From KES 20,000",
+      price: "Fixed quote, agreed upfront",
       features: [
         "Clearly defined project scope",
         "Agreed delivery timeline",
@@ -27,7 +27,7 @@ const PricingModels = () => {
       name: "Retainer",
       icon: TrendingUp,
       description: "Ongoing development & support",
-      price: "From KES 30,000 / month",
+      price: "Monthly retainer, custom quote",
       features: [
         "Monthly development hours",
         "Priority support",
@@ -48,7 +48,7 @@ const PricingModels = () => {
       name: "Hourly",
       icon: Zap,
       description: "Flexible, pay-as-you-go",
-      price: "KES 2,000 – 4,000 / hour",
+      price: "Billed by the hour",
       features: [
         "No long-term commitment",
         "Transparent time tracking",

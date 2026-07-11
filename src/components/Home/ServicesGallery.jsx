@@ -245,7 +245,7 @@ const ServicesGallery = ({ mode = "full" }) => {
                     <img
                       src={cover}
                       alt={project.title || "Project"}
-                      className="h-full w-full object-contain bg-gray-100 dark:bg-gray-900 transition-transform duration-500 group-hover:scale-[1.02]"
+                      className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
                       loading="lazy"
                     />
                     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-5">
