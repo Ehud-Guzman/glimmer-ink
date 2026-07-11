@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { Check, ArrowRight, Calculator } from "lucide-react";
 
 const BUDGET_LIMITS = {
-  starter: { min: 20000, max: 50000 },
-  growth: { min: 50000, max: 100000 },
-  pro: { min: 100000, max: Number.POSITIVE_INFINITY },
+  starter: { min: 20000, max: 90000 },
+  growth: { min: 90000, max: 200000 },
+  pro: { min: 200000, max: Number.POSITIVE_INFINITY },
 };
 
 const ServiceSelector = () => {
@@ -20,62 +20,72 @@ const ServiceSelector = () => {
       description: "Static business or portfolio website",
       basePrice: 20000,
       timeline: 2,
+      includedFeatures: [],
     },
     {
       id: "fullstack",
       label: "Website (Frontend + Backend)",
       description: "Dynamic site with forms, CMS or admin panel",
-      basePrice: 30000,
+      basePrice: 40000,
       timeline: 3,
+      includedFeatures: ["admin"],
     },
     {
       id: "saas",
       label: "SaaS MVP",
       description: "Core features to validate your idea",
-      basePrice: 50000,
-      timeline: 5,
+      basePrice: 150000,
+      timeline: 6,
+      includedFeatures: ["admin", "api"],
     },
     {
       id: "saas-pro",
       label: "SaaS Pro",
       description: "Advanced SaaS with scaling in mind",
-      basePrice: 80000,
-      timeline: 7,
+      basePrice: 300000,
+      timeline: 9,
+      includedFeatures: ["admin", "api"],
     },
     {
       id: "mobile",
       label: "Mobile App",
       description: "Android / cross-platform mobile app",
-      basePrice: 50000,
+      basePrice: 70000,
       timeline: 6,
+      includedFeatures: [],
     },
     {
       id: "system",
       label: "Custom System",
       description: "School, business or internal management system",
-      basePrice: 50000,
+      basePrice: 100000,
       timeline: 6,
+      includedFeatures: ["admin"],
     },
   ];
 
   const features = [
-    { id: "auth", label: "User Authentication", price: 5000 },
-    { id: "payment", label: "Payments (M-Pesa / Cards)", price: 7000 },
-    { id: "admin", label: "Admin Dashboard", price: 6000 },
-    { id: "api", label: "Third-party API Integration", price: 5000 },
-    { id: "realtime", label: "Real-time Features", price: 7000 },
-    { id: "analytics", label: "Analytics Dashboard", price: 4000 },
-    { id: "multilang", label: "Multi-language Support", price: 3000 },
-    { id: "responsive", label: "Advanced Responsiveness", price: 3000 },
+    { id: "auth", label: "User Authentication", price: 8000 },
+    { id: "payment", label: "Payments (M-Pesa / Cards)", price: 12000 },
+    { id: "admin", label: "Admin Dashboard", price: 10000 },
+    { id: "api", label: "Third-party API Integration", price: 8000 },
+    { id: "realtime", label: "Real-time Features", price: 12000 },
+    { id: "analytics", label: "Analytics Dashboard", price: 7000 },
+    { id: "multilang", label: "Multi-language Support", price: 5000 },
+    { id: "responsive", label: "Advanced Responsiveness", price: 5000 },
   ];
 
   const budgetRanges = [
-    { id: "starter", label: "KES 20K – 50K", description: "Starter / MVP" },
-    { id: "growth", label: "KES 50K – 100K", description: "Growing product" },
-    { id: "pro", label: "KES 100K+", description: "Advanced system" },
+    { id: "starter", label: "KES 20K – 90K", description: "Starter / MVP" },
+    { id: "growth", label: "KES 90K – 200K", description: "Growing product" },
+    { id: "pro", label: "KES 200K+", description: "Advanced system" },
   ];
 
+  const isIncluded = (featureId) =>
+    !!selectedService?.includedFeatures?.includes(featureId);
+
   const toggleFeature = (id) => {
+    if (isIncluded(id)) return; // already priced into the base — nothing to toggle
     setSelectedFeatures((prev) =>
       prev.includes(id) ? prev.filter((f) => f !== id) : [...prev, id]
     );
@@ -86,6 +96,7 @@ const ServiceSelector = () => {
 
     const base = selectedService.basePrice;
     const extras = selectedFeatures.reduce((sum, id) => {
+      if (isIncluded(id)) return sum; // don't double-charge for what's already in the base
       const feature = features.find((f) => f.id === id);
       return sum + (feature?.price || 0);
     }, 0);
@@ -144,7 +155,7 @@ const ServiceSelector = () => {
           Estimate Your Project
         </h2>
         <p className="text-gray-600">
-          Straightforward pricing. No agency games.
+          A starting point for the conversation — your fixed quote comes after we scope the details together.
         </p>
       </div>
 
@@ -182,25 +193,47 @@ const ServiceSelector = () => {
         <div>
           <h3 className="text-lg font-semibold mb-4">Optional Features</h3>
           <div className="space-y-3">
-            {features.map((feature) => (
-              <button
-                key={feature.id}
-                onClick={() => toggleFeature(feature.id)}
-                className={`w-full text-left p-3 rounded-lg border transition ${
-                  selectedFeatures.includes(feature.id)
-                    ? "border-primary bg-primary/5"
-                    : "border-gray-200 hover:border-gray-300"
-                }`}
-              >
-                <div className="flex justify-between">
-                  <span className="font-medium">{feature.label}</span>
-                  <span className="text-sm text-gray-500">
-                    +KES {feature.price.toLocaleString()}
-                  </span>
-                </div>
-              </button>
-            ))}
+            {features.map((feature) => {
+              const included = isIncluded(feature.id);
+              return (
+                <button
+                  key={feature.id}
+                  onClick={() => toggleFeature(feature.id)}
+                  disabled={included}
+                  className={`w-full text-left p-3 rounded-lg border transition ${
+                    included
+                      ? "border-primary/30 bg-primary/5 cursor-default"
+                      : selectedFeatures.includes(feature.id)
+                        ? "border-primary bg-primary/5"
+                        : "border-gray-200 hover:border-gray-300"
+                  }`}
+                >
+                  <div className="flex justify-between items-center">
+                    <span className="font-medium">{feature.label}</span>
+                    {included ? (
+                      <span className="flex items-center gap-1 text-sm font-medium text-primary">
+                        <Check className="w-4 h-4" /> Included
+                      </span>
+                    ) : (
+                      <span className="text-sm text-gray-500">
+                        +KES {feature.price.toLocaleString()}
+                      </span>
+                    )}
+                  </div>
+                </button>
+              );
+            })}
           </div>
+          {selectedService?.includedFeatures?.length > 0 && (
+            <p className="mt-3 text-xs text-gray-500">
+              {selectedService.label} already bakes in{" "}
+              {selectedService.includedFeatures
+                .map((id) => features.find((f) => f.id === id)?.label)
+                .filter(Boolean)
+                .join(" + ")}{" "}
+              — no need to add them again.
+            </p>
+          )}
 
           <div className="mt-8">
             <h3 className="text-lg font-semibold mb-4">Your Budget</h3>
