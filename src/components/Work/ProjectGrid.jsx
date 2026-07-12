@@ -45,7 +45,7 @@ const ProjectGrid = ({ projects = [] }) => {
 
               {/* Status badge */}
               {label && (
-                <div className="absolute top-4 left-4 bg-yellow-100 text-yellow-900 dark:bg-yellow-400/20 dark:text-yellow-200 px-3 py-1 rounded-full text-xs font-medium shadow">
+                <div className="absolute top-4 left-4 bg-primary/90 text-white px-3 py-1 rounded-full text-xs font-medium shadow backdrop-blur-sm">
                   {label}
                 </div>
               )}
