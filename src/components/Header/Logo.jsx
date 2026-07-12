@@ -5,7 +5,7 @@ export default function Logo() {
     <Link
       to="/"
       aria-label="GlimmerInk Creations home"
-      className="flex items-center"
+      className="flex items-center rounded-xl transition-colors dark:bg-white dark:px-3 dark:py-1.5 dark:shadow-md"
     >
       <img
         src="/images/logo-blue.webp"
