@@ -241,7 +241,7 @@ const ServicesGallery = ({ mode = "full" }) => {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.45, delay: index * 0.08 }}
                 >
-                  <div className="relative aspect-[16/10] overflow-hidden">
+                  <div className="relative aspect-[2/1] overflow-hidden">
                     <img
                       src={cover}
                       alt={project.title || "Project"}

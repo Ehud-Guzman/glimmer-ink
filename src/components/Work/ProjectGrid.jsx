@@ -29,7 +29,7 @@ const ProjectGrid = ({ projects = [] }) => {
             animate={{ opacity: 1, y: 0 }}
             className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-card border border-border-light dark:border-gray-700 hover:shadow-xl transition-shadow group"
           >
-            <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-900">
+            <div className="relative aspect-[2/1] overflow-hidden bg-gray-100 dark:bg-gray-900">
               <SafeImage
                 src={project.thumbnail}
                 alt={project.title || "Project thumbnail"}
