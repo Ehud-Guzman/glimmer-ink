@@ -25,6 +25,50 @@ const toGalleryProject = (project) => ({
 
 export const developmentProjects = [
   {
+    id: 14,
+    slug: "hotel-itoya",
+    title: "Hotel Itoya",
+    description:
+      "A full hospitality platform for a premier business hotel in Busia — live room browsing, a guided booking wizard, and dedicated conference and events pages.",
+    thumbnail: "/images/websites/itoya/Homepage.png",
+    fullImage: "/images/websites/itoya/Homepage.png",
+    stack: ["React", "Tailwind CSS", "Node.js", "REST API"],
+    features: [
+      "Guided multi-step booking wizard (room, dates, guests, confirmation)",
+      "Live room and rate browser across four room tiers",
+      "Dedicated conference and events pages for business/MICE bookings",
+      "Filterable photo gallery (spaces, rooms, dining, conference, events)",
+      "Inline quick-search bar for room type, dates, and rate",
+      "Mobile-first responsive design",
+    ],
+    challenge:
+      "Hotel Itoya needed more than a brochure site — as a business hotel built around conferences and events as much as stays, most competing hotel sites in the area offer little beyond a phone number and a contact form.",
+    solution:
+      "Built a full hospitality platform with a live room and rate browser, a guided multi-step booking wizard, and dedicated conference and events pages, so guests can research, compare, and reserve a stay end to end — while positioning Itoya as a serious business hotel, not just a leisure stopover.",
+    results: [
+      "Guests can browse rooms, rates, and complete a booking without a phone call",
+      "Conference and events pages open the site up to MICE bookings, the hotel's core business market",
+      "Filterable gallery lets guests explore rooms, dining, and event spaces before committing",
+    ],
+    images: [
+      "/images/websites/itoya/Homepage.png",
+      "/images/websites/itoya/Reception.png",
+      "/images/websites/itoya/Rooms.png",
+      "/images/websites/itoya/booking.png",
+      "/images/websites/itoya/Meetings.png",
+      "/images/websites/itoya/gallery.png",
+    ],
+    url: "https://www.hotelitoya.co.ke",
+    category: "web",
+    year: "2026",
+    type: "Hotel & Hospitality Website",
+    status: "live",
+    client: "Hotel Itoya",
+    featured: true,
+    showOnHome: true,
+    homeOrder: 1,
+  },
+  {
     id: 9,
     slug: "vittorios-global",
     title: "Vittorios Global",
@@ -61,9 +105,8 @@ export const developmentProjects = [
     type: "Trading Platform",
     status: "live",
     client: "Vittorios Global",
-    featured: true,
     showOnHome: true,
-    homeOrder: 1,
+    homeOrder: 2,
   },
   {
     id: 13,
@@ -96,7 +139,7 @@ export const developmentProjects = [
     status: "live",
     client: "ADIT Investment",
     showOnHome: true,
-    homeOrder: 2,
+    homeOrder: 3,
   },
   {
     id: 10,
@@ -131,7 +174,7 @@ export const developmentProjects = [
     status: "live",
     client: "Sweet Layers Bakery",
     showOnHome: true,
-    homeOrder: 3,
+    homeOrder: 4,
   },
   {
     id: 2,
@@ -170,7 +213,7 @@ export const developmentProjects = [
     status: "live",
     client: "Vittorios Trades",
     showOnHome: true,
-    homeOrder: 4,
+    homeOrder: 5,
   },
   {
     id: 4,
@@ -231,35 +274,6 @@ export const developmentProjects = [
     status: "demo",
     client: "Education (Concept Build)",
     showOnHome: true,
-    homeOrder: 5,
-  },
-  {
-    id: 5,
-    slug: "glimmerhope-hospital",
-    title: "GlimmerHope Hospital",
-    description:
-      "Healthcare management concept with patient records, appointment workflows, and a clean medical UI direction.",
-    thumbnail: "/images/websites/glimmerhope1.webp",
-    fullImage: "/images/websites/glimmerhope1.webp",
-    url: "https://glimmerhope.netlify.app/",
-    stack: ["React", "TypeScript", "GraphQL", "PostgreSQL"],
-    features: [
-      "Patient records",
-      "Appointments",
-      "Role-based access",
-      "Secure data flows",
-    ],
-    challenge:
-      "Clinics and hospitals still run on paper files and fragmented tools. This concept explores a unified system for records, appointments, and role-based staff access.",
-    solution:
-      "Built a healthcare management concept with patient records, appointment workflows, and role-based access — demonstrating the systems thinking behind GlimmerInk's dashboard work.",
-    images: ["/images/websites/glimmerhope1.webp"],
-    category: "system",
-    year: "2024",
-    type: "Healthcare System",
-    status: "demo",
-    client: "Healthcare (Concept Build)",
-    showOnHome: true,
     homeOrder: 6,
   },
 ];
@@ -270,7 +284,6 @@ export const getProjectBySlug = (slug) =>
 export const workCategories = [
   { id: "all", label: "All Projects" },
   { id: "web", label: "Web Applications" },
-  { id: "system", label: "Business Systems" },
 ];
 
 export const portfolioGalleryData = {
