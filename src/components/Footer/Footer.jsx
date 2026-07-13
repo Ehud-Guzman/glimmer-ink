@@ -2,6 +2,7 @@ import { useState } from "react";
 import FooterBrand from "./FooterBrand";
 import FooterNav from "./FooterNav";
 import FooterContact from "./FooterContact";
+import FooterLegal from "./FooterLegal";
 import footerStructure from "@/data/footerData";
 
 const Footer = () => {
@@ -21,6 +22,8 @@ const Footer = () => {
 
   const credits = footerStructure?.credits ?? { text: "", phone: "", url: "#" };
 
+  const legalLinks = Array.isArray(footerStructure?.legal) ? footerStructure.legal : [];
+
   return (
     <footer className="bg-white dark:bg-background-dark border-t border-border-light dark:border-border-dark relative overflow-hidden">
       {/* Background blobs */}
@@ -39,16 +42,7 @@ const Footer = () => {
         <FooterContact contact={contact} />
       </div>
 
-      <div className="pb-8 md:pb-4 pt-2 border-t border-gray-100 dark:border-gray-800 mx-6">
-        <div className="text-center text-xs text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors">
-          {credits?.text ? (
-            <a href={credits.url || "#"} className="inline-flex items-center gap-1 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 no-underline">
-              {credits.text} || {credits.phone}
-              <span className="text-[10px]">↗</span>
-            </a>
-          ) : null}
-        </div>
-      </div>
+      <FooterLegal legalLinks={legalLinks} credits={credits} brand={brand} />
     </footer>
   );
 };

@@ -4,7 +4,11 @@ const FooterNav = ({ navigation, setActiveHover, activeHover }) => {
   const sections = Array.isArray(navigation) ? navigation : [];
 
   return (
-    <div className="md:col-span-4 grid grid-cols-2 gap-8">
+    <div
+      className={`md:col-span-3 grid grid-cols-1 gap-8 ${
+        sections.length > 1 ? "sm:grid-cols-2" : ""
+      }`}
+    >
       {sections.map((section, i) => {
         const links = Array.isArray(section?.links) ? section.links : [];
 

@@ -5,7 +5,7 @@ const FooterBrand = ({ brand }) => {
   const cta = brand?.cta ?? {};
 
   return (
-    <div className="md:col-span-4 space-y-6">
+    <div className="md:col-span-5 space-y-6">
       <div className="flex items-center gap-3 transition-transform hover:translate-x-1 duration-200">
         <Link to="/" className="text-3xl font-bold flex items-end">
           <span className="text-primary transition-transform hover:-translate-y-1 duration-150 inline-block">
