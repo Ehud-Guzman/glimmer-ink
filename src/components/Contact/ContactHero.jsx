@@ -1,26 +1,12 @@
 import { motion } from "framer-motion";
-import SafeImage from "@/components/ui/SafeImage";
 
 const ContactHero = () => {
   return (
     <section className="relative pt-24 pb-16 px-6 max-w-7xl mx-auto overflow-hidden">
-      {/* Background image with overlay */}
+      {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        {/* Background image */}
-        <div className="absolute inset-0">
-          <SafeImage
-            src="/images/background.webp"
-            alt=""
-            className="w-full h-full object-cover opacity-20 dark:opacity-20"
-          />
-
-          {/* If you ever want a gradient overlay, uncomment and tune:
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background-light/60 dark:to-background-dark/60" />
-          */}
-        </div>
-
-        {/* Blur element */}
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-primary/5 dark:bg-primary/10 blur-3xl" />
+        <div className="absolute -top-32 -right-32 w-72 h-72 rounded-full bg-primary/5 dark:bg-primary/10 blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-secondary/5 dark:bg-secondary/10 blur-3xl" />
       </div>
 
       <motion.div

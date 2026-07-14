@@ -1,11 +1,29 @@
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import { Sparkles, UserCheck, LayoutDashboard, Globe2 } from "lucide-react";
 
 const AboutHero = () => {
   const facts = [
     { value: "2025", label: "Founded" },
     { value: "Web + Systems", label: "Focus" },
     { value: "Kenya-wide", label: "Client base" },
+  ];
+
+  const highlights = [
+    {
+      icon: UserCheck,
+      title: "Direct with the founder",
+      description: "No account managers or hand-offs — you work with me from brief to launch.",
+    },
+    {
+      icon: LayoutDashboard,
+      title: "Websites and systems",
+      description: "Marketing sites and admin-backed dashboards, built to the same standard.",
+    },
+    {
+      icon: Globe2,
+      title: "Kenya-based, remote-friendly",
+      description: "Clear communication and reliable delivery, wherever the client is.",
+    },
   ];
 
   return (
@@ -63,23 +81,58 @@ const AboutHero = () => {
           </div>
         </motion.div>
 
-        {/* Right Column - Image/Visual */}
+        {/* Right Column - At a glance panel */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="relative"
         >
-          {/* Brand visual */}
-          <div className="relative bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/10 dark:to-primary/5
-                        rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
-            <div className="aspect-square rounded-xl overflow-hidden bg-white dark:bg-gray-900
-                          border border-gray-200 dark:border-gray-700 flex items-center justify-center">
+          <div className="relative bg-white dark:bg-gray-800 rounded-2xl p-8
+                        border border-gray-200 dark:border-gray-700 shadow-sm">
+            {/* Header */}
+            <div className="flex items-center gap-3 mb-8">
               <img
                 src="/images/GlimmerInklogo1.webp"
                 alt="GlimmerInk Creations"
-                className="w-3/4 h-3/4 object-contain"
+                className="w-10 h-10 object-contain"
               />
+              <div>
+                <div className="font-display font-bold text-gray-900 dark:text-white leading-tight">
+                  GlimmerInk
+                </div>
+                <div className="text-xs text-gray-500 dark:text-gray-400">
+                  At a glance
+                </div>
+              </div>
+            </div>
+
+            {/* Highlights */}
+            <div className="space-y-6">
+              {highlights.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 + index * 0.1 }}
+                    className="flex items-start gap-4"
+                  >
+                    <div className="shrink-0 p-2.5 rounded-xl bg-primary/10 dark:bg-primary/20">
+                      <Icon className="w-5 h-5 text-primary dark:text-primary-light" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-900 dark:text-white">
+                        {item.title}
+                      </div>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        {item.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </motion.div>
