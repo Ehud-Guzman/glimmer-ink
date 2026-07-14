@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowRight, Tag } from "lucide-react";
 import SEOHead from "@/components/SEO/SEOHead";
 import { blogPosts } from "@/data/blogPosts";
+import pageSeo from "@/data/pageSeo";
 
 const categoryColors = {
   Business: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300",
@@ -15,11 +16,7 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
-      <SEOHead
-        title="Blog — Web Design & Development Insights for Kenyan Businesses"
-        description="Practical articles on web design, development, and digital strategy for businesses in Kenya. Written by Ehud Mwai at GlimmerInk Creations."
-        path="/blog"
-      />
+      <SEOHead {...pageSeo.blog} />
 
       {/* Hero */}
       <section className="py-20 px-6 max-w-4xl mx-auto text-center">

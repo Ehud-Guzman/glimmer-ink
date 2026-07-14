@@ -4,15 +4,12 @@ import ContactInfo from "../components/Contact/ContactInfo";
 import ContactTestimonials from "../components/Contact/ContactTestimonials";
 import ContactCTASection from "../components/Contact/ContactCTASection";
 import SEOHead from "../components/SEO/SEOHead";
+import pageSeo from "../data/pageSeo";
 
 const Contact = () => {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
-      <SEOHead
-        title="Contact GlimmerInk — Start Your Project"
-        description="Get in touch with GlimmerInk Creations to discuss your website, business system, or digital project. Serving clients across Kenya."
-        path="/contact"
-      />
+      <SEOHead {...pageSeo.contact} />
 
       {/* Hero Section */}
       <ContactHero />

@@ -6,6 +6,7 @@ import PricingModels from "../components/Services/PricingModels";
 import ServiceFAQs from "../components/Services/ServiceFAQs";
 import ServicesCTASection from "../components/Services/ServicesCTASection";
 import SEOHead from "../components/SEO/SEOHead";
+import pageSeo from "../data/pageSeo";
 import { Code2, Palette, ShoppingCart, Database, Zap, Layout } from "lucide-react";
 
 const services = [
@@ -80,11 +81,7 @@ const services = [
 const Services = () => {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
-      <SEOHead
-        title="Web Design & Development Services — Kenya"
-        description="GlimmerInk offers business websites, web applications, e-commerce, custom systems, and UI/UX design for businesses across Kenya."
-        path="/services"
-      />
+      <SEOHead {...pageSeo.services} />
 
       <ServicesHero />
 
