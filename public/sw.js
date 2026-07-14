@@ -71,7 +71,7 @@ self.addEventListener("fetch", (event) => {
           caches.open(CACHE_NAME).then((cache) => cache.put("/index.html", clone));
           return res;
         })
-        .catch(() => caches.match("/index.html"))
+        .catch(async () => (await caches.match("/index.html")) || Response.error())
     );
     return;
   }
@@ -90,7 +90,7 @@ self.addEventListener("fetch", (event) => {
           caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
           return response;
         })
-        .catch(() => {});
+        .catch(() => Response.error());
     })
   );
 });
