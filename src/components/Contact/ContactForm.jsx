@@ -1,7 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Send, Loader, User, Mail, Phone, MessageSquare } from "lucide-react";
-import emailjs from "@emailjs/browser";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -13,11 +12,18 @@ const ContactForm = ({ preset = null }) => {
     subject: "",
     service: "",
     message: "",
+    // Honeypot: must stay empty. Never shown to real visitors.
+    company: "",
   });
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+
+  // Spam guards: an off-screen honeypot field plus a minimum fill time.
+  // Real visitors never touch either one.
+  const formOpenedAt = useRef(Date.now());
+  const SPAM_MIN_FILL_MS = 3000;
 
   // EmailJS config from env (Vite)
   const emailJsConfig = useMemo(() => {
@@ -99,6 +105,21 @@ const ContactForm = ({ preset = null }) => {
     e.preventDefault();
     if (!validateForm()) return;
 
+    // Honeypot + fill-time check. Blocked submissions still get a success
+    // response so bots learn nothing, but nothing is actually sent.
+    const looksLikeSpam =
+      formData.company.trim() !== "" ||
+      Date.now() - formOpenedAt.current < SPAM_MIN_FILL_MS;
+
+    if (looksLikeSpam) {
+      trackSubmit("blocked");
+      setSubmitStatus({
+        type: "success",
+        message: "Thanks for reaching out. I will usually reply within 24 hours.",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus(null);
 
@@ -126,6 +147,9 @@ const ContactForm = ({ preset = null }) => {
         message: formData.message.trim(),
       };
 
+      // Loaded on demand: keeps the EmailJS SDK out of the initial bundle and
+      // out of the prerender (SSR) pass, which never sends a form.
+      const { default: emailjs } = await import("@emailjs/browser");
       await emailjs.send(serviceId, templateId, payload, { publicKey });
 
       setSubmitStatus({
@@ -142,6 +166,7 @@ const ContactForm = ({ preset = null }) => {
         subject: preset?.subject || "",
         service: preset?.service || "",
         message: "",
+        company: "",
       });
     } catch {
       setSubmitStatus({
@@ -335,6 +360,20 @@ const ContactForm = ({ preset = null }) => {
           {errors.message && (
             <p id="message-error" className="text-sm text-red-500 mt-1" role="alert">{errors.message}</p>
           )}
+        </div>
+
+        {/* Spam honeypot: off-screen, ignored by real visitors and assistive tech */}
+        <div className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+          <label htmlFor="company">Company (leave this empty)</label>
+          <input
+            id="company"
+            name="company"
+            type="text"
+            value={formData.company}
+            onChange={handleChange}
+            tabIndex={-1}
+            autoComplete="off"
+          />
         </div>
 
         {/* Submit */}

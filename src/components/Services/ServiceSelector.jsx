@@ -1,85 +1,17 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Check, ArrowRight, Calculator } from "lucide-react";
-
-const BUDGET_LIMITS = {
-  starter: { min: 20000, max: 90000 },
-  growth: { min: 90000, max: 200000 },
-  pro: { min: 200000, max: Number.POSITIVE_INFINITY },
-};
+import {
+  servicePricing as services,
+  featurePricing as features,
+  budgetLimits as BUDGET_LIMITS,
+  budgetRanges,
+} from "@/data/pricing";
 
 const ServiceSelector = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [selectedFeatures, setSelectedFeatures] = useState([]);
   const [budget, setBudget] = useState("starter");
-
-  const services = [
-    {
-      id: "static",
-      label: "Website (Frontend Only)",
-      description: "Static business or portfolio website",
-      basePrice: 20000,
-      timeline: 2,
-      includedFeatures: [],
-    },
-    {
-      id: "fullstack",
-      label: "Website (Frontend + Backend)",
-      description: "Dynamic site with forms, CMS or admin panel",
-      basePrice: 40000,
-      timeline: 3,
-      includedFeatures: ["admin"],
-    },
-    {
-      id: "saas",
-      label: "SaaS MVP",
-      description: "Core features to validate your idea",
-      basePrice: 150000,
-      timeline: 6,
-      includedFeatures: ["admin", "api"],
-    },
-    {
-      id: "saas-pro",
-      label: "SaaS Pro",
-      description: "Advanced SaaS with scaling in mind",
-      basePrice: 300000,
-      timeline: 9,
-      includedFeatures: ["admin", "api"],
-    },
-    {
-      id: "mobile",
-      label: "Mobile App",
-      description: "Android / cross-platform mobile app",
-      basePrice: 70000,
-      timeline: 6,
-      includedFeatures: [],
-    },
-    {
-      id: "system",
-      label: "Custom System",
-      description: "School, business or internal management system",
-      basePrice: 100000,
-      timeline: 6,
-      includedFeatures: ["admin"],
-    },
-  ];
-
-  const features = [
-    { id: "auth", label: "User Authentication", price: 8000 },
-    { id: "payment", label: "Payments (M-Pesa / Cards)", price: 12000 },
-    { id: "admin", label: "Admin Dashboard", price: 10000 },
-    { id: "api", label: "Third-party API Integration", price: 8000 },
-    { id: "realtime", label: "Real-time Features", price: 12000 },
-    { id: "analytics", label: "Analytics Dashboard", price: 7000 },
-    { id: "multilang", label: "Multi-language Support", price: 5000 },
-    { id: "responsive", label: "Advanced Responsiveness", price: 5000 },
-  ];
-
-  const budgetRanges = [
-    { id: "starter", label: "KES 20K – 90K", description: "Starter / MVP" },
-    { id: "growth", label: "KES 90K – 200K", description: "Growing product" },
-    { id: "pro", label: "KES 200K+", description: "Advanced system" },
-  ];
 
   const isIncluded = (featureId) =>
     !!selectedService?.includedFeatures?.includes(featureId);

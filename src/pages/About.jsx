@@ -6,11 +6,14 @@ import HistoryTimeline from "../components/About/HistoryTimeline";
 import AboutCTASection from "../components/About/AboutCTASection";
 import SEOHead from "../components/SEO/SEOHead";
 import pageSeo from "../data/pageSeo";
+import { person } from "../data/schema";
+
+const ABOUT_SCHEMA = [person()];
 
 const About = () => {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
-      <SEOHead {...pageSeo.about} />
+      <SEOHead {...pageSeo.about} jsonLd={ABOUT_SCHEMA} />
 
       {/* Hero Section */}
       <AboutHero />

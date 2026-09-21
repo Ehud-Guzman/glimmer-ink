@@ -21,7 +21,7 @@ const navItems = [
   { name: "Contact", path: "/contact", preload: loadContact },
 ];
 
-export default function MobileMenu({ isOpen, toggleMenu, closeMenu, theme, toggleTheme }) {
+export default function MobileMenu({ isOpen, toggleMenu, closeMenu, toggleTheme }) {
   const firstLinkRef = useRef(null);
   const canUsePortal = typeof document !== "undefined";
 
@@ -66,7 +66,7 @@ export default function MobileMenu({ isOpen, toggleMenu, closeMenu, theme, toggl
           </span>
 
           <div className="flex items-center gap-4">
-            <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+            <ThemeToggle toggleTheme={toggleTheme} />
 
             <button
               type="button"

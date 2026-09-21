@@ -4,6 +4,7 @@ import { Calendar, Clock, ArrowRight, Tag } from "lucide-react";
 import SEOHead from "@/components/SEO/SEOHead";
 import { blogPosts } from "@/data/blogPosts";
 import pageSeo from "@/data/pageSeo";
+import { blogCollection } from "@/data/schema";
 
 const categoryColors = {
   Business: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300",
@@ -11,12 +12,14 @@ const categoryColors = {
   Development: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300",
 };
 
+const BLOG_SCHEMA = [blogCollection(blogPosts)];
+
 const Blog = () => {
   const sorted = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
-      <SEOHead {...pageSeo.blog} />
+      <SEOHead {...pageSeo.blog} jsonLd={BLOG_SCHEMA} />
 
       {/* Hero */}
       <section className="py-20 px-6 max-w-4xl mx-auto text-center">

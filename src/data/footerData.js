@@ -98,11 +98,7 @@ const footerStructure = {
   },
 
   // keep this if you’re not rendering FooterLegal; otherwise pass it in
-  legal: [
-    { name: "Privacy Policy", url: "#" },
-    { name: "Terms of Service", url: "#" },
-    { name: "Cookie Policy", url: "#" },
-  ],
+  legal: [],
 
   credits: {
     text: "Website Created by GlimmerInk Creations",

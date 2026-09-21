@@ -8,7 +8,7 @@
 import sharp from "sharp";
 sharp.cache(false);
 import { readdir, stat, writeFile } from "fs/promises";
-import { join, relative, dirname, basename, extname } from "path";
+import { join, relative, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));

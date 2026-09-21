@@ -7,12 +7,13 @@ import Logo from "./Logo";
 export default function Header({ isMenuOpen, setIsMenuOpen }) {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Light by default, respect saved preference
+  // Read the saved preference once, SSR-safely. The rendered markup does not
+  // depend on it (ThemeToggle swaps icons with CSS dark: variants), so this can
+  // never cause a hydration mismatch, and the inline script in index.html has
+  // already applied the class before first paint.
   const [theme, setTheme] = useState(() => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") || "light";
-    }
-    return "light";
+    if (typeof window === "undefined") return "light";
+    return localStorage.getItem("theme") || "light";
   });
 
   const location = useLocation();
@@ -76,7 +77,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen }) {
         <Logo />
 
         {/* Desktop navigation */}
-        <DesktopNav theme={theme} toggleTheme={toggleTheme} />
+        <DesktopNav toggleTheme={toggleTheme} />
 
         {/* Mobile hamburger */}
         <button
@@ -112,7 +113,6 @@ export default function Header({ isMenuOpen, setIsMenuOpen }) {
         isOpen={isMenuOpen}
         toggleMenu={toggleMenu}
         closeMenu={closeMenu}
-        theme={theme}
         toggleTheme={toggleTheme}
       />
     </header>

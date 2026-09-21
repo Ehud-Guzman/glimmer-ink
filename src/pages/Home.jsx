@@ -6,11 +6,14 @@ import ProcessSection from "@/components/Home/ProcessSection";
 import CTASection from "@/components/Home/CTASection";
 import SEOHead from "@/components/SEO/SEOHead";
 import pageSeo from "@/data/pageSeo";
+import { professionalService, webSite } from "@/data/schema";
+
+const HOME_SCHEMA = [webSite(), professionalService()];
 
 const HomePage = () => {
   return (
     <div className="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark transition-colors min-h-screen overflow-hidden">
-      <SEOHead {...pageSeo.home} />
+      <SEOHead {...pageSeo.home} jsonLd={HOME_SCHEMA} />
 
       {/* ── HERO ──────────────────────────────── */}
       <section id="hero">

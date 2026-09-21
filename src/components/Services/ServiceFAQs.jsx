@@ -1,74 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, HelpCircle } from "lucide-react";
-
-const FAQS = [
-  {
-    question: "What's your typical project timeline?",
-    answer: "Timelines vary based on project complexity. A small website takes 2-4 weeks, medium web applications 6-12 weeks, and larger systems 3-6 months. I provide detailed timelines after the discovery phase.",
-  },
-  {
-    question: "How do you handle project management and communication?",
-    answer: "I keep things simple and direct — you'll get regular progress updates and clear check-ins at each milestone. I'm available via email or scheduled calls throughout the project.",
-  },
-  {
-    question: "What's included in post-launch support?",
-    answer: "My support includes bug fixes, minor updates, and performance checks. I offer 30 days of free support after launch, with optional ongoing maintenance for continued updates and improvements.",
-  },
-  {
-    question: "Do you provide hosting and maintenance services?",
-    answer: "Yes, I can assist with deployment on platforms like Vercel, Netlify, DigitalOcean, or your preferred provider. Ongoing maintenance is available as a separate arrangement after launch.",
-  },
-  {
-    question: "Can you work with existing codebases or systems?",
-    answer: "Absolutely. I can audit, refactor, or extend existing applications, and integrate new features while keeping the codebase clean and maintainable.",
-  },
-  {
-    question: "What's your payment structure?",
-    answer: "I offer flexible options: fixed-price for defined scopes or milestone-based for larger projects. Typically I require 30% upfront, 40% at a mid-project milestone, and 30% upon completion.",
-  },
-  {
-    question: "How do you ensure code quality?",
-    answer: "I follow clean code practices, test thoroughly before delivery, and document key parts of the codebase. Performance, responsiveness, and cross-browser compatibility are standard parts of the QA process.",
-  },
-  {
-    question: "What if I need to make changes during development?",
-    answer: "Minor adjustments are part of the process. For significant scope changes, I'll discuss the impact on timeline and cost openly so there are no surprises.",
-  },
-];
+import { serviceFaqs as FAQS } from "@/data/faqs";
 
 const ServiceFAQs = () => {
   const [openIndex, setOpenIndex] = useState(null);
-
-  useEffect(() => {
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: FAQS.map((faq) => ({
-        "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: faq.answer,
-        },
-      })),
-    };
-
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.id = "faq-schema";
-    script.text = JSON.stringify(schema);
-
-    const existing = document.getElementById("faq-schema");
-    if (existing) existing.remove();
-    document.head.appendChild(script);
-
-    return () => {
-      const s = document.getElementById("faq-schema");
-      if (s) s.remove();
-    };
-  }, []);
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);

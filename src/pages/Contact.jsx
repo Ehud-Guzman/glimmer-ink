@@ -5,11 +5,14 @@ import ContactTestimonials from "../components/Contact/ContactTestimonials";
 import ContactCTASection from "../components/Contact/ContactCTASection";
 import SEOHead from "../components/SEO/SEOHead";
 import pageSeo from "../data/pageSeo";
+import { contactPage } from "../data/schema";
+
+const CONTACT_SCHEMA = [contactPage()];
 
 const Contact = () => {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
-      <SEOHead {...pageSeo.contact} />
+      <SEOHead {...pageSeo.contact} jsonLd={CONTACT_SCHEMA} />
 
       {/* Hero Section */}
       <ContactHero />

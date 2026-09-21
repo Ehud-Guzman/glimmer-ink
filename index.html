@@ -66,10 +66,10 @@
     <meta name="twitter:image:alt" content="GlimmerInk Creations" />
 
     <!-- ── PERFORMANCE ───────────────────────── -->
-    <link rel="preload" as="image"
+    <link rel="preload" as="image" type="image/webp"
       href="/images/illustration-400.webp"
       imagesrcset="/images/illustration-400.webp 400w, /images/illustration-800.webp 800w, /images/illustration.webp 1200w"
-      imagesizes="(max-width: 768px) 100vw, (max-width: 1024px) 448px, 512px"
+      imagesizes="(max-width: 768px) 100vw, 448px"
       fetchpriority="high"
     />
     <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/space-grotesk-latin-600-normal.woff2" />
@@ -77,99 +77,12 @@
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://api.emailjs.com" />
 
-    <!-- ── CSP ───────────────────────────────── -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="
-        default-src 'self';
-        script-src
-          'self'
-          'unsafe-inline'
-          https://cdn.jsdelivr.net
-          https://api.emailjs.com
-          https://www.googletagmanager.com
-          https://www.google-analytics.com;
-        style-src
-          'self'
-          'unsafe-inline'
-          https://cdnjs.cloudflare.com;
-        font-src
-          'self'
-          https://cdnjs.cloudflare.com;
-        img-src
-          'self'
-          data:
-          blob:
-          https://glimmerink.co.ke
-          https://cdn.jsdelivr.net
-          https://www.google-analytics.com;
-        connect-src
-          'self'
-          https://api.emailjs.com
-          https://www.google-analytics.com
-          https://region1.google-analytics.com;
-        worker-src 'self';
-        upgrade-insecure-requests;
-      "
-    />
-
-    <!-- ── STRUCTURED DATA ───────────────────── -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "GlimmerInk Creations",
-      "alternateName": "GlimmerInk",
-      "description": "Kenya-based freelance creative studio building premium websites, brand identities, and custom digital systems for modern businesses across Kenya.",
-      "url": "https://glimmerink.co.ke",
-      "logo": "https://glimmerink.co.ke/favicon_io/android-chrome-512x512.png",
-      "image": "https://glimmerink.co.ke/images/Glimmer-OG.jpg",
-      "email": "nyamuehud@gmail.com",
-      "foundingDate": "2025",
-      "founder": {
-        "@type": "Person",
-        "name": "Ehud Mwai",
-        "jobTitle": "Creative Director & Lead Developer"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "KE"
-      },
-      "areaServed": [
-        { "@type": "Country", "name": "Kenya" }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Digital Services",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Design & Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Identity Design" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-Commerce Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Web Applications" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Poster & Print Design" } }
-        ]
-      },
-      "sameAs": [
-        "https://x.com/GlimmerInk_",
-        "https://www.instagram.com/glimmerink.creations",
-        "https://www.linkedin.com/company/glimmerink"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "nyamuehud@gmail.com",
-        "contactType": "Customer Service",
-        "areaServed": "KE",
-        "availableLanguage": "English"
-      }
-    }
-    </script>
-
     <!-- ── GOOGLE ANALYTICS ──────────────────── -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-7F9GC4PTFB', { anonymize_ip: true });
+      gtag('config', 'G-7F9GC4PTFB', { send_page_view: false });
       function loadGTM() {
         var s = document.createElement('script');
         s.src = 'https://www.googletagmanager.com/gtag/js?id=G-7F9GC4PTFB';
@@ -185,54 +98,37 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root"><!--app-html--></div>
 
     <!-- ── NO-JS FALLBACK ────────────────────── -->
+    <!-- Every route is prerendered to static HTML, so the page reads fine without
+         JavaScript. This restores the entrance animations' starting state and tells
+         visitors which parts still need JS. -->
     <noscript>
       <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-          font-family: 'Space Grotesk', 'Inter', sans-serif;
-          background: #0f0e17;
-          color: #fffffe;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          min-height: 100vh;
+        [style*="opacity:0"], [style*="opacity: 0"] { opacity: 1 !important; }
+        [style*="translateY"], [style*="translateX"] { transform: none !important; }
+        .nojs-banner {
+          position: relative;
+          z-index: 1;
+          margin-top: 80px;
+          padding: 0.7rem 1.25rem;
+          background: #1D4ED8;
+          color: #ffffff;
+          font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
+          font-size: 0.8rem;
+          line-height: 1.5;
           text-align: center;
-          padding: 2rem 1.5rem;
         }
-        .ns { max-width: 460px; }
-        .ns-logo {
-          font-size: 0.65rem;
-          letter-spacing: 0.4em;
-          text-transform: uppercase;
-          color: #2563EB;
-          margin-bottom: 2rem;
-        }
-        .ns h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
-        .ns p { font-size: 0.95rem; line-height: 1.7; color: rgba(255,255,255,0.5); margin-bottom: 2rem; }
-        .ns a {
-          display: inline-block;
-          padding: 0.75rem 2rem;
-          background: #2563EB;
-          color: #fff;
-          font-size: 0.7rem;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          font-weight: 600;
-          text-decoration: none;
-        }
-        .ns a:hover { background: #1D4ED8; }
+        .nojs-banner a { color: #ffffff; text-decoration: underline; }
       </style>
-      <div class="ns">
-        <p class="ns-logo">GlimmerInk Creations</p>
-        <h1>JavaScript is Disabled</h1>
-        <p>Our site is built on React and requires JavaScript.<br />Please enable it in your browser settings to experience the full thing.</p>
-        <a href="mailto:nyamuehud@gmail.com">Get In Touch Directly</a>
+      <div class="nojs-banner">
+        JavaScript is off, so the theme toggle, project filters and contact form are unavailable.
+        Everything else is browsable. Reach me at
+        <a href="mailto:nyamuehud@gmail.com">nyamuehud@gmail.com</a> or
+        <a href="tel:+254746527253">+254 746 527 253</a>.
       </div>
     </noscript>
-
     <!-- Note: type="module" defers automatically — no defer attribute needed -->
     <script type="module" src="/src/main.jsx"></script>
   </body>

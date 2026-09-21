@@ -7,6 +7,8 @@ import ServiceFAQs from "../components/Services/ServiceFAQs";
 import ServicesCTASection from "../components/Services/ServicesCTASection";
 import SEOHead from "../components/SEO/SEOHead";
 import pageSeo from "../data/pageSeo";
+import { faqPage, serviceList } from "../data/schema";
+import { serviceFaqs } from "../data/faqs";
 import { Code2, Palette, ShoppingCart, Database, Zap, Layout } from "lucide-react";
 
 const services = [
@@ -78,10 +80,12 @@ const services = [
   },
 ];
 
+const SERVICES_SCHEMA = [serviceList(), faqPage(serviceFaqs)];
+
 const Services = () => {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
-      <SEOHead {...pageSeo.services} />
+      <SEOHead {...pageSeo.services} jsonLd={SERVICES_SCHEMA} />
 
       <ServicesHero />
 

@@ -18,7 +18,7 @@ const navItems = [
   { name: "Contact", path: "/contact", preload: loadContact },
 ];
 
-export default function DesktopNav({ theme, toggleTheme }) {
+export default function DesktopNav({ toggleTheme }) {
   return (
     <nav className="hidden md:flex items-center gap-8">
       {navItems.map((item) => (
@@ -57,7 +57,7 @@ export default function DesktopNav({ theme, toggleTheme }) {
       ))}
 
       <div className="w-px h-6 bg-gradient-to-b from-transparent via-gray-300 dark:via-gray-600 to-transparent mx-2"></div>
-      <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+      <ThemeToggle toggleTheme={toggleTheme} />
     </nav>
   );
 }

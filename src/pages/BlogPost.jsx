@@ -1,11 +1,11 @@
-import { useEffect } from "react";
+import { useMemo } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowLeft, ArrowRight, Tag } from "lucide-react";
 import SEOHead from "@/components/SEO/SEOHead";
 import { blogPosts, getBlogPost } from "@/data/blogPosts";
-
-const SITE_URL = "https://glimmerink.co.ke";
+import { article, breadcrumbs } from "@/data/schema";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 
 const ContentBlock = ({ block }) => {
   switch (block.type) {
@@ -46,42 +46,19 @@ const BlogPost = () => {
   const prev = sortedPosts[currentIndex + 1] || null;
   const next = sortedPosts[currentIndex - 1] || null;
 
-  useEffect(() => {
-    if (!post) return;
+  const breadcrumbItems = useMemo(
+    () => [
+      { name: "Home", path: "/" },
+      { name: "Blog", path: "/blog" },
+      { name: post?.title ?? "Article", path: `/blog/${slug}` },
+    ],
+    [post, slug]
+  );
 
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      headline: post.title,
-      description: post.excerpt,
-      datePublished: post.date,
-      author: {
-        "@type": "Person",
-        name: "Ehud Mwai",
-        url: `${SITE_URL}/about`,
-      },
-      publisher: {
-        "@type": "Organization",
-        name: "GlimmerInk Creations",
-        url: SITE_URL,
-      },
-      url: `${SITE_URL}/blog/${post.slug}`,
-      keywords: post.tags.join(", "),
-    };
-
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.id = "article-schema";
-    script.text = JSON.stringify(schema);
-    const existing = document.getElementById("article-schema");
-    if (existing) existing.remove();
-    document.head.appendChild(script);
-
-    return () => {
-      const s = document.getElementById("article-schema");
-      if (s) s.remove();
-    };
-  }, [post]);
+  const pageSchema = useMemo(
+    () => (post ? [article(post), breadcrumbs(breadcrumbItems)] : null),
+    [post, breadcrumbItems]
+  );
 
   if (!post) return <Navigate to="/blog" replace />;
 
@@ -91,6 +68,7 @@ const BlogPost = () => {
         title={post.title}
         description={post.excerpt}
         path={`/blog/${post.slug}`}
+        jsonLd={pageSchema}
       />
 
       <article className="max-w-3xl mx-auto px-6 py-16">
@@ -108,6 +86,8 @@ const BlogPost = () => {
             <ArrowLeft className="w-4 h-4" /> Back to Blog
           </Link>
         </motion.div>
+
+        <Breadcrumbs className="mb-8" items={breadcrumbItems} />
 
         {/* Header */}
         <motion.header

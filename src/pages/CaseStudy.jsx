@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -12,6 +12,8 @@ import {
 import SafeImage from "@/components/ui/SafeImage";
 import SEOHead from "@/components/SEO/SEOHead";
 import { developmentProjects, getProjectBySlug } from "@/data/developmentProjects";
+import { breadcrumbs, caseStudy } from "@/data/schema";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 
 const statusLabel = (status) => {
   if (status === "live") return "Live Project";
@@ -33,6 +35,20 @@ const CaseStudy = () => {
   const { slug } = useParams();
   const project = getProjectBySlug(slug);
   const [lightboxImage, setLightboxImage] = useState(null);
+
+  const breadcrumbItems = useMemo(
+    () => [
+      { name: "Home", path: "/" },
+      { name: "Work", path: "/work" },
+      { name: project?.title ?? "Case study", path: `/work/${slug}` },
+    ],
+    [project, slug]
+  );
+
+  const pageSchema = useMemo(
+    () => (project ? [caseStudy(project), breadcrumbs(breadcrumbItems)] : null),
+    [project, breadcrumbItems]
+  );
 
   // Lock scroll while lightbox is open
   useEffect(() => {
@@ -57,7 +73,8 @@ const CaseStudy = () => {
         <SEOHead
           title="Case Study Not Found"
           description="This case study doesn't exist. Explore the full GlimmerInk portfolio instead."
-          path="/work"
+          path={`/work/${slug}`}
+          noIndex
         />
         <h1 className="text-3xl font-bold font-display mb-4">Case study not found</h1>
         <p className="text-text-muted dark:text-gray-400 mb-8">
@@ -95,6 +112,7 @@ const CaseStudy = () => {
         image={
           cover ? new URL(cover, "https://glimmerink.co.ke/").toString() : undefined
         }
+        jsonLd={pageSchema}
       />
 
       {/* ── HERO ─────────────────────────────── */}
@@ -106,6 +124,8 @@ const CaseStudy = () => {
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           All Work
         </Link>
+
+        <Breadcrumbs className="mb-6" items={breadcrumbItems} />
 
         <div className="flex flex-wrap items-center gap-2 mb-5">
           {!!project.type && (

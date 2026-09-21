@@ -4,6 +4,7 @@ import { Routes, Route, useLocation, Link } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { pageview } from "./utils/analytics";
+import SEOHead from "./components/SEO/SEOHead";
 import Home from "./pages/Home";
 
 // Lazy-loaded pages
@@ -14,6 +15,40 @@ const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
+
+// Fallback route - declared with noIndex so soft 404s never get indexed.
+const NotFound = () => {
+  const { pathname } = useLocation();
+
+  return (
+    <div className="p-10 max-w-3xl mx-auto">
+      <SEOHead
+        title="Page not found"
+        description="This page does not exist. Explore the GlimmerInk Creations portfolio, services and case studies instead."
+        path={pathname}
+        noIndex
+      />
+      <h1 className="text-2xl font-bold">404 - Page not found</h1>
+      <p className="mt-2 text-text-light/70 dark:text-text-dark/70">
+        The page you were looking for does not exist yet.
+      </p>
+      <div className="mt-6 flex flex-wrap gap-3">
+        <Link
+          to="/"
+          className="inline-flex px-5 py-2.5 rounded-lg bg-primary text-white hover:bg-primary-dark transition-colors"
+        >
+          Back to Home
+        </Link>
+        <Link
+          to="/work"
+          className="inline-flex px-5 py-2.5 rounded-lg border border-border-light dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        >
+          View selected work
+        </Link>
+      </div>
+    </div>
+  );
+};
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -80,25 +115,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
-
-            {/* ✅ CRITICAL: catch-all route */}
-            <Route
-              path="*"
-              element={
-                <div className="p-10 max-w-3xl mx-auto">
-                  <h1 className="text-2xl font-bold">404 — Page not found</h1>
-                  <p className="mt-2 text-text-light/70 dark:text-text-dark/70">
-                    The page you’re looking for doesn’t exist yet.
-                  </p>
-                  <Link
-                    to="/"
-                    className="inline-flex mt-6 px-5 py-2.5 rounded-lg bg-primary text-white hover:bg-primary-dark transition-colors"
-                  >
-                    Back to Home
-                  </Link>
-                </div>
-              }
-            />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </main>
