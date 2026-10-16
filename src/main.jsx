@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+import { StrictMode, startTransition } from "react";
 import { hydrateRoot } from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./fonts.css";
@@ -21,12 +21,16 @@ if ("serviceWorker" in navigator) {
 
 // Every route is prerendered to static HTML at build time (scripts/prerender.js),
 // so hydrate instead of mounting: React adopts the existing markup rather than
-// discarding it and re-rendering from scratch.
-hydrateRoot(
-  document.getElementById("root"),
-  <StrictMode>
-    <Router>
-      <App />
-    </Router>
-  </StrictMode>
-);
+// discarding it and re-rendering from scratch. Starting the hydration inside a
+// transition lets React split the work into short slices, so the page stays
+// responsive to taps and scrolling while it wakes up.
+startTransition(() => {
+  hydrateRoot(
+    document.getElementById("root"),
+    <StrictMode>
+      <Router>
+        <App />
+      </Router>
+    </StrictMode>
+  );
+});

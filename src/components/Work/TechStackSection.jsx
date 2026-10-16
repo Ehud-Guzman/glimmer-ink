@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "@/utils/motion";
 
 // The stack used across the projects in this portfolio. Add a technology here
 // only once it has shipped in a real project.

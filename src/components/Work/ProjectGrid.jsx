@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion } from "@/utils/motion";
+import MotionMax from "@/components/MotionMax";
 import { Link } from "react-router-dom";
 import { ExternalLink } from "lucide-react";
 import SafeImage from "@/components/ui/SafeImage";
@@ -14,7 +15,7 @@ const statusLabel = (status) => {
 
 const isValidExternalUrl = (url) => typeof url === "string" && /^https?:\/\//i.test(url);
 
-const ProjectGrid = ({ projects = [] }) => {
+const Grid = ({ projects = [] }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {projects.map((project) => {
@@ -34,6 +35,7 @@ const ProjectGrid = ({ projects = [] }) => {
                 src={project.thumbnail}
                 alt={project.title || "Project thumbnail"}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                sizes="(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw"
               />
 
               {/* Type pill */}
@@ -120,5 +122,12 @@ const ProjectGrid = ({ projects = [] }) => {
     </div>
   );
 };
+
+// `layout` needs the larger animation engine, so load it only for this grid.
+const ProjectGrid = (props) => (
+  <MotionMax>
+    <Grid {...props} />
+  </MotionMax>
+);
 
 export default ProjectGrid;

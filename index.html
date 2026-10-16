@@ -74,6 +74,8 @@
       imagesizes="(max-width: 768px) 100vw, 448px"
       fetchpriority="high"
     />
+    <link rel="preload" as="image" type="image/webp" href="/images/logo-blue.webp" fetchpriority="high" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/space-grotesk-latin-700-normal.woff2" />
     <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/space-grotesk-latin-600-normal.woff2" />
     <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/inter-latin-400-normal.woff2" />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
@@ -85,17 +87,23 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-7F9GC4PTFB', { send_page_view: false });
+      // gtag.js is ~175 KB and its parse/run cost blocks the main thread, so it
+      // loads on the visitor's first interaction, or 8 s after load as a fallback
+      // so quiet visits are still counted. Events fired before it loads wait in
+      // the dataLayer queue (see utils/analytics.js) and are sent once it arrives.
+      var gtmLoaded = false;
+      var gtmEvents = ['pointerdown', 'keydown', 'scroll', 'touchstart'];
       function loadGTM() {
+        if (gtmLoaded) return;
+        gtmLoaded = true;
+        gtmEvents.forEach(function (e) { window.removeEventListener(e, loadGTM); });
         var s = document.createElement('script');
         s.src = 'https://www.googletagmanager.com/gtag/js?id=G-7F9GC4PTFB';
         s.async = true;
         document.head.appendChild(s);
       }
-      window.addEventListener('load', function () {
-        'requestIdleCallback' in window
-          ? requestIdleCallback(loadGTM, { timeout: 4000 })
-          : setTimeout(loadGTM, 3000);
-      });
+      gtmEvents.forEach(function (e) { window.addEventListener(e, loadGTM, { passive: true }); });
+      window.addEventListener('load', function () { setTimeout(loadGTM, 8000); });
     </script>
   </head>
 

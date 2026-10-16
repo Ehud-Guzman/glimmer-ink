@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "@/utils/motion";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { testimonials } from "@/data/testimonials";
 

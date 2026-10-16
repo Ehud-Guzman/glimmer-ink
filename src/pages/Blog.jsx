@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion } from "@/utils/motion";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import SEOHead from "@/components/SEO/SEOHead";
 import { blogPosts } from "@/data/blogPosts";

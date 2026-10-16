@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "@/utils/motion";
 import { Link } from "react-router-dom";
 
 const CodeBackground = () => {
@@ -81,6 +81,7 @@ const CTASection = () => {
             className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-center"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
             <span className="block text-text-light dark:text-text-dark">Need a website that feels</span>
@@ -93,6 +94,7 @@ const CTASection = () => {
             className="text-lg sm:text-xl mb-10 max-w-3xl mx-auto text-center text-text-light/80 dark:text-text-dark/80 leading-relaxed"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
             transition={{ delay: 0.4 }}
           >
             If you want a cleaner online presence, a stronger portfolio presentation, or a
@@ -128,6 +130,7 @@ const CTASection = () => {
             className="mt-12 flex flex-wrap justify-center gap-3"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ delay: 0.6 }}
           >
             {["Business Websites", "Web Applications", "Business Systems", "E-Commerce", "UI/UX Design", "Ongoing Support"].map((tech, i) => (
@@ -150,6 +153,7 @@ const CTASection = () => {
             className="mt-8 text-center text-sm text-text-muted"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
             transition={{ delay: 0.8 }}
           >
             <p>Free initial consultation • Usually replies within 24 hours</p>

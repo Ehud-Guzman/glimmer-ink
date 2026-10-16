@@ -23,7 +23,6 @@ export default defineConfig(({ isSsrBuild }) => ({
           ? undefined
           : {
               "vendor-react": ["react", "react-dom", "react-router-dom", "react/jsx-runtime", "react/jsx-dev-runtime"],
-              "vendor-motion": ["framer-motion"],
               "vendor-email": ["@emailjs/browser"],
             },
       },

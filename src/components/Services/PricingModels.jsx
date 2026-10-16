@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "@/utils/motion";
 import { Check, X, Zap, TrendingUp, Target } from "lucide-react";
 
 const PricingModels = () => {

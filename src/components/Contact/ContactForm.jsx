@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "@/utils/motion";
 import { Send, Loader, User, Mail, Phone, MessageSquare } from "lucide-react";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

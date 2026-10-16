@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import MobileActionBar from "./components/Header/MobileActionBar";
 import { pageview } from "./utils/analytics";
 import SEOHead from "./components/SEO/SEOHead";
+import MotionProvider from "./components/MotionProvider";
 import Home from "./pages/Home";
 import { LOCATION } from "./data/location";
 
@@ -66,7 +67,7 @@ const NotFound = () => {
   );
 };
 
-function App() {
+function AppShell() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -146,5 +147,11 @@ function App() {
     </div>
   );
 }
+
+const App = () => (
+  <MotionProvider>
+    <AppShell />
+  </MotionProvider>
+);
 
 export default App;

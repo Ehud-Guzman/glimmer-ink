@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { createPortal } from "react-dom";
 import { ArrowRight, MapPin, MessageCircle, Phone, X } from "lucide-react";
@@ -22,9 +22,15 @@ const navItems = [
   { name: "Contact", path: "/contact", preload: loadContact },
 ];
 
+const subscribeNever = () => () => {};
+
 export default function MobileMenu({ isOpen, toggleMenu, closeMenu, toggleTheme }) {
   const firstLinkRef = useRef(null);
-  const canUsePortal = typeof document !== "undefined";
+
+  // The menu is portalled into <body>, which the server cannot render. React
+  // reports false while hydrating (matching the server's empty output) and true
+  // right after, so the portal appears without breaking hydration.
+  const canUsePortal = useSyncExternalStore(subscribeNever, () => true, () => false);
 
   const doClose = closeMenu || toggleMenu;
 

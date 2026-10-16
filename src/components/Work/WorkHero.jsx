@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "@/utils/motion";
 import { Code2, Cpu, Globe, Database, Smartphone } from 'lucide-react';
 
 const WorkHero = ({ projects = [] }) => {
@@ -39,7 +39,7 @@ const WorkHero = ({ projects = [] }) => {
       <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Column - Text Content */}
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
+          initial={false}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           className="text-left"

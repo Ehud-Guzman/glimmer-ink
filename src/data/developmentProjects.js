@@ -30,8 +30,8 @@ export const developmentProjects = [
     title: "Hotel Itoya",
     description:
       "A full hospitality platform for a premier business hotel in Busia — live room browsing, a guided booking wizard, and dedicated conference and events pages.",
-    thumbnail: "/images/websites/itoya/Homepage.webp",
-    fullImage: "/images/websites/itoya/Homepage.webp",
+    thumbnail: "/images/websites/itoya/home.webp",
+    fullImage: "/images/websites/itoya/home.webp",
     stack: ["React", "Tailwind CSS", "Node.js", "REST API"],
     features: [
       "Guided multi-step booking wizard (room, dates, guests, confirmation)",
@@ -51,7 +51,7 @@ export const developmentProjects = [
       "Filterable gallery lets guests explore rooms, dining, and event spaces before committing",
     ],
     images: [
-      "/images/websites/itoya/Homepage.webp",
+      "/images/websites/itoya/home.webp",
       "/images/websites/itoya/Reception.webp",
       "/images/websites/itoya/Rooms.webp",
       "/images/websites/itoya/booking.webp",

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "@/utils/motion";
 import { Mail, Calendar, MessageSquare, Phone, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 

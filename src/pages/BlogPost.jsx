@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion } from "@/utils/motion";
 import { Calendar, Clock, ArrowLeft, ArrowRight, Tag } from "lucide-react";
 import SEOHead from "@/components/SEO/SEOHead";
 import { blogPosts, getBlogPost } from "@/data/blogPosts";

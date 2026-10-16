@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "@/utils/motion";
 import { MapPin, Phone, Mail, Clock, Linkedin, Twitter, Instagram } from "lucide-react";
 import { LOCATION_LABEL } from "@/data/location";
 

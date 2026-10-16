@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion } from "@/utils/motion";
 import { ExternalLink, CheckCircle2, ArrowRight } from "lucide-react";
 import SafeImage from "@/components/ui/SafeImage";
 
@@ -46,6 +46,7 @@ const FeaturedProject = ({ project }) => {
                 src={images[activeImage]}
                 alt={`${project.title} screenshot ${activeImage + 1}`}
                 className="w-full object-cover max-h-[380px]"
+                sizes="(min-width: 1024px) 560px, 100vw"
               />
             </motion.div>
 
@@ -65,6 +66,7 @@ const FeaturedProject = ({ project }) => {
                       src={img}
                       alt={`Thumbnail ${idx + 1}`}
                       className="w-full h-16 object-cover"
+                      sizes="140px"
                     />
                   </button>
                 ))}

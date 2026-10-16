@@ -1,16 +1,14 @@
 // pages/HomePage.jsx
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 import HeroSection from "@/components/Home/HeroSection";
-import ServicesGallery from "@/components/Home/ServicesGallery";
-import ProcessSection from "@/components/Home/ProcessSection";
-import LocalSection from "@/components/Home/LocalSection";
-import FlagshipClient from "@/components/Home/FlagshipClient";
-import ServicesOverview from "@/components/Home/ServicesOverview";
-import ContactTestimonials from "@/components/Contact/ContactTestimonials";
-import CTASection from "@/components/Home/CTASection";
 import SEOHead from "@/components/SEO/SEOHead";
 import pageSeo from "@/data/pageSeo";
 import { professionalService, webSite } from "@/data/schema";
+
+// Below-the-fold sections load as a separate chunk. The prerendered HTML already
+// contains them, so visitors and crawlers see the full page immediately; React
+// just wakes the lower sections up once their code has arrived.
+const HomeSections = lazy(() => import("@/components/Home/HomeSections"));
 
 const HOME_SCHEMA = [webSite(), professionalService()];
 
@@ -26,32 +24,9 @@ const HomePage = () => {
         </Suspense>
       </section>
 
-      {/* ── FLAGSHIP CLIENT ───────────────────── */}
-      <FlagshipClient />
-
-      {/* ── FEATURED WORK ─────────────────────── */}
-      <section id="work">
-        <ServicesGallery mode="home" />
-      </section>
-
-      {/* ── SERVICES + PRICES ─────────────────── */}
-      <ServicesOverview />
-
-      {/* ── CLIENT FEEDBACK ───────────────────── */}
-      <ContactTestimonials className="pb-12 md:pb-16 px-4 sm:px-6" />
-
-      {/* ── LOCAL (Busia) ─────────────────────── */}
-      <LocalSection />
-
-      {/* ── PROCESS ───────────────────────────── */}
-      <section id="process">
-        <ProcessSection />
-      </section>
-
-      {/* ── CTA ───────────────────────────────── */}
-      <section id="contact">
-        <CTASection />
-      </section>
+      <Suspense fallback={<div className="min-h-[200vh]" aria-hidden="true" />}>
+        <HomeSections />
+      </Suspense>
     </div>
   );
 };

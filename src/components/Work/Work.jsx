@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "@/utils/motion";
 
 import WorkHero from "./WorkHero";
 import ProjectFilters from "./ProjectFilters";

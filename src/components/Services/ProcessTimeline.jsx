@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "@/utils/motion";
 import { Search, PenTool, Code, TestTube2, Rocket, Settings } from "lucide-react";
 
 const steps = [

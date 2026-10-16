@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "@/utils/motion";
 import { ArrowRight, Calendar, MessageSquare, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 import { LOCATION_LABEL } from "@/data/location";

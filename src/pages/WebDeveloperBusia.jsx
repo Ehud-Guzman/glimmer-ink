@@ -177,6 +177,7 @@ const WebDeveloperBusia = () => {
                 src={itoya.thumbnail}
                 alt={`${itoya.title} website, built by GlimmerInk in ${LOCATION.town}`}
                 className="w-full object-cover object-top max-h-[380px]"
+                sizes="(min-width: 1024px) 600px, 100vw"
               />
             </div>
             <div>

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "@/utils/motion";
 import {
   ArrowLeft,
   ArrowRight,
@@ -147,7 +147,7 @@ const CaseStudy = () => {
           </p>
 
           <motion.h1
-            initial={{ opacity: 0, y: 16 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="text-[2rem] sm:text-5xl lg:text-6xl font-bold font-display leading-[1.1] tracking-tight text-balance mb-4"
@@ -198,7 +198,7 @@ const CaseStudy = () => {
       {cover && (
         <div className="max-w-6xl mx-auto px-4 md:px-6 mb-12 md:mb-16">
           <motion.button
-            initial={{ opacity: 0, y: 24 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             onClick={() => setLightboxImage(cover)}
@@ -221,6 +221,8 @@ const CaseStudy = () => {
               src={cover}
               alt={`${project.title} — main view`}
               className="block w-full object-cover"
+              sizes="(min-width: 1152px) 1100px, 100vw"
+              priority
             />
           </motion.button>
         </div>
@@ -336,6 +338,7 @@ const CaseStudy = () => {
                   src={img}
                   alt={`${project.title} — screenshot ${idx + 2}`}
                   className="w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  sizes="(min-width: 768px) 50vw, 100vw"
                 />
               </motion.button>
             ))}

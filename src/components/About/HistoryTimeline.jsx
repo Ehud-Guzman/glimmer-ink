@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "@/utils/motion";
 import { Calendar, Code, Rocket, TrendingUp } from "lucide-react";
 
 const HistoryTimeline = () => {

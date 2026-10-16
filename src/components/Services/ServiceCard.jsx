@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "@/utils/motion";
 import { ArrowRight, CheckCircle } from "lucide-react";
 
 const ServiceCard = ({ service, index }) => {

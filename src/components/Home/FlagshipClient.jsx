@@ -39,6 +39,7 @@ const FlagshipClient = () => {
                 src={flagship.thumbnail}
                 alt={`${flagship.title} website, built by GlimmerInk`}
                 className="block w-full object-cover object-top"
+                sizes="(min-width: 1024px) 640px, 100vw"
               />
             </div>
           </div>

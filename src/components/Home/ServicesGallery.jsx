@@ -1,7 +1,8 @@
 // components/Home/ServicesGallery.jsx
 import { useState, useEffect, useRef, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "@/utils/motion";
+import MotionMax from "@/components/MotionMax";
 import {
   X,
   ChevronLeft,
@@ -722,21 +723,23 @@ const ServicesGallery = ({ mode = "full" }) => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <motion.img
-                  src={lightboxProject.images[currentImageIndex]}
-                  alt={lightboxProject.title}
-                  className="max-h-[75vh] max-w-full object-contain"
-                  initial={{ scale: 0.95, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.95, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  drag="x"
-                  dragConstraints={{ left: 0, right: 0 }}
-                  onDragEnd={(e, { offset }) => {
-                    if (offset.x > 100) handleSwipe("right");
-                    if (offset.x < -100) handleSwipe("left");
-                  }}
-                />
+                <MotionMax>
+                  <motion.img
+                    src={lightboxProject.images[currentImageIndex]}
+                    alt={lightboxProject.title}
+                    className="max-h-[75vh] max-w-full object-contain"
+                    initial={{ scale: 0.95, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.95, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    onDragEnd={(e, { offset }) => {
+                      if (offset.x > 100) handleSwipe("right");
+                      if (offset.x < -100) handleSwipe("left");
+                    }}
+                  />
+                </MotionMax>
               </motion.div>
 
               <div className="mt-4 flex justify-center gap-2">
