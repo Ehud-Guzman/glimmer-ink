@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
+import useQuoteClick from "./useQuoteClick";
 import {
   loadHome,
   loadWork,
@@ -19,6 +20,8 @@ const navItems = [
 ];
 
 export default function DesktopNav({ toggleTheme }) {
+  const onQuoteClick = useQuoteClick();
+
   return (
     <nav aria-label="Main" className="hidden md:flex items-center gap-5 lg:gap-7">
       {navItems.map((item) => (
@@ -52,7 +55,8 @@ export default function DesktopNav({ toggleTheme }) {
       <Link
         to="/contact"
         onMouseEnter={loadContact}
-        className="hidden lg:inline-flex items-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"
+        onClick={onQuoteClick}
+        className="inline-flex items-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"
       >
         Get a Quote
       </Link>

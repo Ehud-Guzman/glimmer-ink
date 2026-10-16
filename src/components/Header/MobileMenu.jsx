@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { createPortal } from "react-dom";
 import { ArrowRight, MapPin, MessageCircle, Phone, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import useQuoteClick from "./useQuoteClick";
 import { LOCATION_LABEL } from "@/data/location";
 import {
   loadHome,
@@ -33,6 +34,7 @@ export default function MobileMenu({ isOpen, toggleMenu, closeMenu, toggleTheme 
   const canUsePortal = useSyncExternalStore(subscribeNever, () => true, () => false);
 
   const doClose = closeMenu || toggleMenu;
+  const onQuoteClick = useQuoteClick();
 
   useEffect(() => {
     if (!isOpen) return;
@@ -117,7 +119,10 @@ export default function MobileMenu({ isOpen, toggleMenu, closeMenu, toggleTheme 
         <div className="px-4 pt-4 pb-5 border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/60 space-y-3 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
           <Link
             to="/contact"
-            onClick={doClose}
+            onClick={(event) => {
+              doClose();
+              onQuoteClick(event);
+            }}
             className="flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3.5 text-base font-semibold text-white shadow-lg shadow-primary/20 hover:bg-primary-dark transition-colors"
           >
             Get a Quote
