@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import { pageview } from "./utils/analytics";
 import SEOHead from "./components/SEO/SEOHead";
 import Home from "./pages/Home";
+import { LOCATION } from "./data/location";
 
 // Lazy-loaded pages
 const Work = lazy(() => import("./pages/Work"));
@@ -15,6 +16,7 @@ const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
+const WebDeveloperBusia = lazy(() => import("./pages/WebDeveloperBusia"));
 
 // Fallback route - declared with noIndex so soft 404s never get indexed.
 const NotFound = () => {
@@ -115,6 +117,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path={LOCATION.landingPath} element={<WebDeveloperBusia />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

@@ -29,14 +29,14 @@ const ServicesCTASection = () => {
     {
       icon: Phone,
       title: "Call",
-      description: "Mon–Fri, 9AM–6PM EAT",
+      description: "Mon–Fri, 8AM–5PM EAT",
       action: "+254 746 527 253",
       href: "tel:+254746527253",
     },
   ];
 
   return (
-    <section className="py-20 px-6 max-w-7xl mx-auto">
+    <section className="py-12 md:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         {/* Left Column */}
         <motion.div
@@ -93,7 +93,7 @@ const ServicesCTASection = () => {
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 gap-4"
+          className="grid grid-cols-1 min-[420px]:grid-cols-2 gap-4"
         >
           {contactMethods.map((method, index) => {
             const Icon = method.icon;

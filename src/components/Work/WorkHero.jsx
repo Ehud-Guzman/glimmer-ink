@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
-import { Code2, Sparkles, Cpu, Globe, Database, Smartphone } from 'lucide-react';
+import { Code2, Cpu, Globe, Database, Smartphone } from 'lucide-react';
 
-const WorkHero = () => {
+const WorkHero = ({ caseStudyCount }) => {
   const technologies = [
     "React.js", "Node.js", "Tailwind CSS", "MongoDB", "PostgreSQL",
     "GraphQL", "Prisma", "Express", "Vite", "Responsive UI"
   ];
 
   return (
-    <section className="relative pt-24 pb-20 px-6 max-w-7xl mx-auto overflow-hidden">
+    <section className="relative pt-6 pb-8 md:pt-10 md:pb-10 px-4 sm:px-6 max-w-7xl mx-auto overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/5 dark:bg-primary/10 blur-3xl" />
@@ -32,28 +32,21 @@ const WorkHero = () => {
           transition={{ duration: 0.6 }}
           className="text-left"
         >
-          <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-primary/10 dark:bg-primary/20 rounded-full">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary dark:text-primary-light">
-              Websites + Business Systems
-            </span>
-          </div>
-
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-5 font-display leading-tight">
             Selected work across
             <span className="block text-primary mt-2">
               websites, systems, and UI builds
             </span>
           </h1>
 
-          <p className="text-lg text-text-muted dark:text-gray-300 mb-8 leading-relaxed">
+          <p className="text-base sm:text-lg text-text-muted dark:text-gray-300 mb-6 leading-relaxed">
             This page brings together live client work, polished concept builds, and interface-led
             system projects that show how I approach structure, usability, and practical execution.
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6">
             <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
-              <div className="text-2xl font-bold text-primary">7</div>
+              <div className="text-2xl font-bold text-primary">{caseStudyCount}</div>
               <div className="text-sm text-gray-600 dark:text-gray-400">Case Studies</div>
             </div>
             <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
@@ -72,7 +65,7 @@ const WorkHero = () => {
 
 
           {/* Tech Stack Badges */}
-          <div className="flex flex-wrap gap-2 mb-8">
+          <div className="flex flex-wrap gap-2">
             {technologies.map((tech, index) => (
               <motion.span
                 key={tech}
@@ -94,7 +87,7 @@ const WorkHero = () => {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative"
+          className="relative hidden md:block"
         >
           {/* Code Editor Window */}
           <div className="bg-gray-900 rounded-2xl overflow-hidden shadow-2xl 
@@ -117,7 +110,7 @@ const WorkHero = () => {
             </div>
 
             {/* Editor Content */}
-            <div className="p-6 font-mono text-sm">
+            <div className="p-4 sm:p-6 font-mono text-[11px] sm:text-sm overflow-x-auto whitespace-nowrap">
               <div className="text-gray-500 mb-4">
                 <span className="text-purple-400">import</span> 
                 <span className="text-gray-300"> {`{ Portfolio, Project, TechStack }`} </span>
@@ -207,7 +200,7 @@ const WorkHero = () => {
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 3, repeat: Infinity }}
-            className="absolute -top-4 -right-4 p-3 bg-white dark:bg-gray-800 rounded-xl shadow-lg"
+            className="hidden sm:block absolute -top-4 -right-4 p-3 bg-white dark:bg-gray-800 rounded-xl shadow-lg"
           >
             <Globe className="w-6 h-6 text-primary" />
           </motion.div>
@@ -215,7 +208,7 @@ const WorkHero = () => {
           <motion.div
             animate={{ y: [0, -15, 0] }}
             transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
-            className="absolute -bottom-4 -left-4 p-3 bg-white dark:bg-gray-800 rounded-xl shadow-lg"
+            className="hidden sm:block absolute -bottom-4 -left-4 p-3 bg-white dark:bg-gray-800 rounded-xl shadow-lg"
           >
             <Smartphone className="w-6 h-6 text-secondary" />
           </motion.div>

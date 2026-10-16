@@ -5,6 +5,7 @@
 // Pure data only: no JSX, no browser APIs, safe to import in Node.
 import { servicePricing, priceRangeLabel } from "./pricing.js";
 import { serviceFaqs } from "./faqs.js";
+import { LOCATION } from "./location.js";
 
 export const SITE_URL = "https://glimmerink.co.ke";
 export const SITE_NAME = "GlimmerInk Creations";
@@ -13,8 +14,7 @@ export const SITE_PHONE = "+254746527253";
 export const LOGO_URL = `${SITE_URL}/favicon_io/android-chrome-512x512.png`;
 export const DEFAULT_IMAGE = `${SITE_URL}/images/Glimmer-OG.jpg`;
 
-export const BUSINESS_DESCRIPTION =
-  "GlimmerInk Creations is a Kenya-based creative studio building premium websites, business systems and custom digital experiences for modern businesses.";
+export const BUSINESS_DESCRIPTION = `GlimmerInk Creations is a web design and development studio in ${LOCATION.town}, ${LOCATION.country}, building premium websites, business systems and custom digital experiences for businesses in ${LOCATION.region} and across Kenya.`;
 
 const SOCIAL_PROFILES = [
   "https://x.com/GlimmerInk_",
@@ -25,11 +25,20 @@ const SOCIAL_PROFILES = [
 
 const absolute = (value) => (value ? new URL(value, `${SITE_URL}/`).toString() : undefined);
 
+// Service-area business: locality only, no street address.
 const postalAddress = () => ({
   "@type": "PostalAddress",
-  addressLocality: "Nairobi",
-  addressCountry: "KE",
+  addressLocality: LOCATION.town,
+  addressRegion: LOCATION.county,
+  addressCountry: LOCATION.countryCode,
 });
+
+const serviceAreas = () => [
+  { "@type": "City", name: LOCATION.town },
+  { "@type": "AdministrativeArea", name: LOCATION.county },
+  ...LOCATION.nearbyTowns.map((name) => ({ "@type": "City", name })),
+  { "@type": "Country", name: LOCATION.country },
+];
 
 const businessRef = () => ({ "@id": `${SITE_URL}/#business` });
 
@@ -81,10 +90,12 @@ export const professionalService = () => ({
   foundingDate: "2025",
   founder: { "@type": "Person", name: "Ehud Mwai", jobTitle: "Creative Director & Lead Developer", url: `${SITE_URL}/about` },
   address: postalAddress(),
-  areaServed: [
-    { "@type": "Country", name: "Kenya" },
-    { "@type": "City", name: "Nairobi" },
-  ],
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: LOCATION.latitude,
+    longitude: LOCATION.longitude,
+  },
+  areaServed: serviceAreas(),
   availableLanguage: ["English", "Kiswahili"],
   sameAs: SOCIAL_PROFILES,
   contactPoint: {
@@ -238,6 +249,24 @@ export const blogCollection = (posts) => ({
     datePublished: post.date,
     author: { "@type": "Person", name: "Ehud Mwai", url: `${SITE_URL}/about` },
   })),
+});
+
+// Local landing page: one Service per offering, scoped to the Busia service area.
+export const localServices = () => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${SITE_URL}${LOCATION.landingPath}#service`,
+  serviceType: "Web design and development",
+  name: `Web design and development in ${LOCATION.town}, ${LOCATION.country}`,
+  description: `Business websites, e-commerce, web apps and custom management systems for businesses in ${LOCATION.town} and ${LOCATION.region}.`,
+  url: `${SITE_URL}${LOCATION.landingPath}`,
+  provider: businessRef(),
+  areaServed: serviceAreas(),
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Web development packages",
+    itemListElement: offers(),
+  },
 });
 
 export const contactPage = () => ({

@@ -8,6 +8,7 @@ import {
   Dribbble,
   Linkedin,
 } from "lucide-react";
+import { LOCATION, LOCATION_LABEL } from "./location";
 
 const footerStructure = {
   brand: {
@@ -35,6 +36,7 @@ const footerStructure = {
         { name: "Services", url: "/services", hoverEffect: "underline" },
         { name: "About", url: "/about", hoverEffect: "highlight" },
         { name: "Blog", url: "/blog", hoverEffect: "underline" },
+        { name: `Web Developer ${LOCATION.town}`, url: LOCATION.landingPath, hoverEffect: "underline" },
         { name: "Contact", url: "/contact", hoverEffect: "arrow" },
       ],
     },
@@ -59,9 +61,9 @@ const footerStructure = {
       },
       {
         icon: MapPin,
-        text: "Freelance, Kenya",
+        text: LOCATION_LABEL,
         action: () => {
-          window.open("https://maps.google.com?q=Kenya", "_blank");
+          window.open(`https://maps.google.com?q=${encodeURIComponent(LOCATION_LABEL)}`, "_blank");
         },
         hoverColor: "text-accent",
       },

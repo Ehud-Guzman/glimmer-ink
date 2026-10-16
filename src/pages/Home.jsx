@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import HeroSection from "@/components/Home/HeroSection";
 import ServicesGallery from "@/components/Home/ServicesGallery";
 import ProcessSection from "@/components/Home/ProcessSection";
+import LocalSection from "@/components/Home/LocalSection";
 import CTASection from "@/components/Home/CTASection";
 import SEOHead from "@/components/SEO/SEOHead";
 import pageSeo from "@/data/pageSeo";
@@ -26,6 +27,9 @@ const HomePage = () => {
       <section id="work">
         <ServicesGallery mode="home" />
       </section>
+
+      {/* ── LOCAL (Busia) ─────────────────────── */}
+      <LocalSection />
 
       {/* ── PROCESS ───────────────────────────── */}
       <section id="process">

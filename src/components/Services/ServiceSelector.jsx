@@ -74,7 +74,7 @@ const ServiceSelector = () => {
   }, [budget, estimate, selectedService]);
 
   return (
-    <section className="py-16 px-6 max-w-5xl mx-auto">
+    <section className="py-12 md:py-16 px-4 sm:px-6 max-w-5xl mx-auto">
       <div className="text-center mb-12">
         <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-primary/10 rounded-full">
           <Calculator className="w-4 h-4 text-primary" />

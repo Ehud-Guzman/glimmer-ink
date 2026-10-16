@@ -15,11 +15,11 @@ const FeaturedProject = ({ project }) => {
   const images = project.images?.length ? project.images : [project.fullImage || project.thumbnail].filter(Boolean);
 
   return (
-    <section className="py-20 px-4 md:px-6 bg-background-light dark:bg-background-dark">
+    <section className="py-10 md:py-14 px-4 md:px-6 bg-background-light dark:bg-background-dark">
       <div className="max-w-7xl mx-auto">
 
         {/* Section label */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-8 md:mb-10">
           <span className="inline-block px-4 py-1.5 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light rounded-full text-sm font-semibold tracking-wide mb-4">
             Featured Case Study
           </span>
@@ -31,7 +31,7 @@ const FeaturedProject = ({ project }) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 
           {/* LEFT — Image gallery */}
           <div className="space-y-4">

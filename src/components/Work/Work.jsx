@@ -50,14 +50,14 @@ const WorkPage = ({ projects = [] }) => {
 
   return (
     <div className="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark min-h-screen">
-      <WorkHero />
+      <WorkHero caseStudyCount={projects.length} />
 
       {/* Featured Case Study — right after hero */}
       {featured && <FeaturedProject project={featured} />}
 
       {/* Full Project Grid */}
-      <section id="projects" className="scroll-mt-28 py-16 px-4 md:px-6 max-w-7xl mx-auto">
-        <div className="text-center mb-12">
+      <section id="projects" className="scroll-mt-28 py-10 md:py-14 px-4 md:px-6 max-w-7xl mx-auto">
+        <div className="text-center mb-8 md:mb-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display">
             Explore the Portfolio
           </h2>

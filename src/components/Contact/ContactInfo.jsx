@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, Linkedin, Twitter, Instagram } from "lucide-react";
+import { LOCATION_LABEL } from "@/data/location";
 
 const ContactInfo = () => {
   const contactDetails = [
     {
       icon: MapPin,
       title: "Location",
-      details: ["Freelance", "Kenya · Remote-friendly"],
+      details: [LOCATION_LABEL, "Meet in person or work remotely"],
       color: "bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400",
     },
     {

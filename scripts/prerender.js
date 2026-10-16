@@ -20,6 +20,8 @@ import pageSeo from "../src/data/pageSeo.js";
 import { developmentProjects } from "../src/data/developmentProjects.js";
 import { blogPosts } from "../src/data/blogPosts.js";
 import { serviceFaqs } from "../src/data/faqs.js";
+import { localFaqs } from "../src/data/localFaqs.js";
+import { LOCATION } from "../src/data/location.js";
 import {
   DEFAULT_IMAGE,
   SITE_NAME,
@@ -30,6 +32,7 @@ import {
   caseStudy,
   contactPage,
   faqPage,
+  localServices,
   person,
   professionalService,
   serviceList,
@@ -79,10 +82,19 @@ const STATIC_SCHEMA = {
   "/about": () => [person()],
   "/blog": () => [blogCollection(blogPosts)],
   "/contact": () => [contactPage()],
+  [LOCATION.landingPath]: () => [
+    localServices(),
+    faqPage(localFaqs),
+    breadcrumbs([
+      { name: "Home", path: "/" },
+      { name: `Web Developer in ${LOCATION.town}`, path: LOCATION.landingPath },
+    ]),
+  ],
 };
 
 const STATIC_META = {
   "/": { priority: "1.0", changefreq: "weekly" },
+  [LOCATION.landingPath]: { priority: "0.9", changefreq: "monthly" },
   "/work": { priority: "0.9", changefreq: "weekly" },
   "/services": { priority: "0.9", changefreq: "monthly" },
   "/contact": { priority: "0.8", changefreq: "monthly" },

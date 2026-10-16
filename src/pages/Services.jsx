@@ -90,8 +90,8 @@ const Services = () => {
       <ServicesHero />
 
       {/* What I Build */}
-      <section className="py-16 px-6 max-w-7xl mx-auto">
-        <div className="text-center mb-12">
+      <section className="py-12 md:py-16 px-4 sm:px-6 max-w-7xl mx-auto">
+        <div className="text-center mb-8 md:mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 font-display">
             What I Build
           </h2>

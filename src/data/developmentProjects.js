@@ -108,6 +108,7 @@ export const developmentProjects = [
     showOnHome: true,
     homeOrder: 2,
   },
+  /* Disabled: ADIT Investment. Uncomment to restore.
   {
     id: 13,
     slug: "adit-investment",
@@ -141,6 +142,7 @@ export const developmentProjects = [
     showOnHome: true,
     homeOrder: 3,
   },
+  */
   {
     id: 10,
     slug: "sweet-layers-bakery",

@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, HelpCircle } from "lucide-react";
-import { serviceFaqs as FAQS } from "@/data/faqs";
+import { serviceFaqs } from "@/data/faqs";
 
-const ServiceFAQs = () => {
+const ServiceFAQs = ({ faqs = serviceFaqs, subtitle = "Get answers to common questions about the development process and services" }) => {
+  const FAQS = faqs;
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleFAQ = (index) => {
@@ -12,7 +13,7 @@ const ServiceFAQs = () => {
   };
 
   return (
-    <section className="py-16 px-6 max-w-4xl mx-auto">
+    <section className="py-12 md:py-16 px-4 sm:px-6 max-w-4xl mx-auto">
       <div className="text-center mb-12">
         <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-primary/10 dark:bg-primary/20 rounded-full">
           <HelpCircle className="w-4 h-4 text-primary dark:text-primary-light" />
@@ -24,7 +25,7 @@ const ServiceFAQs = () => {
           Frequently Asked Questions
         </h2>
         <p className="text-gray-600 dark:text-gray-300">
-          Get answers to common questions about the development process and services
+          {subtitle}
         </p>
       </div>
 
@@ -37,6 +38,7 @@ const ServiceFAQs = () => {
           >
             <button
               onClick={() => toggleFAQ(index)}
+              aria-expanded={openIndex === index}
               className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
             >
               <span className="font-semibold text-gray-900 dark:text-white">
