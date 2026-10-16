@@ -101,6 +101,7 @@ const STATIC_META = {
   "/contact": { priority: "0.8", changefreq: "monthly" },
   "/blog": { priority: "0.8", changefreq: "weekly" },
   "/about": { priority: "0.7", changefreq: "monthly" },
+  "/privacy": { priority: "0.3", changefreq: "yearly" },
 };
 
 const routes = [

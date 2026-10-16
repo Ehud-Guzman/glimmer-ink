@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import {
   loadHome,
@@ -20,43 +20,43 @@ const navItems = [
 
 export default function DesktopNav({ toggleTheme }) {
   return (
-    <nav className="hidden md:flex items-center gap-8">
+    <nav aria-label="Main" className="hidden md:flex items-center gap-5 lg:gap-7">
       {navItems.map((item) => (
         <NavLink
           key={item.name}
           to={item.path}
+          end={item.path === "/"}
           onMouseEnter={item.preload}
           className={({ isActive }) =>
-            `group relative text-sm font-medium transition-all duration-300 ${
+            `relative py-2 text-sm font-medium transition-colors duration-200 ${
               isActive
-                ? "text-primary dark:text-primary-light font-semibold"
+                ? "text-primary dark:text-primary-light"
                 : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
             }`
           }
         >
           {({ isActive }) => (
             <>
-              <span className="relative z-10 px-2 py-1 rounded-md group-hover:bg-gray-100 dark:group-hover:bg-gray-800/50 transition-colors duration-200">
-                {item.name}
-              </span>
-
+              {item.name}
               <span
-                className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-primary-light rounded-full transition-all duration-300 ease-out ${
-                  isActive
-                    ? "w-full opacity-100"
-                    : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
+                aria-hidden="true"
+                className={`absolute inset-x-0 -bottom-0.5 h-0.5 rounded-full bg-primary dark:bg-primary-light transition-opacity duration-200 ${
+                  isActive ? "opacity-100" : "opacity-0"
                 }`}
-              ></span>
-
-              {isActive && (
-                <span className="absolute -inset-1 rounded-md bg-primary/5 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-              )}
+              />
             </>
           )}
         </NavLink>
       ))}
 
-      <div className="w-px h-6 bg-gradient-to-b from-transparent via-gray-300 dark:via-gray-600 to-transparent mx-2"></div>
+      <Link
+        to="/contact"
+        onMouseEnter={loadContact}
+        className="hidden lg:inline-flex items-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"
+      >
+        Get a Quote
+      </Link>
+
       <ThemeToggle toggleTheme={toggleTheme} />
     </nav>
   );

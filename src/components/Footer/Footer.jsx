@@ -1,31 +1,36 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { ArrowRight, Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import footerStructure from "@/data/footerData";
+import { developmentProjects } from "@/data/developmentProjects";
+import { blogPosts } from "@/data/blogPosts";
 import { LOCATION, LOCATION_LABEL } from "@/data/location";
 
 const linkClass =
   "text-sm text-text-light/70 dark:text-text-dark/70 hover:text-primary dark:hover:text-primary-light transition-colors";
 
+const Heading = ({ children }) => (
+  <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-primary dark:text-primary-light mb-4">{children}</h3>
+);
+
+// Real clients first (live, then in progress); concept builds are left out.
+const clientProjects = developmentProjects
+  .filter((project) => project.status !== "demo")
+  .slice(0, 5);
+
+const latestPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 2);
+
 const Footer = () => {
   const year = new Date().getFullYear();
   const { brand, navigation, contact } = footerStructure;
-  const pages = navigation[0]?.links ?? [];
+  const pages = (navigation[0]?.links ?? []).filter((link) => link.url !== LOCATION.landingPath);
   const social = (contact?.social ?? []).filter((s) => s?.url && s.url !== "#");
 
-  const services = [
-    { name: "Business websites", url: "/services" },
-    { name: "Online shops & M-Pesa", url: "/services" },
-    { name: "Business systems", url: "/services" },
-    { name: "Cost estimator", url: "/services#estimator" },
-    { name: `Web developer in ${LOCATION.town}`, url: LOCATION.landingPath },
-  ];
-
   return (
-    <footer className="bg-white dark:bg-gray-950 border-t border-border-light dark:border-border-dark">
+    <footer className="bg-white dark:bg-gray-950 border-t border-border-light dark:border-border-dark pb-16 md:pb-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8 md:pt-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10">
           {/* Brand */}
-          <div className="md:col-span-4 min-w-0">
+          <div className="sm:col-span-2 lg:col-span-3 min-w-0">
             <Link
               to="/"
               aria-label="GlimmerInk Creations home"
@@ -54,39 +59,66 @@ const Footer = () => {
             </Link>
           </div>
 
-          {/* Pages */}
-          <nav aria-label="Pages" className="md:col-span-2">
-            <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-primary dark:text-primary-light mb-4">Pages</h3>
+          {/* Explore */}
+          <nav aria-label="Pages" className="lg:col-span-2">
+            <Heading>Explore</Heading>
             <ul className="space-y-2.5">
-              {pages
-                .filter((link) => link.url !== LOCATION.landingPath)
-                .map((link) => (
-                  <li key={link.url}>
-                    <Link to={link.url} className={linkClass}>
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-            </ul>
-          </nav>
-
-          {/* Services */}
-          <nav aria-label="Services" className="md:col-span-3">
-            <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-primary dark:text-primary-light mb-4">Services</h3>
-            <ul className="space-y-2.5">
-              {services.map((link) => (
-                <li key={link.name}>
+              {pages.map((link) => (
+                <li key={link.url}>
                   <Link to={link.url} className={linkClass}>
                     {link.name}
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link to={LOCATION.landingPath} className={linkClass}>
+                  Web developer in {LOCATION.town}
+                </Link>
+              </li>
+            </ul>
+          </nav>
+
+          {/* Selected work */}
+          <nav aria-label="Selected work" className="lg:col-span-2">
+            <Heading>Selected work</Heading>
+            <ul className="space-y-2.5">
+              {clientProjects.map((project) => (
+                <li key={project.slug}>
+                  <Link to={`/work/${project.slug}`} className={linkClass}>
+                    {project.client || project.title}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link to="/work" className={`${linkClass} font-medium`}>
+                  All projects →
+                </Link>
+              </li>
+            </ul>
+          </nav>
+
+          {/* Latest articles */}
+          <nav aria-label="Latest articles" className="lg:col-span-2">
+            <Heading>Latest articles</Heading>
+            <ul className="space-y-3">
+              {latestPosts.map((post) => (
+                <li key={post.slug}>
+                  <Link to={`/blog/${post.slug}`} className={`${linkClass} line-clamp-3 leading-snug`}>
+                    {post.title}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link to="/blog" className={`${linkClass} font-medium`}>
+                  All articles →
+                </Link>
+              </li>
             </ul>
           </nav>
 
           {/* Contact */}
-          <div className="md:col-span-3 min-w-0">
-            <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-primary dark:text-primary-light mb-4">Contact</h3>
+          <div className="lg:col-span-3 min-w-0 sm:col-span-2">
+            <Heading>Contact</Heading>
             <ul className="space-y-3 text-sm">
               <li>
                 <a href="mailto:nyamuehud@gmail.com" className={`${linkClass} inline-flex items-center gap-2.5 break-all`}>
@@ -115,6 +147,13 @@ const Footer = () => {
                 <MapPin className="w-4 h-4 shrink-0" aria-hidden="true" />
                 {LOCATION_LABEL}
               </li>
+              <li className="flex items-start gap-2.5 text-text-light/70 dark:text-text-dark/70">
+                <Clock className="w-4 h-4 mt-0.5 shrink-0" aria-hidden="true" />
+                <span>
+                  Mon–Fri, 8AM–5PM EAT
+                  <span className="block text-xs text-text-light/50 dark:text-text-dark/50">Replies within 24 hours</span>
+                </span>
+              </li>
             </ul>
 
             {social.length > 0 && (
@@ -137,9 +176,14 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-gray-200 dark:border-gray-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-text-light/55 dark:text-text-dark/55">
+        <div className="mt-10 pt-6 border-t border-gray-200 dark:border-gray-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-text-light/55 dark:text-text-dark/55">
           <p>© {year} GlimmerInk Creations. All rights reserved.</p>
-          <p>Web design and development in {LOCATION_LABEL}</p>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
+            <Link to="/privacy" className="text-text-light/55 dark:text-text-dark/55 hover:text-primary dark:hover:text-primary-light transition-colors">
+              Privacy Policy
+            </Link>
+            <p>Web design and development in {LOCATION_LABEL}</p>
+          </div>
         </div>
       </div>
     </footer>

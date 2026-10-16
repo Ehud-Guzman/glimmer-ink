@@ -43,6 +43,12 @@ const pageSeo = {
     path: "/about",
     image: og("about"),
   },
+  privacy: {
+    title: "Privacy Policy",
+    description:
+      "How GlimmerInk Creations collects, uses and protects personal information on glimmerink.co.ke, and the rights you have under Kenya's Data Protection Act, 2019.",
+    path: "/privacy",
+  },
   contact: {
     title: "Contact GlimmerInk — Get a Quote",
     description:

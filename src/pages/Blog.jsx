@@ -93,6 +93,29 @@ const Blog = () => {
             </motion.article>
           ))}
         </div>
+
+        <div className="mt-12 rounded-3xl bg-gray-900 dark:bg-gray-800 text-white px-6 py-9 sm:px-10 text-center">
+          <h2 className="font-display text-xl sm:text-2xl font-bold mb-2">Need a website for your business?</h2>
+          <p className="text-gray-300 mb-6 text-sm sm:text-base max-w-md mx-auto">
+            Tell me what you need and get a clear quote in KES, with a reply within 24 hours.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-3">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-xl font-semibold hover:bg-primary-dark transition-colors text-sm"
+            >
+              Get a quote <ArrowRight className="w-4 h-4" />
+            </Link>
+            <a
+              href="https://wa.me/254746527253"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors text-sm"
+            >
+              WhatsApp me
+            </a>
+          </div>
+        </div>
       </section>
     </div>
   );

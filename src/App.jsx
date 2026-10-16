@@ -3,6 +3,7 @@ import { Suspense, lazy, useState, useEffect } from "react";
 import { Routes, Route, useLocation, Link } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import MobileActionBar from "./components/Header/MobileActionBar";
 import { pageview } from "./utils/analytics";
 import SEOHead from "./components/SEO/SEOHead";
 import Home from "./pages/Home";
@@ -15,6 +16,7 @@ const Services = lazy(() => import("./pages/Services"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
+const Privacy = lazy(() => import("./pages/Privacy"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const WebDeveloperBusia = lazy(() => import("./pages/WebDeveloperBusia"));
 
@@ -128,6 +130,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/privacy" element={<Privacy />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path={LOCATION.landingPath} element={<WebDeveloperBusia />} />
             <Route path="*" element={<NotFound />} />
@@ -137,6 +140,9 @@ function App() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Phones only: fixed Call / WhatsApp bar */}
+      <MobileActionBar />
     </div>
   );
 }
