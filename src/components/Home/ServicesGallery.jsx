@@ -152,15 +152,24 @@ const ServicesGallery = ({ mode = "full" }) => {
   return (
     <section className="py-12 md:py-16 bg-white dark:bg-background-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-16">
+        <div className={`text-center ${mode === "home" ? "mb-10" : "mb-16"}`}>
+          {mode === "home" && (
+            <p className="font-mono text-xs uppercase tracking-[0.14em] text-primary dark:text-primary-light mb-2">
+              Selected work
+            </p>
+          )}
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light"
+            className={
+              mode === "home"
+                ? "font-display text-3xl md:text-4xl font-bold mb-4 text-text-light dark:text-text-dark"
+                : "text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light"
+            }
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            {developmentData.title || "Portfolio"}
+            {mode === "home" ? "Live client websites and concept builds" : developmentData.title || "Portfolio"}
           </motion.h2>
 
           <motion.p
@@ -171,7 +180,7 @@ const ServicesGallery = ({ mode = "full" }) => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {mode === "home"
-              ? "A curated selection of live work and concept builds that show the direction, quality, and thinking behind GlimmerInk."
+              ? "Real projects for real businesses, from a hotel booking platform in Busia to a grains trading system with its own admin backend."
               : developmentData.description || "A selection of my work across web, systems, and apps."}
           </motion.p>
         </div>

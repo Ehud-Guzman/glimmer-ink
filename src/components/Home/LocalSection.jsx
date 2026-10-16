@@ -5,7 +5,7 @@ import { LOCATION } from "@/data/location";
 // Homepage hook into the local landing page. Plain, crawlable copy and links.
 const LocalSection = () => (
   <section className="px-4 sm:px-6 lg:px-8 py-12 md:py-14 bg-background-light dark:bg-background-dark">
-    <div className="max-w-7xl mx-auto rounded-3xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 sm:p-10 grid md:grid-cols-[1.4fr_1fr] gap-8 items-center">
+    <div className="max-w-7xl mx-auto rounded-3xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 sm:p-10 grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-8 items-center">
       <div>
         <p className="mb-3 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-primary dark:text-primary-light">
           <MapPin className="h-4 w-4" aria-hidden="true" />

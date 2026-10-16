@@ -1,10 +1,22 @@
 import { motion } from "framer-motion";
 import { Code2, Cpu, Globe, Database, Smartphone } from 'lucide-react';
 
-const WorkHero = ({ caseStudyCount }) => {
-  const technologies = [
-    "React.js", "Node.js", "Tailwind CSS", "MongoDB", "PostgreSQL",
-    "GraphQL", "Prisma", "Express", "Vite", "Responsive UI"
+const WorkHero = ({ projects = [] }) => {
+  // Everything below is derived from the real project data.
+  const liveCount = projects.filter((p) => p.status === "live").length;
+  const conceptCount = projects.filter((p) => p.status === "demo").length;
+  const stackCounts = projects
+    .flatMap((p) => p.stack ?? [])
+    .reduce((acc, tech) => ({ ...acc, [tech]: (acc[tech] ?? 0) + 1 }), {});
+  const technologies = Object.entries(stackCounts)
+    .sort((a, b) => b[1] - a[1])
+    .map(([tech]) => tech);
+
+  const stats = [
+    { value: projects.length, label: "Case studies" },
+    { value: liveCount, label: "Live client sites" },
+    { value: conceptCount, label: "Concept builds" },
+    { value: technologies[0] ?? "React", label: "Core stack" },
   ];
 
   return (
@@ -24,7 +36,7 @@ const WorkHero = ({ caseStudyCount }) => {
         </div>
       </div>
 
-      <div className="relative grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Column - Text Content */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -45,24 +57,13 @@ const WorkHero = ({ caseStudyCount }) => {
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6">
-            <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
-              <div className="text-2xl font-bold text-primary">{caseStudyCount}</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Case Studies</div>
-            </div>
-            <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
-              <div className="text-2xl font-bold text-primary">Live</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">& Concept Builds</div>
-            </div>
-            <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
-              <div className="text-2xl font-bold text-primary">Clean</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">UI & UX</div>
-            </div>
-            <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
-              <div className="text-2xl font-bold text-primary">Systems</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Focused Builds</div>
-            </div>
+            {stats.map((stat) => (
+              <div key={stat.label} className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/60">
+                <div className="text-2xl font-bold text-primary truncate">{stat.value}</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
+              </div>
+            ))}
           </div>
-
 
           {/* Tech Stack Badges */}
           <div className="flex flex-wrap gap-2">
@@ -155,7 +156,7 @@ const WorkHero = ({ caseStudyCount }) => {
                     <span className="text-gray-400"> title=</span>
                     <span className="text-yellow-300">"School System UI"</span>
                     <span className="text-gray-400"> tech=</span>
-                    <span className="text-yellow-300">"[React, PostgreSQL]"</span>
+                    <span className="text-yellow-300">"[React, Tailwind]"</span>
                     <span className="text-gray-300"> /{`>`}</span>
                   </div>
                   
@@ -163,7 +164,7 @@ const WorkHero = ({ caseStudyCount }) => {
                     <span className="text-gray-300">{`<`}</span>
                     <span className="text-green-400">TechStack</span>
                     <span className="text-gray-400"> items=</span>
-                    <span className="text-yellow-300">"[React, Node, Prisma]"</span>
+                    <span className="text-yellow-300">"[React, Node, Vite]"</span>
                     <span className="text-gray-300"> /{`>`}</span>
                   </div>
                 </div>

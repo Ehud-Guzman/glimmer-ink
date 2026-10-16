@@ -1,48 +1,49 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, MessageSquare, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
+import { LOCATION_LABEL } from "@/data/location";
 
 const AboutCTASection = () => {
   const actions = [
     {
       icon: Calendar,
-      title: "Start a Project Chat",
-      description: "Use the contact page to share what you want to build.",
+      title: "Start a project",
+      description: "Share what you want to build and get a quote in KES.",
       button: "Contact",
       href: "/contact",
       primary: true,
     },
     {
       icon: MessageSquare,
-      title: "Send an Email",
-      description: "Reach out directly for questions, ideas, or collaboration.",
+      title: "Send an email",
+      description: "Reach out directly with questions or a brief.",
       button: "Email",
       href: "mailto:nyamuehud@gmail.com",
     },
     {
       icon: FileText,
-      title: "View the Portfolio",
-      description: "See websites, systems, and concept projects in one place.",
+      title: "View the portfolio",
+      description: "See live websites, systems and case studies in one place.",
       button: "View Work",
       href: "/work",
     },
   ];
 
   return (
-    <section className="py-16 px-6 max-w-7xl mx-auto">
+    <section className="py-10 md:py-14 px-4 sm:px-6 max-w-7xl mx-auto">
       <div className="bg-gradient-to-r from-primary/5 to-primary/10 dark:from-primary/10 dark:to-primary/20 
                     rounded-3xl p-8 md:p-12 border border-primary/20 dark:border-primary/30">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Want to See What Comes Next?
+            Have a project in mind?
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            If the direction behind GlimmerInk feels like a fit, the next step is simple:
-            explore the portfolio or start a conversation.
+            Tell me what you need and I&apos;ll reply with honest advice and a clear quote,
+            or look through the portfolio first.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
           {actions.map((action, index) => {
             const Icon = action.icon;
             return (
@@ -131,7 +132,7 @@ const AboutCTASection = () => {
                 Location
               </div>
               <div className="text-gray-900 dark:text-white">
-                Kenya · Remote-friendly
+                {LOCATION_LABEL}
               </div>
             </div>
             <div>
@@ -144,17 +145,6 @@ const AboutCTASection = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Final Note */}
-      <div className="text-center mt-12 max-w-2xl mx-auto">
-        <p className="text-gray-600 dark:text-gray-300 italic">
-          "GlimmerInk is still growing, but the standard stays the same: clear thinking,
-          clean execution, and work that feels genuinely presentable."
-        </p>
-        <p className="mt-4 font-medium text-gray-900 dark:text-white">
-          — Ehud Mwai
-        </p>
       </div>
     </section>
   );

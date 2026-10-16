@@ -29,21 +29,21 @@ const pageSeo = {
     path: "/services",
   },
   about: {
-    title: "About GlimmerInk — Ehud Mwai, Creative Director & Web Developer",
+    title: "About Ehud Mwai — Web Developer in Busia, Kenya",
     description:
-      "GlimmerInk Creations is a Kenya-based creative studio led by Ehud Mwai, building premium websites, business systems, and digital experiences for modern businesses.",
+      "Meet Ehud Mwai, the Busia-based web developer behind GlimmerInk Creations. Business websites, online shops and management systems for clients across Kenya.",
     path: "/about",
   },
   contact: {
-    title: "Contact GlimmerInk — Start Your Project",
+    title: "Contact GlimmerInk — Get a Quote",
     description:
-      "Get in touch with GlimmerInk Creations to discuss your website, business system, or digital project. Serving clients across Kenya.",
+      "Contact GlimmerInk Creations in Busia, Kenya for a website, online shop or business system. Reply within 24 hours with a clear quote in KES.",
     path: "/contact",
   },
   blog: {
-    title: "Blog — Web Design & Development Insights for Kenyan Businesses",
+    title: "Blog — Website Pricing, Local SEO & Web Design in Kenya",
     description:
-      "Practical articles on web design, development, and digital strategy for businesses in Kenya. Written by Ehud Mwai at GlimmerInk Creations.",
+      "Practical articles on website costs, Google Business Profile, web design and development for businesses in Busia and across Kenya, by Ehud Mwai.",
     path: "/blog",
   },
 };

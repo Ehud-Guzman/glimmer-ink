@@ -37,7 +37,7 @@ const ServicesCTASection = () => {
 
   return (
     <section className="py-12 md:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Column */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}

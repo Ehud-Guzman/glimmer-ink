@@ -76,7 +76,7 @@ const PricingModels = () => {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {models.map((model, index) => {
           const Icon = model.icon;
 

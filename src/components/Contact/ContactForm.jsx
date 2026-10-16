@@ -221,7 +221,7 @@ const ContactForm = ({ preset = null }) => {
       {/* Form */}
       <form onSubmit={handleSubmit} className="space-y-5" noValidate>
         {/* Name + Email */}
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
             <label className="block text-sm font-medium mb-2" htmlFor="from_name">
               Name *
@@ -275,7 +275,7 @@ const ContactForm = ({ preset = null }) => {
         </div>
 
         {/* Phone + Service */}
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
             <label className="block text-sm font-medium mb-2" htmlFor="phone">
               Phone

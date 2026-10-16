@@ -7,7 +7,9 @@ import { servicePricing, priceRangeLabel } from "./pricing.js";
 import { serviceFaqs } from "./faqs.js";
 import { LOCATION } from "./location.js";
 
-export const SITE_URL = "https://glimmerink.co.ke";
+import { SITE_URL, pageUrl } from "./pageUrl.js";
+
+export { SITE_URL };
 export const SITE_NAME = "GlimmerInk Creations";
 export const SITE_EMAIL = "nyamuehud@gmail.com";
 export const SITE_PHONE = "+254746527253";
@@ -42,7 +44,7 @@ const serviceAreas = () => [
 
 const businessRef = () => ({ "@id": `${SITE_URL}/#business` });
 
-const teamRef = () => ({ "@type": "Person", name: "Ehud Mwai", url: `${SITE_URL}/about` });
+const teamRef = () => ({ "@type": "Person", name: "Ehud Mwai", url: pageUrl("/about") });
 
 const offers = () =>
   servicePricing.map((service) => ({
@@ -88,7 +90,7 @@ export const professionalService = () => ({
   telephone: SITE_PHONE,
   priceRange: priceRangeLabel,
   foundingDate: "2025",
-  founder: { "@type": "Person", name: "Ehud Mwai", jobTitle: "Creative Director & Lead Developer", url: `${SITE_URL}/about` },
+  founder: { "@type": "Person", name: "Ehud Mwai", jobTitle: "Creative Director & Lead Developer", url: pageUrl("/about") },
   address: postalAddress(),
   geo: {
     "@type": "GeoCoordinates",
@@ -112,10 +114,10 @@ export const professionalService = () => ({
 export const person = () => ({
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": `${SITE_URL}/about#ehud-mwai`,
+  "@id": `${pageUrl("/about")}#ehud-mwai`,
   name: "Ehud Mwai",
   jobTitle: "Creative Director & Lead Developer",
-  url: `${SITE_URL}/about`,
+  url: pageUrl("/about"),
   email: SITE_EMAIL,
   telephone: SITE_PHONE,
   address: postalAddress(),
@@ -170,7 +172,7 @@ export const breadcrumbs = (items) => ({
     "@type": "ListItem",
     position: index + 1,
     name: item.name,
-    item: `${SITE_URL}${item.path}`,
+    item: pageUrl(item.path),
   })),
 });
 
@@ -188,15 +190,15 @@ export const article = (post) => ({
   image: [DEFAULT_IMAGE],
   datePublished: post.date,
   dateModified: post.updated ?? post.date,
-  author: { "@type": "Person", name: "Ehud Mwai", url: `${SITE_URL}/about` },
+  author: { "@type": "Person", name: "Ehud Mwai", url: pageUrl("/about") },
   publisher: {
     "@type": "Organization",
     name: SITE_NAME,
     url: `${SITE_URL}/`,
     logo: { "@type": "ImageObject", url: LOGO_URL, width: 512, height: 512 },
   },
-  mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blog/${post.slug}` },
-  url: `${SITE_URL}/blog/${post.slug}`,
+  mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl(`/blog/${post.slug}`) },
+  url: pageUrl(`/blog/${post.slug}`),
   keywords: (post.tags ?? []).join(", "),
   articleSection: post.category,
   wordCount: wordCount(post),
@@ -211,7 +213,7 @@ export const caseStudy = (project) => {
     "@type": "CreativeWork",
     name: `${project.title} - Case Study`,
     description: project.description,
-    url: `${SITE_URL}/work/${project.slug}`,
+    url: pageUrl(`/work/${project.slug}`),
     image: images.map((image) => absolute(image)).filter(Boolean),
     creator: teamRef(),
     dateCreated: project.year,
@@ -226,12 +228,12 @@ export const workCollection = (projects) => ({
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   name: `Portfolio and case studies - ${SITE_NAME}`,
-  url: `${SITE_URL}/work`,
+  url: pageUrl("/work"),
   about: "Websites, business systems and interface builds delivered by GlimmerInk Creations",
   hasPart: projects.map((project) => ({
     "@type": "CreativeWork",
     name: project.title,
-    url: `${SITE_URL}/work/${project.slug}`,
+    url: pageUrl(`/work/${project.slug}`),
     creator: teamRef(),
   })),
 });
@@ -240,14 +242,14 @@ export const blogCollection = (posts) => ({
   "@context": "https://schema.org",
   "@type": "Blog",
   name: `GlimmerInk Creations Blog`,
-  url: `${SITE_URL}/blog`,
+  url: pageUrl("/blog"),
   inLanguage: "en-KE",
   blogPost: posts.map((post) => ({
     "@type": "BlogPosting",
     headline: post.title,
-    url: `${SITE_URL}/blog/${post.slug}`,
+    url: pageUrl(`/blog/${post.slug}`),
     datePublished: post.date,
-    author: { "@type": "Person", name: "Ehud Mwai", url: `${SITE_URL}/about` },
+    author: { "@type": "Person", name: "Ehud Mwai", url: pageUrl("/about") },
   })),
 });
 
@@ -255,11 +257,11 @@ export const blogCollection = (posts) => ({
 export const localServices = () => ({
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": `${SITE_URL}${LOCATION.landingPath}#service`,
+  "@id": `${pageUrl(LOCATION.landingPath)}#service`,
   serviceType: "Web design and development",
   name: `Web design and development in ${LOCATION.town}, ${LOCATION.country}`,
   description: `Business websites, e-commerce, web apps and custom management systems for businesses in ${LOCATION.town} and ${LOCATION.region}.`,
-  url: `${SITE_URL}${LOCATION.landingPath}`,
+  url: pageUrl(LOCATION.landingPath),
   provider: businessRef(),
   areaServed: serviceAreas(),
   hasOfferCatalog: {
@@ -273,6 +275,6 @@ export const contactPage = () => ({
   "@context": "https://schema.org",
   "@type": "ContactPage",
   name: `Contact ${SITE_NAME}`,
-  url: `${SITE_URL}/contact`,
+  url: pageUrl("/contact"),
   mainEntity: businessRef(),
 });

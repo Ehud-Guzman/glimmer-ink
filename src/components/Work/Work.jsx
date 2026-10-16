@@ -50,7 +50,7 @@ const WorkPage = ({ projects = [] }) => {
 
   return (
     <div className="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark min-h-screen">
-      <WorkHero caseStudyCount={projects.length} />
+      <WorkHero projects={projects} />
 
       {/* Featured Case Study — right after hero */}
       {featured && <FeaturedProject project={featured} />}

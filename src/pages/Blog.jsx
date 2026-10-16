@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Calendar, Clock, ArrowRight, Tag } from "lucide-react";
+import { Calendar, Clock, ArrowRight } from "lucide-react";
 import SEOHead from "@/components/SEO/SEOHead";
 import { blogPosts } from "@/data/blogPosts";
 import pageSeo from "@/data/pageSeo";
@@ -10,6 +10,8 @@ const categoryColors = {
   Business: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300",
   Design: "bg-pink-100 text-pink-700 dark:bg-pink-900/30 dark:text-pink-300",
   Development: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300",
+  Pricing: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300",
+  "Local SEO": "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300",
 };
 
 const BLOG_SCHEMA = [blogCollection(blogPosts)];
@@ -22,27 +24,25 @@ const Blog = () => {
       <SEOHead {...pageSeo.blog} jsonLd={BLOG_SCHEMA} />
 
       {/* Hero */}
-      <section className="py-20 px-6 max-w-4xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 dark:bg-primary/20 rounded-full text-sm font-medium text-primary dark:text-primary-light mb-6">
-            <Tag className="w-3.5 h-3.5" />
-            GlimmerInk Blog
+      <section className="px-4 sm:px-6 max-w-4xl mx-auto pt-10 pb-8 md:pt-16 md:pb-10 animate-fade-up">
+        <p className="mb-4 flex items-center gap-3 font-mono text-xs sm:text-sm font-medium uppercase tracking-[0.14em] text-primary dark:text-primary-light">
+          <span className="h-px w-8 bg-primary/60 dark:bg-primary-light/60" aria-hidden="true" />
+          Blog
+        </p>
+        <h1 className="font-display text-[2rem] leading-[1.1] sm:text-5xl font-bold tracking-tight text-balance mb-4 text-gray-900 dark:text-white">
+          Practical advice for businesses
+          <span className="block bg-gradient-to-r from-primary via-primary-light to-primary-dark dark:from-primary-light dark:via-primary dark:to-primary-dark bg-clip-text text-transparent">
+            getting online in Kenya.
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 font-display">
-            Insights on Web & Digital
-          </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Practical articles on design, development, and the digital landscape — written for businesses building their presence online in Kenya.
-          </p>
-        </motion.div>
+        </h1>
+        <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl">
+          Plain-language articles on websites, pricing and getting found on Google, written from real
+          client work in Busia and across Kenya.
+        </p>
       </section>
 
       {/* Posts */}
-      <section className="pb-24 px-6 max-w-4xl mx-auto">
+      <section className="pb-16 px-4 sm:px-6 max-w-4xl mx-auto">
         <div className="space-y-8">
           {sorted.map((post, i) => (
             <motion.article
@@ -51,7 +51,7 @@ const Blog = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-8 hover:shadow-xl transition-shadow"
+              className="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5 sm:p-8 hover:shadow-xl transition-shadow"
             >
               <div className="flex flex-wrap items-center gap-3 mb-4">
                 <span className={`px-3 py-1 rounded-full text-xs font-semibold ${categoryColors[post.category] || "bg-gray-100 text-gray-700"}`}>

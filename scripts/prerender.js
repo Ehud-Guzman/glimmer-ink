@@ -22,6 +22,7 @@ import { blogPosts } from "../src/data/blogPosts.js";
 import { serviceFaqs } from "../src/data/faqs.js";
 import { localFaqs } from "../src/data/localFaqs.js";
 import { LOCATION } from "../src/data/location.js";
+import { pageUrl } from "../src/data/pageUrl.js";
 import {
   DEFAULT_IMAGE,
   SITE_NAME,
@@ -55,7 +56,7 @@ if (!render) {
 }
 
 const resolveImage = (image) => (image ? new URL(image, `${SITE_URL}/`).toString() : DEFAULT_IMAGE);
-const canonical = (path) => new URL(path, `${SITE_URL}/`).toString();
+const canonical = (path) => pageUrl(path);
 
 const projectSchema = (project) => [
   caseStudy(project),

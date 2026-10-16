@@ -1,98 +1,60 @@
-import { motion } from "framer-motion";
+import { Clock, MapPin, MessageCircle } from "lucide-react";
+import { LOCATION_LABEL } from "@/data/location";
 
-const ContactHero = () => {
-  return (
-    <section className="relative pt-24 pb-16 px-6 max-w-7xl mx-auto overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <div className="absolute -top-32 -right-32 w-72 h-72 rounded-full bg-primary/5 dark:bg-primary/10 blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-secondary/5 dark:bg-secondary/10 blur-3xl" />
-      </div>
+// Facts only: what happens after you reach out, and where/when.
+const facts = [
+  { icon: MessageCircle, label: "Reply within 24 hours" },
+  { icon: Clock, label: "Mon–Fri, 8AM–5PM EAT" },
+  { icon: MapPin, label: LOCATION_LABEL },
+];
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center max-w-3xl mx-auto relative z-10"
-      >
-        {/* Animated badge */}
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="inline-flex items-center gap-2 mb-8 px-4 py-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full border border-gray-200 dark:border-gray-700"
-        >
-          <motion.div
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-2 h-2 rounded-full bg-primary dark:bg-primary-light"
-          />
-          <span className="text-sm font-medium text-primary dark:text-primary-light">
-            Let&apos;s Connect
-          </span>
-        </motion.div>
+const ContactHero = () => (
+  <section className="relative overflow-hidden px-4 sm:px-6 lg:px-8 pt-10 pb-6 md:pt-16 md:pb-8">
+    <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(100,116,139,0.13) 1px, transparent 1px), linear-gradient(to bottom, rgba(100,116,139,0.13) 1px, transparent 1px)",
+          backgroundSize: "44px 44px",
+          maskImage: "radial-gradient(ellipse 80% 70% at 50% 0%, #000 25%, transparent 75%)",
+          WebkitMaskImage: "radial-gradient(ellipse 80% 70% at 50% 0%, #000 25%, transparent 75%)",
+        }}
+      />
+      <div className="absolute -top-24 right-[8%] w-96 h-96 rounded-full bg-primary/5 dark:bg-primary/10 blur-3xl" />
+    </div>
 
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display leading-tight">
-          Let&apos;s talk about your
-          <span className="block text-primary dark:text-primary-light mt-2">
-            website or system idea
-          </span>
-        </h1>
+    <div className="relative max-w-7xl mx-auto animate-fade-up">
+      <p className="mb-4 flex items-center gap-3 font-mono text-xs sm:text-sm font-medium uppercase tracking-[0.14em] text-primary dark:text-primary-light">
+        <span className="h-px w-8 bg-primary/60 dark:bg-primary-light/60" aria-hidden="true" />
+        Contact
+      </p>
 
-        <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto">
-          Whether you need a business website, a cleaner interface, or a systems-focused concept,
-          this is the place to start the conversation and outline the next step.
-        </p>
+      <h1 className="font-display text-[2rem] leading-[1.1] sm:text-5xl lg:text-6xl font-bold tracking-tight text-balance mb-4 max-w-3xl">
+        <span className="block text-text-light dark:text-text-dark">Tell me what you need.</span>
+        <span className="block bg-gradient-to-r from-primary via-primary-light to-primary-dark dark:from-primary-light dark:via-primary dark:to-primary-dark bg-clip-text text-transparent">
+          Get a clear quote.
+        </span>
+      </h1>
 
-        {/* Quick stats (trust-safe) */}
-        <div className="flex flex-wrap justify-center gap-6 mt-10 mb-8">
-          {[
-            { value: "24h", label: "Typical Reply Time" },
-            { value: "Clear", label: "Project Communication" },
-            { value: "Focused", label: "Web + Systems Work" },
-          ].map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 + index * 0.1 }}
-              className="text-center px-4 py-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-gray-700"
-            >
-              <div className="text-xl font-bold text-primary dark:text-primary-light">
-                {stat.value}
-              </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
+      <p className="text-base sm:text-lg text-text-light/80 dark:text-text-dark/80 leading-relaxed max-w-2xl mb-6">
+        A business website, an online shop or a management system: share a few details below and I&apos;ll
+        reply with honest advice, a timeline and a price in KES.
+      </p>
 
-      {/* Floating elements */}
-      <motion.div
-        animate={{ y: [0, -20, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 left-10 w-12 h-12 opacity-20 dark:opacity-30 hidden md:block"
-        aria-hidden="true"
-      >
-        <div className="text-3xl font-mono text-primary dark:text-primary-light">
-          {"</>"}
-        </div>
-      </motion.div>
-
-      <motion.div
-        animate={{ y: [0, -30, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-        className="absolute bottom-1/4 right-10 w-12 h-12 opacity-20 dark:opacity-30 hidden md:block"
-        aria-hidden="true"
-      >
-        <div className="text-3xl font-mono text-primary dark:text-primary-light">
-          {"{}"}
-        </div>
-      </motion.div>
-    </section>
-  );
-};
+      <ul className="flex flex-wrap gap-2">
+        {facts.map((fact) => (
+          <li
+            key={fact.label}
+            className="inline-flex items-center gap-2 rounded-full border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/60 px-3 py-1.5 text-xs sm:text-sm font-medium text-text-light/90 dark:text-text-dark/90"
+          >
+            <fact.icon className="h-3.5 w-3.5 text-primary dark:text-primary-light" aria-hidden="true" />
+            {fact.label}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+);
 
 export default ContactHero;

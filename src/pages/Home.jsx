@@ -4,6 +4,8 @@ import HeroSection from "@/components/Home/HeroSection";
 import ServicesGallery from "@/components/Home/ServicesGallery";
 import ProcessSection from "@/components/Home/ProcessSection";
 import LocalSection from "@/components/Home/LocalSection";
+import ServicesOverview from "@/components/Home/ServicesOverview";
+import ContactTestimonials from "@/components/Contact/ContactTestimonials";
 import CTASection from "@/components/Home/CTASection";
 import SEOHead from "@/components/SEO/SEOHead";
 import pageSeo from "@/data/pageSeo";
@@ -27,6 +29,12 @@ const HomePage = () => {
       <section id="work">
         <ServicesGallery mode="home" />
       </section>
+
+      {/* ── SERVICES + PRICES ─────────────────── */}
+      <ServicesOverview />
+
+      {/* ── CLIENT FEEDBACK ───────────────────── */}
+      <ContactTestimonials className="pb-12 md:pb-16 px-4 sm:px-6" />
 
       {/* ── LOCAL (Busia) ─────────────────────── */}
       <LocalSection />

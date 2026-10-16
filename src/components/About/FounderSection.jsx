@@ -1,186 +1,128 @@
-import { useEffect } from "react";
-import { motion } from "framer-motion";
-import { Quote, Linkedin, Twitter, Mail } from "lucide-react";
+import { CheckCircle2, Linkedin, Twitter, Mail } from "lucide-react";
+import { LOCATION_LABEL } from "@/data/location";
 
-const FounderSection = () => {
-  useEffect(() => {
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      name: "Ehud Mwai",
-      jobTitle: "Creative Director & Lead Developer",
-      url: "https://glimmerink.co.ke/about",
-      email: "nyamuehud@gmail.com",
-      address: { "@type": "PostalAddress", addressCountry: "KE" },
-      sameAs: [
-        "https://www.linkedin.com/company/glimmerink",
-        "https://twitter.com/GlimmerInk_",
-        "https://www.instagram.com/glimmerink.creations",
-      ],
-      worksFor: {
-        "@type": "Organization",
-        name: "GlimmerInk Creations",
-        url: "https://glimmerink.co.ke",
-      },
-      knowsAbout: [
-        "Web Design", "Web Development", "React", "UI/UX Design",
-        "Business Systems", "E-Commerce", "Tailwind CSS",
-      ],
-    };
+const socialLinks = [
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/glimmerink" },
+  { icon: Twitter, label: "X (Twitter)", href: "https://x.com/GlimmerInk_" },
+  { icon: Mail, label: "Email", href: "mailto:nyamuehud@gmail.com" },
+];
 
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.id = "person-schema";
-    script.text = JSON.stringify(schema);
-    const existing = document.getElementById("person-schema");
-    if (existing) existing.remove();
-    document.head.appendChild(script);
+const expertise = [
+  "Business websites",
+  "Online shops & M-Pesa",
+  "Admin dashboards",
+  "Management systems",
+  "React & Tailwind CSS",
+  "Mobile-first design",
+  "SEO fundamentals",
+  "Hosting & deployment",
+];
 
-    return () => {
-      const s = document.getElementById("person-schema");
-      if (s) s.remove();
-    };
-  }, []);
-  const socialLinks = [
-    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/glimmerink" },
-    { icon: Twitter, label: "Twitter", href: "https://twitter.com/GlimmerInk_" },
-    { icon: Mail, label: "Email", href: "mailto:nyamuehud@gmail.com" },
-  ];
+// All of these are stated on the Services FAQ.
+const expectations = [
+  "A fixed quote in KES before any work starts",
+  "Working previews at every milestone",
+  "30 days of free support after launch",
+];
 
-  const founderQuote = "I care about making digital work feel clear, polished, and genuinely useful, not just visually impressive.";
+const FounderSection = () => (
+  <section className="py-10 md:py-14 px-4 sm:px-6 max-w-7xl mx-auto">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
+      <div className="min-w-0">
+        <p className="font-mono text-xs uppercase tracking-[0.14em] text-primary dark:text-primary-light mb-2">
+          The developer
+        </p>
+        <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Ehud Mwai</h2>
 
-  return (
-    <section className="py-16 px-6 max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-12 items-center">
-        {/* Founder Info */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="text-left"
-        >
-          <div className="mb-6">
-            <span className="inline-block px-4 py-1 bg-primary/10 dark:bg-primary/20 
-                           rounded-full text-sm font-medium text-primary dark:text-primary-light">
-              Founder
-            </span>
+        <p className="text-lg text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+          I&apos;m Ehud, the developer behind GlimmerInk. I build business websites, online shops and
+          admin-backed systems, and I stay involved from the first brief through launch and support.
+        </p>
+
+        <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+          Recent work includes a full booking and events platform for a hotel in Busia and a grains trading
+          platform with its own admin backend. Every project gets the same care: clear structure, fast
+          pages on mobile, and a result you can manage yourself.
+        </p>
+
+        <div className="mb-8">
+          <h3 className="font-semibold text-gray-900 dark:text-white mb-3">What I do</h3>
+          <ul className="flex flex-wrap gap-2">
+            {expertise.map((skill) => (
+              <li
+                key={skill}
+                className="px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full text-sm"
+              >
+                {skill}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Find me online</h3>
+          <div className="flex flex-wrap gap-3">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary dark:hover:border-primary-light hover:text-primary dark:hover:text-primary-light transition-colors duration-300"
+              >
+                <link.icon className="w-4 h-4" aria-hidden="true" />
+                <span className="text-sm font-medium">{link.label}</span>
+              </a>
+            ))}
           </div>
-
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Ehud Mwai
-          </h2>
-          
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-            I'm Ehud, the developer behind GlimmerInk. I focus on building websites, interface concepts,
-            and business system ideas that feel clean, modern, and practical for real-world use.
-          </p>
-
-          <p className="text-gray-600 dark:text-gray-300 mb-8">
-            GlimmerInk gives me a focused space to present work honestly, keep raising the bar on execution,
-            and build a strong body of work around premium websites and systems-oriented projects.
-          </p>
-
-          {/* Expertise */}
-          <div className="mb-8">
-            <h4 className="font-semibold text-gray-900 dark:text-white mb-4">
-              Areas of Expertise
-            </h4>
-            <div className="flex flex-wrap gap-2">
-              {["Business Websites", "Dashboard UI", "System Concepts", "Responsive Front-end",
-                "UI Structure", "React Development", "Portfolio Design", "SEO Basics"].map((skill) => (
-                <span key={skill} className="px-3 py-1.5 bg-white dark:bg-gray-800 
-                           border border-gray-200 dark:border-gray-700 rounded-full text-sm">
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Social Links */}
-          <div>
-            <h4 className="font-semibold text-gray-900 dark:text-white mb-4">
-              Connect with me
-            </h4>
-            <div className="flex flex-wrap gap-3">
-              {socialLinks.map((link) => {
-                const Icon = link.icon;
-                return (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    target={link.href.startsWith("http") ? "_blank" : undefined}
-                    rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 
-                             border border-gray-200 dark:border-gray-700 rounded-lg 
-                             hover:border-primary dark:hover:border-primary-light 
-                             hover:text-primary dark:hover:text-primary-light 
-                             transition-all duration-300"
-                  >
-                    <Icon className="w-4 h-4" />
-                    <span className="text-sm font-medium">{link.label}</span>
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Founder Image & Quote */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="relative"
-        >
-          {/* Founder identity card */}
-          <div className="relative mb-8">
-            <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
-              {/* Header band */}
-              <div className="h-24 bg-gradient-to-r from-primary to-primary-light" />
-              {/* Content */}
-              <div className="px-8 pb-8 -mt-10">
-                <div className="w-20 h-20 rounded-2xl bg-primary text-white border-4 border-white dark:border-gray-800 shadow-lg flex items-center justify-center mb-4 text-2xl font-bold tracking-tight">
-                  EM
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white">Ehud Mwai</h3>
-                <p className="text-sm text-primary dark:text-primary-light font-medium mb-5">
-                  Founder · GlimmerInk Creations
-                </p>
-                <div className="space-y-3">
-                  {[
-                    { label: "Speciality", value: "Web & Systems" },
-                    { label: "Location", value: "Kenya" },
-                    { label: "Available", value: "Open to projects" },
-                  ].map(({ label, value }) => (
-                    <div key={label} className="flex justify-between items-center text-sm border-b border-gray-100 dark:border-gray-700 pb-2 last:border-0">
-                      <span className="text-gray-500 dark:text-gray-400">{label}</span>
-                      <span className="font-medium text-gray-900 dark:text-white">{value}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Quote Card */}
-          <div className="relative bg-gradient-to-r from-primary/5 to-primary/10 dark:from-primary/10 dark:to-primary/20 
-                        rounded-2xl p-6 border border-primary/20 dark:border-primary/30">
-            <Quote className="absolute -top-3 -left-3 w-8 h-8 text-primary/30 dark:text-primary/50" />
-            <Quote className="absolute -bottom-3 -right-3 w-8 h-8 text-primary/30 dark:text-primary/50 transform rotate-180" />
-            
-            <p className="text-lg text-gray-800 dark:text-gray-200 italic mb-4">
-              "{founderQuote}"
-            </p>
-            <div className="text-right">
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                — Ehud Mwai
-              </span>
-            </div>
-          </div>
-        </motion.div>
+        </div>
       </div>
-    </section>
-  );
-};
+
+      <div className="min-w-0 space-y-6">
+        {/* Identity card */}
+        <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+          <div className="h-20 bg-gradient-to-r from-primary to-primary-light" />
+          <div className="px-6 sm:px-8 pb-7 -mt-9">
+            <div className="h-[72px] w-[72px] rounded-2xl bg-primary text-white border-4 border-white dark:border-gray-800 shadow-lg flex items-center justify-center mb-4 text-2xl font-bold tracking-tight">
+              EM
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white">Ehud Mwai</h3>
+            <p className="text-sm text-primary dark:text-primary-light font-medium mb-5">
+              Founder · GlimmerInk Creations
+            </p>
+            <dl className="space-y-3">
+              {[
+                { label: "Speciality", value: "Websites & business systems" },
+                { label: "Based in", value: LOCATION_LABEL },
+                { label: "Reply time", value: "Within 24 hours" },
+              ].map(({ label, value }) => (
+                <div
+                  key={label}
+                  className="flex justify-between items-center gap-4 text-sm border-b border-gray-100 dark:border-gray-700 pb-2 last:border-0"
+                >
+                  <dt className="text-gray-500 dark:text-gray-400">{label}</dt>
+                  <dd className="font-medium text-gray-900 dark:text-white text-right">{value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+
+        {/* What to expect */}
+        <div className="rounded-2xl border border-primary/20 dark:border-primary/30 bg-gradient-to-r from-primary/5 to-primary/10 dark:from-primary/10 dark:to-primary/20 p-6">
+          <h3 className="font-display font-semibold text-gray-900 dark:text-white mb-3">What to expect</h3>
+          <ul className="space-y-2.5">
+            {expectations.map((item) => (
+              <li key={item} className="flex items-start gap-2.5 text-sm text-gray-700 dark:text-gray-300">
+                <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0 text-primary dark:text-primary-light" aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
 export default FounderSection;

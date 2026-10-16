@@ -91,7 +91,7 @@ const ServiceSelector = () => {
         </p>
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* SERVICES */}
         <div>
           <h3 className="text-lg font-semibold mb-4">Service Type</h3>

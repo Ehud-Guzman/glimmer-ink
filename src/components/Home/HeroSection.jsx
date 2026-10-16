@@ -17,7 +17,7 @@ const stats = [
   { value: "30 days", label: "Post-launch support" },
 ];
 
-const stack = ["React", "Node.js", "Tailwind", "PostgreSQL"];
+const stack = ["React", "Vite", "Tailwind", "Node.js"];
 
 const HeroSection = () => {
   return (

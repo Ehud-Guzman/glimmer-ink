@@ -1,7 +1,7 @@
 import { useEffect } from "react";
+import { SITE_URL, pageUrl } from "@/data/pageUrl";
 
 const SITE_NAME = "GlimmerInk Creations";
-const SITE_URL = "https://glimmerink.co.ke";
 const DEFAULT_IMAGE = `${SITE_URL}/images/Glimmer-OG.jpg`;
 const SCHEMA_ID = "page-schema";
 
@@ -35,7 +35,7 @@ const SEOHead = ({
 }) => {
   useEffect(() => {
     const pageTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
-    const canonicalUrl = new URL(path, `${SITE_URL}/`).toString();
+    const canonicalUrl = pageUrl(path);
 
     document.title = pageTitle;
 

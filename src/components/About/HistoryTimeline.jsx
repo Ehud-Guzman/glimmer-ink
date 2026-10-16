@@ -6,24 +6,24 @@ const HistoryTimeline = () => {
     {
       year: "2025",
       quarter: "Q1",
-      title: "Foundation",
-      description: "GlimmerInk was established as a portfolio brand focused on premium websites and systems-oriented work.",
+      title: "GlimmerInk founded",
+      description: "Started the studio to build business websites and systems for Kenyan businesses.",
       icon: Calendar,
       highlight: true,
     },
     {
       year: "2025",
       quarter: "Q3",
-      title: "Portfolio Direction",
-      description: "The work sharpened around business websites, dashboard interfaces, and concept-driven case studies.",
+      title: "Websites and dashboards",
+      description: "Focused on business websites and admin dashboards, building up a library of case studies.",
       icon: Code,
     },
    
     {
       year: "2026",
       quarter: "Q1",
-      title: "Systems Focus",
-      description: "System concepts for schools, healthcare, legal practice, and grains trading took shape — building out the portfolio with full-stack, admin-backed projects.",
+      title: "Full-stack systems",
+      description: "Delivered admin-backed projects, including a hotel booking platform and a grains trading site.",
       icon: Rocket,
     },
     
@@ -31,21 +31,21 @@ const HistoryTimeline = () => {
     {
       year: "Present",
       quarter: "Now",
-      title: "Growth Phase",
-      description: "Continuing to refine the portfolio, improve execution quality, and build toward more real-world client systems and websites.",
+      title: "Taking on new projects",
+      description: "Building websites, shops and systems for clients in Busia and across Kenya.",
       icon: TrendingUp,
     },
   ];
 
   return (
-    <section className="py-16 px-6 max-w-7xl mx-auto">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          The Journey So Far
-        </h2>
-        <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          A realistic look at how GlimmerInk has taken shape so far.
+    <section className="py-10 md:py-14 px-4 sm:px-6 max-w-7xl mx-auto">
+      <div className="text-center mb-10">
+        <p className="font-mono text-xs uppercase tracking-[0.14em] text-primary dark:text-primary-light mb-2">
+          Timeline
         </p>
+        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+          How GlimmerInk got here
+        </h2>
       </div>
 
       <div className="relative">
@@ -97,12 +97,6 @@ const HistoryTimeline = () => {
                             <span className="text-lg font-bold text-gray-900 dark:text-white">
                               {milestone.year}
                             </span>
-                            {milestone.highlight && (
-                              <span className="px-2 py-0.5 bg-primary/10 dark:bg-primary/20 
-                                             text-primary dark:text-primary-light text-xs rounded-full">
-                                Milestone
-                              </span>
-                            )}
                           </div>
                           <span className="text-sm text-gray-500 dark:text-gray-400">
                             {milestone.quarter}
@@ -124,25 +118,6 @@ const HistoryTimeline = () => {
           })}
         </div>
       </div>
-
-      {/* Current Focus */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mt-16 pt-12 border-t border-gray-200 dark:border-gray-800"
-      >
-        <div className="max-w-3xl mx-auto text-center">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-            Where I Am Today
-          </h3>
-          <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            The direction is clear: build better websites, stronger systems, and more polished digital
-            experiences with each project. The focus is sharp execution, honest work, and consistent
-            improvement across every deliverable.
-          </p>
-        </div>
-      </motion.div>
     </section>
   );
 };

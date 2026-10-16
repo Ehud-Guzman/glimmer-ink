@@ -1,3 +1,8 @@
+import { featurePricing, servicePricing } from "./pricing.js";
+
+const kes = (amount) => `KES ${amount.toLocaleString("en-US")}`;
+const priceOf = (id) => servicePricing.find((service) => service.id === id)?.basePrice ?? 0;
+
 export const blogPosts = [
   {
     id: 1,
@@ -24,7 +29,7 @@ export const blogPosts = [
       },
       {
         type: "p",
-        text: "When someone in Nairobi needs a caterer, a plumber, or a web designer, the first thing they do is Google it. If you're not on Google, you simply don't exist to that person. A WhatsApp number cannot be indexed. An Instagram profile can — but barely, and with no control over what shows up.",
+        text: "When someone in Busia needs a caterer, a plumber, or a web designer, the first thing they do is Google it. If you're not on Google, you simply don't exist to that person. A WhatsApp number cannot be indexed. An Instagram profile can — but barely, and with no control over what shows up.",
       },
       {
         type: "p",
@@ -254,6 +259,263 @@ export const blogPosts = [
       {
         type: "p",
         text: "The right answer depends on what you're building and who will maintain it. A good developer should ask those questions before recommending either.",
+      },
+    ],
+  },
+  {
+    id: 4,
+    slug: "how-much-does-a-website-cost-in-kenya",
+    title: "How Much Does a Website Cost in Kenya? A 2026 Price Guide",
+    excerpt:
+      "Quotes for the same website can differ by ten times. Here is what actually drives the price, with real starting figures in Kenya shillings.",
+    date: "2026-10-16",
+    readTime: "6 min read",
+    category: "Pricing",
+    tags: ["Pricing", "Kenya", "Web Design", "Budget"],
+    content: [
+      {
+        type: "p",
+        text: "Ask three developers in Kenya for a website quote and you may get three very different numbers. That is not always because someone is overcharging. A five-page brochure site and an online shop with M-Pesa payments are completely different jobs, even though both are called 'a website'.",
+      },
+      {
+        type: "p",
+        text: "Here is how pricing works, using my own starting prices as a transparent example. Other developers will differ, but the factors are the same everywhere.",
+      },
+      {
+        type: "h2",
+        text: "Typical starting prices",
+      },
+      {
+        type: "ul",
+        items: [
+          `Business or portfolio website (frontend only): from ${kes(priceOf("static"))}`,
+          `Dynamic website with forms, a CMS or an admin panel: from ${kes(priceOf("fullstack"))}`,
+          `Mobile app (Android or cross-platform): from ${kes(priceOf("mobile"))}`,
+          `Custom management system (school, office or business): from ${kes(priceOf("system"))}`,
+          `SaaS product MVP: from ${kes(priceOf("saas"))}`,
+        ],
+      },
+      {
+        type: "p",
+        text: "These are starting points. The final quote depends on how many pages you need, how much custom functionality is involved, and how much content you can supply yourself.",
+      },
+      {
+        type: "h2",
+        text: "What pushes the price up",
+      },
+      {
+        type: "p",
+        text: "Most of the difference between a basic site and a larger one comes down to features. These are typical add-ons:",
+      },
+      {
+        type: "ul",
+        items: featurePricing.map((feature) => `${feature.label}: about ${kes(feature.price)}`),
+      },
+      {
+        type: "h2",
+        text: "Where very cheap quotes go wrong",
+      },
+      {
+        type: "ul",
+        items: [
+          "The site is a pre-made template with your logo dropped in, so it looks like everyone else's",
+          "It was never tested on a phone, where most of your visitors will see it",
+          "Images are not optimised, so it loads slowly on mobile data",
+          "You do not control your own domain or hosting, so you cannot easily move or update the site",
+          "There is no support after launch when something breaks",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Do not forget the running costs",
+      },
+      {
+        type: "p",
+        text: "Besides the build, a website has small ongoing costs: your domain name renews every year, and depending on how it is set up there may be hosting too. Ask your developer to list these clearly, and make sure the domain is registered in your name.",
+      },
+      {
+        type: "h2",
+        text: "How to get an accurate quote",
+      },
+      {
+        type: "ul",
+        items: [
+          "Say what the website must do for your business, such as taking bookings, selling products or simply showing your services",
+          "List the pages you think you need, and share examples of sites you like",
+          "Say whether you need payments, user accounts or an admin area",
+          "Ask for the price, timeline and what support is included, in writing",
+        ],
+      },
+      {
+        type: "p",
+        text: "If you want a quick ballpark first, the cost estimator on my Services page lets you pick a project type and features and see a range straight away.",
+      },
+    ],
+  },
+  {
+    id: 5,
+    slug: "put-your-busia-business-on-google-maps",
+    title: "How to Put Your Busia Business on Google Maps (Free Guide)",
+    excerpt:
+      "When someone in Busia searches for a hotel, shop or service, Google shows a map with local businesses first. Here is how to get yours in that list, for free.",
+    date: "2026-10-16",
+    readTime: "5 min read",
+    category: "Local SEO",
+    tags: ["Busia", "Google Business Profile", "Local SEO", "Kenya"],
+    content: [
+      {
+        type: "p",
+        text: "Search for 'hotel in Busia' or 'electrician in Busia' and the first thing Google shows is usually a map with a short list of local businesses, before any website. If your business is not on that map, many nearby customers will never see you, however good your work is.",
+      },
+      {
+        type: "p",
+        text: "The good news is that getting listed is free. It is done through a Google Business Profile.",
+      },
+      {
+        type: "h2",
+        text: "What a Google Business Profile is",
+      },
+      {
+        type: "p",
+        text: "It is a free listing that shows your business name, phone number, opening hours, photos, reviews and website on Google Search and Google Maps. Customers can call you or get directions with one tap.",
+      },
+      {
+        type: "h2",
+        text: "How to set it up",
+      },
+      {
+        type: "ul",
+        items: [
+          "Search for 'Google Business Profile' and sign in with a Google account you will keep using for the business",
+          "Enter your business name and check whether it is already listed. If it is, you can claim it instead of creating a new one",
+          "Choose your main category carefully, for example 'Hotel', 'Pharmacy' or 'Web designer'. This matters a lot for which searches you appear in",
+          "If customers visit you, add your address. If you travel to customers, you can hide your address and list the areas you serve, such as Busia, Malaba and Nambale",
+          "Add your phone number, opening hours and website",
+          "Verify the business. Google will offer a method such as a video call, phone, email or postcard, depending on your type of business",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Make the profile complete",
+      },
+      {
+        type: "p",
+        text: "Complete profiles are easier for customers to trust and for Google to match to searches. Add real photos of your premises, your work and your team, write a short description of what you offer, and list your main services or products with prices if you can.",
+      },
+      {
+        type: "h2",
+        text: "Ask for reviews, and answer them",
+      },
+      {
+        type: "p",
+        text: "Reviews are one of the strongest signals on a local profile. After a job goes well, ask the customer to leave a review and send them the link. Reply to every review, good or bad, politely. Never buy or fake reviews: it breaks Google's rules and can get your profile removed.",
+      },
+      {
+        type: "h2",
+        text: "Keep your details identical everywhere",
+      },
+      {
+        type: "p",
+        text: "Use exactly the same business name, phone number and location on your Google profile, your website, Facebook, Instagram and anywhere else you are listed. Consistent details help Google trust that it is one real business.",
+      },
+      {
+        type: "h2",
+        text: "Why you still want a website",
+      },
+      {
+        type: "p",
+        text: "A profile gets you found on the map, but a website is where customers learn more and decide to contact you. Linking your site from your profile, and having a page that clearly says what you offer and where, strengthens both. If you need help with either, get in touch.",
+      },
+    ],
+  },
+  {
+    id: 6,
+    slug: "how-to-choose-a-web-developer-in-busia",
+    title: "How to Choose a Web Developer in Busia: 7 Questions to Ask Before You Pay",
+    excerpt:
+      "Hiring the wrong developer can cost you money and months. These seven questions help Busia business owners spot a good one before paying a shilling.",
+    date: "2026-10-16",
+    readTime: "6 min read",
+    category: "Business",
+    tags: ["Busia", "Web Developer", "Hiring", "Kenya"],
+    content: [
+      {
+        type: "p",
+        text: "Most business owners in Busia have heard at least one story: someone paid a deposit, the developer went quiet, and the website never appeared, or it appeared broken and nobody could fix it. You do not need to understand code to avoid this. You only need to ask the right questions.",
+      },
+      {
+        type: "h2",
+        text: "1. Can I see websites you have built, and can I open them?",
+      },
+      {
+        type: "p",
+        text: "Ask for live links, not screenshots. Open them on your phone. Do they load quickly? Do they look right on a small screen? Can you tell who the client was? A developer with real work will happily share it, and will often explain what the client needed and how the site solved it.",
+      },
+      {
+        type: "h2",
+        text: "2. Who owns the domain, the hosting and the files?",
+      },
+      {
+        type: "p",
+        text: "Your domain name (for example yourbusiness.co.ke) should be registered in your name, not the developer's. You should also receive your site files and logins at the end of the project. If a developer keeps control of these, you cannot move to someone else without starting again.",
+      },
+      {
+        type: "h2",
+        text: "3. Is the price fixed and written down?",
+      },
+      {
+        type: "p",
+        text: "A good quote lists what you are getting, how long it will take, what it costs and when payments are due. Be careful with a vague 'we will see as we go' arrangement. Paying in milestones, for example part upfront, part midway and the rest on completion, protects both sides.",
+      },
+      {
+        type: "h2",
+        text: "4. Will it work well on a phone?",
+      },
+      {
+        type: "p",
+        text: "Most people in Kenya browse on their phones, often on mobile data. Ask how the developer tests on phones and what they do to keep pages light. A site that only looks good on a laptop is half a website.",
+      },
+      {
+        type: "h2",
+        text: "5. Can it take the payments and bookings I need?",
+      },
+      {
+        type: "p",
+        text: "If you want to sell online or take bookings, ask specifically about M-Pesa and card payments, and about how you will see orders and payments afterwards. A developer who has built this before will answer clearly.",
+      },
+      {
+        type: "h2",
+        text: "6. What happens after the site goes live?",
+      },
+      {
+        type: "p",
+        text: "Websites need small fixes and updates. Ask whether support is included and for how long, who you call when something breaks, and what ongoing maintenance costs. 'No support after launch' is a warning sign.",
+      },
+      {
+        type: "h2",
+        text: "7. Can we meet, or at least talk easily?",
+      },
+      {
+        type: "p",
+        text: "Working with someone nearby has real advantages: you can meet, show them your business and sort misunderstandings quickly. Whether local or remote, check that they reply promptly and explain things in plain language. How they communicate during the quote is how they will communicate during the project.",
+      },
+      {
+        type: "h2",
+        text: "Red flags to watch for",
+      },
+      {
+        type: "ul",
+        items: [
+          "A price far below everyone else's, with no explanation of what is cut",
+          "Pressure to pay the full amount upfront",
+          "No examples of real, live work",
+          "Refusing to put the scope and price in writing",
+          "Registering your domain or hosting in their own name",
+        ],
+      },
+      {
+        type: "p",
+        text: "I am a web developer based in Busia, and I am happy to answer all seven of these questions for my own work. If you would like a clear, written quote for a website or system for your business, get in touch.",
       },
     ],
   },

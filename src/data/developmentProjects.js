@@ -210,7 +210,7 @@ export const developmentProjects = [
       "/images/websites/vittorios2.jpeg",
     ],
     category: "web",
-    year: "2024",
+    year: "2025",
     type: "Business Website",
     status: "live",
     client: "Vittorios Trades",

@@ -171,7 +171,7 @@ const WebDeveloperBusia = () => {
       {/* ── LOCAL PROOF ──────────────────────── */}
       {itoya && (
         <section className="px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl bg-white dark:bg-gray-900">
               <SafeImage
                 src={itoya.thumbnail}
@@ -216,7 +216,7 @@ const WebDeveloperBusia = () => {
 
       {/* ── WHO + WHERE ──────────────────────── */}
       <section className="px-4 sm:px-6 lg:px-8 py-12 md:py-14 bg-white dark:bg-gray-900/40 border-y border-gray-200 dark:border-gray-800">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.14em] text-primary dark:text-primary-light mb-2">Who it&apos;s for</p>
             <h2 className="font-display text-2xl sm:text-3xl font-bold mb-5">Businesses I can help in {LOCATION.town}</h2>
