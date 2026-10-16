@@ -131,7 +131,7 @@ const routes = [
     title: post.title,
     description: post.excerpt,
     path: `/blog/${post.slug}`,
-    image: DEFAULT_IMAGE,
+    image: pageSeo.blog.image,
     schema: postSchema(post),
     lastmod: post.date,
     priority: "0.7",

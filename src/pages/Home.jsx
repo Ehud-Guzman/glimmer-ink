@@ -4,6 +4,7 @@ import HeroSection from "@/components/Home/HeroSection";
 import ServicesGallery from "@/components/Home/ServicesGallery";
 import ProcessSection from "@/components/Home/ProcessSection";
 import LocalSection from "@/components/Home/LocalSection";
+import FlagshipClient from "@/components/Home/FlagshipClient";
 import ServicesOverview from "@/components/Home/ServicesOverview";
 import ContactTestimonials from "@/components/Contact/ContactTestimonials";
 import CTASection from "@/components/Home/CTASection";
@@ -24,6 +25,9 @@ const HomePage = () => {
           <HeroSection />
         </Suspense>
       </section>
+
+      {/* ── FLAGSHIP CLIENT ───────────────────── */}
+      <FlagshipClient />
 
       {/* ── FEATURED WORK ─────────────────────── */}
       <section id="work">

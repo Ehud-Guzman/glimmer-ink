@@ -38,7 +38,7 @@ const ServicesGallery = ({ mode = "full" }) => {
     const categories = (raw.categories || [])
       .map((cat) => ({
         ...cat,
-        projects: (cat.projects || []).filter((p) => p?.showOnHome === true),
+        projects: (cat.projects || []).filter((p) => p?.showOnHome === true && !p?.featured),
       }))
       .filter((cat) => (cat.projects || []).length > 0);
 
@@ -169,7 +169,7 @@ const ServicesGallery = ({ mode = "full" }) => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            {mode === "home" ? "Live client websites and concept builds" : developmentData.title || "Portfolio"}
+            {mode === "home" ? "More work from the portfolio" : developmentData.title || "Portfolio"}
           </motion.h2>
 
           <motion.p
@@ -180,7 +180,7 @@ const ServicesGallery = ({ mode = "full" }) => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {mode === "home"
-              ? "Real projects for real businesses, from a hotel booking platform in Busia to a grains trading system with its own admin backend."
+              ? "Websites and systems for trading, retail and legal clients, plus concept builds that show how I approach new problems."
               : developmentData.description || "A selection of my work across web, systems, and apps."}
           </motion.p>
         </div>
@@ -317,7 +317,7 @@ const ServicesGallery = ({ mode = "full" }) => {
                           className="inline-flex items-center gap-2 rounded-full border border-gray-300 dark:border-gray-600 px-4 py-2 text-sm font-medium text-text-light dark:text-text-dark hover:border-primary hover:text-primary dark:hover:text-primary-light transition-colors"
                         >
                           <ExternalLink size={16} />
-                          {project.status === "live" ? "Visit project" : "View demo"}
+                          {project.status === "live" ? "Visit project" : "View preview"}
                         </a>
                       )}
                       <button

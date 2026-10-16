@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { SITE_URL, pageUrl } from "@/data/pageUrl";
 
 const SITE_NAME = "GlimmerInk Creations";
-const DEFAULT_IMAGE = `${SITE_URL}/images/Glimmer-OG.jpg`;
+const DEFAULT_IMAGE = `${SITE_URL}/images/og/home.jpg`;
 const SCHEMA_ID = "page-schema";
 
 const upsertMeta = ({ selector, createTag, attributes, content }) => {

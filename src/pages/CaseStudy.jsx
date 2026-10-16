@@ -26,7 +26,7 @@ const statusLabel = (status) => {
 const isValidExternalUrl = (url) => typeof url === "string" && /^https?:\/\//i.test(url);
 
 const SectionLabel = ({ children }) => (
-  <h2 className="text-xs font-bold uppercase tracking-widest text-primary dark:text-primary-light mb-4">
+  <h2 className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-primary dark:text-primary-light mb-4">
     {children}
   </h2>
 );
@@ -116,92 +116,119 @@ const CaseStudy = () => {
       />
 
       {/* ── HERO ─────────────────────────────── */}
-      <header className="max-w-5xl mx-auto px-4 md:px-6 pt-12 md:pt-16 pb-10">
-        <Link
-          to="/work"
-          className="inline-flex items-center gap-2 text-sm text-text-muted dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors mb-8 group"
-        >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-          All Work
-        </Link>
-
-        <Breadcrumbs className="mb-6" items={breadcrumbItems} />
-
-        <div className="flex flex-wrap items-center gap-2 mb-5">
-          {!!project.type && (
-            <span className="px-3 py-1 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light rounded-full text-sm font-medium">
-              {project.type}
-            </span>
-          )}
-          {label && (
-            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 border border-border-light dark:border-gray-700 rounded-full text-sm font-medium">
-              {label}
-            </span>
-          )}
+      <header className="relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, rgba(100,116,139,0.13) 1px, transparent 1px), linear-gradient(to bottom, rgba(100,116,139,0.13) 1px, transparent 1px)",
+              backgroundSize: "44px 44px",
+              maskImage: "radial-gradient(ellipse 80% 70% at 50% 0%, #000 25%, transparent 75%)",
+              WebkitMaskImage: "radial-gradient(ellipse 80% 70% at 50% 0%, #000 25%, transparent 75%)",
+            }}
+          />
         </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-tight mb-5"
-        >
-          {project.title}
-        </motion.h1>
+        <div className="relative max-w-5xl mx-auto px-4 md:px-6 pt-8 md:pt-12 pb-8 md:pb-10">
+          <Link
+            to="/work"
+            className="inline-flex items-center gap-2 text-sm text-text-muted dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors mb-5 group"
+          >
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            All Work
+          </Link>
 
-        <p className="text-lg md:text-xl text-text-muted dark:text-gray-300 leading-relaxed max-w-3xl mb-8">
-          {project.description}
-        </p>
+          <Breadcrumbs className="mb-6" items={breadcrumbItems} />
 
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-text-muted dark:text-gray-400">
-          {!!project.client && (
-            <div>
-              <span className="block text-xs uppercase tracking-wide opacity-70 mb-0.5">Client</span>
-              <span className="font-medium text-text-light dark:text-text-dark">{project.client}</span>
-            </div>
-          )}
-          {!!project.year && (
-            <div>
-              <span className="block text-xs uppercase tracking-wide opacity-70 mb-0.5">Year</span>
-              <span className="font-medium text-text-light dark:text-text-dark">{project.year}</span>
-            </div>
-          )}
-          {hasLive && (
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors font-medium ml-auto"
-            >
-              Visit Live Site <ExternalLink className="w-4 h-4" />
-            </a>
-          )}
+          <p className="mb-4 flex items-center gap-3 font-mono text-xs sm:text-sm font-medium uppercase tracking-[0.14em] text-primary dark:text-primary-light">
+            <span className="h-px w-8 bg-primary/60 dark:bg-primary-light/60" aria-hidden="true" />
+            Case study{project.type ? ` · ${project.type}` : ""}
+          </p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-[2rem] sm:text-5xl lg:text-6xl font-bold font-display leading-[1.1] tracking-tight text-balance mb-4"
+          >
+            {project.title}
+          </motion.h1>
+
+          <p className="text-base sm:text-lg md:text-xl text-text-muted dark:text-gray-300 leading-relaxed max-w-3xl mb-7">
+            {project.description}
+          </p>
+
+          <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">
+            <dl className="grid grid-cols-3 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/60 divide-x divide-gray-200 dark:divide-gray-800 sm:min-w-[22rem]">
+              {[
+                { label: "Client", value: project.client },
+                { label: "Year", value: project.year },
+                { label: "Status", value: label },
+              ]
+                .filter((item) => item.value)
+                .map((item) => (
+                  <div key={item.label} className="px-3 sm:px-4 py-3 min-w-0">
+                    <dt className="font-mono text-[10px] uppercase tracking-wider text-text-muted dark:text-gray-500">
+                      {item.label}
+                    </dt>
+                    <dd className="mt-1 text-sm font-semibold leading-snug text-text-light dark:text-text-dark break-words">
+                      {item.value}
+                    </dd>
+                  </div>
+                ))}
+            </dl>
+
+            {hasLive && (
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-xl hover:bg-primary-dark transition-colors font-semibold shadow-lg shadow-primary/20 sm:ml-auto"
+              >
+                {project.status === "live" ? "Visit live site" : "View preview"}{" "}
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            )}
+          </div>
         </div>
       </header>
 
       {/* ── COVER IMAGE ──────────────────────── */}
       {cover && (
-        <div className="max-w-6xl mx-auto px-4 md:px-6 mb-16">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 mb-12 md:mb-16">
           <motion.button
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             onClick={() => setLightboxImage(cover)}
-            className="block w-full rounded-2xl overflow-hidden border border-border-light dark:border-gray-700 shadow-xl cursor-zoom-in bg-gray-100 dark:bg-gray-900"
+            className="block w-full text-left rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-2xl cursor-zoom-in bg-white dark:bg-gray-900"
             aria-label={`Enlarge ${project.title} cover image`}
           >
+            <span className="flex items-center gap-3 border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-950 px-4 py-2.5" aria-hidden="true">
+              <span className="flex gap-1.5">
+                <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
+                <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/80" />
+                <span className="h-2.5 w-2.5 rounded-full bg-green-400/80" />
+              </span>
+              {hasLive && (
+                <span className="flex-1 truncate rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 px-3 py-1 font-mono text-[11px] text-text-muted dark:text-gray-400">
+                  {project.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
+                </span>
+              )}
+            </span>
             <SafeImage
               src={cover}
               alt={`${project.title} — main view`}
-              className="w-full object-cover"
+              className="block w-full object-cover"
             />
           </motion.button>
         </div>
       )}
 
       {/* ── NARRATIVE + SIDEBAR ──────────────── */}
-      <div className="max-w-6xl mx-auto px-4 md:px-6 pb-16 grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
-        <div className="lg:col-span-2 space-y-12">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 pb-12 md:pb-16 grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
+        <div className="lg:col-span-2 min-w-0 space-y-10 md:space-y-12">
           {project.challenge && (
             <section>
               <SectionLabel>The Challenge</SectionLabel>
@@ -253,7 +280,7 @@ const CaseStudy = () => {
           )}
         </div>
 
-        <aside className="space-y-10 lg:pt-1">
+        <aside className="min-w-0 space-y-10 lg:pt-1">
           {!!project.features?.length && (
             <section>
               <SectionLabel>What Was Built</SectionLabel>
@@ -291,7 +318,7 @@ const CaseStudy = () => {
 
       {/* ── GALLERY ──────────────────────────── */}
       {gallery.length > 0 && (
-        <div className="max-w-6xl mx-auto px-4 md:px-6 pb-16">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 pb-12 md:pb-16">
           <SectionLabel>Screens</SectionLabel>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {gallery.map((img, idx) => (
@@ -317,35 +344,44 @@ const CaseStudy = () => {
       )}
 
       {/* ── NEXT PROJECT + CTA ───────────────── */}
-      <div className="border-t border-border-light dark:border-gray-800">
-        <div className="max-w-6xl mx-auto px-4 md:px-6 py-16 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="text-center md:text-left">
-            <p className="text-sm text-text-muted dark:text-gray-400 mb-2">
-              Have a similar project in mind?
-            </p>
+      <div className="px-4 md:px-6 pb-12 md:pb-16">
+        <div className="max-w-6xl mx-auto rounded-3xl bg-gray-900 dark:bg-gray-800 text-white px-6 py-10 sm:px-12 sm:py-12 text-center">
+          <h2 className="font-display text-2xl sm:text-3xl font-bold mb-3">Have a similar project in mind?</h2>
+          <p className="text-gray-300 max-w-xl mx-auto mb-7">
+            Tell me what you need and I&apos;ll reply with honest advice and a clear quote in KES.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-3">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors font-medium"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl bg-primary text-white font-semibold hover:bg-primary-dark transition-colors"
             >
-              Start a Project <ArrowRight className="w-4 h-4" />
+              Start a project <ArrowRight className="w-4 h-4" />
             </Link>
+            <a
+              href="https://wa.me/254746527253"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors"
+            >
+              WhatsApp me
+            </a>
           </div>
-
-          {nextProject && nextProject.slug !== project.slug && (
-            <Link
-              to={`/work/${nextProject.slug}`}
-              className="group text-center md:text-right"
-            >
-              <p className="text-xs uppercase tracking-widest text-text-muted dark:text-gray-400 mb-1">
-                Next Case Study
-              </p>
-              <p className="text-xl font-semibold font-display inline-flex items-center gap-2 group-hover:text-primary dark:group-hover:text-primary-light transition-colors">
-                {nextProject.title}
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </p>
-            </Link>
-          )}
         </div>
+
+        {nextProject && nextProject.slug !== project.slug && (
+          <Link
+            to={`/work/${nextProject.slug}`}
+            className="group mt-10 max-w-6xl mx-auto flex items-center justify-between gap-6 border-t border-gray-200 dark:border-gray-800 pt-8"
+          >
+            <span className="font-mono text-xs uppercase tracking-widest text-text-muted dark:text-gray-400">
+              Next case study
+            </span>
+            <span className="text-xl font-semibold font-display inline-flex items-center gap-2 group-hover:text-primary dark:group-hover:text-primary-light transition-colors">
+              {nextProject.title}
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </span>
+          </Link>
+        )}
       </div>
 
       {/* ── LIGHTBOX ─────────────────────────── */}

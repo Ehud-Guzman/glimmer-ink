@@ -1,9 +1,10 @@
 import { UserCheck, LayoutDashboard, Globe2 } from "lucide-react";
 import { LOCATION, LOCATION_LABEL } from "@/data/location";
+import { liveProjectCount } from "@/data/developmentProjects";
 
 const facts = [
   { value: "2025", label: "Founded" },
-  { value: "5+", label: "Live client sites" },
+  { value: String(liveProjectCount), label: "Live client sites" },
   { value: LOCATION.town, label: "Based in" },
 ];
 

@@ -4,7 +4,7 @@ import { Code2, Cpu, Globe, Database, Smartphone } from 'lucide-react';
 const WorkHero = ({ projects = [] }) => {
   // Everything below is derived from the real project data.
   const liveCount = projects.filter((p) => p.status === "live").length;
-  const conceptCount = projects.filter((p) => p.status === "demo").length;
+  const upcomingCount = projects.length - liveCount;
   const stackCounts = projects
     .flatMap((p) => p.stack ?? [])
     .reduce((acc, tech) => ({ ...acc, [tech]: (acc[tech] ?? 0) + 1 }), {});
@@ -15,7 +15,7 @@ const WorkHero = ({ projects = [] }) => {
   const stats = [
     { value: projects.length, label: "Case studies" },
     { value: liveCount, label: "Live client sites" },
-    { value: conceptCount, label: "Concept builds" },
+    { value: upcomingCount, label: "In progress & concept" },
     { value: technologies[0] ?? "React", label: "Core stack" },
   ];
 

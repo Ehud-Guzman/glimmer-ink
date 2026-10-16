@@ -23,29 +23,41 @@ const NotFound = () => {
   const { pathname } = useLocation();
 
   return (
-    <div className="p-10 max-w-3xl mx-auto">
+    <div className="px-4 sm:px-6 py-16 md:py-24 max-w-3xl mx-auto">
       <SEOHead
         title="Page not found"
         description="This page does not exist. Explore the GlimmerInk Creations portfolio, services and case studies instead."
         path={pathname}
         noIndex
       />
-      <h1 className="text-2xl font-bold">404 - Page not found</h1>
-      <p className="mt-2 text-text-light/70 dark:text-text-dark/70">
-        The page you were looking for does not exist yet.
+      <p className="mb-4 flex items-center gap-3 font-mono text-xs sm:text-sm font-medium uppercase tracking-[0.14em] text-primary dark:text-primary-light">
+        <span className="h-px w-8 bg-primary/60 dark:bg-primary-light/60" aria-hidden="true" />
+        Error 404
       </p>
-      <div className="mt-6 flex flex-wrap gap-3">
+      <h1 className="font-display text-[2rem] sm:text-5xl font-bold leading-[1.1] tracking-tight mb-4">
+        This page doesn&apos;t exist.
+      </h1>
+      <p className="text-text-light/75 dark:text-text-dark/75 max-w-xl">
+        The link may be old or mistyped. Here is where you probably want to go.
+      </p>
+      <div className="mt-8 flex flex-wrap gap-3">
         <Link
           to="/"
-          className="inline-flex px-5 py-2.5 rounded-lg bg-primary text-white hover:bg-primary-dark transition-colors"
+          className="inline-flex px-6 py-3 rounded-xl bg-primary text-white font-semibold hover:bg-primary-dark transition-colors"
         >
           Back to Home
         </Link>
         <Link
           to="/work"
-          className="inline-flex px-5 py-2.5 rounded-lg border border-border-light dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          className="inline-flex px-6 py-3 rounded-xl border border-gray-300 dark:border-gray-700 font-semibold hover:border-primary hover:text-primary dark:hover:text-primary-light transition-colors"
         >
           View selected work
+        </Link>
+        <Link
+          to="/contact"
+          className="inline-flex px-6 py-3 rounded-xl border border-gray-300 dark:border-gray-700 font-semibold hover:border-primary hover:text-primary dark:hover:text-primary-light transition-colors"
+        >
+          Get a quote
         </Link>
       </div>
     </div>

@@ -5,19 +5,20 @@ import { Calendar, Clock, ArrowLeft, ArrowRight, Tag } from "lucide-react";
 import SEOHead from "@/components/SEO/SEOHead";
 import { blogPosts, getBlogPost } from "@/data/blogPosts";
 import { article, breadcrumbs } from "@/data/schema";
+import pageSeo from "@/data/pageSeo";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 
 const ContentBlock = ({ block }) => {
   switch (block.type) {
     case "h2":
       return (
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">
+        <h2 className="font-display text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">
           {block.text}
         </h2>
       );
     case "p":
       return (
-        <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-5">
+        <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-5">
           {block.text}
         </p>
       );
@@ -25,8 +26,8 @@ const ContentBlock = ({ block }) => {
       return (
         <ul className="mb-5 space-y-2 pl-1">
           {block.items.map((item, i) => (
-            <li key={i} className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
-              <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+            <li key={i} className="flex items-start gap-3 text-base sm:text-lg text-gray-700 dark:text-gray-300">
+              <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
               {item}
             </li>
           ))}
@@ -68,16 +69,17 @@ const BlogPost = () => {
         title={post.title}
         description={post.excerpt}
         path={`/blog/${post.slug}`}
+        image={pageSeo.blog.image}
         jsonLd={pageSchema}
       />
 
-      <article className="max-w-3xl mx-auto px-6 py-16">
+      <article className="max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-16">
         {/* Back link */}
         <motion.div
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
-          className="mb-10"
+          className="mb-6"
         >
           <Link
             to="/blog"
@@ -111,7 +113,7 @@ const BlogPost = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-6 font-display">
+          <h1 className="text-[1.75rem] sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-[1.15] tracking-tight text-balance mb-6 font-display">
             {post.title}
           </h1>
 
@@ -120,7 +122,7 @@ const BlogPost = () => {
           </p>
 
           <div className="mt-6 flex items-center gap-3 pt-6 border-t border-gray-200 dark:border-gray-700">
-            <div className="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold">
+            <div className="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold" aria-hidden="true">
               EM
             </div>
             <div>
@@ -187,19 +189,27 @@ const BlogPost = () => {
         )}
 
         {/* CTA */}
-        <div className="mt-16 p-8 bg-primary/5 dark:bg-primary/10 rounded-2xl border border-primary/20 text-center">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-            Need a website for your business?
-          </h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-5 text-sm">
-            Let's build something that works — fast, professional, and built for Kenya.
+        <div className="mt-16 rounded-3xl bg-gray-900 dark:bg-gray-800 text-white px-6 py-9 sm:px-10 text-center">
+          <h3 className="font-display text-xl sm:text-2xl font-bold mb-2">Need a website for your business?</h3>
+          <p className="text-gray-300 mb-6 text-sm sm:text-base max-w-md mx-auto">
+            I build fast, mobile-first websites and systems for businesses in Busia and across Kenya. Tell me what you need and get a clear quote in KES.
           </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-colors text-sm"
-          >
-            Start a conversation <ArrowRight className="w-4 h-4" />
-          </Link>
+          <div className="flex flex-col sm:flex-row justify-center gap-3">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-xl font-semibold hover:bg-primary-dark transition-colors text-sm"
+            >
+              Get a quote <ArrowRight className="w-4 h-4" />
+            </Link>
+            <a
+              href="https://wa.me/254746527253"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors text-sm"
+            >
+              WhatsApp me
+            </a>
+          </div>
         </div>
       </article>
     </div>

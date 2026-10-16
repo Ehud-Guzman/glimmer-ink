@@ -83,8 +83,14 @@ const FounderSection = () => (
         <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
           <div className="h-20 bg-gradient-to-r from-primary to-primary-light" />
           <div className="px-6 sm:px-8 pb-7 -mt-9">
-            <div className="h-[72px] w-[72px] rounded-2xl bg-primary text-white border-4 border-white dark:border-gray-800 shadow-lg flex items-center justify-center mb-4 text-2xl font-bold tracking-tight">
-              EM
+            <div className="h-[72px] w-[72px] rounded-2xl bg-white border-4 border-white dark:border-gray-800 shadow-lg flex items-center justify-center mb-4 overflow-hidden p-1">
+              <img
+                src="/images/GlimmerInklogo1.webp"
+                alt="GlimmerInk Creations logo"
+                width="72"
+                height="72"
+                className="h-full w-full object-contain"
+              />
             </div>
             <h3 className="text-xl font-bold text-gray-900 dark:text-white">Ehud Mwai</h3>
             <p className="text-sm text-primary dark:text-primary-light font-medium mb-5">

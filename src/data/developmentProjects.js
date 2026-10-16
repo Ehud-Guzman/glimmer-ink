@@ -103,7 +103,7 @@ export const developmentProjects = [
     category: "web",
     year: "2026",
     type: "Trading Platform",
-    status: "live",
+    status: "in-progress",
     client: "Vittorios Global",
     showOnHome: true,
     homeOrder: 2,
@@ -279,6 +279,9 @@ export const developmentProjects = [
     homeOrder: 6,
   },
 ];
+
+// Single source for "how many live sites" claims across the site.
+export const liveProjectCount = developmentProjects.filter((p) => p.status === "live").length;
 
 export const getProjectBySlug = (slug) =>
   developmentProjects.find((project) => project.slug === slug) || null;

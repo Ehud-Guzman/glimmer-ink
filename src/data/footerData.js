@@ -1,8 +1,5 @@
 // src/data/footerData.js
 import {
-  Mail,
-  Phone,
-  MapPin,
   Instagram,
   Twitter,
   Dribbble,
@@ -18,7 +15,7 @@ const footerStructure = {
       tagline: "Where Code meets imagination",
     },
     description:
-      "Transforming ideas into exceptional digital experiences through innovative design and development solutions.",
+      `Web design and development studio in ${LOCATION_LABEL}. Business websites, online shops and management systems for businesses across Kenya.`,
     cta: {
       text: "Start your project",
       url: "/contact",
@@ -44,31 +41,6 @@ const footerStructure = {
 
   contact: {
     title: "Get in touch",
-    methods: [
-      {
-        icon: Mail,
-        text: "nyamuehud@gmail.com",
-        copyable: true,
-        hoverColor: "text-primary",
-      },
-      {
-        icon: Phone,
-        text: "+254 746 527 253",
-        action: () => {
-          window.location.href = "tel:+254746527253";
-        },
-        hoverColor: "text-secondary",
-      },
-      {
-        icon: MapPin,
-        text: LOCATION_LABEL,
-        action: () => {
-          window.open(`https://maps.google.com?q=${encodeURIComponent(LOCATION_LABEL)}`, "_blank");
-        },
-        hoverColor: "text-accent",
-      },
-    ],
-
     social: [
       {
         icon: Instagram,
@@ -97,15 +69,6 @@ const footerStructure = {
         bgHover: "bg-gradient-to-br from-blue-600 to-blue-800",
       },
     ],
-  },
-
-  // keep this if you’re not rendering FooterLegal; otherwise pass it in
-  legal: [],
-
-  credits: {
-    text: "Website Created by GlimmerInk Creations",
-    phone: "+254 746 527 253",
-    url: "https://glimmerink.co.ke",
   },
 };
 

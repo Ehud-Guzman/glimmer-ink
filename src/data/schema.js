@@ -14,7 +14,7 @@ export const SITE_NAME = "GlimmerInk Creations";
 export const SITE_EMAIL = "nyamuehud@gmail.com";
 export const SITE_PHONE = "+254746527253";
 export const LOGO_URL = `${SITE_URL}/favicon_io/android-chrome-512x512.png`;
-export const DEFAULT_IMAGE = `${SITE_URL}/images/Glimmer-OG.jpg`;
+export const DEFAULT_IMAGE = `${SITE_URL}/images/og/home.jpg`;
 
 export const BUSINESS_DESCRIPTION = `GlimmerInk Creations is a web design and development studio in ${LOCATION.town}, ${LOCATION.country}, building premium websites, business systems and custom digital experiences for businesses in ${LOCATION.region} and across Kenya.`;
 
