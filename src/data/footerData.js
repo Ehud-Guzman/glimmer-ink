@@ -30,6 +30,7 @@ const footerStructure = {
       links: [
         { name: "Home", url: "/", hoverEffect: "underline" },
         { name: "Work", url: "/work", hoverEffect: "scale" },
+        { name: "Demos", url: "/demos", hoverEffect: "underline" },
         { name: "Services", url: "/services", hoverEffect: "underline" },
         { name: "About", url: "/about", hoverEffect: "highlight" },
         { name: "Blog", url: "/blog", hoverEffect: "underline" },

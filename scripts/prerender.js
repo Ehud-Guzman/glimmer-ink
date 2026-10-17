@@ -17,7 +17,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 import pageSeo from "../src/data/pageSeo.js";
-import { developmentProjects } from "../src/data/developmentProjects.js";
+import { demoProjects, developmentProjects } from "../src/data/developmentProjects.js";
 import { blogPosts } from "../src/data/blogPosts.js";
 import { serviceFaqs } from "../src/data/faqs.js";
 import { localFaqs } from "../src/data/localFaqs.js";
@@ -32,6 +32,7 @@ import {
   breadcrumbs,
   caseStudy,
   contactPage,
+  demosCollection,
   faqPage,
   localServices,
   person,
@@ -79,6 +80,7 @@ const postSchema = (post) => [
 const STATIC_SCHEMA = {
   "/": () => [webSite(), professionalService()],
   "/work": () => [workCollection(developmentProjects)],
+  "/demos": () => [demosCollection(demoProjects)],
   "/services": () => [serviceList(), faqPage(serviceFaqs)],
   "/about": () => [person()],
   "/blog": () => [blogCollection(blogPosts)],
@@ -97,6 +99,7 @@ const STATIC_META = {
   "/": { priority: "1.0", changefreq: "weekly" },
   [LOCATION.landingPath]: { priority: "0.9", changefreq: "monthly" },
   "/work": { priority: "0.9", changefreq: "weekly" },
+  "/demos": { priority: "0.8", changefreq: "monthly" },
   "/services": { priority: "0.9", changefreq: "monthly" },
   "/contact": { priority: "0.8", changefreq: "monthly" },
   "/blog": { priority: "0.8", changefreq: "weekly" },

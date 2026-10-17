@@ -326,6 +326,15 @@ export const developmentProjects = [
           type: "Savings Group System",
           status: "live-demo",
           client: "Savings group (demo uses sample data)",
+          demoGuide: {
+            access: "One-tap sign-in. No password, no sign-up.",
+            steps: [
+              "On the demo's home page, tap “Explore as Admin” to open the dashboard. Finance, Fines, Reports, Meeting, Benefits and Minutes all have data.",
+              "To see what a member sees, tap “Fill in” on a sample member, then “Check contributions” to open their passbook.",
+              "Try saving anything, such as logging a payment. It is a read-only demo, so a message appears and nothing is changed.",
+            ],
+            note: "It runs on free hosting, so the first load after a quiet spell can take up to a minute.",
+          },
           showOnHome: true,
           homeOrder: 7,
         },
@@ -335,6 +344,13 @@ export const developmentProjects = [
 
 // Single source for "how many live sites" claims across the site.
 export const liveProjectCount = developmentProjects.filter((p) => p.status === "live").length;
+
+// Projects with something to click through: working demos first, then concept
+// builds. Drives the /demos page.
+const demoRank = { "live-demo": 0, demo: 1 };
+export const demoProjects = developmentProjects
+  .filter((p) => p.status in demoRank && /^https?:\/\//i.test(p.url ?? ""))
+  .sort((a, b) => demoRank[a.status] - demoRank[b.status]);
 
 export const getProjectBySlug = (slug) =>
   developmentProjects.find((project) => project.slug === slug) || null;

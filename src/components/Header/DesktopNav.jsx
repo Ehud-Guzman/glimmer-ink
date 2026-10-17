@@ -4,6 +4,7 @@ import useQuoteClick from "./useQuoteClick";
 import {
   loadHome,
   loadWork,
+  loadDemos,
   loadServices,
   loadAbout,
   loadContact,
@@ -13,6 +14,7 @@ import {
 const navItems = [
   { name: "Home", path: "/", preload: loadHome },
   { name: "Work", path: "/work", preload: loadWork },
+  { name: "Demos", path: "/demos", preload: loadDemos },
   { name: "Services", path: "/services", preload: loadServices },
   { name: "About", path: "/about", preload: loadAbout },
   { name: "Blog", path: "/blog", preload: loadBlog },
@@ -23,7 +25,7 @@ export default function DesktopNav({ toggleTheme }) {
   const onQuoteClick = useQuoteClick();
 
   return (
-    <nav aria-label="Main" className="hidden md:flex items-center gap-5 lg:gap-7">
+    <nav aria-label="Main" className="hidden md:flex items-center gap-4 lg:gap-7">
       {navItems.map((item) => (
         <NavLink
           key={item.name}
@@ -56,7 +58,7 @@ export default function DesktopNav({ toggleTheme }) {
         to="/contact"
         onMouseEnter={loadContact}
         onClick={onQuoteClick}
-        className="inline-flex items-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"
+        className="inline-flex items-center whitespace-nowrap rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"
       >
         Get a Quote
       </Link>

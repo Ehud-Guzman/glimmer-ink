@@ -75,36 +75,12 @@ const FeaturedProject = ({ project }) => {
           </div>
 
           {/* RIGHT — Case study content */}
-          <div className="space-y-8">
+          <div className="space-y-6">
 
             {/* Description */}
             <p className="text-text-muted dark:text-gray-300 leading-relaxed text-base">
               {project.description}
             </p>
-
-            {/* Challenge */}
-            {project.challenge && (
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-widest text-primary dark:text-primary-light mb-2">
-                  The Challenge
-                </h4>
-                <p className="text-text-muted dark:text-gray-300 leading-relaxed text-sm">
-                  {project.challenge}
-                </p>
-              </div>
-            )}
-
-            {/* Solution */}
-            {project.solution && (
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-widest text-primary dark:text-primary-light mb-2">
-                  The Solution
-                </h4>
-                <p className="text-text-muted dark:text-gray-300 leading-relaxed text-sm">
-                  {project.solution}
-                </p>
-              </div>
-            )}
 
             {/* Features */}
             {!!project.features?.length && (
@@ -113,32 +89,13 @@ const FeaturedProject = ({ project }) => {
                   What Was Built
                 </h4>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {project.features.map((f, idx) => (
+                  {project.features.slice(0, 4).map((f, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-sm text-text-muted dark:text-gray-300">
                       <CheckCircle2 className="text-primary dark:text-primary-light mt-0.5 flex-shrink-0 w-4 h-4" />
                       {f}
                     </li>
                   ))}
                 </ul>
-              </div>
-            )}
-
-            {/* Stack */}
-            {!!project.stack?.length && (
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-widest text-primary dark:text-primary-light mb-3">
-                  Tech Stack
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {project.stack.map((tech, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1.5 bg-white dark:bg-gray-700 border border-border-light dark:border-gray-600 rounded-lg text-sm font-medium shadow-sm"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
               </div>
             )}
 

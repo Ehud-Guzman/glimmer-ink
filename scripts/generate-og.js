@@ -2,7 +2,7 @@
 // Run by hand when the copy below changes (the images are committed):
 //
 //   npm i --no-save puppeteer-core
-//   node scripts/generate-og.js
+//   node scripts/generate-og.js [card-name ...]
 //
 // Uses an installed Chrome/Edge (set CHROME_PATH to override) to render an HTML
 // card with the site's own fonts, then sharp to write optimised JPEGs.
@@ -25,6 +25,7 @@ const logo = `data:image/webp;base64,${readFileSync(join(ROOT, "public/images/lo
 const cards = [
   { name: "home", eyebrow: "Web developer · Busia, Kenya", title: "Custom websites, web apps & business systems.", sub: "Fast, mobile-first builds with clear pricing in KES." },
   { name: "work", eyebrow: "Selected work", title: "Live client websites and business systems.", sub: "Hospitality, trading, retail and legal." },
+  { name: "demos", eyebrow: "Try the demos", title: "Live systems you can click through.", sub: "Sample data, no sign-up. See how it works before you commission it." },
   { name: "services", eyebrow: "Services", title: "Development services built around your business.", sub: "Websites, online shops and systems. From KES 20,000." },
   { name: "about", eyebrow: "About · Busia, Kenya", title: "Web developer in Busia, building for businesses across Kenya.", sub: "Ehud Mwai · GlimmerInk Creations" },
   { name: "contact", eyebrow: "Contact", title: "Tell me what you need. Get a clear quote.", sub: "Reply within 24 hours · Busia, Kenya" },
@@ -59,7 +60,9 @@ const browser = await puppeteer.launch({ executablePath: CHROME, headless: "new"
 const page = await browser.newPage();
 await page.setViewport({ width: 1200, height: 630, deviceScaleFactor: 1 });
 
-for (const card of cards) {
+// Optional: `node scripts/generate-og.js demos` renders only the named cards.
+const only = process.argv.slice(2);
+for (const card of cards.filter((c) => only.length === 0 || only.includes(c.name))) {
   // Load from a real file so Chrome allows the file:// font URLs.
   const file = join(tmpdir(), `glimmerink-og-${card.name}.html`);
   writeFileSync(file, html(card));

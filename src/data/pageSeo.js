@@ -29,6 +29,13 @@ const pageSeo = {
     path: "/work",
     image: og("work"),
   },
+  demos: {
+    title: "Try the Demos — Live Systems You Can Click Through",
+    description:
+      "Try GlimmerInk's working demos: a savings group management system and more, with sample data and no sign-up. See how a custom system works before you commission one.",
+    path: "/demos",
+    image: og("demos"),
+  },
   services: {
     title: "Web Design & Development Services — Kenya",
     description:

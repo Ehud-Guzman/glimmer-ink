@@ -238,6 +238,20 @@ export const workCollection = (projects) => ({
   })),
 });
 
+export const demosCollection = (projects) => ({
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: `Try the demos - ${SITE_NAME}`,
+  url: pageUrl("/demos"),
+  about: "Working demos and concept builds you can click through, by GlimmerInk Creations",
+  hasPart: projects.map((project) => ({
+    "@type": "CreativeWork",
+    name: project.title,
+    url: pageUrl(`/work/${project.slug}`),
+    creator: teamRef(),
+  })),
+});
+
 export const blogCollection = (posts) => ({
   "@context": "https://schema.org",
   "@type": "Blog",
