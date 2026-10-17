@@ -12,9 +12,9 @@ const Heading = ({ children }) => (
   <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-primary dark:text-primary-light mb-4">{children}</h3>
 );
 
-// Real clients first (live, then in progress); concept builds are left out.
+// Real clients first (live, then in progress); concept builds and sample-data demos are left out.
 const clientProjects = developmentProjects
-  .filter((project) => project.status !== "demo")
+  .filter((project) => project.status !== "demo" && project.status !== "live-demo")
   .slice(0, 5);
 
 const latestPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 2);

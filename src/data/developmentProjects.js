@@ -1,3 +1,8 @@
+// Address of the chama system's live demo (sample data, read-only). The domain
+// may change; this one line is the only edit needed. If it is empty, the
+// project is left out of the site entirely, so there is never a dead link.
+const CHAMA_DEMO_URL = "https://mwangazashg.netlify.app";
+
 const categoryMeta = {
   web: {
     galleryId: "web-dev",
@@ -278,6 +283,54 @@ export const developmentProjects = [
     showOnHome: true,
     homeOrder: 6,
   },
+  ...(CHAMA_DEMO_URL
+    ? [
+        {
+          id: 15,
+          slug: "chama-management-system",
+          title: "Chama Management System",
+          description:
+            "A full management system for a savings group - weekly contributions, fines, expenses, meeting minutes and a member passbook - with a live demo you can click through, no sign-up needed.",
+          thumbnail: "/images/systems/mwangaza/dashboard.webp",
+          fullImage: "/images/systems/mwangaza/dashboard.webp",
+          url: CHAMA_DEMO_URL,
+          stack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+          features: [
+            "Treasurer's ledger with receipts and M-Pesa references",
+            "Automatic arrears: who is behind and by how many weeks",
+            "Fines issued from the meeting roll, with part-payments",
+            "Member passbook opened with ID + phone (statements as PDF or Excel)",
+            "Role-based access (admin, treasurer, secretary, disciplinary)",
+            "Tamper-evident audit log, closed-books locking and nightly backups",
+            "Mobile-first, with a quick-log sheet for logging payments on a phone",
+          ],
+          challenge:
+            "Most savings groups run on a paper book and a WhatsApp group. Figures drift, arrears get argued about, and members can't see where they stand without asking the treasurer.",
+          solution:
+            "One trusted set of books: payments are logged once, and every balance, arrears figure and report is worked out from them. Members check their own passbook, the committee works from role-based screens, and every change leaves a trail.",
+          results: [
+            "One source of truth for contributions, fines, expenses and minutes",
+            "Members see their own balance without calling the treasurer",
+            "Every change is traceable",
+          ],
+          images: [
+            "/images/systems/mwangaza/dashboard.webp",
+            "/images/systems/mwangaza/member-ledger.webp",
+            "/images/systems/mwangaza/fines.webp",
+            "/images/systems/mwangaza/reports.webp",
+            "/images/systems/mwangaza/passbook.webp",
+            "/images/systems/mwangaza/home.webp",
+          ],
+          category: "system",
+          year: "2026",
+          type: "Savings Group System",
+          status: "live-demo",
+          client: "Savings group (demo uses sample data)",
+          showOnHome: true,
+          homeOrder: 7,
+        },
+      ]
+    : []),
 ];
 
 // Single source for "how many live sites" claims across the site.
@@ -286,10 +339,16 @@ export const liveProjectCount = developmentProjects.filter((p) => p.status === "
 export const getProjectBySlug = (slug) =>
   developmentProjects.find((project) => project.slug === slug) || null;
 
+// The Systems filter only appears once a system project is on the site, so it
+// is never an empty tab while the chama demo is switched off.
 export const workCategories = [
   { id: "all", label: "All Projects" },
   { id: "web", label: "Web Applications" },
-];
+  { id: "system", label: "Systems & Dashboards" },
+].filter(
+  (category) =>
+    category.id === "all" || developmentProjects.some((project) => project.category === category.id)
+);
 
 export const portfolioGalleryData = {
   title: "Development Portfolio",

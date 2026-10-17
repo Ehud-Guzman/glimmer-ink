@@ -18,6 +18,7 @@ import Breadcrumbs from "@/components/ui/Breadcrumbs";
 const statusLabel = (status) => {
   if (status === "live") return "Live Project";
   if (status === "demo") return "Concept Build";
+  if (status === "live-demo") return "Live Demo";
   if (status === "in-progress") return "In Progress";
   if (status === "archived") return "Archived Build";
   return null;
@@ -186,7 +187,11 @@ const CaseStudy = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-xl hover:bg-primary-dark transition-colors font-semibold shadow-lg shadow-primary/20 sm:ml-auto"
               >
-                {project.status === "live" ? "Visit live site" : "View preview"}{" "}
+                {project.status === "live"
+                  ? "Visit live site"
+                  : project.status === "live-demo"
+                    ? "Try the live demo"
+                    : "View preview"}{" "}
                 <ExternalLink className="w-4 h-4" />
               </a>
             )}

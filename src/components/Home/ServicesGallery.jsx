@@ -240,7 +240,9 @@ const ServicesGallery = ({ mode = "full" }) => {
                   ? "Live project"
                   : project.status === "demo"
                     ? "Concept build"
-                    : "In progress";
+                    : project.status === "live-demo"
+                      ? "Live demo"
+                      : "In progress";
 
               return (
                 <motion.article
@@ -318,7 +320,11 @@ const ServicesGallery = ({ mode = "full" }) => {
                           className="inline-flex items-center gap-2 rounded-full border border-gray-300 dark:border-gray-600 px-4 py-2 text-sm font-medium text-text-light dark:text-text-dark hover:border-primary hover:text-primary dark:hover:text-primary-light transition-colors"
                         >
                           <ExternalLink size={16} />
-                          {project.status === "live" ? "Visit project" : "View preview"}
+                          {project.status === "live"
+                            ? "Visit project"
+                            : project.status === "live-demo"
+                              ? "Try the live demo"
+                              : "View preview"}
                         </a>
                       )}
                       <button

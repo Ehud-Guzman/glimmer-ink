@@ -8,9 +8,9 @@ import { LOCATION } from "@/data/location";
 // flagship. Change which project that is there, not here.
 const flagship = developmentProjects.find((project) => project.featured) ?? developmentProjects[0];
 
-// Real clients only: concept builds are not clients.
+// Real clients only: concept builds and sample-data demos are not clients.
 const clients = developmentProjects
-  .filter((project) => project.status !== "demo")
+  .filter((project) => project.status !== "demo" && project.status !== "live-demo")
   .map((project) => project.client || project.title);
 
 const FlagshipClient = () => {
