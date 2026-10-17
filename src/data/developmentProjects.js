@@ -34,14 +34,13 @@ export const developmentProjects = [
     slug: "hotel-itoya",
     title: "Hotel Itoya",
     description:
-      "A full hospitality platform for a premier business hotel in Busia — live room browsing, a guided booking wizard, and dedicated conference and events pages.",
+      "A full hospitality platform for a premier business hotel in Busia — live room browsing, a photo gallery, and dedicated conference and events pages.",
     thumbnail: "/images/websites/itoya/home.webp",
     fullImage: "/images/websites/itoya/home.webp",
     stack: ["React", "Tailwind CSS", "Node.js", "REST API"],
     features: [
-      "Guided multi-step booking wizard (room, dates, guests, confirmation)",
       "Live room and rate browser across four room tiers",
-      "Dedicated conference and events pages for business/MICE bookings",
+      "Dedicated conference and events pages for business and MICE clients",
       "Filterable photo gallery (spaces, rooms, dining, conference, events)",
       "Inline quick-search bar for room type, dates, and rate",
       "Mobile-first responsive design",
@@ -49,10 +48,10 @@ export const developmentProjects = [
     challenge:
       "Hotel Itoya needed more than a brochure site — as a business hotel built around conferences and events as much as stays, most competing hotel sites in the area offer little beyond a phone number and a contact form.",
     solution:
-      "Built a full hospitality platform with a live room and rate browser, a guided multi-step booking wizard, and dedicated conference and events pages, so guests can research, compare, and reserve a stay end to end — while positioning Itoya as a serious business hotel, not just a leisure stopover.",
+      "Built a full hospitality platform with a live room and rate browser, a photo gallery, and dedicated conference and events pages, so guests can research and compare before they get in touch — while positioning Itoya as a serious business hotel, not just a leisure stopover.",
     results: [
-      "Guests can browse rooms, rates, and complete a booking without a phone call",
-      "Conference and events pages open the site up to MICE bookings, the hotel's core business market",
+      "Guests can browse rooms and rates before they call",
+      "Conference and events pages open the site up to MICE clients, the hotel's core business market",
       "Filterable gallery lets guests explore rooms, dining, and event spaces before committing",
     ],
     images: [
