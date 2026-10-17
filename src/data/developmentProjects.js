@@ -325,13 +325,59 @@ export const developmentProjects = [
           type: "Savings Group System",
           status: "live-demo",
           client: "Savings group (demo uses sample data)",
+          // Names, IDs and phones below must match the demo's seed data (see
+          // frontend/src/utils/demo.js in the chama repo). Shown on /demos.
+          imageCaptions: [
+            "Dashboard: who has paid, who owes, money held",
+            "Member ledger",
+            "Fines issued from the meeting roll",
+            "Reports",
+            "A member's passbook",
+            "The member portal",
+          ],
+          // The demo's API sleeps on free hosting. The Demos page pings this when it
+          // opens so the demo is already awake by the time a visitor clicks through.
+          // Its origin must also be listed in connect-src in netlify.toml.
+          demoWarmup: "https://chama-demo-api.onrender.com/api/health",
+          // Phone-sized captures of the live demo (390x844), shown in a phone frame.
+          mobileImages: [
+            "/images/systems/mwangaza/mobile-dashboard.webp",
+            "/images/systems/mwangaza/mobile-quicklog.webp",
+            "/images/systems/mwangaza/mobile-members.webp",
+            "/images/systems/mwangaza/mobile-fines.webp",
+            "/images/systems/mwangaza/mobile-passbook.webp",
+          ],
+          mobileCaptions: [
+            "Dashboard on a phone",
+            "Quick-log sheet for recording a payment",
+            "Members",
+            "Fines",
+            "A member's passbook",
+          ],
           demoGuide: {
             access: "One-tap sign-in. No password, no sign-up.",
-            steps: [
-              "On the demo's home page, tap “Explore as Admin” to open the dashboard. Finance, Fines, Reports, Meeting, Benefits and Minutes all have data.",
-              "To see what a member sees, tap “Fill in” on a sample member, then “Check contributions” to open their passbook.",
-              "Try saving anything, such as logging a payment. It is a read-only demo, so a message appears and nothing is changed.",
+            roles: [
+              {
+                role: "Admin",
+                action: "Tap “Explore as Admin” on the demo's home page.",
+                detail: "Members, finance, fines, minutes, reports and the audit trail, all with data.",
+              },
+              {
+                role: "Treasurer",
+                action: "Tap “Explore as Treasurer” on the demo's home page.",
+                detail: "The ledger and the weekly collection.",
+              },
+              {
+                role: "Member",
+                action: "Tap “Fill in” on a sample member, then “Check contributions”.",
+                detail: "What a member sees for themselves, with no staff login needed.",
+              },
             ],
+            samples: [
+              { name: "Amina Wekesa", status: "Up to date", id: "30010001", phone: "0700100001" },
+              { name: "Esther Naliaka", status: "Behind on contributions", id: "30010005", phone: "0700100005" },
+            ],
+            tip: "Try saving anything, such as logging a payment. It is a read-only demo, so a message appears and nothing is changed.",
             note: "It runs on free hosting, so the first load after a quiet spell can take up to a minute.",
           },
           showOnHome: true,

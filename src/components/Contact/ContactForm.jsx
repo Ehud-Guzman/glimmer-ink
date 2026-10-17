@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "@/utils/motion";
+import { useSearchParams } from "react-router-dom";
 import { Send, Loader, User, Mail, Phone, MessageSquare } from "lucide-react";
+import { developmentProjects } from "@/data/developmentProjects";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -15,6 +17,11 @@ const ContactForm = ({ preset = null }) => {
     // Honeypot: must stay empty. Never shown to real visitors.
     company: "",
   });
+
+  // /contact?demo=<slug> comes from the Demos page. Only a known project slug is
+  // used (never the raw query text), and only while the visitor has typed nothing.
+  const [searchParams] = useSearchParams();
+  const demoSlug = searchParams.get("demo");
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -53,6 +60,26 @@ const ContactForm = ({ preset = null }) => {
       });
     }
   }, [preset]);
+
+  useEffect(() => {
+    const demo = developmentProjects.find((p) => p.slug === demoSlug);
+    if (!demo) return;
+
+    setFormData((prev) =>
+      prev.subject || prev.message
+        ? prev
+        : {
+            ...prev,
+            service: "system",
+            subject: `Quote request: a system like ${demo.title}`,
+            message: `Hi Ehud, I tried the ${demo.title} demo and I'd like something similar for my business.\n\nWhat I need:\n`,
+          }
+    );
+
+    if (window.gtag) {
+      window.gtag("event", "contact_intent", { intent: "system", source: "demos_page" });
+    }
+  }, [demoSlug]);
 
   /* =========================
      Auto-clear alerts
