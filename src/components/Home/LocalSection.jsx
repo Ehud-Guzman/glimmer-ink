@@ -16,8 +16,8 @@ const LocalSection = () => (
         </h2>
         <p className="text-text-light/75 dark:text-text-dark/75 leading-relaxed mb-6">
           Looking for a website developer in {LOCATION.town}? I build business websites, online shops and
-          management systems for local businesses, with in-person meetings across {LOCATION.county} and
-          remote delivery anywhere in {LOCATION.country}.
+          management systems for local businesses, with in-person meetings across {LOCATION.county}. Being
+          based here doesn&apos;t limit me: I work with clients anywhere in {LOCATION.country}, fully remotely.
         </p>
         <Link
           to={LOCATION.landingPath}

@@ -15,8 +15,9 @@ export const LOCATION = {
   longitude: 34.1115,
   // Towns around Busia that get the same in-person service.
   nearbyTowns: ["Malaba", "Nambale", "Funyula", "Port Victoria", "Bumala", "Amagoro"],
-  // Larger Western Kenya centres served remotely / by appointment.
-  widerArea: ["Bungoma", "Kakamega", "Kisumu", "Mumias", "Siaya"],
+  // Based in Busia but works with clients anywhere in Kenya, remotely by call,
+  // video and WhatsApp. Nearest centres first, then the major cities.
+  widerArea: ["Bungoma", "Kakamega", "Kisumu", "Eldoret", "Nakuru", "Nairobi", "Mombasa"],
   landingPath: "/web-developer-busia",
 };
 

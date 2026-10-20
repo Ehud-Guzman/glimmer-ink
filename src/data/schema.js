@@ -39,6 +39,7 @@ const serviceAreas = () => [
   { "@type": "City", name: LOCATION.town },
   { "@type": "AdministrativeArea", name: LOCATION.county },
   ...LOCATION.nearbyTowns.map((name) => ({ "@type": "City", name })),
+  ...LOCATION.widerArea.map((name) => ({ "@type": "City", name })),
   { "@type": "Country", name: LOCATION.country },
 ];
 

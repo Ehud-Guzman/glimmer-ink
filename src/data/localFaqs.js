@@ -14,7 +14,11 @@ export const localFaqs = [
   },
   {
     question: "Can we meet in person?",
-    answer: `Yes. I am based in ${LOCATION.town}, so meetings in ${LOCATION.town} and nearby towns such as ${LOCATION.nearbyTowns.slice(0, 3).join(", ")} are easy to arrange. For clients elsewhere in ${LOCATION.region} we work over calls, video and WhatsApp.`,
+    answer: `Yes. I am based in ${LOCATION.town}, so meetings in ${LOCATION.town} and nearby towns such as ${LOCATION.nearbyTowns.slice(0, 3).join(", ")} are easy to arrange. For clients elsewhere in ${LOCATION.country} we work over calls, video and WhatsApp.`,
+  },
+  {
+    question: `Do you work with clients outside ${LOCATION.town}?`,
+    answer: `Yes. I am based in ${LOCATION.town}, but I work with clients anywhere in ${LOCATION.country}, including ${LOCATION.widerArea.slice(0, 5).join(", ")} and beyond. Everything from the first quote to launch and support happens remotely by call, video and WhatsApp, and the pricing is the same wherever you are.`,
   },
   {
     question: "How long does it take to build a website?",

@@ -235,7 +235,7 @@ const WebDeveloperBusia = () => {
 
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.14em] text-primary dark:text-primary-light mb-2">Where I work</p>
-            <h2 className="font-display text-2xl sm:text-3xl font-bold mb-5">Busia and across {LOCATION.region}</h2>
+            <h2 className="font-display text-2xl sm:text-3xl font-bold mb-5">Based in Busia, working across {LOCATION.country}</h2>
             <p className="text-text-light/75 dark:text-text-dark/75 leading-relaxed mb-4">
               I&apos;m based in {LOCATION.town} town, so in-person meetings are easy across{" "}
               {LOCATION.county}. I work with clients in:
@@ -251,8 +251,9 @@ const WebDeveloperBusia = () => {
               ))}
             </ul>
             <p className="text-text-light/75 dark:text-text-dark/75 leading-relaxed">
-              Clients in {LOCATION.widerArea.join(", ")} and the rest of {LOCATION.country} are served
-              remotely by call, video and WhatsApp.
+              Being based in {LOCATION.town} doesn&apos;t limit where I work. Clients in{" "}
+              {LOCATION.widerArea.join(", ")} and the rest of {LOCATION.country} are served fully
+              remotely by call, video and WhatsApp, with the same clear KES pricing.
             </p>
           </div>
         </div>
