@@ -1,6 +1,6 @@
 import { motion } from "@/utils/motion";
 import MotionMax from "@/components/MotionMax";
-import { Link } from "react-router-dom";
+import { Link } from "@/components/ui/SlashLink";
 import { ExternalLink } from "lucide-react";
 import SafeImage from "@/components/ui/SafeImage";
 

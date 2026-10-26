@@ -1,6 +1,6 @@
 import { motion } from "@/utils/motion";
 import { ArrowRight, Calendar, MessageSquare, FileText } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "@/components/ui/SlashLink";
 import { LOCATION_LABEL } from "@/data/location";
 
 const AboutCTASection = () => {

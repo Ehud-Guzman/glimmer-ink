@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/components/ui/SlashLink";
 import { ArrowRight, CheckCircle2, ExternalLink } from "lucide-react";
 import SafeImage from "@/components/ui/SafeImage";
 import { developmentProjects } from "@/data/developmentProjects";

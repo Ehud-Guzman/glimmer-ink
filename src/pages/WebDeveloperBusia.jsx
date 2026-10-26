@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/components/ui/SlashLink";
 import { ArrowRight, ExternalLink, MapPin, MessageCircle, Phone } from "lucide-react";
 import SEOHead from "@/components/SEO/SEOHead";
 import SafeImage from "@/components/ui/SafeImage";

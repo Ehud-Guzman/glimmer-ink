@@ -1,6 +1,6 @@
 // components/Home/ServicesGallery.jsx
 import { useState, useEffect, useRef, useMemo } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@/components/ui/SlashLink";
 import { motion, AnimatePresence } from "@/utils/motion";
 import MotionMax from "@/components/MotionMax";
 import {

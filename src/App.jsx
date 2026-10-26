@@ -1,6 +1,7 @@
 // src/App.jsx
 import { Suspense, lazy, useState, useEffect } from "react";
-import { Routes, Route, useLocation, Link } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { Link } from "@/components/ui/SlashLink";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import MobileActionBar from "./components/Header/MobileActionBar";

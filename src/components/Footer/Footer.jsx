@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/components/ui/SlashLink";
 import { ArrowRight, Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import footerStructure from "@/data/footerData";
 import { developmentProjects } from "@/data/developmentProjects";

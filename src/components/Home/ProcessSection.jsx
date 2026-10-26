@@ -1,6 +1,6 @@
 // components/Home/ProcessSection.jsx (updated with your palette)
 import { motion } from "@/utils/motion";
-import { Link } from "react-router-dom";
+import { Link } from "@/components/ui/SlashLink";
 
 const steps = [
   {

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/components/ui/SlashLink";
 import { motion } from "@/utils/motion";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import SEOHead from "@/components/SEO/SEOHead";

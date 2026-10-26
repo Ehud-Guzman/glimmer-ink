@@ -9,7 +9,7 @@ import SEOHead from "../components/SEO/SEOHead";
 import pageSeo from "../data/pageSeo";
 import { faqPage, serviceList } from "../data/schema";
 import { serviceFaqs } from "../data/faqs";
-import { Link } from "react-router-dom";
+import { Link } from "@/components/ui/SlashLink";
 import { ArrowRight, CheckCircle2, Code2, Palette, ShoppingCart, Database, Zap, Layout } from "lucide-react";
 
 const services = [

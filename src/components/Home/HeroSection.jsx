@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/components/ui/SlashLink";
 import { Globe, ShoppingCart, LayoutDashboard, Smartphone } from "lucide-react";
 import { LOCATION_LABEL } from "@/data/location";
 import { liveProjectCount } from "@/data/developmentProjects";

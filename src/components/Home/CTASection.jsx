@@ -1,5 +1,5 @@
 import { motion } from "@/utils/motion";
-import { Link } from "react-router-dom";
+import { Link } from "@/components/ui/SlashLink";
 
 const CodeBackground = () => {
   const grid = [

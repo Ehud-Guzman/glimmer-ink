@@ -1,6 +1,6 @@
 import { motion } from "@/utils/motion";
 import { Mail, Calendar, MessageSquare, Phone, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "@/components/ui/SlashLink";
 
 const ServicesCTASection = () => {
   const contactMethods = [

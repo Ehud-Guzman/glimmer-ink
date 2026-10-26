@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@/components/ui/SlashLink";
 import { motion, AnimatePresence } from "@/utils/motion";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { serviceFaqs } from "@/data/faqs";

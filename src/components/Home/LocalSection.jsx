@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/components/ui/SlashLink";
 import { ArrowRight, MapPin } from "lucide-react";
 import { LOCATION } from "@/data/location";
 

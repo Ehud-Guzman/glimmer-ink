@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/components/ui/SlashLink";
 import { ChevronRight } from "lucide-react";
 
 // Visible breadcrumb trail. It mirrors the BreadcrumbList structured data that

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/components/ui/SlashLink";
 import { ArrowRight, Globe, LayoutDashboard, Database, Smartphone } from "lucide-react";
 import { servicePricing } from "@/data/pricing";
 

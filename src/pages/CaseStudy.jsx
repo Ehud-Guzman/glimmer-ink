@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { Link } from "@/components/ui/SlashLink";
 import { motion, AnimatePresence } from "@/utils/motion";
 import {
   ArrowLeft,

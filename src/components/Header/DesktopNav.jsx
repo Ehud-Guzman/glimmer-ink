@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink } from "@/components/ui/SlashLink";
 import ThemeToggle from "./ThemeToggle";
 import useQuoteClick from "./useQuoteClick";
 import {

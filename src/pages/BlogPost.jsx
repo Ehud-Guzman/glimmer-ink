@@ -1,5 +1,6 @@
 import { useMemo } from "react";
-import { useParams, Link, Navigate } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
+import { Link } from "@/components/ui/SlashLink";
 import { motion } from "@/utils/motion";
 import { Calendar, Clock, ArrowLeft, ArrowRight, Tag } from "lucide-react";
 import SEOHead from "@/components/SEO/SEOHead";
@@ -61,7 +62,7 @@ const BlogPost = () => {
     [post, breadcrumbItems]
   );
 
-  if (!post) return <Navigate to="/blog" replace />;
+  if (!post) return <Navigate to="/blog/" replace />;
 
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">

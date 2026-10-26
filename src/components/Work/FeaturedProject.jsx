@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@/components/ui/SlashLink";
 import { motion } from "@/utils/motion";
 import { ExternalLink, CheckCircle2, ArrowRight } from "lucide-react";
 import SafeImage from "@/components/ui/SafeImage";

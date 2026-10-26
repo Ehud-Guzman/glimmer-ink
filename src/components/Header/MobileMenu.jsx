@@ -1,5 +1,5 @@
 import { useEffect, useRef, useSyncExternalStore } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink } from "@/components/ui/SlashLink";
 import { createPortal } from "react-dom";
 import { ArrowRight, MapPin, MessageCircle, Phone, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
