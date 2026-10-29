@@ -3,6 +3,7 @@ import { hydrateRoot } from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./fonts.css";
 import "./index.css";
+import "./season.css";
 import App from "./App.jsx";
 
 if ("serviceWorker" in navigator) {

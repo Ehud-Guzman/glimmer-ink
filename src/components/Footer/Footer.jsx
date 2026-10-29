@@ -4,6 +4,7 @@ import footerStructure from "@/data/footerData";
 import { developmentProjects } from "@/data/developmentProjects";
 import { blogPosts } from "@/data/blogPosts";
 import { LOCATION, LOCATION_LABEL } from "@/data/location";
+import FestiveSwitch from "@/components/Season/FestiveSwitch";
 
 const linkClass =
   "text-sm text-text-light/70 dark:text-text-dark/70 hover:text-primary dark:hover:text-primary-light transition-colors";
@@ -26,7 +27,8 @@ const Footer = () => {
   const social = (contact?.social ?? []).filter((s) => s?.url && s.url !== "#");
 
   return (
-    <footer className="bg-white dark:bg-gray-950 border-t border-border-light dark:border-border-dark pb-16 md:pb-0">
+    <footer className="relative bg-white dark:bg-gray-950 border-t border-border-light dark:border-border-dark pb-16 md:pb-0">
+      <div className="season-ribbon" aria-hidden="true" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8 md:pt-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10">
           {/* Brand */}
@@ -182,6 +184,7 @@ const Footer = () => {
             <Link to="/privacy" className="text-text-light/55 dark:text-text-dark/55 hover:text-primary dark:hover:text-primary-light transition-colors">
               Privacy Policy
             </Link>
+            <FestiveSwitch />
             <p>Web design and development in {LOCATION_LABEL}</p>
           </div>
         </div>

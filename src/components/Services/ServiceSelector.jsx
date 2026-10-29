@@ -1,17 +1,20 @@
 import { useMemo, useState } from "react";
 import { Link } from "@/components/ui/SlashLink";
-import { Check, ArrowRight, Calculator } from "lucide-react";
+import { Check, ArrowRight, Calculator, Gift } from "lucide-react";
 import {
   servicePricing as services,
   featurePricing as features,
   budgetLimits as BUDGET_LIMITS,
   budgetRanges,
 } from "@/data/pricing";
+import { applyOffer } from "@/data/seasons";
+import { useSeason } from "@/utils/season";
 
 const ServiceSelector = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [selectedFeatures, setSelectedFeatures] = useState([]);
   const [budget, setBudget] = useState("starter");
+  const { offer } = useSeason();
 
   const isIncluded = (featureId) =>
     !!selectedService?.includedFeatures?.includes(featureId);
@@ -214,6 +217,18 @@ const ServiceSelector = () => {
                 <div className="text-sm text-gray-600">Estimated</div>
               </div>
             </div>
+
+            {offer && estimate > 0 && (
+              <div className="mb-5 flex items-center gap-3 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-900">
+                <Gift className="h-4 w-4 shrink-0 text-red-600" aria-hidden="true" />
+                <p>
+                  <strong className="font-semibold">
+                    With the festive offer (−{offer.percent}%): KES {applyOffer(estimate, offer).toLocaleString()}
+                  </strong>{" "}
+                  until {offer.until}.
+                </p>
+              </div>
+            )}
 
             <div className="mb-5 rounded-xl bg-gray-50 border border-gray-200 p-4">
               <div className="text-sm font-medium text-gray-900 mb-1">

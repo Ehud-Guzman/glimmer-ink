@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import DesktopNav from "./DesktopNav";
 import MobileMenu from "./MobileMenu";
 import Logo from "./Logo";
+import SeasonBar from "@/components/Season/SeasonBar";
 
 export default function Header({ isMenuOpen, setIsMenuOpen }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -66,7 +67,10 @@ export default function Header({ isMenuOpen, setIsMenuOpen }) {
           : "border-gray-100 dark:border-gray-800/60"
       }`}
     >
-      {/* Fixed height, matching the page offset in App.jsx (pt-16 / lg:pt-20) */}
+      {/* Festive strip: zero height outside a season (see src/season.css) */}
+      <SeasonBar />
+
+      {/* Fixed height, matching the page offset in App.jsx (pt-16 / lg:pt-20, plus the strip above) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 lg:h-20 flex justify-between items-center">
         <Logo />
 
@@ -86,6 +90,9 @@ export default function Header({ isMenuOpen, setIsMenuOpen }) {
           </svg>
         </button>
       </div>
+
+      {/* String lights hanging under the header, in season only */}
+      <div className="season-lights" aria-hidden="true" />
 
       <MobileMenu
         isOpen={isMenuOpen}

@@ -5,6 +5,7 @@ import { Link } from "@/components/ui/SlashLink";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import MobileActionBar from "./components/Header/MobileActionBar";
+import SeasonLayer from "./components/Season/SeasonLayer";
 import { pageview } from "./utils/analytics";
 import SEOHead from "./components/SEO/SEOHead";
 import MotionProvider from "./components/MotionProvider";
@@ -119,7 +120,7 @@ function AppShell() {
       {/* Main content */}
       <main
         id="main-content"
-        className={`flex-grow pt-16 lg:pt-20 transition-all duration-300 ${
+        className={`flex-grow pt-[calc(4rem_+_var(--season-bar-h))] lg:pt-[calc(5rem_+_var(--season-bar-h))] transition-all duration-300 ${
           isMenuOpen ? "blur-sm pointer-events-none select-none" : ""
         }`}
       >
@@ -147,6 +148,9 @@ function AppShell() {
 
       {/* Phones only: fixed Call / WhatsApp bar */}
       <MobileActionBar />
+
+      {/* Seasonal extras (snowfall); renders nothing outside a season */}
+      <SeasonLayer />
     </div>
   );
 }

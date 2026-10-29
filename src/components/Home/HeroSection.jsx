@@ -22,7 +22,7 @@ const stack = ["React", "Vite", "Tailwind", "Node.js"];
 
 const HeroSection = () => {
   return (
-    <section className="relative md:min-h-[calc(100svh-4rem)] lg:min-h-[calc(100svh-5rem)] flex items-center overflow-hidden pt-8 pb-14 md:py-6">
+    <section className="relative md:min-h-[calc(100svh_-_4rem_-_var(--season-bar-h))] lg:min-h-[calc(100svh_-_5rem_-_var(--season-bar-h))] flex items-center overflow-hidden pt-8 pb-14 md:py-6">
       {/* Technical backdrop: faded blueprint grid + soft brand wash */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div

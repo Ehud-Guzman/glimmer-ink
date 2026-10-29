@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "@/utils/motion";
 import { useSearchParams } from "react-router-dom";
-import { Send, Loader, User, Mail, Phone, MessageSquare } from "lucide-react";
+import { Send, Loader, User, Mail, Phone, MessageSquare, Gift } from "lucide-react";
 import { developmentProjects } from "@/data/developmentProjects";
+import { useSeason } from "@/utils/season";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -22,6 +23,9 @@ const ContactForm = ({ preset = null }) => {
   // used (never the raw query text), and only while the visitor has typed nothing.
   const [searchParams] = useSearchParams();
   const demoSlug = searchParams.get("demo");
+
+  // Festive offer (null outside a season). Rendered after hydration only.
+  const { offer } = useSeason();
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -171,7 +175,12 @@ const ContactForm = ({ preset = null }) => {
         phone: formData.phone.trim(),
         subject: formData.subject.trim(),
         service: formData.service,
-        message: formData.message.trim(),
+        // The offer is tagged on the message so it is visible in the inbox.
+        message: offer
+          ? `${formData.message.trim()}
+
+[Festive offer: ${offer.label} until ${offer.until}]`
+          : formData.message.trim(),
       };
 
       // Loaded on demand: keeps the EmailJS SDK out of the initial bundle and
@@ -229,6 +238,19 @@ const ContactForm = ({ preset = null }) => {
           Share a few details and I’ll take it from there.
         </p>
       </div>
+
+      {offer && (
+        <div
+          className="mb-6 flex items-start gap-3 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-900 dark:border-red-900/60 dark:bg-red-950/30 dark:text-red-100"
+          role="note"
+        >
+          <Gift className="mt-0.5 h-4 w-4 shrink-0 text-red-600 dark:text-red-300" aria-hidden="true" />
+          <p>
+            <strong className="font-semibold">Festive offer: {offer.label} until {offer.until}.</strong>{" "}
+            Send your request and I&apos;ll take it off your quote.
+          </p>
+        </div>
+      )}
 
       {/* Status */}
       {submitStatus && (
