@@ -19,6 +19,9 @@ export const SEASONS = [
   },
 ];
 
+// Where "Claim it" goes: the contact form, pre-filled for the offer.
+export const CLAIM_PATH = "/contact?offer=festive";
+
 // The festive offer, one place for every surface that mentions it (announcement
 // bar, contact form, cost estimator). It runs for the whole season window.
 export const SEASON_OFFERS = {
@@ -33,19 +36,19 @@ export const SEASON_COPY = {
       icon: "tree",
       text: "Festive offer: {percent}% off all new projects until {end}. Planning a new site for {next}?",
       short: "Festive offer: {percent}% off all projects",
-      cta: { label: "Claim it", to: "/contact" },
+      cta: { label: "Claim it", to: CLAIM_PATH },
     },
     christmas: {
       icon: "gift",
       text: "Merry Christmas from GlimmerInk Creations! Enjoy {percent}% off all new projects until {end}.",
       short: "Merry Christmas! {percent}% off all projects",
-      cta: { label: "Claim it", to: "/contact" },
+      cta: { label: "Claim it", to: CLAIM_PATH },
     },
     newyear: {
       icon: "party",
       text: "Happy New Year {next}! {percent}% off all new projects until {end}. Make it your year online.",
       short: "Happy New Year! {percent}% off all projects",
-      cta: { label: "Claim it", to: "/contact" },
+      cta: { label: "Claim it", to: CLAIM_PATH },
     },
   },
 };
@@ -58,6 +61,20 @@ export function seasonEnd(name) {
   if (!season) return "";
   const [month, day] = season.phases[season.phases.length - 1].to.split("-").map(Number);
   return `${day} ${MONTHS[month - 1]}`;
+}
+
+// The season's first and last moments for a season that began in `year`
+// (start 00:00 on the first phase's day, end 23:59:59 on the last phase's day).
+export function seasonWindow(name, year) {
+  const season = SEASONS.find((entry) => entry.name === name);
+  if (!season) return null;
+  const [fromMonth, fromDay] = season.phases[0].from.split("-").map(Number);
+  const [toMonth, toDay] = season.phases[season.phases.length - 1].to.split("-").map(Number);
+  const wraps = toMonth * 100 + toDay < fromMonth * 100 + fromDay;
+  return {
+    start: new Date(year, fromMonth - 1, fromDay),
+    end: new Date(wraps ? year + 1 : year, toMonth - 1, toDay, 23, 59, 59),
+  };
 }
 
 export const applyOffer = (amount, offer) => Math.round((amount * (100 - offer.percent)) / 100);

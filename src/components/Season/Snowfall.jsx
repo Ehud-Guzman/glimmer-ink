@@ -18,15 +18,18 @@ const random = (min, max) => min + Math.random() * (max - min);
 
 const makeFlakes = (count) =>
   Array.from({ length: count }, () => {
-    const size = random(2.5, 6.5);
+    const size = random(2.5, 6.8);
+    // Bigger flakes are "closer": they fall faster, sway wider and look brighter.
+    const depth = (size - 2.5) / 4.3;
     return {
+      near: size > 5.4,
       x: `${random(0, 100).toFixed(1)}%`,
       size: `${size.toFixed(1)}px`,
-      // Bigger flakes are "closer": faster, brighter.
-      duration: `${(random(13, 24) - size).toFixed(1)}s`,
-      delay: `${(-random(0, 24)).toFixed(1)}s`,
-      drift: `${random(-60, 60).toFixed(0)}px`,
-      opacity: (0.35 + size / 12).toFixed(2),
+      duration: `${(random(20, 28) - depth * 12).toFixed(1)}s`,
+      sway: `${random(2.4, 4.2).toFixed(1)}s`,
+      delay: `${(-random(0, 26)).toFixed(1)}s`,
+      drift: `${(14 + depth * 26 + random(0, 14)).toFixed(0)}px`,
+      opacity: (0.4 + depth * 0.5).toFixed(2),
     };
   });
 
@@ -58,10 +61,12 @@ export default function Snowfall() {
       {flakes.map((flake, index) => (
         <i
           key={index}
+          className={flake.near ? "near" : undefined}
           style={{
             "--x": flake.x,
             "--s": flake.size,
             "--d": flake.duration,
+            "--sway": flake.sway,
             "--delay": flake.delay,
             "--dx": flake.drift,
             "--o": flake.opacity,

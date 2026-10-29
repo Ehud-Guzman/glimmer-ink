@@ -38,14 +38,17 @@ const Footer = () => {
               aria-label="GlimmerInk Creations home"
               className="inline-flex rounded-xl bg-white px-2 py-1 -ml-2"
             >
-              <img
-                src="/images/logo-blue.webp"
-                alt="GlimmerInk Creations logo"
-                width="280"
-                height="121"
-                loading="lazy"
-                className="h-12 w-auto object-contain"
-              />
+              <span className="relative inline-flex">
+                <img
+                  src="/images/logo-blue.webp"
+                  alt="GlimmerInk Creations logo"
+                  width="280"
+                  height="121"
+                  loading="lazy"
+                  className="h-12 w-auto object-contain"
+                />
+                <span className="season-hat" aria-hidden="true" />
+              </span>
             </Link>
 
             <p className="mt-4 text-sm leading-relaxed text-text-light/70 dark:text-text-dark/70 max-w-sm">

@@ -1,5 +1,5 @@
 import { useMemo, useSyncExternalStore } from "react";
-import { SEASON_COPY, SEASON_OFFERS, seasonEnd } from "@/data/seasons";
+import { SEASON_COPY, SEASON_OFFERS, seasonEnd, seasonWindow } from "@/data/seasons";
 
 // The page-load script in index.html (built by the season-boot plugin) decides
 // which season applies and records it as data-season-* attributes on <html>.
@@ -19,10 +19,21 @@ const subscribe = (callback) => {
   return () => listeners.delete(callback);
 };
 
+// Whole days until the season ends, or "" when the season is only being previewed
+// outside its dates (a countdown of 60-odd days would just be noise).
+const daysLeft = (name, year) => {
+  const window = seasonWindow(name, Number(year));
+  if (!window) return "";
+  const now = Date.now();
+  if (now < window.start.getTime() || now > window.end.getTime()) return "";
+  return String(Math.ceil((window.end.getTime() - now) / 86400000));
+};
+
+// The day count is part of the snapshot, so it updates when the day rolls over.
 const read = () => {
   if (typeof document === "undefined") return "";
   const d = document.documentElement.dataset;
-  return [d.season, d.seasonName, d.seasonPhase, d.seasonYear, d.seasonBar, d.seasonSnow]
+  return [d.season, d.seasonName, d.seasonPhase, d.seasonYear, d.seasonBar, d.seasonSnow, d.seasonName ? daysLeft(d.seasonName, d.seasonYear) : ""]
     .map((value) => value || "")
     .join("|");
 };
@@ -49,7 +60,7 @@ export function useSeason() {
   const snapshot = useSyncExternalStore(subscribe, read, readServer);
 
   return useMemo(() => {
-    const [on, name, phase, year, bar, snow] = snapshot.split("|");
+    const [on, name, phase, year, bar, snow, left] = snapshot.split("|");
     const offer = name ? (SEASON_OFFERS[name] ?? null) : null;
     const raw = name ? (SEASON_COPY[name]?.[phase] ?? null) : null;
 
@@ -67,6 +78,7 @@ export function useSeason() {
       active: Boolean(on),
       barClosed: bar === "closed",
       snowOn: snow !== "off",
+      daysLeft: left === "" ? null : Number(left),
       // The offer belongs to the season window, not to the decoration: it stays
       // true even if the visitor switched the festive theme off.
       offer: offer && { ...offer, until: seasonEnd(name), label: `${offer.percent}% off all new projects` },

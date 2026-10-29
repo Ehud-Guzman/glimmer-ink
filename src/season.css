@@ -106,6 +106,115 @@ html:not([data-season]) .season-bar {
   }
 }
 
+.season-bar__pill {
+  align-items: center;
+  flex-shrink: 0;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 0.16);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ---- Home hero: warm halo and swinging baubles (decoration only) ---- */
+
+.season-halo,
+.season-baubles {
+  display: none;
+}
+
+/* In season the blue glow behind the browser window gives way to a warm one. */
+html[data-season] .season-halo-swap {
+  display: none;
+}
+
+html[data-season] .season-halo {
+  display: block;
+  position: absolute;
+  inset: -1rem;
+  border-radius: 1rem;
+  background: linear-gradient(120deg, #c1121f 0%, #f5c451 55%, #15803d 100%);
+  filter: blur(28px);
+  opacity: 0.26;
+}
+
+html.dark[data-season] .season-halo {
+  opacity: 0.32;
+}
+
+html[data-season] .season-baubles {
+  display: block;
+  position: absolute;
+  top: -6px;
+  right: 34px;
+  width: 64px;
+  height: 64px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.season-baubles::before,
+.season-baubles::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  background-repeat: no-repeat;
+  transform-origin: 50% 0;
+}
+
+.season-baubles::before {
+  left: 0;
+  width: 28px;
+  height: 62px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='62' viewBox='0 0 28 62'%3E %3Cpath d='M14 0V35' stroke='%2394a3b8' stroke-width='1'/%3E %3Crect x='11' y='34' width='6' height='4' rx='1' fill='%23f5c451' stroke='%23c9962a' stroke-width='.5'/%3E %3Ccircle cx='14' cy='48' r='11' fill='%23d62828'/%3E %3Ccircle cx='14' cy='48' r='11' fill='none' stroke='%239d0f1c' stroke-width='1'/%3E %3Cpath d='M7.949999999999999 46.35A6.82 6.82 0 0 1 12.9 41.18' fill='none' stroke='%23fff' stroke-width='1.6' stroke-linecap='round' opacity='.65'/%3E %3Cpath d='M3 45.8Q14 50.75 25 45.8' fill='none' stroke='%23f5c451' stroke-width='1.2' opacity='.8'/%3E%3C/svg%3E");
+  animation: season-swing 3.8s ease-in-out infinite alternate;
+}
+
+.season-baubles::after {
+  left: 38px;
+  width: 24px;
+  height: 46px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='46' viewBox='0 0 24 46'%3E %3Cpath d='M12 0V19' stroke='%2394a3b8' stroke-width='1'/%3E %3Crect x='9' y='18' width='6' height='4' rx='1' fill='%23f5c451' stroke='%23c9962a' stroke-width='.5'/%3E %3Ccircle cx='12' cy='32' r='9' fill='%23f5c451'/%3E %3Ccircle cx='12' cy='32' r='9' fill='none' stroke='%23c9962a' stroke-width='1'/%3E %3Cpath d='M7.05 30.65A5.58 5.58 0 0 1 11.1 26.42' fill='none' stroke='%23fff' stroke-width='1.6' stroke-linecap='round' opacity='.65'/%3E %3Cpath d='M3 30.2Q12 34.25 21 30.2' fill='none' stroke='%23f5c451' stroke-width='1.2' opacity='.8'/%3E%3C/svg%3E");
+  animation: season-swing 3.2s ease-in-out -1.6s infinite alternate;
+}
+
+@keyframes season-swing {
+  from {
+    transform: rotate(-5deg);
+  }
+  to {
+    transform: rotate(5deg);
+  }
+}
+
+/* ---- "-10%" badge on the Get a Quote buttons ---- */
+
+.season-badge {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  padding: 0.0625rem 0.375rem;
+  border-radius: 9999px;
+  background: var(--season-gold);
+  color: #5b0a12;
+  font-size: 0.625rem;
+  font-weight: 700;
+  line-height: 1.25;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.25);
+  pointer-events: none;
+}
+
+.season-badge--inline {
+  position: static;
+  box-shadow: none;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+}
+
 /* ---- String lights hanging under the header ---- */
 
 .season-lights {
@@ -225,34 +334,54 @@ html.dark[data-season] body::before {
   animation: season-fade-in 1.6s ease both;
 }
 
+/* Each flake is two moving parts so the motion feels natural: the <i> falls in a
+   straight line, and its ::before sways side to side with easing. */
 .snowfall i {
   position: absolute;
   top: 0;
   left: var(--x);
   width: var(--s);
   height: var(--s);
-  border-radius: 50%;
-  background: #fff;
   opacity: var(--o);
-  /* A pale blue ring keeps white flakes visible on the light background. */
-  box-shadow: 0 0 0 1px rgb(96 165 250 / 0.45), 0 0 5px rgb(147 197 253 / 0.7);
   will-change: transform;
-  animation: season-snow var(--d) linear var(--delay) infinite;
+  animation: season-fall var(--d) linear var(--delay) infinite;
 }
 
-html.dark .snowfall i {
+.snowfall i::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #fff;
+  /* A pale blue ring keeps white flakes visible on the light background. */
+  box-shadow: 0 0 0 1px rgb(96 165 250 / 0.45), 0 0 5px rgb(147 197 253 / 0.7);
+  animation: season-sway var(--sway) ease-in-out var(--delay) infinite alternate;
+}
+
+/* The biggest flakes are "close to the camera", so they are slightly out of focus. */
+.snowfall i.near::before {
+  filter: blur(0.7px);
+}
+
+html.dark .snowfall i::before {
   box-shadow: 0 0 5px rgb(255 255 255 / 0.65);
 }
 
-@keyframes season-snow {
-  0% {
+@keyframes season-fall {
+  from {
     transform: translate3d(0, -6vh, 0);
   }
-  50% {
-    transform: translate3d(var(--dx), 50vh, 0);
+  to {
+    transform: translate3d(0, 106vh, 0);
   }
-  100% {
-    transform: translate3d(calc(var(--dx) * -0.6), 106vh, 0);
+}
+
+@keyframes season-sway {
+  from {
+    transform: translate3d(calc(var(--dx) * -1), 0, 0);
+  }
+  to {
+    transform: translate3d(var(--dx), 0, 0);
   }
 }
 

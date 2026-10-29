@@ -26,6 +26,7 @@ const ContactForm = ({ preset = null }) => {
 
   // Festive offer (null outside a season). Rendered after hydration only.
   const { offer } = useSeason();
+  const offerRequested = searchParams.get("offer") === "festive";
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -84,6 +85,36 @@ const ContactForm = ({ preset = null }) => {
       window.gtag("event", "contact_intent", { intent: "system", source: "demos_page" });
     }
   }, [demoSlug]);
+
+  // "Claim it" links here with ?offer=festive. Pre-fill only while the visitor has
+  // typed nothing, and only if the offer is actually running.
+  const offerLabel = offer?.label;
+  useEffect(() => {
+    if (!offerLabel || !offerRequested) return undefined;
+
+    setFormData((prev) =>
+      prev.subject || prev.message
+        ? prev
+        : {
+            ...prev,
+            subject: "Quote request: festive offer",
+            message: `Hi Ehud, I'd like a quote and to claim the festive offer (${offerLabel}).
+
+What I need:
+`,
+          }
+    );
+
+    // Bring the form into view. Delayed a beat so it runs after the app's own
+    // scroll-to-top on route change, which would otherwise win.
+    const timer = setTimeout(() => {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      document
+        .getElementById("contact-form")
+        ?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    }, 150);
+    return () => clearTimeout(timer);
+  }, [offerLabel, offerRequested]);
 
   /* =========================
      Auto-clear alerts
@@ -190,7 +221,7 @@ const ContactForm = ({ preset = null }) => {
 
       setSubmitStatus({
         type: "success",
-        message: "Thanks for reaching out. I’ll usually reply within 24 hours.",
+        message: `Thanks for reaching out.${offer ? ` I'll apply your ${offer.percent}% festive offer to your quote.` : ""} I’ll usually reply within 24 hours.`,
       });
 
       trackSubmit("success");

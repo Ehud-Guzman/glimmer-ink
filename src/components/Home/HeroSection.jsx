@@ -134,7 +134,8 @@ const HeroSection = () => {
         {/* Right: Illustration inside a browser window */}
         <div className="w-full md:w-auto flex justify-center md:justify-end animate-fade-left pb-6 md:pb-0">
           <div className="relative w-full md:max-w-md">
-            <div className="absolute -inset-4 bg-gradient-to-r from-primary to-primary-light dark:from-primary-dark dark:to-primary rounded-2xl blur-xl opacity-20" aria-hidden="true" />
+            <div className="season-halo-swap absolute -inset-4 bg-gradient-to-r from-primary to-primary-light dark:from-primary-dark dark:to-primary rounded-2xl blur-xl opacity-20" aria-hidden="true" />
+            <div className="season-halo" aria-hidden="true" />
 
             <div className="relative overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-2xl">
               {/* Window chrome */}
@@ -161,6 +162,9 @@ const HeroSection = () => {
                 decoding="async"
               />
             </div>
+
+            {/* Seasonal baubles hanging off the window (hidden outside a season) */}
+            <div className="season-baubles" aria-hidden="true" />
 
             <div className="absolute -bottom-6 left-1/2 w-[92%] -translate-x-1/2 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur px-4 sm:px-5 py-3.5 shadow-xl">
               <div className="flex items-center justify-between gap-4 text-sm">

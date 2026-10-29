@@ -4,6 +4,7 @@ import { createPortal } from "react-dom";
 import { ArrowRight, MapPin, MessageCircle, Phone, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import useQuoteClick from "./useQuoteClick";
+import OfferBadge from "@/components/Season/OfferBadge";
 import { LOCATION_LABEL } from "@/data/location";
 import {
   loadHome,
@@ -63,13 +64,16 @@ export default function MobileMenu({ isOpen, toggleMenu, closeMenu, toggleTheme 
         {/* Top bar: logo, theme, close */}
         <div className="flex items-center justify-between h-16 px-4 border-b border-gray-200 dark:border-gray-800">
           <Link to="/" onClick={doClose} aria-label="GlimmerInk Creations home" className="flex rounded-xl dark:bg-white dark:px-2 dark:py-1">
-            <img
-              src="/images/logo-blue.webp"
-              alt="GlimmerInk Creations"
-              width="280"
-              height="121"
-              className="h-10 w-auto object-contain"
-            />
+            <span className="relative inline-flex">
+              <img
+                src="/images/logo-blue.webp"
+                alt="GlimmerInk Creations"
+                width="280"
+                height="121"
+                className="h-10 w-auto object-contain"
+              />
+              <span className="season-hat" aria-hidden="true" />
+            </span>
           </Link>
 
           <div className="flex items-center gap-2">
@@ -128,6 +132,7 @@ export default function MobileMenu({ isOpen, toggleMenu, closeMenu, toggleTheme 
             className="flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3.5 text-base font-semibold text-white shadow-lg shadow-primary/20 hover:bg-primary-dark transition-colors"
           >
             Get a Quote
+            <OfferBadge inline />
             <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </Link>
 

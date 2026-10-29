@@ -9,7 +9,7 @@ const icons = { tree: TreePine, gift: Gift, party: PartyPopper };
 // the space is reserved before first paint and nothing shifts when the text
 // appears after hydration.
 export default function SeasonBar() {
-  const { active, copy, barClosed, snowOn } = useSeason();
+  const { active, copy, barClosed, snowOn, daysLeft } = useSeason();
   const show = active && Boolean(copy) && !barClosed;
   const Icon = copy ? (icons[copy.icon] ?? TreePine) : TreePine;
 
@@ -21,6 +21,11 @@ export default function SeasonBar() {
             <Icon className="h-3.5 w-3.5 shrink-0 text-[var(--season-gold)]" aria-hidden="true" />
             <span className="truncate sm:hidden">{copy.short}</span>
             <span className="hidden truncate sm:inline">{copy.text}</span>
+            {daysLeft !== null && (
+              <span className="season-bar__pill hidden md:inline-flex">
+                {daysLeft <= 1 ? "Ends today" : `${daysLeft} days left`}
+              </span>
+            )}
             <Link
               to={copy.cta.to}
               className="season-bar__cta hidden shrink-0 items-center gap-1 font-semibold text-[var(--season-gold)] underline-offset-4 hover:underline sm:inline-flex"

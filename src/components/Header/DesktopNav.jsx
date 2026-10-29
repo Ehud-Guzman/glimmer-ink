@@ -1,6 +1,7 @@
 import { Link, NavLink } from "@/components/ui/SlashLink";
 import ThemeToggle from "./ThemeToggle";
 import useQuoteClick from "./useQuoteClick";
+import OfferBadge from "@/components/Season/OfferBadge";
 import {
   loadHome,
   loadWork,
@@ -58,9 +59,10 @@ export default function DesktopNav({ toggleTheme }) {
         to="/contact"
         onMouseEnter={loadContact}
         onClick={onQuoteClick}
-        className="inline-flex items-center whitespace-nowrap rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"
+        className="relative inline-flex items-center whitespace-nowrap rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"
       >
         Get a Quote
+        <OfferBadge />
       </Link>
 
       <ThemeToggle toggleTheme={toggleTheme} />
