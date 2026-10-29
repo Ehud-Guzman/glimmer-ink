@@ -1,5 +1,5 @@
 import { StrictMode, startTransition } from "react";
-import { hydrateRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./fonts.css";
 import "./index.css";
@@ -20,18 +20,29 @@ if ("serviceWorker" in navigator) {
   }
 }
 
+const app = (
+  <StrictMode>
+    <Router>
+      <App />
+    </Router>
+  </StrictMode>
+);
+
+const container = document.getElementById("root");
+
 // Every route is prerendered to static HTML at build time (scripts/prerender.js),
 // so hydrate instead of mounting: React adopts the existing markup rather than
 // discarding it and re-rendering from scratch. Starting the hydration inside a
 // transition lets React split the work into short slices, so the page stays
 // responsive to taps and scrolling while it wakes up.
-startTransition(() => {
-  hydrateRoot(
-    document.getElementById("root"),
-    <StrictMode>
-      <Router>
-        <App />
-      </Router>
-    </StrictMode>
-  );
-});
+//
+// The dev server does not prerender: its root is just a placeholder comment.
+// Hydrating that logs a (harmless) "Hydration failed" error on every load, so
+// when there is no server markup to adopt, mount normally instead.
+if (container.children.length > 0) {
+  startTransition(() => {
+    hydrateRoot(container, app);
+  });
+} else {
+  createRoot(container).render(app);
+}
