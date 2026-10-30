@@ -6,8 +6,8 @@ import { useSeason } from "@/utils/season";
 const Snowfall = lazy(() => import("./Snowfall"));
 
 export default function SeasonLayer() {
-  const { active, snowOn } = useSeason();
-  if (!active || !snowOn) return null;
+  const { active, snowOn, features } = useSeason();
+  if (!active || !features.snow || !snowOn) return null;
 
   return (
     <Suspense fallback={null}>

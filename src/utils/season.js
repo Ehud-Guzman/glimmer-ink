@@ -1,5 +1,5 @@
 import { useMemo, useSyncExternalStore } from "react";
-import { SEASON_COPY, SEASON_OFFERS, seasonEnd, seasonWindow } from "@/data/seasons";
+import { SEASON_COPY, SEASON_FEATURES, SEASON_OFFERS, seasonEnd, seasonWindow } from "@/data/seasons";
 
 // The page-load script in index.html (built by the season-boot plugin) decides
 // which season applies and records it as data-season-* attributes on <html>.
@@ -70,6 +70,13 @@ export function useSeason() {
         .replaceAll("{percent}", String(offer?.percent ?? ""))
         .replaceAll("{end}", seasonEnd(name));
 
+    const copy = raw && {
+      ...raw,
+      text: fill(raw.text),
+      short: fill(raw.short),
+      cta: raw.cta.claim && offer ? { label: raw.cta.label, to: `/contact?offer=${offer.claim}` } : raw.cta,
+    };
+
     return {
       name,
       phase,
@@ -81,8 +88,9 @@ export function useSeason() {
       daysLeft: left === "" ? null : Number(left),
       // The offer belongs to the season window, not to the decoration: it stays
       // true even if the visitor switched the festive theme off.
-      offer: offer && { ...offer, until: seasonEnd(name), label: `${offer.percent}% off all new projects` },
-      copy: raw && { ...raw, text: fill(raw.text), short: fill(raw.short) },
+      offer: offer && { ...offer, until: seasonEnd(name) },
+      features: (name && SEASON_FEATURES[name]) || {},
+      copy,
     };
   }, [snapshot]);
 }

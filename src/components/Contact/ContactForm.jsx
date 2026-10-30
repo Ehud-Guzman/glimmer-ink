@@ -3,6 +3,7 @@ import { motion } from "@/utils/motion";
 import { useSearchParams } from "react-router-dom";
 import { Send, Loader, User, Mail, Phone, MessageSquare, Gift } from "lucide-react";
 import { developmentProjects } from "@/data/developmentProjects";
+import { trackEvent } from "@/utils/analytics";
 import { useSeason } from "@/utils/season";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -26,7 +27,7 @@ const ContactForm = ({ preset = null }) => {
 
   // Festive offer (null outside a season). Rendered after hydration only.
   const { offer } = useSeason();
-  const offerRequested = searchParams.get("offer") === "festive";
+  const offerRequested = Boolean(offer) && searchParams.get("offer") === offer.claim;
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -88,20 +89,17 @@ const ContactForm = ({ preset = null }) => {
 
   // "Claim it" links here with ?offer=festive. Pre-fill only while the visitor has
   // typed nothing, and only if the offer is actually running.
-  const offerLabel = offer?.label;
+  const claimedOffer = offerRequested ? offer : null;
   useEffect(() => {
-    if (!offerLabel || !offerRequested) return undefined;
+    if (!claimedOffer) return undefined;
 
     setFormData((prev) =>
       prev.subject || prev.message
         ? prev
         : {
             ...prev,
-            subject: "Quote request: festive offer",
-            message: `Hi Ehud, I'd like a quote and to claim the festive offer (${offerLabel}).
-
-What I need:
-`,
+            subject: claimedOffer.subject,
+            message: claimedOffer.message.replace("{label}", claimedOffer.label),
           }
     );
 
@@ -114,7 +112,7 @@ What I need:
         ?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
     }, 150);
     return () => clearTimeout(timer);
-  }, [offerLabel, offerRequested]);
+  }, [claimedOffer]);
 
   /* =========================
      Auto-clear alerts
@@ -160,6 +158,7 @@ What I need:
       form_name: "ContactForm",
       status,
       service: formData.service || "none",
+      offer: offer?.claim ?? "none",
     });
   };
 
@@ -208,9 +207,7 @@ What I need:
         service: formData.service,
         // The offer is tagged on the message so it is visible in the inbox.
         message: offer
-          ? `${formData.message.trim()}
-
-[Festive offer: ${offer.label} until ${offer.until}]`
+          ? `${formData.message.trim()}\n\n[${offer.title}: ${offer.label} until ${offer.until}]`
           : formData.message.trim(),
       };
 
@@ -221,10 +218,11 @@ What I need:
 
       setSubmitStatus({
         type: "success",
-        message: `Thanks for reaching out.${offer ? ` I'll apply your ${offer.percent}% festive offer to your quote.` : ""} I’ll usually reply within 24 hours.`,
+        message: `Thanks for reaching out.${offer ? ` ${offer.thanks}` : ""} I’ll usually reply within 24 hours.`,
       });
 
       trackSubmit("success");
+      if (offer) trackEvent("offer_claimed", { offer: offer.claim });
 
       setFormData({
         from_name: "",
@@ -272,13 +270,22 @@ What I need:
 
       {offer && (
         <div
-          className="mb-6 flex items-start gap-3 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-900 dark:border-red-900/60 dark:bg-red-950/30 dark:text-red-100"
+          className={`mb-6 flex items-start gap-3 rounded-lg border p-4 text-sm ${
+            offer.kind === "discount"
+              ? "border-red-200 bg-red-50 text-red-900 dark:border-red-900/60 dark:bg-red-950/30 dark:text-red-100"
+              : "border-blue-200 bg-blue-50 text-blue-900 dark:border-blue-900/60 dark:bg-blue-950/30 dark:text-blue-100"
+          }`}
           role="note"
         >
-          <Gift className="mt-0.5 h-4 w-4 shrink-0 text-red-600 dark:text-red-300" aria-hidden="true" />
+          <Gift
+            className={`mt-0.5 h-4 w-4 shrink-0 ${
+              offer.kind === "discount" ? "text-red-600 dark:text-red-300" : "text-blue-600 dark:text-blue-300"
+            }`}
+            aria-hidden="true"
+          />
           <p>
-            <strong className="font-semibold">Festive offer: {offer.label} until {offer.until}.</strong>{" "}
-            Send your request and I&apos;ll take it off your quote.
+            <strong className="font-semibold">{offer.title}: {offer.label} until {offer.until}.</strong>{" "}
+            {offer.notice}
           </p>
         </div>
       )}

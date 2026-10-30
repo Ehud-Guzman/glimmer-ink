@@ -4,7 +4,7 @@ import { useSeason } from "@/utils/season";
 // inline for the mobile menu), so it never changes the button's layout.
 export default function OfferBadge({ inline = false }) {
   const { active, offer } = useSeason();
-  if (!active || !offer) return null;
+  if (!active || offer?.kind !== "discount") return null;
 
   return (
     <span className={`season-badge${inline ? " season-badge--inline" : ""}`} aria-hidden="true">

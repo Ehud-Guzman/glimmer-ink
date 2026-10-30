@@ -218,7 +218,7 @@ const ServiceSelector = () => {
               </div>
             </div>
 
-            {offer && estimate > 0 && (
+            {offer?.kind === "discount" && estimate > 0 && (
               <div className="mb-5 flex items-center gap-3 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-900">
                 <Gift className="h-4 w-4 shrink-0 text-red-600" aria-hidden="true" />
                 <p>

@@ -1,3 +1,4 @@
+import { useSyncExternalStore } from "react";
 import { Link } from "@/components/ui/SlashLink";
 import { ArrowRight, Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import footerStructure from "@/data/footerData";
@@ -20,8 +21,15 @@ const clientProjects = developmentProjects
 
 const latestPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 2);
 
+const subscribeNever = () => () => {};
+const currentYear = () => new Date().getFullYear();
+const builtYear = () => Number(import.meta.env.VITE_BUILD_YEAR);
+
 const Footer = () => {
-  const year = new Date().getFullYear();
+  // The prerendered HTML says the build year. React uses builtYear while
+  // hydrating (so server and client match), then currentYear right after, which
+  // keeps the line correct after New Year without waiting for a redeploy.
+  const year = useSyncExternalStore(subscribeNever, currentYear, builtYear);
   const { brand, navigation, contact } = footerStructure;
   const pages = (navigation[0]?.links ?? []).filter((link) => link.url !== LOCATION.landingPath);
   const social = (contact?.social ?? []).filter((s) => s?.url && s.url !== "#");

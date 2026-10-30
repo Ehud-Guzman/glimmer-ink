@@ -6,6 +6,8 @@
   index.html sets only while a season is running (see src/data/seasons.js and
   the season-boot plugin in vite.config.js). Outside a season the only effect is
   --season-bar-h resolving to 0px, so the layout is exactly what it always was.
+  The announcement bar is shared by every season and coloured by variables; the
+  decoration (lights, hat, baubles, ribbon, glow, snow) is Christmas only.
   Blue stays the brand colour; red, green and gold are accents only.
 */
 
@@ -15,16 +17,27 @@
 
 html[data-season] {
   --season-bar-h: 2.25rem;
+}
+
+html[data-season="christmas"] {
   --season-red: #c1121f;
   --season-green: #15803d;
   --season-gold: #f5c451;
+  --season-bar-bg: linear-gradient(90deg, #8f0f1a 0%, #c1121f 50%, #8f0f1a 100%);
+  --season-bar-line: rgb(245 196 81 / 0.5);
+}
+
+html[data-season="january"] {
+  --season-gold: #e0f2fe;
+  --season-bar-bg: linear-gradient(90deg, #1e3a8a 0%, #2563eb 50%, #1e3a8a 100%);
+  --season-bar-line: rgb(147 197 253 / 0.55);
 }
 
 html[data-season][data-season-bar="closed"] {
   --season-bar-h: 0px;
 }
 
-html[data-season] ::selection {
+html[data-season="christmas"] ::selection {
   background: rgb(193 18 31 / 0.22);
 }
 
@@ -35,8 +48,8 @@ html[data-season] ::selection {
   height: var(--season-bar-h);
   overflow: hidden;
   color: #fff;
-  background: linear-gradient(90deg, #8f0f1a 0%, #c1121f 50%, #8f0f1a 100%);
-  box-shadow: inset 0 -1px 0 rgb(245 196 81 / 0.5);
+  background: var(--season-bar-bg);
+  box-shadow: inset 0 -1px 0 var(--season-bar-line);
   /* Same curve and length as <main>'s padding transition in App.jsx */
   transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -128,11 +141,11 @@ html:not([data-season]) .season-bar {
 }
 
 /* In season the blue glow behind the browser window gives way to a warm one. */
-html[data-season] .season-halo-swap {
+html[data-season="christmas"] .season-halo-swap {
   display: none;
 }
 
-html[data-season] .season-halo {
+html[data-season="christmas"] .season-halo {
   display: block;
   position: absolute;
   inset: -1rem;
@@ -142,11 +155,11 @@ html[data-season] .season-halo {
   opacity: 0.26;
 }
 
-html.dark[data-season] .season-halo {
+html.dark[data-season="christmas"] .season-halo {
   opacity: 0.32;
 }
 
-html[data-season] .season-baubles {
+html[data-season="christmas"] .season-baubles {
   display: block;
   position: absolute;
   top: -6px;
@@ -228,7 +241,7 @@ html[data-season] .season-baubles {
   pointer-events: none;
 }
 
-html[data-season] .season-lights {
+html[data-season="christmas"] .season-lights {
   display: block;
 }
 
@@ -278,7 +291,7 @@ html[data-season] .season-lights {
   pointer-events: none;
 }
 
-html[data-season] .season-hat {
+html[data-season="christmas"] .season-hat {
   display: block;
 }
 
@@ -296,13 +309,13 @@ html[data-season] .season-hat {
   pointer-events: none;
 }
 
-html[data-season] .season-ribbon {
+html[data-season="christmas"] .season-ribbon {
   display: block;
 }
 
 /* ---- Soft red / green glow along the top of the viewport ---- */
 
-html[data-season] body::before {
+html[data-season="christmas"] body::before {
   content: "";
   position: fixed;
   top: 0;
@@ -316,7 +329,7 @@ html[data-season] body::before {
     radial-gradient(ellipse 55% 100% at 88% 0%, rgb(21 128 61 / 0.07), transparent 70%);
 }
 
-html.dark[data-season] body::before {
+html.dark[data-season="christmas"] body::before {
   background:
     radial-gradient(ellipse 55% 100% at 12% 0%, rgb(220 38 38 / 0.14), transparent 70%),
     radial-gradient(ellipse 55% 100% at 88% 0%, rgb(34 197 94 / 0.1), transparent 70%);

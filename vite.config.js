@@ -42,6 +42,12 @@ const seasonBoot = () => {
 // https://vite.dev/config/
 export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react(), seasonBoot()],
+  define: {
+    // The year the static HTML was built in. The footer renders this on the
+    // server and during hydration, then switches to the visitor's real year, so
+    // the copyright line can never cause a hydration mismatch after New Year.
+    "import.meta.env.VITE_BUILD_YEAR": JSON.stringify(String(new Date().getFullYear())),
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),

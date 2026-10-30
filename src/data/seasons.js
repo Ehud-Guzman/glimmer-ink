@@ -17,38 +17,91 @@ export const SEASONS = [
       { id: "newyear", from: "12-27", to: "01-05" },
     ],
   },
+  // Picks up the day Christmas ends: a quiet banner, no decoration.
+  {
+    name: "january",
+    phases: [
+      { id: "term", from: "01-06", to: "01-18" },
+      { id: "review", from: "01-19", to: "01-31" },
+    ],
+  },
 ];
 
-// Where "Claim it" goes: the contact form, pre-filled for the offer.
-export const CLAIM_PATH = "/contact?offer=festive";
-
-// The festive offer, one place for every surface that mentions it (announcement
-// bar, contact form, cost estimator). It runs for the whole season window.
-export const SEASON_OFFERS = {
-  christmas: { percent: 10 },
+// What each season switches on besides the announcement bar.
+export const SEASON_FEATURES = {
+  christmas: { snow: true, themeName: "festive theme" },
+  january: { snow: false, themeName: "seasonal banner" },
 };
 
-// Tokens: {next} the year the season leads into (Dec 2026 and Jan 2027 -> 2027),
+// One offer per season, shared by every surface that mentions it (announcement
+// bar, contact form, cost estimator, button badge). It runs for the whole
+// season window. `claim` is the ?offer= value on the contact link; `label`
+// finishes the sentence "... until <date>".
+//   kind "discount": a percentage off (also shown in the cost estimator)
+//   kind "review":   a free website review
+// `title` heads the notice on the contact form; `subject`, `message` and
+// `thanks` are what "Claim it" pre-fills and what the success message says.
+export const SEASON_OFFERS = {
+  christmas: {
+    kind: "discount",
+    title: "Festive offer",
+    percent: 10,
+    claim: "festive",
+    label: "10% off all new projects",
+    notice: "Send your request and I'll take it off your quote.",
+    subject: "Quote request: festive offer",
+    message: "Hi Ehud, I'd like a quote and to claim the festive offer ({label}).\n\nWhat I need:\n",
+    thanks: "I'll apply your 10% festive offer to your quote.",
+  },
+  january: {
+    kind: "review",
+    title: "January offer",
+    claim: "review",
+    label: "a free website review",
+    notice: "Send your website address, or tell me you don't have one yet, and I'll reply with honest suggestions.",
+    subject: "Free website review request",
+    message: "Hi Ehud, I'd like to claim the free website review.\n\nMy website address:\n\nWhat I'd like improved:\n",
+    thanks: "I'll include your free website review in my reply.",
+  },
+};
+
+// Tokens: {next} the year a season that began in December leads into (Dec 2026
+// and Jan 2027 -> 2027; don't use it in a season that starts in January),
 // {percent} the offer's percentage, {end} the last day of the season, e.g. "5 Jan".
+// A cta with `claim: true` links to the contact form pre-filled for the offer.
 export const SEASON_COPY = {
   christmas: {
     greeting: {
       icon: "tree",
       text: "Festive offer: {percent}% off all new projects until {end}. Planning a new site for {next}?",
       short: "Festive offer: {percent}% off all projects",
-      cta: { label: "Claim it", to: CLAIM_PATH },
+      cta: { label: "Claim it", claim: true },
     },
     christmas: {
       icon: "gift",
       text: "Merry Christmas from GlimmerInk Creations! Enjoy {percent}% off all new projects until {end}.",
       short: "Merry Christmas! {percent}% off all projects",
-      cta: { label: "Claim it", to: CLAIM_PATH },
+      cta: { label: "Claim it", claim: true },
     },
     newyear: {
       icon: "party",
       text: "Happy New Year {next}! {percent}% off all new projects until {end}. Make it your year online.",
       short: "Happy New Year! {percent}% off all projects",
-      cta: { label: "Claim it", to: CLAIM_PATH },
+      cta: { label: "Claim it", claim: true },
+    },
+  },
+  january: {
+    term: {
+      icon: "school",
+      text: "Starting a new term? Get a free website review for your school or business, or a quote for a management system, until {end}.",
+      short: "New term? Get a free website review",
+      cta: { label: "Get yours", claim: true },
+    },
+    review: {
+      icon: "search",
+      text: "New year, new website? Get a free website review until {end}. No obligation.",
+      short: "Get a free website review",
+      cta: { label: "Get yours", claim: true },
     },
   },
 };
