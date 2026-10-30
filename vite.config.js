@@ -39,9 +39,26 @@ const seasonBoot = () => {
   };
 };
 
+// The page is fully prerendered, so the JavaScript only adds interactivity. Marking
+// the entry script and its preload as low priority lets the browser spend a slow
+// connection on the stylesheet, fonts and hero images first, while the script still
+// starts downloading straight away. (Loading it *later* was measured too and made the
+// page interactive about 0.7 s slower, so it is deliberately not done.)
+const lowPriorityEntry = () => ({
+  name: "low-priority-entry",
+  apply: "build",
+  transformIndexHtml: {
+    order: "post",
+    handler: (html) =>
+      html
+        .replace(/<script type="module" crossorigin src=/g, '<script type="module" crossorigin fetchpriority="low" src=')
+        .replace(/<link rel="modulepreload" crossorigin href=/g, '<link rel="modulepreload" crossorigin fetchpriority="low" href='),
+  },
+});
+
 // https://vite.dev/config/
 export default defineConfig(({ isSsrBuild }) => ({
-  plugins: [react(), seasonBoot()],
+  plugins: [react(), seasonBoot(), lowPriorityEntry()],
   define: {
     // The year the static HTML was built in. The footer renders this on the
     // server and during hydration, then switches to the visitor's real year, so
