@@ -1,6 +1,7 @@
 import { Link } from "@/components/ui/SlashLink";
 import { ArrowRight, Globe, LayoutDashboard, Database, Smartphone } from "lucide-react";
 import { servicePricing } from "@/data/pricing";
+import { kes } from "@/utils/format";
 
 // Prices come from pricing.js so Home, Services and the estimator always agree.
 const offerings = [
@@ -10,7 +11,6 @@ const offerings = [
   { id: "mobile", icon: Smartphone, title: "Mobile apps", text: "Android and cross-platform apps for ideas that need to live on phones." },
 ];
 
-const kes = (amount) => `KES ${amount.toLocaleString("en-US")}`;
 
 const ServicesOverview = () => (
   <section className="px-4 sm:px-6 lg:px-8 py-12 md:py-16 bg-background-light dark:bg-background-dark">

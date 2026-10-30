@@ -9,6 +9,7 @@ import {
 } from "@/data/pricing";
 import { applyOffer } from "@/data/seasons";
 import { useSeason } from "@/utils/season";
+import { formatNumber } from "@/utils/format";
 
 const ServiceSelector = () => {
   const [selectedService, setSelectedService] = useState(null);
@@ -117,7 +118,7 @@ const ServiceSelector = () => {
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-300">{service.description}</p>
                 <p className="text-sm font-semibold mt-1">
-                  From KES {service.basePrice.toLocaleString()}
+                  From KES {formatNumber(service.basePrice)}
                 </p>
               </button>
             ))}
@@ -151,7 +152,7 @@ const ServiceSelector = () => {
                       </span>
                     ) : (
                       <span className="text-sm text-gray-500 dark:text-gray-400">
-                        +KES {feature.price.toLocaleString()}
+                        +KES {formatNumber(feature.price)}
                       </span>
                     )}
                   </div>
@@ -212,7 +213,7 @@ const ServiceSelector = () => {
 
               <div className="text-center p-4 bg-gray-50 dark:bg-gray-900 rounded-xl">
                 <div className="text-xl font-bold text-primary-dark dark:text-primary-light">
-                  KES {estimate.toLocaleString()}
+                  KES {formatNumber(estimate)}
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-300">Estimated</div>
               </div>
@@ -223,7 +224,7 @@ const ServiceSelector = () => {
                 <Gift className="h-4 w-4 shrink-0 text-red-600 dark:text-red-300" aria-hidden="true" />
                 <p>
                   <strong className="font-semibold">
-                    With the festive offer (−{offer.percent}%): KES {applyOffer(estimate, offer).toLocaleString()}
+                    With the festive offer (−{offer.percent}%): KES {formatNumber(applyOffer(estimate, offer))}
                   </strong>{" "}
                   until {offer.until}.
                 </p>

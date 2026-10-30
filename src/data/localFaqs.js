@@ -3,9 +3,9 @@
 // pricing.js so the copy can never drift from the /services estimator.
 import { servicePricing } from "./pricing.js";
 import { LOCATION } from "./location.js";
+import { kes } from "../utils/format.js";
 
 const priceOf = (id) => servicePricing.find((service) => service.id === id)?.basePrice ?? 0;
-const kes = (amount) => `KES ${amount.toLocaleString("en-US")}`;
 
 export const localFaqs = [
   {

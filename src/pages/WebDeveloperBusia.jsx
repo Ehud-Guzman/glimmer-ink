@@ -8,6 +8,7 @@ import { LOCATION } from "@/data/location";
 import { localFaqs } from "@/data/localFaqs";
 import { developmentProjects } from "@/data/developmentProjects";
 import { servicePricing } from "@/data/pricing";
+import { kes } from "@/utils/format";
 import { breadcrumbs, faqPage, localServices } from "@/data/schema";
 
 const PAGE_SCHEMA = [
@@ -43,7 +44,6 @@ const steps = [
   { title: "Launch & support", text: "Go live, with 30 days of free support and optional ongoing maintenance." },
 ];
 
-const kes = (amount) => `KES ${amount.toLocaleString("en-US")}`;
 
 const WebDeveloperBusia = () => {
   const itoya = developmentProjects.find((project) => project.slug === "hotel-itoya");

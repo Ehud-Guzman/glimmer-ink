@@ -2,6 +2,7 @@ import { Link } from "@/components/ui/SlashLink";
 import { ArrowRight, Code2, Palette, ShoppingCart, Database, Zap } from "lucide-react";
 import { LOCATION, LOCATION_LABEL } from "@/data/location";
 import { servicePricing } from "@/data/pricing";
+import { formatNumber } from "@/utils/format";
 
 const capabilities = [
   { icon: Code2, label: "Web development" },
@@ -11,7 +12,6 @@ const capabilities = [
   { icon: Zap, label: "Support & maintenance" },
 ];
 
-const kes = (amount) => amount.toLocaleString("en-US");
 
 const ServicesHero = () => (
   <section className="relative overflow-hidden px-4 sm:px-6 lg:px-8 pt-10 pb-10 md:pt-16 md:pb-14">
@@ -107,7 +107,7 @@ const ServicesHero = () => (
                 </div>
                 <div className="shrink-0 text-right">
                   <div className="font-mono text-[10px] uppercase tracking-wider text-text-light/65 dark:text-text-dark/45">from</div>
-                  <div className="font-mono text-sm font-semibold text-primary dark:text-primary-light">KES {kes(service.basePrice)}</div>
+                  <div className="font-mono text-sm font-semibold text-primary dark:text-primary-light">KES {formatNumber(service.basePrice)}</div>
                 </div>
               </li>
             ))}

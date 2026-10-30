@@ -1,6 +1,6 @@
 import { featurePricing, servicePricing } from "./pricing.js";
+import { kes } from "../utils/format.js";
 
-const kes = (amount) => `KES ${amount.toLocaleString("en-US")}`;
 const priceOf = (id) => servicePricing.find((service) => service.id === id)?.basePrice ?? 0;
 
 export const blogPosts = [
