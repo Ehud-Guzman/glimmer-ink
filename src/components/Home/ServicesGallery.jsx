@@ -181,7 +181,7 @@ const ServicesGallery = ({ mode = "full" }) => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {mode === "home"
-              ? "Websites and systems for trading, retail and legal clients, plus concept builds that show how I approach new problems."
+              ? "Websites and systems for hospitality and trading clients, plus concept builds that show how I approach new problems."
               : developmentData.description || "A selection of my work across web, systems, and apps."}
           </motion.p>
         </div>
@@ -242,7 +242,7 @@ const ServicesGallery = ({ mode = "full" }) => {
                     ? "Concept build"
                     : project.status === "live-demo"
                       ? "Live demo"
-                      : "In progress";
+                      : "In development";
 
               return (
                 <motion.article

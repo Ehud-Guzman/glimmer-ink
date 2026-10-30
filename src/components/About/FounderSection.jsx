@@ -40,9 +40,10 @@ const FounderSection = () => (
         </p>
 
         <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-          Recent work includes a full booking and events platform for a hotel in Busia and a grains trading
-          platform with its own admin backend. Every project gets the same care: clear structure, fast
-          pages on mobile, and a result you can manage yourself.
+          Recent work includes a hotel website in Busia with room browsing, events pages and reservation
+          requests sent to the hotel by email, a corporate site for an agricultural trading company, and an
+          admin-backed trading platform that is still in development. Every project gets the same care:
+          clear structure, fast pages on mobile, and a result you can manage yourself.
         </p>
 
         <div className="mb-8">

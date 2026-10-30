@@ -22,8 +22,8 @@ const HistoryTimeline = () => {
     {
       year: "2026",
       quarter: "Q1",
-      title: "Full-stack systems",
-      description: "Delivered admin-backed projects, including a hotel booking platform and a grains trading site.",
+      title: "Larger client projects",
+      description: "Delivered a hotel website with room browsing and reservation requests, and a corporate site for an agricultural trading company. An admin-backed trading platform is still in development.",
       icon: Rocket,
     },
     

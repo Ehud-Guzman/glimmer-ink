@@ -15,7 +15,7 @@ const WorkHero = ({ projects = [] }) => {
   const stats = [
     { value: projects.length, label: "Case studies" },
     { value: liveCount, label: "Live client sites" },
-    { value: upcomingCount, label: "In progress & concept" },
+    { value: upcomingCount, label: "In development & concept" },
     { value: technologies[0] ?? "React", label: "Core stack" },
   ];
 
