@@ -31,7 +31,7 @@ const FlagshipClient = () => {
                   <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/80" />
                   <span className="h-2.5 w-2.5 rounded-full bg-green-400/80" />
                 </div>
-                <div className="flex-1 truncate rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 px-3 py-1 font-mono text-[11px] text-text-light/60 dark:text-text-dark/60">
+                <div className="flex-1 truncate rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 px-3 py-1 font-mono text-[11px] text-text-light/65 dark:text-text-dark/60">
                   {(flagship.url ?? "").replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
                 </div>
               </div>
@@ -86,7 +86,7 @@ const FlagshipClient = () => {
 
         {clients.length > 0 && (
           <div className="mt-10 pt-6 border-t border-gray-200 dark:border-gray-800">
-            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-light/50 dark:text-text-dark/50 mb-3">
+            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-light/65 dark:text-text-dark/50 mb-3">
               Selected clients
             </p>
             <ul className="flex flex-wrap gap-x-8 gap-y-2 font-display text-base sm:text-lg font-semibold text-text-light/70 dark:text-text-dark/70">

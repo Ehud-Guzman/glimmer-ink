@@ -16,8 +16,8 @@ const ServiceFAQs = ({ faqs = serviceFaqs, subtitle = "Get answers to common que
     <section className="py-12 md:py-16 px-4 sm:px-6 max-w-4xl mx-auto">
       <div className="text-center mb-12">
         <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-primary/10 dark:bg-primary/20 rounded-full">
-          <HelpCircle className="w-4 h-4 text-primary dark:text-primary-light" />
-          <span className="text-sm font-medium text-primary dark:text-primary-light">
+          <HelpCircle className="w-4 h-4 text-primary-dark dark:text-primary-light" />
+          <span className="text-sm font-medium text-primary-dark dark:text-primary-light">
             Common Questions
           </span>
         </div>

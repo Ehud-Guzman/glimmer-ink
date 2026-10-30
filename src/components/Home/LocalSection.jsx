@@ -32,7 +32,7 @@ const LocalSection = () => (
         {[LOCATION.town, ...LOCATION.nearbyTowns].map((town) => (
           <li
             key={town}
-            className="rounded-full bg-primary/10 dark:bg-primary/20 px-3 py-1 text-sm font-medium text-primary dark:text-primary-light"
+            className="rounded-full bg-primary/10 dark:bg-primary/20 px-3 py-1 text-sm font-medium text-primary-dark dark:text-primary-light"
           >
             {town}
           </li>

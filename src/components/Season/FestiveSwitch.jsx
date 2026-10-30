@@ -11,7 +11,7 @@ export default function FestiveSwitch() {
       type="button"
       onClick={() => setFestive(!active)}
       aria-pressed={active}
-      className="text-xs text-text-light/60 dark:text-text-dark/60 underline-offset-4 hover:text-primary dark:hover:text-primary-light hover:underline transition-colors"
+      className="text-xs text-text-light/65 dark:text-text-dark/60 underline-offset-4 hover:text-primary dark:hover:text-primary-light hover:underline transition-colors"
     >
       {active ? "Turn off" : "Turn on"} {features.themeName ?? "seasonal theme"}
     </button>

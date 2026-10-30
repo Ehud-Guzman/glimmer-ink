@@ -151,7 +151,7 @@ const WebDeveloperBusia = () => {
                 <h3 className="font-display text-lg font-semibold mb-2">{offering.title}</h3>
                 <p className="text-sm text-text-light/70 dark:text-text-dark/70 leading-relaxed flex-1">{offering.bestFor}</p>
                 <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-800">
-                  <div className="font-mono text-[11px] uppercase tracking-wider text-text-light/50 dark:text-text-dark/50">From</div>
+                  <div className="font-mono text-[11px] uppercase tracking-wider text-text-light/65 dark:text-text-dark/50">From</div>
                   <div className="font-display text-xl font-bold text-primary dark:text-primary-light">{kes(priceFor(offering.id))}</div>
                 </div>
               </article>
@@ -244,7 +244,7 @@ const WebDeveloperBusia = () => {
               {[LOCATION.town, ...LOCATION.nearbyTowns].map((town) => (
                 <li
                   key={town}
-                  className="rounded-full bg-primary/10 dark:bg-primary/20 px-3 py-1 text-sm font-medium text-primary dark:text-primary-light"
+                  className="rounded-full bg-primary/10 dark:bg-primary/20 px-3 py-1 text-sm font-medium text-primary-dark dark:text-primary-light"
                 >
                   {town}
                 </li>

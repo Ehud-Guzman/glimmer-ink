@@ -4,15 +4,16 @@ import imageMeta from "@/data/imageMeta";
 const PLACEHOLDER = "/images/placeholder-project.webp";
 
 // Below-the-fold images load lazily and carry their real size (no layout
-// shift). Big screenshots also have a smaller twin, so phones download that
-// instead. Pass `priority` for an image that is visible without scrolling.
+// shift). Big screenshots also have smaller twins (640px, and 960px for the
+// biggest), so phones download one of those instead. Pass `priority` for an
+// image that is visible without scrolling.
 const SafeImage = ({ src, alt, className, sizes = "100vw", priority = false }) => {
   const [error, setError] = useState(false);
 
   const meta = error ? undefined : imageMeta[src];
-  const [width, height, twinWidth] = meta ?? [];
-  const srcSet = twinWidth
-    ? `${src.replace(/\.webp$/, `-${twinWidth}.webp`)} ${twinWidth}w, ${src} ${width}w`
+  const [width, height, ...twinWidths] = meta ?? [];
+  const srcSet = twinWidths.length
+    ? [...twinWidths.map((w) => `${src.replace(/\.webp$/, `-${w}.webp`)} ${w}w`), `${src} ${width}w`].join(", ")
     : undefined;
 
   return (

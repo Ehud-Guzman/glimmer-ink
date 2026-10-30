@@ -80,7 +80,7 @@ const ProcessSection = () => {
                 transition={{ delay: i * 0.2, duration: 0.6 }}
               >
                 <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 shadow-card hover:shadow-lg hover:border-primary/30 dark:hover:border-primary/30 transition-all duration-300 h-full">
-                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-base font-bold text-primary dark:bg-primary/20 dark:text-primary-light">
+                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-base font-bold text-primary-dark dark:bg-primary/20 dark:text-primary-light">
                     {step.icon}
                   </div>
 

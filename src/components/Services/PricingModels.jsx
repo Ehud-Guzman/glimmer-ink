@@ -106,7 +106,7 @@ const PricingModels = () => {
                 <p className="text-gray-600 dark:text-gray-300 mb-3">
                   {model.description}
                 </p>
-                <div className="text-2xl font-bold text-primary">
+                <div className="text-2xl font-bold text-primary dark:text-primary-light">
                   {model.price}
                 </div>
               </div>
@@ -132,7 +132,7 @@ const PricingModels = () => {
                   </h4>
                   <ul className="space-y-2">
                     {model.notIncluded.map((n, i) => (
-                      <li key={i} className="flex gap-2 text-sm text-gray-500">
+                      <li key={i} className="flex gap-2 text-sm text-gray-500 dark:text-gray-400">
                         <X className="w-4 h-4 mt-0.5" />
                         {n}
                       </li>

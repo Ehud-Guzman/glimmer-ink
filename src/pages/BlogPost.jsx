@@ -100,7 +100,7 @@ const BlogPost = () => {
           className="mb-12"
         >
           <div className="flex flex-wrap items-center gap-3 mb-6">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 dark:bg-primary/20 rounded-full text-xs font-semibold text-primary dark:text-primary-light">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 dark:bg-primary/20 rounded-full text-xs font-semibold text-primary-dark dark:text-primary-light">
               <Tag className="w-3 h-3" />
               {post.category}
             </span>

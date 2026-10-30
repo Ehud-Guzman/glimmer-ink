@@ -407,7 +407,7 @@ const CaseStudy = () => {
             aria-label={`${project.title} enlarged screenshot`}
           >
             <button
-              className="absolute top-5 right-5 p-2 text-white/80 hover:text-white bg-white/10 rounded-full transition-colors"
+              className="absolute top-5 right-5 p-2 text-white/95 hover:text-white bg-white/10 rounded-full transition-colors"
               onClick={() => setLightboxImage(null)}
               aria-label="Close"
             >

@@ -16,8 +16,10 @@ const ContactForm = ({ preset = null }) => {
     subject: "",
     service: "",
     message: "",
-    // Honeypot: must stay empty. Never shown to real visitors.
-    company: "",
+    // Honeypot: must stay empty. Never shown to real visitors. It is deliberately
+    // NOT called "company"/"website"/"url": browsers and password managers
+    // autofill those, which made real people look like bots.
+    hp_check: "",
   });
 
   // /contact?demo=<slug> comes from the Demos page. Only a known project slug is
@@ -34,9 +36,11 @@ const ContactForm = ({ preset = null }) => {
   const [submitStatus, setSubmitStatus] = useState(null);
 
   // Spam guards: an off-screen honeypot field plus a minimum fill time.
-  // Real visitors never touch either one.
+  // Real visitors never touch either one. The time guard is short on purpose:
+  // autofill plus a tap can legitimately be quick, and a blocked submission
+  // shows a success message while sending nothing, so a false positive loses a lead.
   const formOpenedAt = useRef(Date.now());
-  const SPAM_MIN_FILL_MS = 3000;
+  const SPAM_MIN_FILL_MS = 1200;
 
   // EmailJS config from env (Vite)
   const emailJsConfig = useMemo(() => {
@@ -152,13 +156,14 @@ const ContactForm = ({ preset = null }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const trackSubmit = (status) => {
+  const trackSubmit = (status, extra = {}) => {
     if (!window.gtag) return;
     window.gtag("event", "form_submit", {
       form_name: "ContactForm",
       status,
       service: formData.service || "none",
       offer: offer?.claim ?? "none",
+      ...extra,
     });
   };
 
@@ -168,12 +173,11 @@ const ContactForm = ({ preset = null }) => {
 
     // Honeypot + fill-time check. Blocked submissions still get a success
     // response so bots learn nothing, but nothing is actually sent.
-    const looksLikeSpam =
-      formData.company.trim() !== "" ||
-      Date.now() - formOpenedAt.current < SPAM_MIN_FILL_MS;
+    const honeypotFilled = formData.hp_check.trim() !== "";
+    const tooFast = Date.now() - formOpenedAt.current < SPAM_MIN_FILL_MS;
 
-    if (looksLikeSpam) {
-      trackSubmit("blocked");
+    if (honeypotFilled || tooFast) {
+      trackSubmit("blocked", { reason: honeypotFilled ? "honeypot" : "too_fast" });
       setSubmitStatus({
         type: "success",
         message: "Thanks for reaching out. I will usually reply within 24 hours.",
@@ -231,15 +235,19 @@ const ContactForm = ({ preset = null }) => {
         subject: preset?.subject || "",
         service: preset?.service || "",
         message: "",
-        company: "",
+        hp_check: "",
       });
-    } catch {
+    } catch (error) {
+      // EmailJS rejects with { status, text } (for example 402/429 when the plan
+      // limit is reached, 412 when the connected mailbox needs re-authorising).
+      // No status means the request never got there (offline, blocked).
+      trackSubmit("error", { error_code: String(error?.status ?? "network") });
+
       setSubmitStatus({
         type: "error",
-        message: "Something went wrong. Please try again.",
+        message:
+          "Your message could not be sent right now. Please email nyamuehud@gmail.com or WhatsApp +254 746 527 253 and I will reply within 24 hours.",
       });
-
-      trackSubmit("error");
     } finally {
       setIsSubmitting(false);
     }
@@ -451,12 +459,12 @@ const ContactForm = ({ preset = null }) => {
 
         {/* Spam honeypot: off-screen, ignored by real visitors and assistive tech */}
         <div className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
-          <label htmlFor="company">Company (leave this empty)</label>
+          <label htmlFor="hp_check">Leave this field empty</label>
           <input
-            id="company"
-            name="company"
+            id="hp_check"
+            name="hp_check"
             type="text"
-            value={formData.company}
+            value={formData.hp_check}
             onChange={handleChange}
             tabIndex={-1}
             autoComplete="off"

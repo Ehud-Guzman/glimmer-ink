@@ -1,6 +1,7 @@
 // components/Home/ServicesGallery.jsx
 import { useState, useEffect, useRef, useMemo } from "react";
 import { Link } from "@/components/ui/SlashLink";
+import SafeImage from "@/components/ui/SafeImage";
 import { motion, AnimatePresence } from "@/utils/motion";
 import MotionMax from "@/components/MotionMax";
 import {
@@ -254,11 +255,11 @@ const ServicesGallery = ({ mode = "full" }) => {
                   transition={{ duration: 0.45, delay: index * 0.08 }}
                 >
                   <div className="relative aspect-[2/1] overflow-hidden">
-                    <img
+                    <SafeImage
                       src={cover}
                       alt={project.title || "Project"}
+                      sizes="(min-width: 1024px) 600px, 100vw"
                       className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                      loading="lazy"
                     />
                     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-5">
                       <div className="flex flex-wrap items-center gap-2 text-xs font-medium">
@@ -281,7 +282,7 @@ const ServicesGallery = ({ mode = "full" }) => {
                         <h3 className="text-2xl font-bold text-text-light dark:text-text-dark">
                           {project.title}
                         </h3>
-                        <p className="mt-1 text-sm text-text-light/60 dark:text-text-dark/60">
+                        <p className="mt-1 text-sm text-text-light/65 dark:text-text-dark/60">
                           {project.client || "Portfolio case study"}
                         </p>
                       </div>
@@ -295,7 +296,7 @@ const ServicesGallery = ({ mode = "full" }) => {
                       {(project.technologies || []).slice(0, 4).map((tech) => (
                         <span
                           key={tech}
-                          className="rounded-full bg-gray-100 dark:bg-gray-700 px-3 py-1 text-xs font-medium text-primary dark:text-primary-light"
+                          className="rounded-full bg-gray-100 dark:bg-gray-700 px-3 py-1 text-xs font-medium text-primary dark:text-blue-200"
                         >
                           {tech}
                         </span>

@@ -22,7 +22,7 @@ export default function MobileActionBar() {
           href="https://wa.me/254746527253"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 rounded-xl bg-green-600 px-4 py-2.5 text-sm font-semibold text-white active:bg-green-700"
+          className="flex items-center justify-center gap-2 rounded-xl bg-green-700 px-4 py-2.5 text-sm font-semibold text-white active:bg-green-800"
         >
           <MessageCircle className="w-4 h-4" aria-hidden="true" />
           WhatsApp

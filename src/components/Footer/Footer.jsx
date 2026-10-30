@@ -164,7 +164,7 @@ const Footer = () => {
                 <Clock className="w-4 h-4 mt-0.5 shrink-0" aria-hidden="true" />
                 <span>
                   Mon–Fri, 8AM–5PM EAT
-                  <span className="block text-xs text-text-light/50 dark:text-text-dark/50">Replies within 24 hours</span>
+                  <span className="block text-xs text-text-light/65 dark:text-text-dark/50">Replies within 24 hours</span>
                 </span>
               </li>
             </ul>
@@ -189,10 +189,10 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-gray-200 dark:border-gray-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-text-light/55 dark:text-text-dark/55">
+        <div className="mt-10 pt-6 border-t border-gray-200 dark:border-gray-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-text-light/65 dark:text-text-dark/55">
           <p>© {year} GlimmerInk Creations. All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
-            <Link to="/privacy" className="text-text-light/55 dark:text-text-dark/55 hover:text-primary dark:hover:text-primary-light transition-colors">
+            <Link to="/privacy" className="text-text-light/65 dark:text-text-dark/55 hover:text-primary dark:hover:text-primary-light transition-colors">
               Privacy Policy
             </Link>
             <FestiveSwitch />

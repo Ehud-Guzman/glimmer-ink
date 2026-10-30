@@ -11,13 +11,13 @@ const categories = [
   },
   {
     label: "Backend & APIs",
-    color: "text-green-600 dark:text-green-400",
+    color: "text-green-700 dark:text-green-400",
     bar: "bg-green-500",
     techs: ["Node.js", "REST APIs", "Admin dashboards"],
   },
   {
     label: "Deployment",
-    color: "text-orange-600 dark:text-orange-400",
+    color: "text-orange-700 dark:text-orange-400",
     bar: "bg-orange-500",
     techs: ["Netlify", "Git & GitHub"],
   },

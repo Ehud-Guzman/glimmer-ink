@@ -125,7 +125,7 @@ const ServicesCTASection = () => {
                 </h3>
                 
                 <p className={`mb-4 text-sm ${
-                  method.primary ? "text-white/80" : "text-gray-600 dark:text-gray-300"
+                  method.primary ? "text-white/95" : "text-gray-600 dark:text-gray-300"
                 }`}>
                   {method.description}
                 </p>

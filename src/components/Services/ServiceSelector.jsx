@@ -49,7 +49,7 @@ const ServiceSelector = () => {
   const budgetFeedback = useMemo(() => {
     if (!selectedService) {
       return {
-        tone: "text-gray-500 dark:text-gray-400",
+        tone: "text-gray-500 dark:text-gray-400 dark:text-gray-400",
         message: "Choose a service to compare the estimate with your budget.",
       };
     }
@@ -58,7 +58,7 @@ const ServiceSelector = () => {
 
     if (estimate < limits.min) {
       return {
-        tone: "text-amber-600 dark:text-amber-400",
+        tone: "text-amber-700 dark:text-amber-400",
         message: "This scope is currently below your selected budget range.",
       };
     }
@@ -71,7 +71,7 @@ const ServiceSelector = () => {
     }
 
     return {
-      tone: "text-green-600 dark:text-green-400",
+      tone: "text-green-700 dark:text-green-400",
       message: "This estimate fits inside your selected budget range.",
     };
   }, [budget, estimate, selectedService]);
@@ -79,9 +79,9 @@ const ServiceSelector = () => {
   return (
     <section className="py-12 md:py-16 px-4 sm:px-6 max-w-5xl mx-auto">
       <div className="text-center mb-12">
-        <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-primary/10 rounded-full">
-          <Calculator className="w-4 h-4 text-primary" />
-          <span className="text-sm font-medium text-primary">
+        <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-primary/10 dark:bg-primary/20 rounded-full">
+          <Calculator className="w-4 h-4 text-primary-dark dark:text-primary-light" />
+          <span className="text-sm font-medium text-primary-dark dark:text-primary-light">
             Project Cost Estimator
           </span>
         </div>
@@ -89,7 +89,7 @@ const ServiceSelector = () => {
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           Estimate Your Project
         </h2>
-        <p className="text-gray-600">
+        <p className="text-gray-600 dark:text-gray-300">
           A starting point for the conversation — your fixed quote comes after we scope the details together.
         </p>
       </div>
@@ -106,16 +106,16 @@ const ServiceSelector = () => {
                 className={`w-full text-left p-4 rounded-xl border transition ${
                   selectedService?.id === service.id
                     ? "border-primary bg-primary/5"
-                    : "border-gray-200 hover:border-gray-300"
+                    : "border-gray-200 hover:border-gray-300 dark:border-gray-700 dark:hover:border-gray-500"
                 }`}
               >
                 <div className="flex justify-between mb-1">
                   <span className="font-medium">{service.label}</span>
                   {selectedService?.id === service.id && (
-                    <Check className="w-5 h-5 text-primary" />
+                    <Check className="w-5 h-5 text-primary-dark dark:text-primary-light" />
                   )}
                 </div>
-                <p className="text-sm text-gray-600">{service.description}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-300">{service.description}</p>
                 <p className="text-sm font-semibold mt-1">
                   From KES {service.basePrice.toLocaleString()}
                 </p>
@@ -140,17 +140,17 @@ const ServiceSelector = () => {
                       ? "border-primary/30 bg-primary/5 cursor-default"
                       : selectedFeatures.includes(feature.id)
                         ? "border-primary bg-primary/5"
-                        : "border-gray-200 hover:border-gray-300"
+                        : "border-gray-200 hover:border-gray-300 dark:border-gray-700 dark:hover:border-gray-500"
                   }`}
                 >
                   <div className="flex justify-between items-center">
                     <span className="font-medium">{feature.label}</span>
                     {included ? (
-                      <span className="flex items-center gap-1 text-sm font-medium text-primary">
+                      <span className="flex items-center gap-1 text-sm font-medium text-primary-dark dark:text-primary-light">
                         <Check className="w-4 h-4" /> Included
                       </span>
                     ) : (
-                      <span className="text-sm text-gray-500">
+                      <span className="text-sm text-gray-500 dark:text-gray-400">
                         +KES {feature.price.toLocaleString()}
                       </span>
                     )}
@@ -160,7 +160,7 @@ const ServiceSelector = () => {
             })}
           </div>
           {selectedService?.includedFeatures?.length > 0 && (
-            <p className="mt-3 text-xs text-gray-500">
+            <p className="mt-3 text-xs text-gray-500 dark:text-gray-400">
               {selectedService.label} already bakes in{" "}
               {selectedService.includedFeatures
                 .map((id) => features.find((f) => f.id === id)?.label)
@@ -176,7 +176,7 @@ const ServiceSelector = () => {
               {budgetRanges.map((range) => (
                 <label
                   key={range.id}
-                  className="flex items-center p-3 border rounded-lg cursor-pointer"
+                  className="flex items-center p-3 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer"
                 >
                   <input
                     type="radio"
@@ -187,7 +187,7 @@ const ServiceSelector = () => {
                   />
                   <div>
                     <div className="font-medium">{range.label}</div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm text-gray-600 dark:text-gray-300">
                       {range.description}
                     </div>
                   </div>
@@ -199,28 +199,28 @@ const ServiceSelector = () => {
 
         {/* ESTIMATE */}
         <div>
-          <div className="sticky top-8 bg-white rounded-2xl p-6 border shadow-lg">
+          <div className="sticky top-8 bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg">
             <h3 className="text-lg font-semibold mb-6">Estimated Cost</h3>
 
             <div className="grid grid-cols-2 gap-4 mb-6">
-              <div className="text-center p-4 bg-gray-50 rounded-xl">
-                <div className="text-2xl font-bold text-primary">
+              <div className="text-center p-4 bg-gray-50 dark:bg-gray-900 rounded-xl">
+                <div className="text-2xl font-bold text-primary-dark dark:text-primary-light">
                   {estimateTimeline()}
                 </div>
-                <div className="text-sm text-gray-600">Weeks</div>
+                <div className="text-sm text-gray-600 dark:text-gray-300">Weeks</div>
               </div>
 
-              <div className="text-center p-4 bg-gray-50 rounded-xl">
-                <div className="text-xl font-bold text-primary">
+              <div className="text-center p-4 bg-gray-50 dark:bg-gray-900 rounded-xl">
+                <div className="text-xl font-bold text-primary-dark dark:text-primary-light">
                   KES {estimate.toLocaleString()}
                 </div>
-                <div className="text-sm text-gray-600">Estimated</div>
+                <div className="text-sm text-gray-600 dark:text-gray-300">Estimated</div>
               </div>
             </div>
 
             {offer?.kind === "discount" && estimate > 0 && (
-              <div className="mb-5 flex items-center gap-3 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-900">
-                <Gift className="h-4 w-4 shrink-0 text-red-600" aria-hidden="true" />
+              <div className="mb-5 flex items-center gap-3 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-900 dark:border-red-900/60 dark:bg-red-950/30 dark:text-red-100">
+                <Gift className="h-4 w-4 shrink-0 text-red-600 dark:text-red-300" aria-hidden="true" />
                 <p>
                   <strong className="font-semibold">
                     With the festive offer (−{offer.percent}%): KES {applyOffer(estimate, offer).toLocaleString()}
@@ -230,8 +230,8 @@ const ServiceSelector = () => {
               </div>
             )}
 
-            <div className="mb-5 rounded-xl bg-gray-50 border border-gray-200 p-4">
-              <div className="text-sm font-medium text-gray-900 mb-1">
+            <div className="mb-5 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-4">
+              <div className="text-sm font-medium text-gray-900 dark:text-gray-100 mb-1">
                 Selected budget: {selectedBudgetRange.label}
               </div>
               <p className={`text-sm ${budgetFeedback.tone}`}>{budgetFeedback.message}</p>
@@ -248,7 +248,7 @@ const ServiceSelector = () => {
         </div>
       </div>
 
-      <p className="mt-8 text-center text-sm text-gray-500">
+      <p className="mt-8 text-center text-sm text-gray-500 dark:text-gray-400">
         Prices are indicative and may adjust with scope and complexity.
       </p>
     </section>

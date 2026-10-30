@@ -20,7 +20,7 @@ const FeaturedProject = ({ project }) => {
 
         {/* Section label */}
         <div className="text-center mb-8 md:mb-10">
-          <span className="inline-block px-4 py-1.5 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light rounded-full text-sm font-semibold tracking-wide mb-4">
+          <span className="inline-block px-4 py-1.5 bg-primary/10 dark:bg-primary/20 text-primary-dark dark:text-primary-light rounded-full text-sm font-semibold tracking-wide mb-4">
             Featured Case Study
           </span>
           <h2 className="text-3xl md:text-4xl font-bold font-display">
@@ -85,9 +85,9 @@ const FeaturedProject = ({ project }) => {
             {/* Features */}
             {!!project.features?.length && (
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-widest text-primary dark:text-primary-light mb-3">
+                <h3 className="text-xs font-bold uppercase tracking-widest text-primary dark:text-primary-light mb-3">
                   What Was Built
-                </h4>
+                </h3>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {project.features.slice(0, 4).map((f, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-sm text-text-muted dark:text-gray-300">

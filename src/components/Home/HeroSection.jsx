@@ -70,7 +70,7 @@ const HeroSection = () => {
                 key={offer.label}
                 className="flex items-center gap-2.5 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/60 px-3 py-2.5 text-[13px] sm:text-sm font-medium text-text-light dark:text-text-dark"
               >
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-primary/10 dark:bg-primary/20 text-primary-dark dark:text-primary-light">
                   <offer.icon className="h-4 w-4" aria-hidden="true" />
                 </span>
                 {offer.label}
@@ -79,7 +79,7 @@ const HeroSection = () => {
           </ul>
 
           {/* Stack line */}
-          <p className="mb-6 flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs text-text-light/60 dark:text-text-dark/60">
+          <p className="mb-6 flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs text-text-light/65 dark:text-text-dark/60">
             <span className="text-primary dark:text-primary-light">&gt;</span>
             {stack.map((tech, i) => (
               <span key={tech} className="flex items-center gap-2">
@@ -123,7 +123,7 @@ const HeroSection = () => {
                 <dd className="font-display text-lg sm:text-xl font-bold text-text-light dark:text-text-dark leading-none">
                   {stat.value}
                 </dd>
-                <dd className="mt-1.5 text-[11px] sm:text-xs leading-tight text-text-light/60 dark:text-text-dark/60">
+                <dd className="mt-1.5 text-[11px] sm:text-xs leading-tight text-text-light/65 dark:text-text-dark/60">
                   {stat.label}
                 </dd>
               </div>
@@ -145,7 +145,7 @@ const HeroSection = () => {
                   <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/80" />
                   <span className="h-2.5 w-2.5 rounded-full bg-green-400/80" />
                 </div>
-                <div className="flex-1 truncate rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 px-3 py-1 font-mono text-[11px] text-text-light/60 dark:text-text-dark/60">
+                <div className="flex-1 truncate rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 px-3 py-1 font-mono text-[11px] text-text-light/65 dark:text-text-dark/60">
                   glimmerink.co.ke
                 </div>
               </div>

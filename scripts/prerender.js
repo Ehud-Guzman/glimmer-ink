@@ -192,7 +192,11 @@ for (const route of routes) {
   let html = withHead(template, route, pageTitle, route.description || "");
 
   if (render) {
-    const appHtml = await render(route.path);
+    // Netlify serves every page at its trailing-slash URL (/work/), and the app's
+    // links point there too. Render at that same URL, or the server marks the
+    // wrong nav link active and hydration throws the markup away.
+    const servedAt = route.path === "/" ? "/" : `${route.path.replace(/\/$/, "")}/`;
+    const appHtml = await render(servedAt);
     html = html.replace("<!--app-html-->", () => appHtml);
   }
 

@@ -64,7 +64,7 @@ const CopyButton = ({ value, label, demo }) => {
       {copied ? (
         <Check className="w-3.5 h-3.5 text-green-600 dark:text-green-400" aria-hidden="true" />
       ) : (
-        <Copy className="w-3.5 h-3.5 text-text-light/50 dark:text-text-dark/50" aria-hidden="true" />
+        <Copy className="w-3.5 h-3.5 text-text-light/65 dark:text-text-dark/50" aria-hidden="true" />
       )}
       <span className="sr-only" aria-live="polite">{copied ? "Copied" : ""}</span>
     </button>
@@ -160,7 +160,7 @@ const DemoRow = ({ project, index }) => {
                   <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/80" />
                   <span className="h-2.5 w-2.5 rounded-full bg-green-400/80" />
                 </span>
-                <span className="flex-1 truncate rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 px-3 py-1 font-mono text-[11px] text-text-light/60 dark:text-text-dark/60">
+                <span className="flex-1 truncate rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 px-3 py-1 font-mono text-[11px] text-text-light/65 dark:text-text-dark/60">
                   {host}
                 </span>
               </span>
@@ -225,17 +225,17 @@ const DemoRow = ({ project, index }) => {
               How to try it
             </h3>
             {guide.access && (
-              <p className="text-sm text-text-light/60 dark:text-text-dark/60 mb-4">{guide.access}</p>
+              <p className="text-sm text-text-light/65 dark:text-text-dark/60 mb-4">{guide.access}</p>
             )}
 
             <ul className="space-y-3">
               {guide.roles.map((r) => (
                 <li key={r.role} className="flex flex-col items-start gap-1.5 sm:flex-row sm:gap-3">
-                  <span className="mt-0.5 w-[5.75rem] shrink-0 rounded-full bg-primary/10 dark:bg-primary-light/15 px-2.5 py-0.5 text-center font-mono text-[11px] font-semibold uppercase tracking-wide text-primary dark:text-primary-light">
+                  <span className="mt-0.5 w-[5.75rem] shrink-0 rounded-full bg-primary/10 dark:bg-primary-light/15 px-2.5 py-0.5 text-center font-mono text-[11px] font-semibold uppercase tracking-wide text-primary-dark dark:text-primary-light">
                     {r.role}
                   </span>
                   <p className="text-sm text-text-light/80 dark:text-text-dark/80 leading-relaxed">
-                    {r.action} <span className="text-text-light/60 dark:text-text-dark/60">{r.detail}</span>
+                    {r.action} <span className="text-text-light/65 dark:text-text-dark/60">{r.detail}</span>
                   </p>
                 </li>
               ))}
@@ -243,16 +243,16 @@ const DemoRow = ({ project, index }) => {
 
             {!!guide.samples?.length && (
               <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-800">
-                <p className="text-xs font-medium text-text-light/60 dark:text-text-dark/60 mb-2">
+                <p className="text-xs font-medium text-text-light/65 dark:text-text-dark/60 mb-2">
                   Sample members for the passbook (tap to copy)
                 </p>
                 <ul className="space-y-2">
                   {guide.samples.map((m) => (
                     <li key={m.id} className="rounded-xl bg-gray-50 dark:bg-gray-950/60 px-3 py-2.5">
                       <p className="text-sm font-semibold">
-                        {m.name} <span className="font-normal text-text-light/60 dark:text-text-dark/60">· {m.status}</span>
+                        {m.name} <span className="font-normal text-text-light/65 dark:text-text-dark/60">· {m.status}</span>
                       </p>
-                      <p className="mt-1 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-text-light/60 dark:text-text-dark/60">
+                      <p className="mt-1 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-text-light/65 dark:text-text-dark/60">
                         <span className="inline-flex items-center gap-1.5">
                           ID <CopyButton value={m.id} label={`${m.name} ID`} demo={project.slug} />
                         </span>
@@ -267,14 +267,14 @@ const DemoRow = ({ project, index }) => {
             )}
 
             {(guide.tip || guide.note) && (
-              <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-800 space-y-1.5 text-xs text-text-light/60 dark:text-text-dark/60">
+              <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-800 space-y-1.5 text-xs text-text-light/65 dark:text-text-dark/60">
                 {guide.tip && <p>{guide.tip}</p>}
                 {guide.note && <p>{guide.note}</p>}
               </div>
             )}
           </div>
         ) : (
-          <p className="text-sm text-text-light/60 dark:text-text-dark/60 mb-6">{kind.summary}</p>
+          <p className="text-sm text-text-light/65 dark:text-text-dark/60 mb-6">{kind.summary}</p>
         )}
 
         {!!project.features?.length && guide && (

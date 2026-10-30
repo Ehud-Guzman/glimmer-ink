@@ -61,7 +61,7 @@ const WorkPage = ({ projects = [] }) => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display">
             Explore the Portfolio
           </h2>
-          <p className="text-lg text-text-muted max-w-2xl mx-auto">
+          <p className="text-lg text-text-muted dark:text-gray-400 max-w-2xl mx-auto">
             Browse live work, concept builds, and systems-focused projects.
           </p>
         </div>

@@ -95,7 +95,7 @@ const ServicesHero = () => (
               <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/80" />
               <span className="h-2.5 w-2.5 rounded-full bg-green-400/80" />
             </div>
-            <span className="font-mono text-[11px] text-text-light/60 dark:text-text-dark/60">starting-prices.kes</span>
+            <span className="font-mono text-[11px] text-text-light/65 dark:text-text-dark/60">starting-prices.kes</span>
           </div>
 
           <ul className="divide-y divide-gray-100 dark:divide-gray-800">
@@ -103,10 +103,10 @@ const ServicesHero = () => (
               <li key={service.id} className="flex items-center justify-between gap-4 px-4 sm:px-5 py-3">
                 <div className="min-w-0">
                   <div className="text-sm font-semibold text-text-light dark:text-text-dark truncate">{service.label}</div>
-                  <div className="text-xs text-text-light/60 dark:text-text-dark/60 truncate">{service.description}</div>
+                  <div className="text-xs text-text-light/65 dark:text-text-dark/60 truncate">{service.description}</div>
                 </div>
                 <div className="shrink-0 text-right">
-                  <div className="font-mono text-[10px] uppercase tracking-wider text-text-light/45 dark:text-text-dark/45">from</div>
+                  <div className="font-mono text-[10px] uppercase tracking-wider text-text-light/65 dark:text-text-dark/45">from</div>
                   <div className="font-mono text-sm font-semibold text-primary dark:text-primary-light">KES {kes(service.basePrice)}</div>
                 </div>
               </li>
@@ -115,7 +115,7 @@ const ServicesHero = () => (
 
           <a
             href="#estimator"
-            className="flex items-center justify-between border-t border-gray-200 dark:border-gray-800 bg-primary/5 dark:bg-primary/10 px-4 sm:px-5 py-3 text-sm font-medium text-primary dark:text-primary-light hover:bg-primary/10 transition-colors"
+            className="flex items-center justify-between border-t border-gray-200 dark:border-gray-800 bg-primary/5 dark:bg-primary/10 px-4 sm:px-5 py-3 text-sm font-medium text-primary-dark dark:text-primary-light hover:bg-primary/10 transition-colors"
           >
             Estimate your project
             <ArrowRight className="w-4 h-4" aria-hidden="true" />

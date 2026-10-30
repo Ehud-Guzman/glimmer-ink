@@ -67,7 +67,7 @@ const AboutHero = () => (
               <dd className="font-display text-lg sm:text-xl font-bold text-text-light dark:text-text-dark leading-none">
                 {fact.value}
               </dd>
-              <dt className="mt-1.5 text-[11px] sm:text-xs leading-tight text-text-light/60 dark:text-text-dark/60">
+              <dt className="mt-1.5 text-[11px] sm:text-xs leading-tight text-text-light/65 dark:text-text-dark/60">
                 {fact.label}
               </dt>
             </div>
@@ -84,7 +84,7 @@ const AboutHero = () => (
               <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/80" />
               <span className="h-2.5 w-2.5 rounded-full bg-green-400/80" />
             </div>
-            <span className="font-mono text-[11px] text-text-light/60 dark:text-text-dark/60">at-a-glance.md</span>
+            <span className="font-mono text-[11px] text-text-light/65 dark:text-text-dark/60">at-a-glance.md</span>
           </div>
 
           <div className="p-5 sm:p-7 space-y-6">

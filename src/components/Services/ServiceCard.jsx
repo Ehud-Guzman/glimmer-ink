@@ -19,7 +19,7 @@ const ServiceCard = ({ service, index }) => {
         <div className="p-3 rounded-xl bg-primary/10 dark:bg-primary/20">
           <Icon className="w-6 h-6 text-primary dark:text-primary-light" />
         </div>
-        <span className="font-mono text-sm text-gray-400 dark:text-gray-500 group-hover:text-primary dark:group-hover:text-primary-light transition-colors duration-300">
+        <span className="font-mono text-sm text-gray-500 dark:text-gray-400 group-hover:text-primary dark:group-hover:text-primary-light transition-colors duration-300">
           {String(index + 1).padStart(2, "0")}
         </span>
       </div>

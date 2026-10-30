@@ -150,7 +150,7 @@ const CTASection = () => {
           </motion.div>
 
           <motion.div
-            className="mt-8 text-center text-sm text-text-muted"
+            className="mt-8 text-center text-sm text-text-muted dark:text-gray-400"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}

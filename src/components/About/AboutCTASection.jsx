@@ -78,7 +78,7 @@ const AboutCTASection = () => {
                 </h3>
                 
                 <p className={`mb-6 text-sm ${
-                  action.primary ? "text-white/80" : "text-gray-600 dark:text-gray-300"
+                  action.primary ? "text-white/95" : "text-gray-600 dark:text-gray-300"
                 }`}>
                   {action.description}
                 </p>

@@ -33,14 +33,14 @@ const ServicesOverview = () => (
               key={offering.id}
               className="flex flex-col rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5"
             >
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light mb-4">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 dark:bg-primary/20 text-primary-dark dark:text-primary-light mb-4">
                 <offering.icon className="h-5 w-5" aria-hidden="true" />
               </span>
               <h3 className="font-display text-lg font-semibold mb-2 text-text-light dark:text-text-dark">{offering.title}</h3>
               <p className="text-sm text-text-light/70 dark:text-text-dark/70 leading-relaxed flex-1">{offering.text}</p>
               {price && (
                 <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-800">
-                  <div className="font-mono text-[11px] uppercase tracking-wider text-text-light/50 dark:text-text-dark/50">From</div>
+                  <div className="font-mono text-[11px] uppercase tracking-wider text-text-light/65 dark:text-text-dark/50">From</div>
                   <div className="font-display text-xl font-bold text-primary dark:text-primary-light">{kes(price)}</div>
                 </div>
               )}

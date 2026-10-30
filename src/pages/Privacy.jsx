@@ -130,7 +130,7 @@ const Privacy = () => (
         Legal
       </p>
       <h1 className="font-display text-[2rem] sm:text-5xl font-bold leading-[1.1] tracking-tight mb-3">Privacy Policy</h1>
-      <p className="text-sm text-text-light/60 dark:text-text-dark/60 mb-10">Last updated: {UPDATED}</p>
+      <p className="text-sm text-text-light/65 dark:text-text-dark/60 mb-10">Last updated: {UPDATED}</p>
 
       <div className="space-y-10">
         {sections.map((section) => (
