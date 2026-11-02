@@ -1,7 +1,7 @@
 import { Link } from "@/components/ui/SlashLink";
 import { Globe, ShoppingCart, LayoutDashboard, Smartphone } from "lucide-react";
 import { LOCATION_LABEL } from "@/data/location";
-import { liveProjectCount } from "@/data/developmentProjects";
+import { liveProjectCount, liveSystemCount } from "@/data/developmentProjects";
 
 // What I sell, stated plainly. Order matches the Services page.
 const offers = [
@@ -14,6 +14,7 @@ const offers = [
 // Facts already published on the Services FAQ, surfaced at a glance.
 const stats = [
   { value: String(liveProjectCount), label: "Live client sites" },
+  { value: String(liveSystemCount), label: "Live client systems" },
   { value: "2–4 wk", label: "Typical site delivery" },
   { value: "30 days", label: "Post-launch support" },
 ];
@@ -116,9 +117,9 @@ const HeroSection = () => {
           </div>
 
           {/* Proof strip */}
-          <dl className="mt-7 grid grid-cols-3 max-w-xl rounded-2xl border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/60 divide-x divide-gray-200 dark:divide-gray-800">
+          <dl className="mt-7 grid grid-cols-4 max-w-xl rounded-2xl border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/60 divide-x divide-gray-200 dark:divide-gray-800">
             {stats.map((stat) => (
-              <div key={stat.label} className="px-3 sm:px-4 py-3">
+              <div key={stat.label} className="px-2 sm:px-4 py-3">
                 <dt className="sr-only">{stat.label}</dt>
                 <dd className="font-display text-lg sm:text-xl font-bold text-text-light dark:text-text-dark leading-none">
                   {stat.value}
@@ -170,7 +171,7 @@ const HeroSection = () => {
               <div className="flex items-center justify-between gap-4 text-sm">
                 <div className="min-w-0">
                   <div className="font-semibold text-text-light dark:text-text-dark truncate">Live client work + concept builds</div>
-                  <div className="text-xs sm:text-sm text-text-light/65 dark:text-text-dark/65 truncate">{liveProjectCount} live sites · systems · UI demos</div>
+                  <div className="text-xs sm:text-sm text-text-light/65 dark:text-text-dark/65 truncate">{liveProjectCount} sites · {liveSystemCount} systems · UI demos</div>
                 </div>
                 <Link
                   to="/work"

@@ -389,6 +389,10 @@ export const developmentProjects = [
 // Single source for "how many live sites" claims across the site.
 export const liveProjectCount = developmentProjects.filter((p) => p.status === "live").length;
 
+// Systems in daily use by real groups (two savings-group systems). They are not in the project list above: their data
+// belongs to the groups, so the public Chama demo stands in for them. Change this number when one goes live or is retired.
+export const liveSystemCount = 2;
+
 // Projects with something to click through: working demos first, then concept
 // builds. Drives the /demos page.
 const demoRank = { "live-demo": 0, demo: 1 };

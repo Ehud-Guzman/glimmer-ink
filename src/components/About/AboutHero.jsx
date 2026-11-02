@@ -1,10 +1,11 @@
 import { UserCheck, LayoutDashboard, Globe2 } from "lucide-react";
 import { LOCATION, LOCATION_LABEL } from "@/data/location";
-import { liveProjectCount } from "@/data/developmentProjects";
+import { liveProjectCount, liveSystemCount } from "@/data/developmentProjects";
 
 const facts = [
   { value: "2025", label: "Founded" },
   { value: String(liveProjectCount), label: "Live client sites" },
+  { value: String(liveSystemCount), label: "Live client systems" },
   { value: LOCATION.town, label: "Based in" },
 ];
 
@@ -61,9 +62,9 @@ const AboutHero = () => (
           and management systems for clients who want a professional result and someone they can reach.
         </p>
 
-        <dl className="grid grid-cols-3 max-w-md rounded-2xl border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/60 divide-x divide-gray-200 dark:divide-gray-800">
+        <dl className="grid grid-cols-4 max-w-xl rounded-2xl border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/60 divide-x divide-gray-200 dark:divide-gray-800">
           {facts.map((fact) => (
-            <div key={fact.label} className="px-3 sm:px-4 py-3">
+            <div key={fact.label} className="px-2 sm:px-4 py-3">
               <dd className="font-display text-lg sm:text-xl font-bold text-text-light dark:text-text-dark leading-none">
                 {fact.value}
               </dd>
