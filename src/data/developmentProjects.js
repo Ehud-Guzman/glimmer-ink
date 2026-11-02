@@ -1,7 +1,7 @@
 // Address of the chama system's live demo (sample data, read-only). The domain
 // may change; this one line is the only edit needed. If it is empty, the
 // project is left out of the site entirely, so there is never a dead link.
-const CHAMA_DEMO_URL = "https://mwangazashg.netlify.app";
+const CHAMA_DEMO_URL = "https://mwangaza-demo.heritageshgbusia.workers.dev";
 
 const categoryMeta = {
   web: {
