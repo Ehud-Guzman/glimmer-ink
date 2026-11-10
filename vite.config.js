@@ -56,6 +56,14 @@ const lowPriorityEntry = () => ({
   },
 });
 
+// Tried: loading the built stylesheet async (preload + swap-on-load) to cut
+// the ~450ms render-blocking-resources cost Lighthouse flags. Measured
+// instead: every page is prerendered static HTML with real text and layout,
+// so the browser paints it unstyled first and reflows once the stylesheet
+// lands — CLS went from 0 to 0.365 and the performance score dropped from
+// 87 to 65. Worse than the problem it fixed, so the stylesheet stays
+// render-blocking; Vite's default <link rel="stylesheet"> is left as-is.
+
 // https://vite.dev/config/
 export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react(), seasonBoot(), lowPriorityEntry()],
