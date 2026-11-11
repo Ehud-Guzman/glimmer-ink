@@ -3,6 +3,11 @@
 // project is left out of the site entirely, so there is never a dead link.
 const CHAMA_DEMO_URL = "https://mwangaza-demo.heritageshgbusia.workers.dev";
 
+// Address of the school management system's live demo (Mwangaza Academy, an
+// invented school; sample data, read-only, rebuilt every night). Same rule:
+// change this one line if the domain changes; empty leaves the project out.
+const GRANITE_DEMO_URL = "https://granite-sms.nyamuehud.workers.dev";
+
 const categoryMeta = {
   web: {
     galleryId: "web-dev",
@@ -381,6 +386,102 @@ export const developmentProjects = [
           },
           showOnHome: true,
           homeOrder: 7,
+        },
+      ]
+    : []),
+  ...(GRANITE_DEMO_URL
+    ? [
+        {
+          id: 16,
+          slug: "school-management-system",
+          title: "Granite School Management System",
+          description:
+            "A multi-school management platform - students, classes, attendance, exams and results, fees and receipts, and reports - with a live demo you can explore as an admin, teacher, bursar, student or platform owner.",
+          thumbnail: "/images/systems/granite/dashboard.webp",
+          fullImage: "/images/systems/granite/dashboard.webp",
+          url: GRANITE_DEMO_URL,
+          stack: ["React", "Node.js", "Express", "PostgreSQL", "Prisma", "Tailwind CSS"],
+          features: [
+            "Student records, classes, streams, teachers and subject assignments",
+            "Daily attendance registers with submit-and-lock, and absence reports",
+            "Exams: marks entry per subject, submission, publishing, class ranking and result slips",
+            "Fees: fee plans, invoices, discounts, M-Pesa / bank / cash payments, receipts and statements",
+            "Reports: class performance, fee summaries, defaulters and collections (CSV, Excel, print)",
+            "Role-based access for admin, teacher, bursar and student, each with their own view",
+            "Multi-school (SaaS): plans and limits per school, audit log and backups",
+          ],
+          challenge:
+            "Many schools still run on registers, exercise books and spreadsheets. Fee balances are chased by phone, marks are added up by hand, and the head teacher only sees the full picture at the end of term.",
+          solution:
+            "One system for the whole school: attendance is taken once and reported from, marks become ranked results and slips automatically, every payment produces a receipt and updates the balance, and each person signs in to only what their role needs.",
+          results: [
+            "Fee balances, defaulters and today's collections at a glance",
+            "Results and class rankings straight from the marks entered",
+            "Every role sees only its own part of the school",
+          ],
+          images: [
+            "/images/systems/granite/dashboard.webp",
+            "/images/systems/granite/results.webp",
+            "/images/systems/granite/students.webp",
+            "/images/systems/granite/teacher-dashboard.webp",
+            "/images/systems/granite/student-slip.webp",
+            "/images/systems/granite/home.webp",
+          ],
+          category: "system",
+          year: "2026",
+          type: "School Management System",
+          status: "live-demo",
+          client: "Schools (demo uses an invented school)",
+          imageCaptions: [
+            "Admin dashboard: students, today's fees, recent activity",
+            "Class results with ranking and grades",
+            "Students",
+            "A teacher's dashboard",
+            "A student's result slip",
+            "Pick a role: one-tap demo sign-in",
+          ],
+          // The demo's API sleeps on free hosting; the Demos page pings this so it is
+          // awake by the time a visitor clicks through. Its origin is in netlify.toml.
+          demoWarmup: "https://granite-sms-demo-api.onrender.com/health",
+          mobileImages: [
+            "/images/systems/granite/mobile-dashboard.webp",
+            "/images/systems/granite/mobile-students.webp",
+          ],
+          mobileCaptions: ["Dashboard on a phone", "Students on a phone"],
+          demoGuide: {
+            access: "One-tap sign-in for every role. No password, no sign-up.",
+            roles: [
+              {
+                role: "School Admin",
+                action: "Tap “Explore as School Admin”.",
+                detail: "The whole school: students, attendance, exams, results, fees, reports and settings.",
+              },
+              {
+                role: "Teacher",
+                action: "Tap “Explore as Teacher”.",
+                detail: "Grace Wanjiru's classes, attendance registers and marks entry.",
+              },
+              {
+                role: "Bursar",
+                action: "Tap “Explore as Bursar”.",
+                detail: "Invoices, payments, receipts and fee reports.",
+              },
+              {
+                role: "Student",
+                action: "Tap “Explore as Student”.",
+                detail: "Zawadi Kiptoo's published results and fee statement.",
+              },
+              {
+                role: "Platform Owner",
+                action: "Tap “Explore as Platform Owner”.",
+                detail: "Every school on the platform, its plan, users and backups.",
+              },
+            ],
+            tip: "Try saving anything, such as adding a student or recording a payment. It is a read-only demo, so a message appears and nothing is changed.",
+            note: "It runs on free hosting, so the first load after a quiet spell can take up to a minute.",
+          },
+          showOnHome: true,
+          homeOrder: 8,
         },
       ]
     : []),
